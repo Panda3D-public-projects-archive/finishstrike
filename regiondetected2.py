@@ -54,7 +54,8 @@ class Image(object):
         """
         return self.__image
         
-
+    def histogram():
+        return self.__image.histogram()
     def applyFilter(self, type_filter):
         image = Image()
         image.loadFromImage(self.__image.filter(type_filter))
@@ -100,7 +101,13 @@ class Image(object):
                     self.__matrix_image[i][j] = self.__image.getpixel((i,j))
         
         return self.__matrix_image
-		
+    
+    def normalizeBrightnessAndContrast(normalizationStrategy):
+        normalizedMatrix = normalizationStrategy.normalize(self)
+        normalizedImage = Image()
+        normalizedImage.__matrix_image = normalizedMatrix
+        return normalizedImage
+    
     def fullEdgeDetection(self):
             grayS_image = self.convertRgbToGrayscale()
             image_vertical_filtered = grayS_image.applyFilter(VERTICAL_EDGE_DETECTED)
@@ -119,6 +126,13 @@ class Image(object):
 
     
         
+class NormalizationStrategy(object):
+
+    def normalize(image):
+        histogramList = image.histogram()
+        hMin = 
+        hmax = max(histogramList)
+        normalizedMatrix = []
         
 class ImageMath(object):
     """
@@ -276,7 +290,7 @@ class RegionDetected(object):
         return inf, sup
 	   
 import sys
-from pylab import *
+#from pylab import *
 
 
 import os
