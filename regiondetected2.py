@@ -56,6 +56,7 @@ class Image(object):
         
     def histogram():
         return self.__image.histogram()
+    
     def applyFilter(self, type_filter):
         image = Image()
         image.loadFromImage(self.__image.filter(type_filter))
@@ -129,10 +130,7 @@ class Image(object):
 class NormalizationStrategy(object):
 
     def normalize(image):
-        histogramList = image.histogram()
-        hMin = 
-        hmax = max(histogramList)
-        normalizedMatrix = []
+        histogramList = image.histogram()        
         
 class ImageMath(object):
     """
