@@ -1,10 +1,11 @@
+import os
 import matplotlib
-import matplotlib.pylab as plt
+from matplotlib import pylab
 
-def generate_projection_graph(name='defaultName', data=[], extension='png'):
+def generateGraph(path = '.', name='defaultName', data=[], ponto = ([0],[0]), extension='png'):
     """
-         	
-        This method creates and saves a graph. In this project, this method is used to represent, in graphic, a projection of an image.
+        This method creates and saves a graph. In this project, this
+        method is used to represent, in graphic, a projection of an image.
        
         Parameters:
         
@@ -13,14 +14,12 @@ def generate_projection_graph(name='defaultName', data=[], extension='png'):
                     Nevertheless, the default extension is png. 
     """
     
-    matplotlib.use('Agg')
-    figure = plt.figure()
+    figure = pylab.figure()
     graph = figure.add_subplot(111)
     graph.plot(data)
+    pylab.scatter(ponto[0], ponto[1], c=[60]*len(ponto[0]), s=12, alpha = 0.75)
     try:
-        figure.savefig("%s.%s"%(name,extension))
+        figure.savefig(os.path.join(path, name))
     except Exception, e:
         print e
         
-
-    
