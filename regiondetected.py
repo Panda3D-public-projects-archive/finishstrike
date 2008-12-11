@@ -230,25 +230,42 @@ class RegionDetected(object):
         return self.math.maxValue(projection)
 
 
-    def calculateRegion(self, projection_list, sensibility):
+    def calculateRegion(self, projection_list, cut_sensibility):
         """
             TODO
         """   
         peak = self.calculatePeak(projection_list)
 
-        candidates_list = self.applyBlur(copy.copy(projection_list), 0.07)
-        threshold = self.math.calculateAvarage(candidates_list)
-        candidates_list = self.applyThreshold(candidates_list, threshold)
+        blur_list = self.applyBlur(copy.copy(projection_list), 0.07)
+        threshold = self.math.calculateAvarage(projection_list)
 
-        generateGraph(PATH_SAVE,file[:-4]+"_blur.jpg", candidates_list, ([peak],[ projection_list[peak]]))        
-        generateGraph(PATH_SAVE,file[:-4]+"_vert.jpg", projection_list, ([peak],[ projection_list[peak]]))
+        candidate_list = []
+        sensibility = 1
+        while not candidate_list or sensibility==0:
+            sensibility -= 0.1
+            threshold_list = self.applyThreshold(blur_list, threshold*sensibility)
+            candidate_list = []    
+            candidate_list = self.locateCandidates(threshold_list)
+            report.write("sens: %s\tCandidate List  %s\n"%(str(sensibility),str(candidate_list)))
+            if candidate_list:
+                for elem in candidate_list:
+                    if elem[1] - elem[0] > len(projection_list)*0.6 \
+                    or elem[1] - elem[0] < len(projection_list)*0.3:
+                        candidate_list.remove(elem)
+
+        generateGraph(PATH_SAVE,file[:-4]+"_Band_Thresh.jpg", threshold_list, \
+				([peak],[ projection_list[peak]]))        
+        generateGraph(PATH_SAVE,file[:-4]+"_Proj_Vert.jpg", projection_list, \
+				([peak],[ projection_list[peak]]))
         
-        candidate_list = self.locateCandidates(projection_list)
-
-        inf_list = [i for i in range(len(projection_list))[:peak] if projection_list[i]<= sensibility*projection_list[peak]]
-        sup_list = [i for i in range(len(projection_list))[peak:] if projection_list[i]<= sensibility*projection_list[peak]]
-
-        return inf_list[-1], sup_list[0]
+        inf_list = [i for i in range(len(projection_list))[:peak] \
+		    if projection_list[i]<= cut_sensibility*projection_list[peak]]
+        sup_list = [i for i in range(len(projection_list))[peak:] \
+		    if projection_list[i]<= cut_sensibility*projection_list[peak]]
+        
+        interval = (inf_list[-1], sup_list[0])
+        del(blur_list, threshold_list, candidate_list, inf_list, sup_list)
+        return interval
 
     def applyThreshold(self, values_list, threshold):
         """
@@ -268,7 +285,8 @@ class RegionDetected(object):
         """
         list_lenght = len(values_list)
         for i in range(list_lenght):
-            neighboors = values_list[(i- int(list_lenght*sensibility/2)):][: int(list_lenght*sensibility)]
+            neighboors = values_list[(i- int(list_lenght*sensibility/2)):]\
+				          [: int(list_lenght*sensibility)]
             values_list[i] = self.math.calculateAvarage(neighboors)
         return values_list
 
@@ -292,22 +310,41 @@ class RegionDetected(object):
                         candidate_list.append((inf, sup))
                         inf = 0
                         sup = 0
-
-        print candidate_list
+        #print "Candidate List  %s"%str(candidate_list)
+        report.write("Candidate List  %s\n"%str(candidate_list))
         return candidate_list        
     
     
     def findCandidatePlates(self, projection_list):
-        projection_list = self.applyBlur(projection_list, 0.04)
+        blur_list = self.applyBlur(projection_list, 0.05)
 
         threshold = self.math.calculateAvarage(projection_list)
-        projection_list = self.applyThreshold(projection_list, threshold*0.5)
+
+        candidate_list = []
+        sensibility = 1
+
+        while not candidate_list or sensibility==0:
+            sensibility -= 0.1
+            threshold_list = self.applyThreshold(blur_list, threshold*sensibility)
+            candidate_list = []            
+            candidate_list = self.locateCandidates(threshold_list)
+            report.write("sens: %s\tCandidate List  %s\n"%(str(sensibility),str(candidate_list)))
+            if candidate_list:
+                for elem in candidate_list:
+                    if elem[1] - elem[0] > len(projection_list)*0.6 \
+                    or elem[1] - elem[0] < len(projection_list)*0.2:
+                        report.write("elem rem: %s\n"%str(elem))
+                        candidate_list.remove(elem)
+                        report.write("New cand: %s\n"%(str(candidate_list)))
+        
+        report.write("Candidate Plate: %s\n"%str(candidate_list))
+        generateGraph(PATH_SAVE,file[:-4]+"_Plate_Thresh.jpg", threshold_list)        
+        generateGraph(PATH_SAVE,file[:-4]+"_Proj_horiz.jpg", projection_list)
 
         inf = 0
         sup = 0
         
-        candidate_list = self.locateCandidates(projection_list)
-
+        
         # Escolhe o maior intervalo dentre os candidatos
         lenght = 0
         for elem in candidate_list:
@@ -317,55 +354,79 @@ class RegionDetected(object):
                 inf = elem[0]
                 sup = elem[1]
 
+        if sup == projection_list[-1] or inf == projection_list[-1]:
+            report.write( "inf e sup ultimos: (%s, %s)\n"%( str(inf), str(sup) ) )
+        
+        report.write("inf e sup: (%s, %s)\n"%(str(inf), str(sup)))
+        
+        del(blur_list, threshold_list, candidate_list)
+
         return inf, sup   
 
         
         
 import os
 
-PATH_LOAD = "/home/leandro/Workspaces/python-workspaces/anpr/imagens"
-PATH_SAVE = "/home/leandro/Workspaces/python-workspaces/anpr/placas"
+PATH_LOAD = "/home/gabriel/leandro/Workspaces/python-workspaces/anpr/imagens"
+PATH_SAVE = "/home/gabriel/leandro/Workspaces/python-workspaces/anpr/placas"
 
 lista = os.listdir(PATH_LOAD)
 lista.sort()
 
 lista2 = lista
 
+report = open(os.path.join(PATH_SAVE, 'report.txt'),"w+")
+
 for file in lista2:
-	try:
-	    print file
+    try:
+        print "File: %s"%file
+        report.write("File: %s\n"%file)
+        report.write("Band detector\n")
 
-	    image = Image(path = os.path.join(PATH_LOAD,file))
-  	    image.save(os.path.join(PATH_SAVE,file))
+        image = Image(path = os.path.join(PATH_LOAD,file))
+        image.save(os.path.join(PATH_SAVE,file))
 
-	    verticalFilteredImage = image.applyFilter(VERTICAL_EDGE_DETECTED)
-	    grayscaleFilteredImage = verticalFilteredImage.convertRgbToGrayscale()
+        verticalFilteredImage = image.applyFilter(VERTICAL_EDGE_DETECTED)
+        grayscaleFilteredImage = verticalFilteredImage.convertRgbToGrayscale()
 
-	    imageMath = ImageMath()
-	    new_matrix = imageMath.calculateTranspose(grayscaleFilteredImage.matrix_image)	
-	    verticalProjection = imageMath.calculateProjection2(new_matrix)
-	    verticalProjection = [0,0]+verticalProjection[2:][:-2]+[0,0]
+        imageMath = ImageMath()
+        new_matrix = imageMath.calculateTranspose\
+	        (grayscaleFilteredImage.matrix_image)
+        verticalProjection = imageMath.calculateProjection2(new_matrix)
+        verticalProjection = [0,0]+verticalProjection[2:][:-2]+[0,0]
 
-	    regionDetected = RegionDetected()
-	    inf_band, sup_band = regionDetected.calculateRegion(verticalProjection, 0.55)
+        regionDetected = RegionDetected()
+        inf_band, sup_band = regionDetected.calculateRegion\
+		         (verticalProjection, 0.55)
 
-	    bbox = (0, inf_band, image.size[0], sup_band)
-	    print bbox
+        bbox = (0, inf_band, image.size[0], sup_band)
+        #print "BBox:  %s"%str(bbox)
+        report.write("BBox: %s\n"%str(bbox))
 
-	    band = image.crop(bbox)
-	    band.save(os.path.join(PATH_SAVE,file[:-4]+"_band.jpg"))
+        band = image.crop(bbox)
+        band.save(os.path.join(PATH_SAVE,file[:-4]+"_band.jpg"))
 
-	    filteredBand = band.fullEdgeDetection()
-	    grayscaleFilteredBand = filteredBand.convertRgbToGrayscale()
+        report.write("Plate detector\n")
+        filteredBand = band.fullEdgeDetection()
+        grayscaleFilteredBand = filteredBand.convertRgbToGrayscale()
 
-	
-	    horizontalProjection = imageMath.calculateProjection2(grayscaleFilteredBand.matrix_image)
 
-	    inf_Plate, sup_Plate = regionDetected.findCandidatePlates(horizontalProjection)
+        horizontalProjection = imageMath.calculateProjection2\
+		           (grayscaleFilteredBand.matrix_image)
 
-	    bbox = (inf_Plate, inf_band, sup_Plate, sup_band)
-	    print bbox+"\n\n"
-	    band = image.crop(bbox)
-	    band.save(os.path.join(PATH_SAVE,file[:-4]+"_plate.jpg"))
-	except:
-	    pass
+        inf_Plate, sup_Plate = regionDetected.findCandidatePlates\
+		           (horizontalProjection)
+
+        if sup_Plate == 0:
+            sup_Plate = image.size[0]
+
+        bbox = (inf_Plate, inf_band, sup_Plate, sup_band)
+        #print "BBox: %s\n"%str(bbox)
+        report.write("BBox: %s\n\n"%str(bbox))
+
+        band = image.crop(bbox)
+        band.save(os.path.join(PATH_SAVE,file[:-4]+"_plate.jpg"))
+        del(image, verticalFilteredImage, grayscaleFilteredImage, imageMath, bbox, band,new_matrix)
+        del(verticalProjection, regionDetected, filteredBand, grayscaleFilteredBand, horizontalProjection)
+    except:
+        pass
