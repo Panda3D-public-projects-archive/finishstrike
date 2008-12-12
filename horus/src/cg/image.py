@@ -21,16 +21,16 @@ class Image(object):
         This class implements all image's methods required in anpr modules
     """
     
-    def __init__(self, **kargs):
+    def __init__(self, image = None, path = None):
         """
             TODO
         """
         self.__matrix_image = None   
         
-        if kargs.has_key('image'):
-            self.__image = kargs['image']
-        if kargs.has_key('path'):    
-            self.__image = PilImage.open(kargs['path'])
+        if image:
+            self.__image = image
+        if path:
+            self.__image = PilImage.open(path)
             
     @property
     def image(self):
