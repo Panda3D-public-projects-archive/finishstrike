@@ -43,6 +43,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'templates')
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/site_media/'
 
+APPEND_SLASH = False
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".

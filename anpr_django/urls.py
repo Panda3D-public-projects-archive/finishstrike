@@ -19,4 +19,20 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
+
+    #Person url's
+    (r'^person/list/$','anpr_project.anpr.views.person_list'),
+    (r'^person/add/$','anpr_project.anpr.views.person_add'),
+    (r'^person/new/$','anpr_project.anpr.views.person_new'),
+   
+   # (r'^person/delete/$','anpr_project.anpr.views.delete'),
+   # (r'^person/edit/$','anpr_project.anpr.views.edit'),
+   # (r'^person/update/$','anpr_project.anpr.views.update'),
+   # (r'^person/search/$','anpr_project.anpr.views.search'),
+
+    
+
+
+
+
 )

@@ -6,7 +6,7 @@ class Person(models.Model):
     address = models.CharField(max_length=50)
     city = models.CharField(max_length=60)
     country = models.CharField(max_length=50)
-    email = models.URLField()
+    email = models.EmailField()
     identity = models.CharField(max_length=14)
     cpf = models.CharField(max_length=14)
     phone = models.CharField(max_length=14)

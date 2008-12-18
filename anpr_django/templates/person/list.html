@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+ 
+
+<div id="divListPeople">
+
+  <h2>{{titulo|default:"People"}} - TOTAL: {{people|length}}</h2>
+  {% if not poeple %}
+    No people found.
+  {% else %}
+ 
+    {% for person in people %}
+        Name: <a href="/person/"{{person.id}}</a>{{person.name}}<br />
+        E-mail: {{person.email}}<br /><br />
+        <a href="/person/edit"{{person.id}}>Edit</a> |
+        <a href="/person/delete"{{person.id}}>Delete</a>        
+    {% endfor %}
+  {% endif %}
+    
+    
+  
+</div>
+{% endblock %}

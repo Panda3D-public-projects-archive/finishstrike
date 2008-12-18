@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+ 
+{% block content %}
+<div id="divErro" style="color:red;">
+  <br />
+  {% ifequal mensagem "Ok" %}
+    Cadastro realizado com sucesso.
+  {% else %}
+    
+  {% endifequal %}
+</div>
+
+
+<form name="personform" id="frmperson" method="post" action="/person/add"}}">
+
+<div id="divFormPerson">
+  {% if msg %}
+  	<h4>{{msg}}</h4><br /><br />
+  {% endif %} 
+  <h2>New Person</h2>
+  
+  <input type="hidden" name="id" id="id_person" value="{{id_person}}">
+    Name: {{form.name}}<br />
+ 	 Address: {{form.address}}<br />
+	 City: {{form.city}}<br />
+  	 Country: {{form.country}}<br />
+ 	 E-mail: {{form.email}}<br />
+  	 Identity: {{form.identity}}<br />
+ 	 CPF: {{form.cpf}}<br />
+    Phone: {{form.phone}}<br />
+    <input type="submit" value="Save"}}">
+</div>
+</form>
+ 
+ 
+{% endblock %}
