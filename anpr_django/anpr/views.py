@@ -15,7 +15,6 @@ def index(request):
 
 
 def person_new(request):
-    import pdb; pdb.set_trace()
     form = PersonForm()
     return render_to_response('person/form.html',{'form':form,'as_p':form.as_p},
                              context_instance=RequestContext(request))
