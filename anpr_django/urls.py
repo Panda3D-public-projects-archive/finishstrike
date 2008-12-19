@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from anpr.views import *
 from django.conf import settings
-from anpr.models import Person
+from anpr.models import Person, Car
 
 # Uncomment the next two lines to enable the admin:
 #from django.contrib import admin
@@ -11,12 +11,16 @@ extra_context = {
  'people_length': len(Person.objects.all())
 }
 
+car_extra_context = {
+ 'car_length': len(Car.objects.all())
+}
+
 urlpatterns = patterns('',
     (r'^$', index),
     (r'^site_media/(.*)$', 'django.views.static.serve', 
                      {'document_root': settings.MEDIA_ROOT}),
 
-    # Example:
+    # Example:list_detail.object_list
     # (r'^anpr/', include('anpr.foo.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
@@ -61,4 +65,33 @@ urlpatterns = patterns('',
    # XXX - it is not required for now.
    # (r'^person/search/$','anpr_project.anpr.views.search'),
 
+   #Car url's
+    (r'^car/create/?$','django.views.generic.create_update.create_object',
+                    dict({'model': Car,
+                          'template_name': 'car/car_form.html'},
+                          extra_context=car_extra_context,
+                          post_save_redirect='/car/list/')),
+    
+    (r'car/update/(?P<object_id>\d+)/?$', 
+        'django.views.generic.create_update.update_object',
+        dict({'model': Car,
+              'template_name': 'person/car_form.html'},
+              extra_context=car_extra_context)),
+
+    (r'^car/delete/(?P<object_id>\d+)/?$',
+      'django.views.generic.create_update.delete_object',
+      dict({'model':Car,
+            'template_name': 'car/car_confirm_delete.html'},
+            extra_context=car_extra_context,
+            post_delete_redirect='car/list/')),
+
+
+    #(r'^car/list/?$', 'django.views.generic.list_detail.object_list',
+    #  dict({'model': Car,
+    #	     'template_name': 'person/car_list.html',
+    #	     'paginate_by': 10,	
+    #	},
+    #	    extra_context=car_extra_context)),
+    (r'^car/list/?$', 'anpr_project.anpr.views.car_list'),
+    
 )
