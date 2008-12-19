@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>People</h1>
-    {% if poeple %}
+    {% if not person_list %}
       People not found.
     {% else %}
-      {% for person in people %}
+      {% for person in person_list %}
       <div class='label'>Name: <a href="/person/{{ person.id }}/">{{ person.name }}</a> <br/>
           E-mail: {{person.email}}<br/>
           <a href="/person/view/{{ person.id }}/"> View </a> |
@@ -14,6 +14,22 @@
           <br/>
           <br/>
       {% endfor %}
+      {% if has_previous %}
+        <a href="/person/list/?page={{ previous }}"> Previous </a>
+      {% endif %}
+      {% for num in page_range %}
+         <a href="/person/list/?page={{ num }}">
+          {% ifequal num page %}
+            <strong>{{ num }}</strong>
+          {% else %}
+            {{ num }}
+          {% endifequal %}
+        </a>
+      {% endfor %}
+      {% if has_next %}
+        <a href="/person/list/?page={{ next }}"> Next </a>
+      {% endif %}
+      <br/>
       <a href="/person/create/"> New Person </a>
     {% endif %}
 {% endblock %}

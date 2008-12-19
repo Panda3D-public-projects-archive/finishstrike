@@ -14,12 +14,3 @@ def index(request):
   context_instance['people_length'] =  len(Person.objects.all())
   return render_to_response('index.html', locals(), context_instance)
 
-
-
-# Person Views
-def person_list(request):
-  people = Person.objects.all()
-  return render_to_response('person/person_list.html', \
-         {'people': people, 'people_length': len(people)}, \
-          context_instance=RequestContext(request))
-

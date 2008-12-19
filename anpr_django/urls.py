@@ -7,7 +7,7 @@ from anpr.models import Person
 #from django.contrib import admin
 #admin.autodiscover()
 
-people_extra_context = {
+extra_context = {
  'people_length': len(Person.objects.all())
 }
 
@@ -27,24 +27,35 @@ urlpatterns = patterns('',
     # (r'^admin/(.*)', admin.site.root),
 
     #Person url's
-    (r'^person/list/?$', 'anpr_project.anpr.views.person_list'),
+    (r'^person/list/?$', 'django.views.generic.list_detail.object_list',
+            dict({'queryset': Person.objects.all(),
+                  'template_object_name': 'person',
+                  'paginate_by': 10,
+                  'template_name': 'person/person_list.html'},
+                 extra_context=extra_context)),
+
+    (r'^person/view/(?P<object_id>\d+)/?$', 'django.views.generic.list_detail.object_detail',
+            dict({'queryset': Person.objects.all(),
+                  'template_name': 'person/person_view.html'},
+                 extra_context=extra_context)),
+
     (r'^person/create/?$', 'django.views.generic.create_update.create_object',
                     dict({'model': Person, 
                           'template_name': 'person/person_form.html'}, 
-                          extra_context=people_extra_context,
+                          extra_context=extra_context,
                           post_save_redirect="/person/list/") ),
 
     (r'^person/update/(?P<object_id>\d+)/?$', 
       'django.views.generic.create_update.update_object',
       dict({'model': Person,
             'template_name': 'person/person_form.html'},
-            extra_context=people_extra_context)),
+            extra_context=extra_context)),
 
     (r'^person/delete/(?P<object_id>\d+)/?$',
       'django.views.generic.create_update.delete_object',
       dict({'model': Person, 
             'template_name': 'person/person_confirm_delete.html'}, 
-            extra_context=people_extra_context,
+            extra_context=extra_context,
             post_delete_redirect="/person/list/")),
 
    # XXX - it is not required for now.
