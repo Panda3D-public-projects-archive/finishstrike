@@ -12,8 +12,8 @@ body {
 	background: #fff url(images/top.jpg) repeat-x top; 
 	color: #454545; 
 	}
-	
-a { color: #DA3B3B; background: inherit; }
+
+        a { color: #DA3B3B; background: inherit; }
 a:hover { color: #DA3B3B; background: inherit; text-decoration: underline}
 p {	margin: 5px 0; }
 h1 {	font: bold 1.8em Arial, Sans-Serif; padding: 8px 0 4px 0; margin: 0; letter-spacing: -1px; }
@@ -25,6 +25,31 @@ hr { height: 1px; border-style: none; color: #d0d0d0; background-color: #C0C0C0;
 
 
 .content { margin: 0px auto; width: 800px; }
+/* Forms */
+/* Some css is used  by ERP5 Project */
+.field { 
+  padding-bottom: 10px; 
+  clear:left;
+  font-style:italic;
+  position:relative;
+}
+.field label {
+  width: 30%;
+}
+.field label,
+.field .input {
+  float: left;
+}
+
+/* Errors Notification */
+.errors {
+  background:#F0F0F0 none repeat scroll 0 0;
+  color:#DA3B3B;
+  float:right;
+  position:relative;
+  text-align:center;
+  width:30%;
+}
 
 /* Top part */
 #top { padding-top: 20px; background: transparent; height: 101px; }
@@ -55,13 +80,13 @@ hr { height: 1px; border-style: none; color: #d0d0d0; background-color: #C0C0C0;
 		
 /* main area */
 #main { }
-	#right_side { float: right; width: 212px; background: #F6F6F6; padding: 5px 10px 5px 10px; margin-bottom: 10px }
+	#right_side { float: right; width: 120px; background: #F6F6F6; padding: 5px 10px 5px 10px; margin-bottom: 10px }
 		#right_side ul { padding: 3px 0 8px 0 } 
 		#right_side li { line-height: 18px; background: #F6F6F6 url(images/cat-li.gif) no-repeat left; list-style: none; padding-left: 20px; }
 		#right_side a { background: #F6F6F6; text-decoration:  none }
 		#right_side h3 { color: #404040; font:  bold 1.2em Arial, Sans-Serif; }
 	
-	#left_side { background: #FFF; margin-bottom: 10px; width: 560px;  }
+	#left_side { background: #FFF; margin-bottom: 10px; width: 650px;  }
 		#left_side h3 { background: #FFF url(images/hbg.gif) repeat-x; height:30px; padding: 5px 0 0 0px; margin: 0; font:  bold 1.2em Arial, Sans-Serif; }
 		#left_side h3 span { background: url(images/h-art.gif) no-repeat left; padding: 1px 10px 0 23px;  line-height: 22px; margin: 0}
 		#left_side p { color: #454545; padding: 0 5px 0 5px; text-align: justify }

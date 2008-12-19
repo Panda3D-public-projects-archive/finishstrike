@@ -1,0 +1,122 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+  {% if object %}
+    <h1>Update Person:</h1>
+  {% else %}
+    <h1>Create a Person</h1>
+  {% endif %}
+  
+  {% if form.has_errors %}
+    <h2>Please correct the following error{{ form.errors|pluralize }}:</h2>
+  {% endif %}
+  
+  <form id="person_form" method="post" action=".">
+    <fieldset>
+      <div class="field">
+        <label for="id_name">Name:</label> 
+        <div class="input">
+          {{ form.name }}
+        </div>
+        {% if form.name.errors %}
+          <div class="errors">
+             *** {{ form.name.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_address">Address:</label> 
+        <div class="input">
+          {{ form.address }}
+        </div>
+        {% if form.address.errors %}
+          <div class='errors'>
+            *** {{ form.address.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_city">City:</label>
+        <div class="input">
+          {{ form.city }}
+        </div>
+        {% if form.city.errors %}
+          <div class="errors">
+            *** {{ form.city.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_country">Country:</label>
+         <div class="input">
+          {{ form.country }}
+        </div>
+        {% if form.country.errors %}
+          <div class="errors">
+            *** {{ form.country.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_email">Email:</label> 
+        <div class="input">
+          {{ form.email }}
+        </div>
+        {% if form.email.errors %}
+          <div class="errors">
+            *** {{ form.email.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_identity">Identity:</label> 
+        <div class="input">
+          {{ form.identity }}
+        </div>
+        {% if form.identity.errors %}
+          <div class="errors">
+            *** {{ form.identity.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_cpf">CPF:</label>
+        <div class="input">
+          {{ form.cpf }}
+        </div>
+        {% if form.cpf.errors %}
+          <div class="errors">
+            *** {{ form.cpf.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_phone">Phone:</label> 
+        <div class="input">
+          {{ form.phone }}
+        </div>
+        {% if form.phone.errors %}
+          <div class="errors">
+            *** {{ form.phone.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field"> 
+        <label> </label>
+        <div class="input">
+          <input type="submit" value="Ok" />
+        </div>  
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
+

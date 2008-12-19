@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>People</h1>
+    {% if poeple %}
+      People not found.
+    {% else %}
+      {% for person in people %}
+      <div class='label'>Name: <a href="/person/{{ person.id }}/">{{ person.name }}</a> <br/>
+          E-mail: {{person.email}}<br/>
+          <a href="/person/view/{{ person.id }}/"> View </a> |
+          <a href="/person/update/{{ person.id }}/"> Update </a> |
+          <a href="/person/delete/{{ person.id }}/"> Delete </a>        
+          <br/>
+          <br/>
+      {% endfor %}
+      <a href="/person/create/"> New Person </a>
+    {% endif %}
+{% endblock %}

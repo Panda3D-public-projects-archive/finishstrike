@@ -31,26 +31,23 @@
 		<div id="right_side">
 			<div id="menu">
 						<ul>	
-							<li><a href="#" title="home">HOME</a></li>
+							<li><a href="/" title="home">HOME</a></li>
 							<li><a href="#" title="Abous us">THE PROJECT</a></li>
 						</ul>
 			</div>
 
 			<h3>Status</h3>
 			<ul>	
-							<li><a href="#" title="Articles">Templates (15)</a></li>
-							<li><a href="#" title="Gallery">Internet (10) </a></li>
-							<li><a href="#" title="Affiliates">Tutorials (23)</a></li>
-							<li><a href="#" title="Articles">Photoshop (11)</a></li>
-							<li><a href="#" title="Abous us">sNews (16)</a></li>
-							<li><a href="#" title="Contact">Personal (5)</a></li>
+                                <li><a href="/person/list/">People ({{ people_length }})</a></li>
 						
 			</ul>
 			
 		</div>
 		
                 <div id="left_side">
-                     {% block content %}{% endblock %}
+                        {% block content %}
+
+                        {% endblock %}
 		</div>
 		
 	</div>

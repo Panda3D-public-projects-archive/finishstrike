@@ -6,41 +6,20 @@ from django.contrib.auth.models import User
 from django.template import Context
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from anpr_project.anpr.models import *
-from anpr_project.anpr.forms import *
+from anpr_project.anpr.models import Person
+from anpr_project.anpr.forms import PersonForm
 
 def index(request):
-  return render_to_response('index.html', locals(),
-                        context_instance=RequestContext(request))
+  context_instance=RequestContext(request)
+  context_instance['people_length'] =  len(Person.objects.all())
+  return render_to_response('index.html', locals(), context_instance)
 
 
-def person_new(request):
-    form = PersonForm()
-    return render_to_response('person/form.html',{'form':form,'as_p':form.as_p},
-                             context_instance=RequestContext(request))
-    
 
-
+# Person Views
 def person_list(request):
-    people = Person.objects.all()
-    return render_to_response('person/list.html',{
-        'people':people
-    },
-    context_instance=RequestContext(request)
-    )
-    
-
-def person_add(request):
-    if request.method == 'POST':
-        personForm = PersonForm(request.POST)
-        if personForm.is_valid():
-            personForm.save()
-            msg = 'Ok'
-        else:
-            msg = 'Error on registration.'
-
-        return render_to_response('person/form.html',{'personForm':personform,
-                                     'msg':msg})
-    else:
-         return HttpResponse("Form was not submitted.")
+  people = Person.objects.all()
+  return render_to_response('person/person_list.html', \
+         {'people': people, 'people_length': len(people)}, \
+          context_instance=RequestContext(request))
 
