@@ -15,9 +15,13 @@ class VERTICAL_EDGE_DETECTED(ImageFilter.BuiltinFilter):
        -1,  0,  1,
        -1,  0,  1,
         )
-
+def getFourNeighborhood(index, image):
+    return [[image.getpixel((index[0],index[1])), 
+             image.getpixel((index[0]+1, index[1]))],
+            [image.getpixel((index[0], index[1]+1)), 
+             image.getpixel((index[0]+1, index[1]+1))]]
 class Image(object):    
-    """
+    """   
         This class implements all image's methods required in anpr modules
     """
     
@@ -32,6 +36,7 @@ class Image(object):
         if path:
             self.__image = PilImage.open(path)
             
+        
     @property
     def image(self):
         """
