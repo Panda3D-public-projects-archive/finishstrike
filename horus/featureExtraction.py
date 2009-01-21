@@ -10,7 +10,7 @@ import image as Image
     edge type in a region of the image (matrix[edgeType][region])
 """
 def extractFeatureByEdgeDetection(image):
-    regionList = getSixRegionList(image)(image)
+    regionList = getSixRegionList(image)
     edgeTypeList = getRegionTypeList()
      
     featureMatrix = [[0 for i in range(len(regionList))] \
