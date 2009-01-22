@@ -1,9 +1,9 @@
 import copy
 import os
 
-import graphics.graphics as Graphics
-import Hmath.math as Math
-import cg.image as Image
+import graphics as Graphics
+import mathematic as Math
+import image as Image
 
 class RegionDetected(object):
 
