@@ -1,5 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from PIL import ImageFilter
 from PIL import Image as PilImage
+
+import horus.mathematic as Math
+
 class HORIZONTAL_EDGE_DETECTED(ImageFilter.BuiltinFilter):
     name = "HorizontalEdgeDetected"
     filterargs = (3, 3), 1, 0, (
@@ -15,108 +20,137 @@ class VERTICAL_EDGE_DETECTED(ImageFilter.BuiltinFilter):
        -1,  0,  1,
        -1,  0,  1,
         )
+        
 def getFourNeighborhood(index, image):
+    """
+        TODO
+    """
     return [[image.getpixel((index[0],index[1])), 
              image.getpixel((index[0]+1, index[1]))],
             [image.getpixel((index[0], index[1]+1)), 
              image.getpixel((index[0]+1, index[1]+1))]]
+             
 class Image(object):    
-    """   
-        This class implements all image's methods required in anpr modules
+    """
+        This class implements all content's methods required in anpr modules
     """
     
-    def __init__(self, image = None, path = None):
+    def __init__(self, content = None, path = None):
         """
             TODO
         """
-        self.__matrix_image = None   
+        self.__matrix_content = None   
         
-        if image:
-            self.__image = image
+        if content:
+            self.content = content
         if path:
-            self.__image = PilImage.open(path)
+            self.content = PilImage.open(path)
             
-        
-    @property
-    def image(self):
-        """
-            TODO
-        """
-        return self.__image
-        
-    def applyFilter(self, type_filter):
-        """
-            TODO
-        """
-        return Image(image = self.__image.filter(type_filter))
-        
-    def convertRgbToGrayscale(self):
-        """
-            TODO
-        """
-        return Image(image = self.__image.convert("L"))
-
+       
     @property    
     def size(self):        
         """
             TODO
         """        
-        return self.__image.size     
+        return self.content.size     
         
     def crop(self, bbox):
         """
             TODO
         """
-        return Image(image = self.__image.crop(bbox))
+        return Image( content = self.content.crop(bbox) )
 
     def save(self, path):
         """
             TODO
         """
-        self.__image.save(path)
+        self.content.save(path)
 
     def getpixel(self,xy):
         """
             TODO
         """
-        return self.__image.getpixel(xy)       
+        return self.content.getpixel(xy)       
         
         
     @property
-    def matrix_image(self):
+    def matrix_content(self):
         """
-            This method returns a matrix with values of wich image's pixels.
+            This method returns a matrix with values of wich content's pixels.
         """
         #############################
         #### Alterar esse metodo ####
         #############################
 
-        if not self.__matrix_image:
-            self.__matrix_image = [[0 for i in range(self.__image.size[1])] \
-                                    for j in range(self.__image.size[0]) ]
+        if not self.__matrix_content:
+            self.__matrix_content = [[0 for i in range(self.content.size[1])] \
+                                    for j in range(self.content.size[0]) ]
             
-            for i in range(len(self.__matrix_image)):
-                for j in range(len(self.__matrix_image[0])):
-                    self.__matrix_image[i][j] = self.__image.getpixel((i,j))
+            for i in range(len(self.__matrix_content)):
+                for j in range(len(self.__matrix_content[0])):
+                    self.__matrix_content[i][j] = self.content.getpixel((i,j))
         
-        return self.__matrix_image
+        return self.__matrix_content
         
+
+class ProcessingImage(object):
+    """
+        This class contains the methods for processings of image.
+    """
+    
+    def __init__(self, image):
+        self.image = image
+        
+    def applyFilter(self, type_filter):
+        """
+            TODO
+        """
+        return Image( content = self.image.content.filter(type_filter) )
+        
+    def convertRgbToGrayscale(self):
+        """
+            TODO
+        """
+        return Image( content = self.image.content.convert("L") )
+
     def fullEdgeDetection(self):
         """
             TODO
         """
-        ###################################################################
-        #### Esse metodo deve alterar realmente o estado da imagem, ou ####
-        #### seria melhor criar uma nova imagem e retornar essa outra  ####
-        ###################################################################
-        gray_image = self.convertRgbToGrayscale()
-        image_vertical_filtered = gray_image.applyFilter(VERTICAL_EDGE_DETECTED)
-        image_horizontal_filtered = gray_image.applyFilter(HORIZONTAL_EDGE_DETECTED)
-
-        for i in range(self.__image.size[0]):
-            for j in range(self.__image.size[1]):
-                pixel_value = image_vertical_filtered.__image.getpixel((i,j))
-                pixel_value += image_horizontal_filtered.__image.getpixel((i,j))
-                self.__image.putpixel((i,j), pixel_value)    
-        return self        
+        new_image = self.convertRgbToGrayscale()
+        processing = ProcessingImage(new_image)
         
+        vertical_edges = processing.applyFilter(VERTICAL_EDGE_DETECTED)
+        horizontal_edges = processing.applyFilter(HORIZONTAL_EDGE_DETECTED)
+
+        for i in range( self.image.content.size[0] ):
+            for j in range( self.image.content.size[1] ):
+                pixel_value = vertical_edges.content.getpixel( (i,j) ) + \
+                              horizontal_edges.content.getpixel( (i,j) )
+                new_image.content.putpixel( (i,j), pixel_value )    
+        
+        return new_image        
+
+    def __projection(self, matrix):
+        """
+            This method calculates the horizontal projection of image passed
+            by parameter image. To calculate vertical projection just
+            call this method passing pass as parameter image its transpose.
+        """
+        projection = Math.List([0 for i in range( len(matrix) ) ])
+        for i in range( len(matrix) ):
+            projection[i] = Math.List( matrix[i] ).sumValues()
+        return projection
+        
+    def verticalProjection(self):
+        """
+            TODO
+        """
+        matrix = Math.Math().calculateTranspose( self.image.matrix_content )
+        return Math.List( [0,0] + self.__projection( matrix )[2:][:-2] + [0,0] )
+        
+    def horizontalProjection(self):
+        """
+            TODO
+        """
+        return Math.List( self.__projection( self.image.matrix_content ) )
