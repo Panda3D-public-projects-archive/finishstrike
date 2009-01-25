@@ -9,7 +9,8 @@ class CarImage(object):
 class Report(object):
     def __init__(self, path_save, car_image):
         self.path_save = path_save
-        self.file_report = open(os.path.join(path_save, "report"+car_image.file_name), "w+")
+        file_name = os.path.join( path_save, "report"+car_image.file_name )[:-4]
+        self.file_report = open( file_name, "w+")
         self.car_image = car_image
         
     def write(self, content):
@@ -17,6 +18,4 @@ class Report(object):
         
     def __del__(self):
         self.file_report.close()
-        
-    
-        
+
