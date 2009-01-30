@@ -3,7 +3,7 @@
 from PIL import ImageFilter
 from PIL import Image as PilImage
 
-import horus.mathematic as Math
+import mathematic as Math
 
 class HORIZONTAL_EDGE_DETECTED(ImageFilter.BuiltinFilter):
     name = "HorizontalEdgeDetected"
@@ -65,13 +65,64 @@ class Image(object):
             TODO
         """
         self.content.save(path)
-
+    def get8Neiborhood(self,xy):
+        n8List = []        
+        if(xy[0]-1 >= 0)&(xy[1]-1 >= 0):
+            n8List.append(self.matrix_content[xy[0]-1][xy[1]-1])
+        else:
+            print "fdp"        
+        if(xy[0]-1 >= 0):
+            n8List.append(self.matrix_content[xy[0]-1][xy[1]])
+            if(xy[1]+1 < self.size[1]):
+                n8List.append(self.matrix_content[xy[0]-1][xy[1]+1])        
+        if(xy[1]-1 >= 0):        
+            n8List.append(self.matrix_content[xy[0]][xy[1]-1])
+            if(xy[0]+1 < self.size[0]):        
+                n8List.append(self.matrix_content[xy[0]+1][xy[1]-1])
+        if(xy[0]+1 < self.size[0]):
+            n8List.append(self.matrix_content[xy[0]+1][xy[1]])         
+        if(xy[0]+1 < self.size[0])&(xy[1]+1 < self.size[1]):
+            n8List.append(self.matrix_content[xy[0]+1][xy[1]+1])            
+        if(xy[1]+1 < self.size[1]):
+            n8List.append(self.matrix_content[xy[0]][xy[1]+1])        
+        return n8List   
+         
+    def topNeibor(self, xy):
+        if(xy[0]-1 >= 0):
+            return self.matrix_content[xy[0]-1][xy[1]]
+        else:
+            return None
+    
+    def backNeibor(self, xy):
+        if(xy[0]+1 < self.size[0]):
+            return self.matrix_content[xy[0]+1][xy[1]]            
+    def topRightNeibor(self, xy):
+        if(xy[1]+1 < self.size[1]) & (xy[0]-1 >= 0):
+            return self.matrix_content[xy[0]-1][xy[1]+1]        
+    def rightNeibor(self, xy):
+        if(xy[1]+ 1 < self.size[1]):        
+            return self.matrix_content[xy[0]][xy[1]+1]        
+    def backRightNeibor(self, xy):               
+        if(xy[1]+1 < self.size[1]) & (xy[0]+1 < self.size[0]):            
+            return self.matrix_content[xy[0]+1][xy[1]+1]
+    def leftNeibor(self, xy):
+        if(xy[1]-1 >= 0): 
+            return self.matrix_content[xy[0]][xy[1]-1]
+    def backLeftNeibor(self, xy):
+        if(xy[1]-1 >= 0 ) & ( xy[0]+1 < self.size[0]): 
+            return self.matrix_content[xy[0]+1][xy[1]-1]
+    def topLeftNeibor(self, xy):
+        if(xy[1]+1 < self.size[0] ) & ( xy[0]-1 >= 0 ):  
+            return self.matrix_content[xy[0]-1][xy[1]+1]
+        
     def getpixel(self,xy):
         """
             TODO
         """
         return self.content.getpixel(xy)       
-        
+    
+    def putpixel(self, xy, value):
+        self.content.putpixel(xy, value)   
         
     @property
     def matrix_content(self):

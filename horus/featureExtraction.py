@@ -118,4 +118,50 @@ def getRegionTypeList():
     """
     edgeTypes.append([[0,0],[0, 1]])
     return edgeTypes
- 
+
+def skeletonize(image):    
+    while (True):
+        letContinue = False
+        boundaryPixelList = []
+        pixelsToDelete = []
+        for i in range( image.content.size[0] ):
+            for j in range(image.content.size[1] ):
+                if(image.getpixel((i,j)) == 0):
+                    n8 = image.get8Neiborhood((i,j))
+                    if(n8.count(255) > 0):
+                        image.putpixel((i,j), 128)
+#                        boundaryPixelList.append((i,j))
+                        
+#        for pixel in boundaryPixelList:
+#            n8 = image.get8Neiborhood(pixel)             
+#            if not((n8.count(0) >= 2) & (n8.count(0) <= 6)):
+#                continue
+#            count = 0
+#            if(image.topNeibor(pixel) == 0)&(image.topRightNeibor(pixel) == 255):
+#                count += 1
+#            if(image.topRightNeibor(pixel) == 0)&(image.rightNeibor(pixel) == 255):
+#                count += 1
+#            if(image.rightNeibor(pixel) == 0)&(image.backRightNeibor(pixel) == 255):
+#                count += 1
+#            if(image.backRightNeibor(pixel) == 0)&(image.backNeibor(pixel) == 255):
+#                count += 1
+#            if(image.backNeibor(pixel) == 0)&(image.backLeftNeibor(pixel) == 255):
+#                count += 1
+#            if(image.backLeftNeibor(pixel) == 0)&(image.leftNeibor(pixel) == 255):
+#                count += 1
+#            if(image.leftNeibor(pixel) == 0)&(image.topLeftNeibor(pixel) == 255):
+#                count += 1
+#            if(image.topLeftNeibor(pixel) == 0)&(image.topNeibor(pixel) == 255):
+#                count += 1
+#            if count <> 1:
+#                continue
+#            pixelsToDelete.append(pixel)
+#            letContinue = True
+#            
+#        for pixelToDelete in pixelsToDelete:
+#              image.putpixel(pixelToDelete, 255)                  
+#        if(not letContinue):
+#            break
+                                 
+        return image
+    
