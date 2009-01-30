@@ -8,7 +8,7 @@ import report as Report
 if __name__ == "__main__":
     abspath = os.path.abspath('..')
     image = PilImage.open(os.path.join(abspath,
-                                     "HorusAPP_ANPR/characters/s.JPG"))
+                                     "HorusAPP_ANPR/characters/t.JPG"))
     image = image.convert("L")
     for i in range(image.size[0]):
         for j in range(image.size[1]):            
@@ -17,8 +17,13 @@ if __name__ == "__main__":
             else:
                 image.putpixel((i,j), 255)    
     image.save(os.path.join(abspath,
-                                     "HorusAPP_ANPR/characters/s.JPG"))
+                                     "HorusAPP_ANPR/characters/t.JPG"))
     
     image = Image.Image(None, os.path.join(abspath,
-                                     "HorusAPP_ANPR/characters/s.JPG"))    
-    print FeatureExtraction.extractFeatureByEdgeDetection(image)
+                                     "HorusAPP_ANPR/characters/t.JPG"))
+    image = FeatureExtraction.skeletonize(image)
+    
+    image.save(os.path.join(abspath,
+                                     "HorusAPP_ANPR/characters/skeletonizedChar.JPG"))
+    
+#    print FeatureExtraction.extractFeatureByEdgeDetection(image)
