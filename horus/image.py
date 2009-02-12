@@ -57,7 +57,7 @@ class Image(object):
         if not (content or path):
             self.content = self.new(mode, size, color)
 
-        self.size = self.content.size
+        self.mysize = self.content.size
         self.mode = self.content.mode
 
 
@@ -85,7 +85,7 @@ class Image(object):
         """
             TODO
         """        
-        return self.size     
+        return self.mysize     
         
     def crop(self, bbox):
         """
@@ -104,87 +104,60 @@ class Image(object):
     # relacionados com Image via composicao. A presenca deles esta
     # sobrecarregando essa classe
     def get8Neiborhood(self,xy):
-        """
-            TODO
-        """
         n8List = []        
-        if(xy[0]-1 >= 0)&(xy[1]-1 >= 0):
-            n8List.append(self.matrix_content[xy[0]-1][xy[1]-1])
-        else:
-            # O que eh isso?!?!?!?!?
-            print "fdp"        
-        if(xy[0]-1 >= 0):
-            n8List.append(self.matrix_content[xy[0]-1][xy[1]])
-            if(xy[1]+1 < self.size[1]):
-                n8List.append(self.matrix_content[xy[0]-1][xy[1]+1])        
-        if(xy[1]-1 >= 0):        
-            n8List.append(self.matrix_content[xy[0]][xy[1]-1])
-            if(xy[0]+1 < self.size[0]):        
-                n8List.append(self.matrix_content[xy[0]+1][xy[1]-1])
-        if(xy[0]+1 < self.size[0]):
-            n8List.append(self.matrix_content[xy[0]+1][xy[1]])         
-        if(xy[0]+1 < self.size[0])&(xy[1]+1 < self.size[1]):
-            n8List.append(self.matrix_content[xy[0]+1][xy[1]+1])            
-        if(xy[1]+1 < self.size[1]):
-            n8List.append(self.matrix_content[xy[0]][xy[1]+1])        
+        if(self.topNeibor(xy) != None):
+            n8List.append(self.topNeibor(xy))                
+        if(self.topRightNeibor(xy) != None):
+            n8List.append(self.topRightNeibor(xy))        
+        if(self.rightNeibor(xy) != None):
+            n8List.append(self.rightNeibor(xy))
+        if(self.backRightNeibor(xy) != None):
+            n8List.append(self.backRightNeibor(xy))         
+        if(self.backNeibor(xy) != None):
+            n8List.append(self.backNeibor(xy))            
+        if(self.backLeftNeibor(xy) != None):
+            n8List.append(self.backLeftNeibor(xy))
+        if(self.leftNeibor(xy) != None):
+            n8List.append(self.leftNeibor(xy))
+        if(self.topLeftNeibor(xy) != None):
+            n8List.append(self.topLeftNeibor(xy))                
         return n8List   
          
     def topNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[0]-1 >= 0):
-            return self.matrix_content[xy[0]-1][xy[1]]
+        if(xy[1]-1 >= 0):
+#            self.content.putpixel((xy[0],xy[1]-1),128)
+            return self.content.getpixel((xy[0],xy[1]-1))
         else:
             return None
     
     def backNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[0]+1 < self.size[0]):
-            return self.matrix_content[xy[0]+1][xy[1]]            
-
+        if(xy[1]+1 < self.size[1]):
+#            self.content.putpixel((xy[0],xy[1]+1),128)
+            return self.content.getpixel((xy[0],xy[1]+1))            
     def topRightNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[1]+1 < self.size[1]) & (xy[0]-1 >= 0):
-            return self.matrix_content[xy[0]-1][xy[1]+1]        
-
+        if(xy[0]+1 < self.size[0]) & (xy[1]-1 >= 0):
+#            self.content.putpixel((xy[0]+1, xy[1]-1),128)                      
+            return self.content.getpixel((xy[0]+1, xy[1]-1))        
     def rightNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[1]+ 1 < self.size[1]):        
-            return self.matrix_content[xy[0]][xy[1]+1]        
-
+        if(xy[0]+ 1 < self.size[0]):
+#            self.content.putpixel((xy[0]+1,xy[1]),128)
+            return self.content.getpixel((xy[0]+1,xy[1]))        
     def backRightNeibor(self, xy):               
-        """
-            TODO
-        """        
-        if(xy[1]+1 < self.size[1]) & (xy[0]+1 < self.size[0]):            
-            return self.matrix_content[xy[0]+1][xy[1]+1]
-
+        if(xy[0]+1 < self.size[0]) & (xy[1]+1 < self.size[1]):
+#            self.content.putpixel((xy[0]+1, xy[1]+1),128)            
+            return self.content.getpixel((xy[0]+1, xy[1]+1))
     def leftNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[1]-1 >= 0): 
-            return self.matrix_content[xy[0]][xy[1]-1]
-
+        if(xy[0]-1 >= 0): 
+#            self.content.putpixel((xy[0]-1, xy[1]),128)
+            return self.content.getpixel((xy[0]-1, xy[1]))
     def backLeftNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[1]-1 >= 0 ) & ( xy[0]+1 < self.size[0]): 
-            return self.matrix_content[xy[0]+1][xy[1]-1]
+        if(xy[0]-1 >= 0 ) & ( xy[1]+1 < self.size[1]):
+#            self.content.putpixel((xy[0]-1, xy[1]+1),128) 
+            return self.content.getpixel((xy[0]-1, xy[1]+1))
     def topLeftNeibor(self, xy):
-        """
-            TODO
-        """
-        if(xy[1]+1 < self.size[0] ) & ( xy[0]-1 >= 0 ):  
-            return self.matrix_content[xy[0]-1][xy[1]+1]
+        if(xy[0]-1 >= 0 ) & ( xy[1]-1 >= 0 ):
+#            self.content.putpixel((xy[0]-1, xy[1]-1),128)
+            return self.content.getpixel((xy[0]-1, xy[1]-1))        
         
     def getpixel(self,xy):
         """
