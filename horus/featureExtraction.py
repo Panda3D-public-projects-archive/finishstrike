@@ -36,12 +36,12 @@ def extractFeatureByEdgeDetection(image):
 """
 def getSixRegionList(image):
     size = image.size
-    r0_dimension = (0, 0, ((size[0]/2) -1),((size[1]/3) -1))
-    r1_dimension = (size[0]/2, 0, size[0]-1 ,(size[1]/3) -1)
-    r2_dimension = (0, (size[1]/3), (size[0]/2) -1, (2*size[1]/3) -1)
-    r3_dimension = (size[0]/2, size[1]/3, size[0]-1,2*size[1]/3 -1)
-    r4_dimension = (0, (2*size[1]/3) -1, (size[0]/2),size[1] -1)
-    r5_dimension = ((size[0]/2), 2*size[1]/3, size[0] -1, size[1] -1)
+    r0_dimension = (0, 0, ((size[0]/2) ),((size[1]/3)))
+    r1_dimension = (size[0]/2, 0, size[0] ,(size[1]/3))
+    r2_dimension = (0, (size[1]/3), (size[0]/2), (2*size[1]/3))
+    r3_dimension = (size[0]/2, size[1]/3, size[0], 2*size[1]/3)
+    r4_dimension = (0, (2*size[1]/3), (size[0]/2),size[1])
+    r5_dimension = ((size[0]/2), 2*size[1]/3, size[0], size[1])
     regionList = []
     regionList.append(image.crop(r0_dimension))
     regionList.append(image.crop(r1_dimension))
@@ -62,61 +62,61 @@ def getRegionTypeList():
     1,1
     0,0
     """
-    edgeTypes.append([[1,1],[0,0]])
+    edgeTypes.append([[255,255],[0,0]])
     """
     Horizontal Upper
     0,0
     1,1
     """    
-    edgeTypes.append([[0, 0],[1, 1]])
+    edgeTypes.append([[0, 0],[255, 255]])
     """
     Vertical left
     0,1
     0,1
     """
-    edgeTypes.append([[0,1],[0,1]])
+    edgeTypes.append([[0,255],[0,255]])
     """
     Vertical Right
     1,0
     1,0
     """
-    edgeTypes.append([[1,0],[1,0]])
+    edgeTypes.append([[255,0],[255,0]])
     """
     Diagonal center left
     0,1
     1,0
     """
-    edgeTypes.append([[0,1],[1, 0]])
+    edgeTypes.append([[0,255],[255, 0]])
     """
     Diagonal upper left
     0,0
     1,0
     """
-    edgeTypes.append([[0,0],[1, 0]])
+    edgeTypes.append([[0,0],[255, 0]])
     """
     Diagonal bottom left
     0,1
     0,0
     """
-    edgeTypes.append([[0,1],[0, 0]])
+    edgeTypes.append([[0,255],[0, 0]])
     """
     Diagonal center right
     1,0
     0,1
     """
-    edgeTypes.append([[1,0],[0, 1]])
+    edgeTypes.append([[255,0],[0, 255]])
     """
     Diagonal upper right
     1,0
     0,0
     """
-    edgeTypes.append([[1,0],[0, 0]])
+    edgeTypes.append([[255,0],[0, 0]])
     """
     Diagonal bottom right
     0,0
     0,1
     """
-    edgeTypes.append([[0,0],[0, 1]])
+    edgeTypes.append([[0,0],[0, 255]])
     return edgeTypes
 
 """

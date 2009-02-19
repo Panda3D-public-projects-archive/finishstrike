@@ -42,8 +42,7 @@ class Image(object):
             TODO
         """
         self.__matrix_content = None   
-        self.path = path
-        
+        self.path = path        
         # if the parameter is not None (ie content refers a PilImage object) 
         # then Image object refers this content
         if content:
@@ -52,6 +51,7 @@ class Image(object):
         # open the image
         elif path:
             self.content = PilImage.open(path)
+            
         # If there aren't content and path is necessary create a new Image
         # based on parameters mode size and color
         if not (content or path):
@@ -86,7 +86,9 @@ class Image(object):
             TODO
         """        
         return self.mysize     
-        
+    
+    def load(self):
+        self.content.load()
     def crop(self, bbox):
         """
             TODO
