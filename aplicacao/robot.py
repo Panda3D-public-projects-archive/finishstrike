@@ -4,7 +4,8 @@ class Robot():
 	""" this class leads with the actor, the robot """
 
 	def __init__(self):
-		
+
+		self.odometer = 0
 		# load the actor
 		self.robot = Actor("./modelos/ralph.egg.pz")
 		self.robot = Actor("./modelos/ralph.egg.pz",
