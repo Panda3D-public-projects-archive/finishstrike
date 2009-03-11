@@ -105,6 +105,7 @@
   "./modelos/[textura] granito.jpg"
 }
 <Group> Galpao {
+  <Collide>{Polyset keep descend}
   <Transform> {
     <Matrix4> {
       1.443816 0.000000 0.000000 0.000000
@@ -2916,6 +2917,7 @@
     }
   }
   <Group> Galpao1 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_wallpaper_b }
       <MRef> { parede_interna }
@@ -3494,7 +3496,8 @@
     }
   }
   <Group> Galpao2 {
-    <Polygon> {
+    <Collide>{Polyset keep descend}
+	<Polygon> {
       <TRef> { [textura]_HortonRockW }
       <MRef> { parede_externo }
       <Normal> { 0.000000 1.000000 -0.000000 }
@@ -3880,6 +3883,7 @@
     }
   }
   <Group> Galpao3 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_vin }
       <MRef> { piso5 }
@@ -3888,6 +3892,7 @@
     }
   }
   <Group> Galpao4 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_vin }
       <MRef> { piso4 }
@@ -3908,6 +3913,7 @@
     }
   }
   <Group> Galpao5 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_pra }
       <MRef> { piso3 }
@@ -3928,6 +3934,7 @@
     }
   }
   <Group> Galpao6 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_gra }
       <MRef> { piso2 }
@@ -3936,6 +3943,7 @@
     }
   }
   <Group> Galpao7 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_gra }
       <MRef> { piso1 }
@@ -3944,6 +3952,7 @@
     }
   }
   <Group> Galpao8 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_granito.jpg }
       <MRef> { porta }
@@ -3976,6 +3985,7 @@
     }
   }
   <Group> Galpao9 {
+    <Collide>{Polyset keep descend}
     <Polygon> {
       <TRef> { [textura]_carpete_azu }
       <MRef> { piso0 }
