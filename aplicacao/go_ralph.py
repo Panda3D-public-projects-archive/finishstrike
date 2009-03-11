@@ -1,3 +1,4 @@
+# -*- coding: cp1252 -*-
 from direct.gui.OnscreenText import OnscreenText
 from framework.GraphFacade import *
 from direct.showbase.DirectObject import DirectObject
@@ -8,11 +9,20 @@ from direct.task import Task
 from direct.interval.IntervalGlobal import *
 from robot import *
 
+#Cria o Traverser, no "base"
+base.cTrav = CollisionTraverser()
+#Cria o Pusher, no "base"
+base.pusher = CollisionHandlerPusher()
+#Cria o Floor, "base" também
+base.floor = CollisionHandlerFloor()
+base.floor.setMaxVelocity(1)
+#Cria o Laser
+base.laser = CollisionHandlerQueue()
+
 class Environment(DirectObject):
 	""" This class works with environments details """
 
 	def __init__(self):
-	
 		# show the text on screen
 		self.title = OnscreenText(pos=(0.8, -0.95), fg=(255, 255, 0, 90))
 		# load the environment model
@@ -55,8 +65,46 @@ class Environment(DirectObject):
 		taskMgr.add(self.move,"moveTask")
 		# build a sequence of movements 
 		self.walk = Sequence()
+
+
+                self.createColliders()
 	#--------------------------------------------------
-		
+	# collision
+
+        def createColliders(self):
+                #create the collision sphere
+                self.robotSphereCN = CollisionNode('robotSphere')
+                self.robotSphereCN.addSolid(CollisionSphere(0,0,3,2) )
+                self.robotEsfNP = self.robot.attachNewNode(self.robotSphereCN)
+                self.robotEsfNP.show()
+                base.cTrav.addCollider(self.robotEsfNP, base.pusher)
+                base.pusher.addCollider(self.robotEsfNP, self.robot)
+                        
+                #configuracao do ray de colisao do robo
+                self.robotGroundRay = CollisionRay()
+                self.robotGroundRay.setOrigin(0,0,10)
+                self.robotGroundRay.setDirection(0,0,-1)
+                self.robotGroundCol = CollisionNode('robotRay')
+                self.robotGroundCol.addSolid(self.robotGroundRay)
+                self.robotGroundColNp = self.robot.attachNewNode(self.robotGroundCol)
+                self.robotGroundColNp.show()
+                base.cTrav.addCollider(self.robotGroundColNp, base.floor)
+                base.floor.addCollider(self.robotGroundColNp, self.robot)
+                
+                #para o laser    
+                self.laser  = CollisionSegment (0, 0, 3, 0,-90,3) 
+                self.laserNode = CollisionNode ('laserNode')
+                self.laserNodePath = self.robot.attachNewNode(self.laserNode)
+                self.laserNodePath.node().addSolid(self.laser)
+                self.laserNodePath.show()
+                base.cTrav.addCollider(self.laserNodePath, base.laser)
+            
+
+                base.cTrav.showCollisions(render)
+                base.cTrav.traverse(render)
+
+
+
 	def addInterval(self, posInicial, posFinal):
 		"""
 			This method adds a time interval between two vertexes for the sequence
