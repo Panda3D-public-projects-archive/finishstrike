@@ -92,7 +92,7 @@ class Environment(DirectObject):
                 base.floor.addCollider(self.robotGroundColNp, self.robot)
                 
                 #para o laser    
-                self.laser  = CollisionSegment (0, 0, 3, 0,-90,3) 
+                self.laser  = CollisionSegment (0, 0, 3, 0,-30,3) 
                 self.laserNode = CollisionNode ('laserNode')
                 self.laserNodePath = self.robot.attachNewNode(self.laserNode)
                 self.laserNodePath.node().addSolid(self.laser)
