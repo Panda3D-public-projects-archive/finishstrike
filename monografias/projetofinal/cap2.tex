@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   SOLUÇÕES QUE SE UTILIZAM DE TECNOLOGIAS MAIS RECENTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{Soluções que utilizam tecnologias modernas}
+\label{cap:Solucoes_que_se_utilizam_de_tecnologias_mais_recentes}
+Baseado nos métodos de medição do volume de madeira já existentes na área de Engenharia Florestal, foram desenvolvidas algumas soluções que propõem a utilização de tecnologias modernas. Esta seção expõe algumas dessas ferramentas.
+
+\section{O Método Fotográfico}
+
+O método fotográfico estima o fator de cubicação diretamente, sem a necessidade de determinar os volumes sólidos e empilhados. O método consiste em fotografias horizontais tomadas perpendicularmente às faces das pilhas. A fotografia é tomada instalando-se ou mantendo-se uma câmara fotográfica a uma distância conveniente da pilha e com o eixo óptico da lente perpendicular a uma das suas faces (Figura \ref{fig:metodo_fotografico1}).
+
+Uma vez que a fotografia é revelada, aplica-se sobre ela um reticulado de pontos (Figura \ref{fig:metodo_fotografico_reticulado}) e conta-se quantos pontos do reticulado não estão posicionados sobre os topos das toras, isto é, são pontos no ar. O fator de cubicação é computado como:
+
+\begin{equation}
+\label{eq:MetodoFotografico}
+F_c=\frac{\mbox{número de pontos no ar}}{\mbox{número total de pontos}}
+\end{equation}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\linewidth]{./images/fig_metodo_fotografico1a.eps}
+\includegraphics[width=0.45\linewidth]{./images/fig_metodo_fotografico1b.eps}
+\caption{Método fotográfico - A fotografia é tomada instalando-se ou mantendo-se uma câmara fotográfica a uma distância conveniente da pilha e com o eixo óptico da lente perpendicular a uma das suas faces.}
+\label{fig:metodo_fotografico1}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\linewidth]{./images/fig_metodo_fotografico_reticulado.eps}
+\caption{Método fotográfico - Funcionamento do reticulado de pontos.}
+\label{fig:metodo_fotografico_reticulado}
+\end{figure}
+
+\section{O Software Digitora}
+
+\citeauthor{BERTOLA_et_al_2003} menciona o uso do programa computacional Digitora na determinação de fatores de empilhamento. O funcionamento do programa constitui-se em aplicar ao meio digital o método fotográfico (Figuras \ref{fig:metodo_fotografico1} e \ref{fig:metodo_fotografico_reticulado}). A análise dos pontos depende de um operador humano que precisa classificar cada ponto, se é ou não um espaço vazio (Figura \ref{fig:foto_digitora}). Como resultado das avaliações, verificou-se que, apesar de propiciar estimativas precisas dos fatores de empilhamento, houve uma leve tendência de superestimação dos fatores pelo Digitora; e que o treinamento do operador com relação à classificação dos pontos sobre as fotografias no software é condição primordial para obtenção de estimativas precisas dos fatores de empilhamento. Além disso, o programa depende da classificação dos vários pontos marcados na foto pelo operador, o que leva mais tempo para ser concluído.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\linewidth]{./images/fig_digitora_bertola.eps}
+\caption{\textit{Screenshot} do software Digitora - Foto extraída do trabalho de \citeauthor{BERTOLA_et_al_2003}.}
+\label{fig:foto_digitora}
+\end{figure}
+
+
+\section{Outras soluções}
+
+Em 1970, o Laboratório de Produtos Florestais do Canadá desenvolveu um método que emprega um circuito interno de televisão com um software que ``interpreta'' a imagem, apresentando coloração branca nos pontos onde encontra o material lenhoso e coloração escura quando encontra espaços vazios. Segundo Loetsch (1973 \textit{apud} \citeauthoronline{Batista-e-Couto_2002}, \citeyear{Batista-e-Couto_2002} \cite{Batista-e-Couto_2002}) a precisão desse método está em torno de 20\%. Em 1972, foi introduzido no mercado um sistema denominado LOGMETER, desenvolvido no Chile, para medição automática do volume sólido de madeira empilhada, usando câmeras de vídeo localizadas na entrada da indústria. Esse sistema assumia que a madeira era empilhada transversalmente nas carrocerias dos caminhões e o sistema coletava informação em apenas um lado da pilha. Segundo \cite{Batista-e-Couto_2002}, a aplicação do sistema é limitada com a colheita da madeira em toras longas, pois as toras são empilhadas longitudinalmente nas carrocerias e o comprimento das toras pode variar em até 2m. Além disso, a coleta de informação em apenas um lado da carga possibilita que os espaços vazios sejam propositadamente menores no lado que será observado, dificultando uma determinação justa do volume sólido.

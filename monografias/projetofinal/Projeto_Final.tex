@@ -1,0 +1,150 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Projeto Final - Arquivo principal
+%% UNIVERSIDADE CÂNDIDO MENDES - Bacharel em Ciências da Computação
+%% Projeto final: Módulo de Mapeamento do Toolkit Hórus.
+%% Jônatas Oliveria Lopes Soares / Maycon Barreto Lopes / Wallace Gomes de Souza
+%% Orientador: Prof. D. Ítalo Matias
+%% Campos dos Goytacazes - RJ
+%% 2009
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{a4wide}
+\usepackage[brazil,english]{babel}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage[latin1]{inputenc}
+\usepackage{doublespace}
+\usepackage{fancyheadings}
+\usepackage{longtable}
+\usepackage{dropping}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{abntcite}
+\def\citeopen{[}
+\def\citeclose{]}
+
+\newcommand{\figr}[1]{Figura~\ref{#1}}
+\newcommand{\eqt}[1]{Eq.~(\ref{#1})}
+\newcommand{\eqts}[2]{Eq.~(\ref{#1})~e~(\ref{#2})}
+\newcommand{\eqtss}[3]{Eq.~(\ref{#1})~,~(\ref{#2})~e~(\ref{#3})}
+\newcommand{\tab}[1]{Tabela~\ref{#1}}
+
+%comandos para se definir cabeçalhos nas páginas da dissertação
+\pagestyle{fancyplain}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\small\leftmark}}
+\rhead[\fancyplain{}{\small\rightmark}]{\fancyplain{}{\thepage}}
+\cfoot{\fancyplain{\thepage}{}}
+
+%package para uso de verbatimtab
+
+%configuração para numeração de subsubseções
+\setcounter{secnumdepth}{3}
+
+\newcounter{mypage}
+
+% Frases de efeito no início de cada capítulo
+\newcommand{\epigraph}[2]{%
+  \vspace{1ex}%
+  {\footnotesize%
+   \begin{spacing}{1}
+    \begin{flushright}%
+      \begin{minipage}{.6\textwidth}%
+        #1\\
+      \end{minipage}\\
+      \textit{#2}%
+    \end{flushright}
+    \end{spacing}}%
+  \vspace{1ex}}
+
+\DeclareGraphicsExtensions{.jpg, .pdf, .mps, .png}
+
+\begin{document}
+ \stepcounter{mypage}
+
+%--------------------------------
+%  PRIMEIRAS PÁGINAS
+%--------------------------------
+\include{capa}
+\stepcounter{mypage}
+\include{folharosto}
+\stepcounter{mypage}
+\include{folhaaprovacao}
+\stepcounter{mypage}
+\include{dedicatoria}
+\stepcounter{mypage}
+\include{agradecimentos}
+\stepcounter{mypage}
+%\include{epigrafe}
+
+
+%-----------------------------------
+% DOCUMENTAÇÃO DO TRABALHO
+%-----------------------------------
+
+\renewcommand{\baselinestretch}{1.3}
+%-----------------------------------
+% NUMERAÇÃO DE PÁGINA EM ROMANO
+%-----------------------------------
+
+\pagenumbering{roman}
+\setlength{\voffset}{0.0in}
+
+% Atribui ao contador page (default do latex, que é usado por todo o documento)
+% o valor do nosso contador mypage
+\setcounter{page}{\value{mypage}}
+
+\begin{spacing}{1.5}
+\include{resumo}
+\end{spacing}
+
+\begin{spacing}{1.5}
+\include{abstract}
+\end{spacing}
+
+\selectlanguage{brazil}
+
+\begin{spacing}{1.0}
+\tableofcontents
+\listoffigures
+\listoftables
+\end{spacing}
+
+\clearpage
+
+% Atribuindo ao nosso contador o valor do contador page
+% e depois incremento...
+\setcounter{mypage}{\value{page}}
+\clearpage
+
+\pagenumbering{arabic}
+
+\begin{spacing}{1.5}
+\setcounter{page}{\value{mypage}} % Atribuindo o contador page novamente....
+\include{introducao}
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{cap4}
+\include{cap5}
+\include{fotos_resultados}
+\include{conclusao}
+\end{spacing}
+
+% Aqui será adicionado ao contador page 5 páginas,
+% porque meu apêndice será impresso separadamente deste
+% documento
+
+\addtocounter{page}{5}
+
+\begin{spacing}{1.0}
+\include{bibliografia}
+\end{spacing}
+
+\begin{spacing}{1.5}
+\include{apendice}
+\end{spacing}
+
+\end{document}

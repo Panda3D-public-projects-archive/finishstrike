@@ -1,0 +1,21 @@
+\select@language {english}
+\select@language {brazil}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Fatores de cubica\c c\~ao calculados com base em medi\c c\~oes manuais, tiradas com fita m\'etrica}}{35}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Resultados dos testes com segmenta\c c\~ao por m\'edia, para os tamanhos (em pixels) de janela testados}}{38}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Desempenho do algoritmo de segmenta\c c\~ao por m\'edia}}{38}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Resultados dos testes com segmenta\c c\~ao por limiar adaptativo}}{39}
+\contentsline {table}{\numberline {6.5}{\ignorespaces Desempenho do algoritmo de segmenta\c c\~ao por limiar adaptativo}}{39}
+\contentsline {table}{\numberline {6.6}{\ignorespaces Resultados dos testes com segmenta\c c\~ao por entropia de Shannon}}{40}
+\contentsline {table}{\numberline {6.7}{\ignorespaces Desempenho do algoritmo de segmenta\c c\~ao por Entropia de Shannon}}{40}
+\contentsline {table}{\numberline {6.8}{\ignorespaces Resultados dos testes com segmenta\c c\~ao por entropia de Tsallis com tamanho da janela igual a 50x50 pixels}}{41}
+\contentsline {table}{\numberline {6.9}{\ignorespaces Resultados dos testes com segmenta\c c\~ao por entropia de Tsallis com tamanho da janela igual a 100 x 100 pixels}}{41}
+\contentsline {table}{\numberline {6.10}{\ignorespaces Desempenho do algoritmo de segmenta\c c\~ao por Entropia de Tsallis com janela igual a 50x50 pixels, variando-se o valor do $q$}}{41}
+\contentsline {table}{\numberline {6.11}{\ignorespaces Desempenho do algoritmo de segmenta\c c\~ao por Entropia de Tsallis com janela igual a 100 x 100 pixels, variando-se o valor do $q$}}{42}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

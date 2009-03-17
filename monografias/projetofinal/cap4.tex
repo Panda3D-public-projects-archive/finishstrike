@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   MÉTODO PROPOSTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Métodos de Segmentação}
+\label{cap:metodo_proposto}
+
+Neste capítulo é apresentada a metodologia aplicada nos experimentos deste projeto. O objetivo do trabalho é segmentar fotos de pilhas de toras de madeira, tiradas perpendicularmente às faces das pilhas, visando obter o Fator de Cubicação da pilha (Capítulo \ref{cap:Metodologias_e_Terminologias}) de forma automática. Para realizar os testes, foram definidas quatro técnicas a serem avaliadas: limiarização por média, limiar adaptativo, segmentação por entropia tradicional (Entropia de Shannon) e segmentação por entropia não extensiva (Entropia de Tsallis). Estas metodologias foram testadas implementando-se cada uma delas em um software, que processa os testes, segmentando uma série de imagens, e comparamos os resultados obtidos com as medições reais de volume sólido.
+
+Para a realização dos testes foram utilizadas fotos de toras de eucalipto de cinco pilhas diferentes, fotografadas de acordo com as condições acima mencionadas. De cada foto foi extraída uma amostra, que consiste em um ``pedaço'' da imagem, para serem analisadas de forma separada. Cada pilha foi medida manualmente, no seu volume sólido, utilizando-se os métodos tradicionais conhecidos na área de Engenharia Florestal. As medições manuais foram comparadas com os valores encontrados com a aplicação da metodologia proposta para a segmentação das imagens. Os valores que comparamos nestes testes referem-se aos fatores de empilhamento, ou resumindo, a porcentagem de \textit{foreground} e \textit{background} da foto; quanto é madeira e quanto é espaço vazio.
+
+\section{Etapas do processo de segmentação}
+
+O processamento das imagens das toras de madeira acontece em cinco etapas, conforme demonstrado na Figura \ref{fig:etapas_segmentacao}:
+\begin{enumerate}
+\item Conversão da imagem em escala de cinza (\textit{Gray Scale})
+\item Subdivisão da imagem em quadros
+\item Cálculo de um limiar para cada quadro
+\item Aplicação do algoritmo \textit{Threshold} tradicional para binarizar a imagem, utilizando o limiar encontrado
+\item Somatório dos resultados obtidos
+\end{enumerate}
+\vspace{1cm}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\linewidth]{./images/fig_etapas_segmentacao.eps}
+\caption{Etapas para o processamento de segmentação das imagens de toras de madeira}
+\label{fig:etapas_segmentacao}
+\end{figure}
+
+\section{Segmentação por média}
+
+Esta técnica consiste em calcular a média entre os valores dos pixels da região selecionada da imagem, e utilizar este valor encontrado como limiar (Figura \ref{fig:exemplo_segmentacao_media}).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.35\linewidth]{./images/resultados/fig_amostra_p1_01.eps}
+\includegraphics[width=0.35\linewidth]{./images/resultados/fig_me_p1_100x100.eps}
+\caption{Exemplo de resultado da segmentação de imagens por média}
+\label{fig:exemplo_segmentacao_media}
+\end{figure}
+
+\section{Segmentação por Limiar Adaptativo}
+
+Consiste em uma forma de maximizar o limiar encontrado através de várias divisões e iterações. O limiar é obtido calculando-se a média entre os valores dos pixels da região selecionada da imagem, subdivindo os valores pela média encontrada e repetindo o processo até encontrar um valor que satisfaça uma condição proposta. (Figura \ref{fig:exemplo_segmentacao_limiar_adaptativo}) O funcionamento deste algoritmo é especificado através do diagrama na Figura \ref{fig:diagrama_de_atividades_limiar_adaptativo}.
+
+\begin{figure}[hb]
+\centering
+\includegraphics[width=0.5\linewidth]{./images/fig_DiagramaDeAtividadesLimAdaptativo.eps}
+\caption{Algoritmo de segmentação por Limiar Adaptativo}
+\label{fig:diagrama_de_atividades_limiar_adaptativo}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.4\linewidth]{./images/resultados/fig_amostra_p2_01.eps}
+\includegraphics[width=0.4\linewidth]{./images/resultados/fig_la_p2_100x100.eps}
+\caption{Exemplo de resultado da segmentação de imagens por limiar adaptativo}
+\label{fig:exemplo_segmentacao_limiar_adaptativo}
+\end{figure}
+
+\section{A Entropia de Tsallis}
+
+A entropia é uma idéia que foi concebida dentro da Termodinâmica clássica, não como algo basicamente intuitivo, mas como  algo principalmente quantitativo, definida por uma equação. Contudo, nós podemos dizer que este é um conceito associado à ordem dos processos irreversíveis no universo. Fisicamente, pode ser associada à quantidade de desordem em um sistema físico. Shannon redefiniu o conceito da entropia de Boltzmann/Gibbs a uma medida da incerteza associada ao conteúdo da informação de um sistema. Nesta teoria, a entropia de uma fonte discreta é freqüentemente obtida por uma distribuição de probabilidades $P=(P_1,\dots,P_k),\quad 0 \le P_i \le 1 \quad \mbox{e} \quad \sum P_i=1$, onde $P_i$ é a probabilidade do sistema estar no estado $i$. Neste contexto, a Entropia de Shannon (BGS) pode ser descrita como:
+
+\begin{equation}
+\label{eq:EntropiaDeShannon1}
+S=-\sum_{i} P_i \ln(P_i)
+\end{equation}
+
+Genericamente falando, sistemas que possuem estatísticas do tipo BGS são chamados \textit{sistemas extensivos}. Sistemas desse tipo possuem uma propriedade aditiva, definida a seguir. Sendo $X$ e $Y$ duas variáveis randômicas, com funções de densidade de probabilidade $P=(P_1,\ldots,P_n) \mbox{ e } Q=(q_1,\ldots,q_n)$, respectivamente. Se $X$ e $Y$ forem independentes, de acordo com a Teoria da Probabilidade, a entropia da distribuição composta é definida pela seguinte regra de aditividade:
+
+\begin{equation}
+\label{eq:RegraDeAditividade}
+S(\{p_j\}_{i,j})=S(\{p_i\}_i)+S(\{q_j\}_j)
+\end{equation}
+
+Esta forma tradicional de entropia, chamada de \textit{Entropia de Boltzmann/Gibbs/Shannon} (BGS) é bem conhecida; e por anos vem adquirindo um relativo sucesso na explicação de diversos fenômenos, quando as interações microscópicas efetivas são de curto alcance (i.e. conexões espaciais longas ) e a memória microscópica espacial efetiva é de curto alcance (i.e. conexões de curta duração) e as condições limite são \textit{não(multi)fractais}. Genericamente falando, o formalismo básico é aplicável quando (e provavelmente somente quando) o espaço-tempo é não(multi)fractal. Se este não for o caso, pode ser necessário estender esse conceito. Em completa analogia com a mecânica Newtoniana, quando as velocidades envolvidas se aproximam da velocidade da luz ou as massas são tão pequenas quanto a massa de um elétron; a mecânica estatística tradicional não se aplica quando às condições mencionadas (interações microscópicas de curto alcance, memória microscópica de curto alcance e condições de contorno (multi)fractais) não acontecem. Todavia, trabalhos recentes baseados no conceito de entropia não-extensiva, conhecida também como \textit{Entropia de Tsallis}, têm gerado um novo interesse no estudo da entropia de Shannon aplicada à Teoria da Informação. Este interesse surgiu principalmente devido às similaridades entre as funções de Shannon e a entropia de Boltzmann/Gibbs. A entropia de Tsallis (ou \textit{q-entropia}) é uma nova proposta para a generalização da entropia tradicional de Boltzmann/Gibbs aplicada aos sistemas de física não-extensiva.
+
+A característica não-extensiva da entropia de Tsallis foi aplicada através de um parâmetro \textit{q}, que gera algumas propriedades matemáticas como a não-negatividade, concavidade, equiprobabilidade, q-aditividade e q-axiomatividade do grupo. Estas características dão à \textit{q}-entropia flexibilidade na interpretação de diversos sistemas físicos. Por outro lado, este novo tipo de entropia não deixa de explicar os sistemas físicos tradicionais, uma vez que é uma generalização destes.
+
+Entretanto, uma generalização da teoria pode violar um dos seus postulados. No caso da entropia generalizada proposta por Tsallis, a propriedade aditiva descrita pela Equação (\ref{eq:RegraDeAditividade}) é violada na forma da Equação (\ref{eq:Aditividade_NaoExtensiva}), que se aplica se o sistema possuir uma característica não-extensiva. Neste caso, a estatística de Tsallis é útil e a \textit{q}-aditividade descreve melhor o sistema composto. 
+
+\begin{eqnarray}
+\label{eq:Aditividade_NaoExtensiva}
+S_q(\{p_iq_i\}_{i,j}) = S_q(\{p_i\})+S_q(\{q_j\}_j)  \\ \nonumber
++(1-q). S_q(\{p_i\}).(\{q_j\}_j) 
+\end{eqnarray}
+
+Nesta equação, o termo $(1-q)$ representa o grau de não-aditividade: no limite $q \rightarrow 1,\quad S(X+Y)$ ela tende à entropia BGS. O caráter extensivo também pode ser visto na equação geral da entropia proposta por Tsallis, que é:
+
+\begin{equation}
+\label{eq:EntropiaDeTsallis1}
+S_q(p_1,\ldots,p_k) = \frac{1-\sum_{i=1}^k(p_i)^q}{q-1}
+\end{equation}
+onde $k$ é o número do total de  possibilidades do sistema e o número real $q$ é o índice entrópico que caracteriza o grau de não-extensividade. Como explicado acima, quando $q \rightarrow 1$, a Equação (\ref{eq:EntropiaDeTsallis1}) tende à entropia BGS tradicional, definida pela Equação (\ref{eq:EntropiaDeShannon1}).
+
+Considerando $S_q \geq 0$ no formalismo pseudo-aditivo da Equação (\ref{eq:Aditividade_NaoExtensiva}), a seguinte classificação para sistemas entrópicos é definida:
+\begin{itemize}
+\item Entropia subextensiva ($q>1$)
+\item Entropia extensiva ($q=1$)
+\item Entropia superextensiva ($q<1$)
+\end{itemize}
+
+Levando em consideração as similaridades entre os formalismos de Shannon e a entropia de Boltzmann/Gibbs, é interessante investigar a possibilidade de generalização da entropia de Shannon para o caso da teoria da informação, recentemente mostrada por \citeauthor{Yamano_2001}. Esta generalização pode ser extendida  aos sistemas de classificação de imagens aplicando-se a entropia de \citeauthor{Tsallis_1988}, que possui conteúdo de informação não aditiva.
+
+\subsection[Segmentacao por entropia]{Segmentação por Entropia}
+
+Entropia é uma estratégia conhecida de segmentação  de imagens que vem sendo utilizada há décadas. Neste trabalho, utilizamos a entropia de Tsallis para encontrar um limiar ótimo a ser aplicado à segmentação de imagens de toras de madeira. A maneira como utilizamos esta entropia é aquela proposta por Tsallis, em \cite{Tsallis_1999,Tsallis_2001} e aplicada por \citeauthor{Albuquerque_2003} em imagens de mamografia.
+
+Se considerarmos as duas variáveis randômicas, $X$ e $Y$, como mencionado anteriormente, e sendo $P$ a função de densidade de probabilidade do fundo (\textit{background}) e $Q$ a função de densidade de probabilidade do \textit{foreground} (toras de madeira), considerando $\sum_{i=1}^t(\frac{p_i}{N})=1$ e $\sum_{i=t+1}^L(\frac{p_i}{M})=1$, e supondo que $t$ é um limiar(\textit{threshold}), $M$ é o total da soma dos pixels do \textit{background}, $N$ é o total da soma dos pixels do \textit{foreground}, e os níveis de cinza estão igualmente discretizados entre 1 e $L$, a entropia do sistema composto, considerando os sistemas não extensivos, de acordo com a Equação (\ref{eq:Aditividade_NaoExtensiva}), será:
+
+\begin{eqnarray}
+\label{eq:Segmentacao1}
+S_q(X+Y)=S_q(X)+S_q(Y) \\ \nonumber
++(1-q).S_q(X).S_q(Y)
+\end{eqnarray}
+
+onde
+
+\begin{equation}
+\label{eq:Segmentacao2}
+S_q(X)=\frac{1-\sum_{i=1}^t(\frac{p_i}{N})^q}{q-1}
+\end{equation}
+
+e
+
+\begin{equation}
+\label{eq:Segmentacao3}
+S_q(Y)=\frac{1-\sum_{i=t+1}^L(\frac{p_i}{M})^q}{q-1}
+\end{equation}
+
+Neste trabalho, nós maximizamos a informação medida entre duas classes (toras de madeira e o fundo). Quando $S_q(X+Y)$ é maximizado, o nível de luminância $t$ é tomado como o valor ótimo do limiar. Isso pode ser realizado com um baixo custo computacional.
+
+\begin{equation}
+\label{eq:Segmentacao4}
+t_{opt}=\arg\max[S_q^X(t)+S_q^Y(t)+(1-q).S_q^X(t).S_q^Y(t)]
+\end{equation}
+
+Por esta razão, é interessante analisar as imagens à luz da entropia não-extensiva. Apesar de ser difícil discutir as características não-extensivas (longo alcance e interações de memória de longo alcance e comportamento fractal) para imagens em geral, o que pode vir a justificar quantitativamente o uso da \textit{q}-entropia para a segmentação de imagens, o parâmetro $q$ introduz uma flexibilidade na formulação entrópica que sugere uma investigação da segmentação sob a variação do $q$. Em \cite{Albuquerque_2003}, \citeauthoronline{Albuquerque_2003} realizou testes sobre o $q$ para imagens de mamografia e obteve bons resultados para $0\leq q \leq 1$, o que sugere um sistema não-extensivo para esse tipo de imagens.
+
+Neste trabalho, nós sugerimos o uso da \textit{q}-entropia para encontrar, através da limiarização, o fator de cubicação (explicado no Capítulo \ref{cap:Metodologias_e_Terminologias}) para as fotos das toras de madeira, possibilitando assim, junto às medidas da pilha em \textit{estéreo}, o cálculo automático do seu volume. Além da entropia de Tsallis, também foram realizados testes utilizando-se a entropia tradicional de Shannon no mesmo contexto. As figuras \ref{fig:exemplo_segmentacao_shannon} e \ref{fig:exemplo_segmentacao_tsallis} mostram exemplos de uma imagem segmentada por entropia de Shannon e por Entropia de Tsallis, respectivamente.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.25\linewidth]{./images/resultados/fig_amostra_p1_01.eps}
+\includegraphics[width=0.25\linewidth]{./images/resultados/fig_sh_p1_100x100.eps}
+\caption{Exemplo de resultado da segmentação de imagens por entropia de Shannon}
+\label{fig:exemplo_segmentacao_shannon}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.25\linewidth]{./images/resultados/fig_amostra_p1_01.eps}
+\includegraphics[width=0.25\linewidth]{./images/resultados/fig_ts_p1_100x100_q0.5.eps}
+\caption{Exemplo de resultado da segmentação de imagens por Entropia de Tsallis}
+\label{fig:exemplo_segmentacao_tsallis}
+\end{figure}
+
+\section{Plataforma de desenvolvimento utilizada}
+
+Para implementar as técnicas de PDI propostas neste trabalho foi utilizada linguagem C++, utilizando-se a biblioteca de processamento de imagens Intel  OpenCV. 
+
+A OpenCV é uma biblioteca multiplataforma (pode ser compilada para os principais sistemas operacionais disponíveis no mercado), que consiste em centenas de funções voltadas para o processamento de imagens e Visão Computacional.

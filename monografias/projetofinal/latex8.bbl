@@ -1,0 +1,81 @@
+\begin{thebibliography}{10}\setlength{\itemsep}{-1ex}\small
+
+\bibitem{Azuma97}
+R.~Azuma.
+\newblock \,``{A} {S}urvey of {A}ugmented {R}eality''.
+\newblock {\em ACM SIGGRAPH, 1-38}, 1997.
+
+\bibitem{snap-drag3d91}
+E.~A. Bier.
+\newblock Snap-dragging in three dimensions.
+\newblock In {\em SI3D '90: Proceedings of the 1990 symposium on Interactive 3D
+  graphics}, pages 193--204, New York, NY, USA, 1990. ACM Press.
+
+\bibitem{snap-drag12}
+E.~A. Bier and M.~C. Stone.
+\newblock Snap-dragging.
+\newblock In {\em SIGGRAPH '86: Proceedings of the 13th annual conference on
+  Computer graphics and interactive techniques}, pages 233--240, New York, NY,
+  USA, 1986. ACM Press.
+
+\bibitem{DiVerdiNH03}
+S.~DiVerdi, D.~Nurmi, and T.~H{\"o}llerer.
+\newblock Arwin-a desktop augmented reality window manager.
+\newblock In {\em ISMAR}, pages 298--299, 2003.
+
+\bibitem{hiro99}
+H.~Kato and M.~Billinghurst.
+\newblock Marker tracking and hmd calibration for a video-based augmented
+  reality conferencing system.
+\newblock In {\em IWAR '99: Proceedings of the 2nd IEEE and ACM International
+  Workshop on Augmented Reality}, page~85. IEEE Computer Society, 1999.
+
+\bibitem{KatoTTNF00}
+H.~Kato, M.~Billinghurst, I.~Poupyrev, K.~Imamoto, and K.~Tachibana.
+\newblock Virtual object manipulation on a table-top ar environment.
+\newblock In {\em ISAR}, 2000.
+
+\bibitem{KatoTTNF03}
+H.~Kato, K.~Tachibana, M.~Tanabe, T.~Nakajima, and Y.~Fukuda.
+\newblock A city-planning system based on augmented reality with a tangible
+  interface.
+\newblock In {\em ISMAR}, pages 340--341, 2003.
+
+\bibitem{Lepetit2003}
+V.~Lepetit, L.~Vacchetti, and P.~Fua.
+\newblock Fully automated and stable registration for augmented reality
+  applications.
+\newblock In {\em Proc. of International Symposium on Mixed and Augmented
+  Reality}, Arlington, VA, USA, Nov. 2003.
+
+\bibitem{oshima1998}
+T.~Ohshima, K.~Sato, H.~Yamamoto, and H.~Tamura.
+\newblock Ar2hockey: A case study of collaborative augmented reality.
+\newblock In {\em VRAIS'98}, pages 268--295, 1998.
+
+\bibitem{rodrigues04a}
+D.~M.~C. Rodrigues, P.~S. Rodrigues, G.~A. Giraldi, and R.~L.~S. Silva.
+\newblock A bayesian network model for object recognition environment using
+  color features.
+\newblock In {\em Eletronic Proceedings of Sibigrapi'04}, 2004.
+
+\bibitem{silvaIV05}
+R.~Silva, P.~S. Rodrigues, G.~Giraldi, and G.~Cunha.
+\newblock Object recognition using bayesian networks for augmented reality
+  systems.
+\newblock {\em 9th International Conference on Information Visualisation},
+  2005.
+
+\bibitem{silva2004SVR}
+R.~Silva, P.~S. Rodrigues, D.~Mazala, and G.~Giraldi.
+\newblock Object recognition using bayesian networks for augmented reality
+  applications.
+\newblock {\em VII Symposium on Virtual Reality}, 2004.
+
+\bibitem{gamear00}
+Z.~Szalavári, E.~Eckstein, and M.~Gervautz.
+\newblock Collaborative gaming in augmented reality.
+\newblock In {\em VRST '98: Proceedings of the ACM symposium on Virtual reality
+  software and technology}, pages 195--204, New York, NY, USA, 1998. ACM Press.
+
+\end{thebibliography}

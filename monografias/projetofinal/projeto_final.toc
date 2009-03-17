@@ -1,0 +1,39 @@
+\select@language {english}
+\select@language {brazil}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{13}
+\contentsline {chapter}{\numberline {2}Metodologias e Terminologia}{15}
+\contentsline {section}{\numberline {2.1}Fatores de Convers\~ao}{16}
+\contentsline {chapter}{\numberline {3}Solu\c c\~oes que utilizam tecnologias modernas}{18}
+\contentsline {section}{\numberline {3.1}O M\'etodo Fotogr\'afico}{18}
+\contentsline {section}{\numberline {3.2}O Software Digitora}{19}
+\contentsline {section}{\numberline {3.3}Outras solu\c c\~oes}{20}
+\contentsline {chapter}{\numberline {4}Segmenta\c c\~ao de Imagens: Trabalhos Relacionados}{22}
+\contentsline {chapter}{\numberline {5}M\'etodos de Segmenta\c c\~ao}{26}
+\contentsline {section}{\numberline {5.1}Etapas do processo de segmenta\c c\~ao}{27}
+\contentsline {section}{\numberline {5.2}Segmenta\c c\~ao por m\'edia}{28}
+\contentsline {section}{\numberline {5.3}Segmenta\c c\~ao por Limiar Adaptativo}{28}
+\contentsline {section}{\numberline {5.4}A Entropia de Tsallis}{29}
+\contentsline {subsection}{\numberline {5.4.1}Segmentacao por entropia}{32}
+\contentsline {section}{\numberline {5.5}Plataforma de desenvolvimento utilizada}{34}
+\contentsline {chapter}{\numberline {6}Resultados obtidos}{35}
+\contentsline {section}{\numberline {6.1}Segmenta\c c\~ao por m\'edia}{38}
+\contentsline {section}{\numberline {6.2}Segmenta\c c\~ao por limiar adaptativo}{39}
+\contentsline {section}{\numberline {6.3}Segmenta\c c\~ao por Entropia de Shannon}{40}
+\contentsline {section}{\numberline {6.4}Segmenta\c c\~ao por Entropia de Tsallis}{41}
+\contentsline {section}{\numberline {6.5}Compara\c c\~oes entre as metodologias}{43}
+\contentsline {section}{\numberline {6.6}Fotos de resultados obtidos com a segmenta\c c\~ao}{44}
+\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalhos Futuros}{61}
+\contentsline {chapter}{Ap\^endices}{70}
+\contentsline {chapter}{\numberline {A}Documenta\c c\~ao de An\'alise de Sistemas}{70}
+\contentsline {section}{\numberline {A.1}Descri\c c\~ao textual dos casos de uso}{70}
+\contentsline {subsection}{\numberline {A.1.1}Segmenta\c c\~ao da Imagem}{70}
+\contentsline {subsection}{\numberline {A.1.2}C\'alculo de Limiar por M\'edia}{72}
+\contentsline {subsection}{\numberline {A.1.3}C\'alculo de Limiar Adaptativo:}{72}
+\contentsline {subsection}{\numberline {A.1.4}C\'alculo de Limiar por Entropia de Shannon}{74}
+\contentsline {subsection}{\numberline {A.1.5}C\'alculo de Limiar por Entropia de Tsallis}{75}
+\contentsline {section}{\numberline {A.2}Diagramas}{76}
+\contentsline {subsection}{\numberline {A.2.1}Diagrama de Caso de Uso}{76}
+\contentsline {subsection}{\numberline {A.2.2}Diagrama de Classes}{77}
+\contentsline {subsection}{\numberline {A.2.3}Diagrama de Sequ\^encia }{78}
+\contentsline {subsection}{\numberline {A.2.4}Diagrama de Atividades - Limiar adaptativo}{79}
+\contentsline {subsection}{\numberline {A.2.5}Diagrama de Estados - imagem}{79}
