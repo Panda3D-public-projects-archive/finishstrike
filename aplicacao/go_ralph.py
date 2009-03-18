@@ -24,17 +24,20 @@ class Environment(DirectObject):
 
 	def __init__(self):
 		# show the text on screen
-		self.title = OnscreenText(pos=(0.8, -0.95), fg=(255, 255, 0, 90))
+		self.title = OnscreenText(pos=(0.8, -0.85), fg=(255, 255, 0, 90))
+		self.title2 = OnscreenText(pos=(0.8, -0.95), fg=(255, 255, 0, 90))
 		# load the environment model
 		self.environment = loader.loadModel("./modelos/[modelo] novo galpao.egg")
 		# load the actor from module Robot
 		self.robot = Robot().robot
 		self.odometer = 0
+		self.distanceLaser = self.robot
+		self.threshold = 0.9852941
 		# adjusting scale and position of the model
 		self.environment.setScale(10, 10, 10)
-		self.environment.setPos(0, 0, 0)
+		self.environment.setPos(0, 0, 2.01)
 		self.robot.setScale(5, 5, 5)
-		self.robot.setPos(0, 0, -2)
+		self.robot.setPos(0, 0, 0)
 		# render
 		self.environment.reparentTo(render)
 		self.robot.reparentTo(render)
@@ -92,7 +95,7 @@ class Environment(DirectObject):
                 base.floor.addCollider(self.robotGroundColNp, self.robot)
                 
                 #para o laser    
-                self.laser  = CollisionSegment (0, 0, 3, 0,-30,3) 
+                self.laser  = CollisionSegment (0, 0, 0, 0,-30,0) 
                 self.laserNode = CollisionNode ('laserNode')
                 self.laserNodePath = self.robot.attachNewNode(self.laserNode)
                 self.laserNodePath.node().addSolid(self.laser)
@@ -142,18 +145,18 @@ class Environment(DirectObject):
 			i += 1
 		self.goTo()
 	#--------------------------------------------------
-	
+
 	def setKey(self, key, value):
 		"""	set a value within the key into keyMap """
-		
+
 		self.keyMap[key] = value
 	#--------------------------------------------------
-	
+
 	def move(self, task):
 		""" allow the keyboard movement """
-	
-		elapsed = task.time - self.prevtime
 
+		elapsed = task.time - self.prevtime
+                beforePosition = {"X":self.robot.getX(), "Y":self.robot.getY(), "Z":self.robot.getZ()}
 		# If a move-key is pressed, move robot in the specified direction.
 
 		if (self.keyMap["left"]!=0):
@@ -164,12 +167,14 @@ class Environment(DirectObject):
 				backward = self.robot.getNetTransform().getMat().getRow3(1)
 				backward.normalize()
 				self.robot.setPos(self.robot.getPos() - backward*(elapsed*50))
-				self.odometer += 0.04
+				#The odometer accumulates the value of the distance
+				#between its previous position until his current position.
+				self.odometer += self.threshold*sqrt((self.robot.getX()-beforePosition["X"])**2 + (self.robot.getY()-beforePosition["Y"])**2 + (self.robot.getZ()-beforePosition["Z"])**2)
 
 		# If robot is moving, loop the run animation.
 		# If he is standing still, stop the animation.
 		if (self.keyMap["forward"]!=0) or (self.keyMap["left"]!=0) or \
-																						(self.keyMap["right"]!=0):
+		(self.keyMap["right"]!=0):
 				if self.isMoving is False:
 						self.robot.loop("run")
 						self.isMoving = True
@@ -182,16 +187,29 @@ class Environment(DirectObject):
 		self.floater.setPos(self.robot.getPos())
 		self.floater.setZ(self.robot.getZ() + 10)
 		base.camera.lookAt(self.floater)
+                entries=[]
+                entry=0
+                base.laser.sortEntries()
+                for i in range(base.laser.getNumEntries()):
+                        entry = base.laser.getEntry(i)
+                        entries.append(entry)
+
+                if (len(entries)>1):
+   			self.distanceLaser = entries[1].getSurfacePoint(render)
+			self.getXYZ()
+                else:
+                        self.distanceLaser = "INFINITO"
 
 		# Store the task time and continue.
 		self.prevtime = task.time
 		return Task.cont
 	#--------------------------------------------------
-	
+
 	def printXYZ(self, task):
 		""" prints the X, Y, Z position of the actor """
 
 		self.title.setText(self.getXYZ())
+		self.title2.setText(self.getInfos())
 		return Task.cont
 	#--------------------------------------------------
 
@@ -200,10 +218,21 @@ class Environment(DirectObject):
 			returns a string of the actual position like 'x: value, y: value, z:
 			value'
 		"""
-		
-		return "X: %.2f Y: %.2f Z: %.2f %.2f"\
-		% (self.robot.getX(), self.robot.getY(), self.robot.getZ(), self.odometer)
+
+		return "X: %.2f Y: %.2f Z: %.2f "\
+		% (self.robot.getX(), self.robot.getY(), self.robot.getZ())
 	#--------------------------------------------------
+        def getInfos(self):
+                """
+                        returns a string of the actual position like 'x: value, y: value, z:
+                        value'
+                """
+                if (self.distanceLaser == "INFINITO"):
+                        return "Odometer: %.2f Laser: %s"\
+                        %( self.odometer, self.distanceLaser)
+                else:
+                        return "Odometer: %.2f Laser: %.1f"\
+                        %( self.odometer, sqrt( (self.robot. getPos().getX() - self.distanceLaser.getX())**2 +(self.robot. getPos().getY() - self.distanceLaser.getY())**2+( self.robot. getPos().getZ() - self.distanceLaser.getZ())**2)-10)
 
 a = Environment()
 run()
