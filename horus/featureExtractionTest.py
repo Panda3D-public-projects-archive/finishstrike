@@ -64,3 +64,25 @@ class FeatureExtractionTest(unittest.TestCase):
         assert 1 == featureMatrix[5][3], featureMatrix[5]
         assert 1 == featureMatrix[0][4], featureMatrix[0]
         assert 1 == featureMatrix[4][5], featureMatrix[4]
+        
+    def testGet2Loops(self):
+        
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"testImages/two_squares.PNG")
+        imageP = image.Image(path = imagePath)
+        assert 2 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
+        
+    def testGet3Loops(self):
+        
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"testImages/three_squares.PNG")
+        imageP = image.Image(path = imagePath)
+        assert 3 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
+        
+    def testGet2LoopsFromBChar(self):
+        
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"testImages/b_SK.PNG")
+        imageP = image.Image(path = imagePath)
+        assert 2 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
+        

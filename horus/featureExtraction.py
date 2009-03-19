@@ -155,6 +155,43 @@ def hildtchSkeletonize(image):
             break                                 
     return image
 
+def getNumJunctions(image):
+    pass
+def getNumLineEnds(image):
+    pass
+def getNumLoops(image):
+    import pdb    
+    numRegions = 0;    
+    
+    for j in range( image.content.size[1] ):
+        transition = 0;
+        #if j == 5: pdb.set_trace()
+        for i in range(image.content.size[0] ):            
+                flag = 0;
+                pixelValue = image.getpixel((i,j));
+                if(i+1 < image.content.size[0]):
+                    if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
+                        if((image.topLeftNeibor((i+1, j)) == 0) and   
+                               (image.topNeibor((i+1,j)) == 0)):
+                            
+                        #if(image.topLeftNeibor((i+1, j)) * image.topNeibor((i+1,j)) * 
+                        # image.topRightNeibor((i+1, j)) == 0):                            
+                            count = i + 1;                            
+                            while(count < image.content.size[0]):                                
+                                if(image.getpixel((count, j)) == 0): 
+                                    line_count = j + 1
+                                    while(line_count < image.content.size[1]):
+                                        if(image.getpixel((i + 1, line_count)) == 0):
+                                            numRegions += 1
+                                            break
+                                        line_count += 1
+                                    if(image.getpixel((i + 1, line_count)) == 0):
+                                            break 
+                                count += 1
+    return numRegions
+                        
+                     
+                
 """
     count the number of 0 to 255 transitions in the 8 neighborhood of a pixel 
     in a clock-wise order.      
