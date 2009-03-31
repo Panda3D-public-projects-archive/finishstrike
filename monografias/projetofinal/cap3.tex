@@ -1,40 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   SEGMENTAÇÃO DE IMAGENS: TRABALHOS RELACIONADOS
+%%  ROBÓTICA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-\chapter{Segmentação de Imagens: Trabalhos Relacionados}
-\label{cap:trabalhos_relacionados}
-
-Segmentar, em Processamento Digital de Imagens, consiste em subdividir uma imagem em suas partes ou objetos constituintes.  Nesta Seção são apresentados alguns dos principais trabalhos relacionados com segmentação de imagens, que podem ser aplicados ao problema tratado. 
-
-\citeauthor{CFSin-Leung_2001} utiliza segmentação de imagens em tons de cinza através do método SGME, que utiliza o algoritmo de \textit{threshold}, a partir de  medição em moldes. Esse método consiste em saber o quanto a imagem está segmentada e tem de informações exatas sobre uma cena. Com isso temos  uma imagem melhor segmentada  do que os métodos threshold convencionais.
-
-\citeauthor{Schupp_et_al_1997} utiliza  a segmentação de imagens para fins médicos, principalmente algoritmo morfológico e contornos ativos. Esse é um tipo de técnica não específica, cada aplicação dependerá do tipo de imagem e da prioridade dos dados a serem extraídos.  Alguns métodos não podem mudar as suas topologias, dificultando segmentação para objetos desconhecidos com relação aos contornos. Esse modelo pode ser utilizado tanto para imagens em 2D e 3D. 
-
-\citeauthor{Haris_et_al_1998} utiliza imagens híbridas multidimensionais, combinando com algoritmo morfológico e utilização de \textit{watersheds}. Esse processo tenta captar a estimativa exata do gradiente da imagem; contudo, esses métodos trabalham sobre condições muito restritas, para determinados tipos de imagens.  
-
-\citeauthor{BERTOLA_et_al_2003} menciona o uso do programa computacional Digitora na determinação de fatores de empilhamento. O funcionamento do programa se constitui em aplicar ao meio digital o método proposto por Garland (1968 \textit{apud} \citeauthor{BERTOLA_et_al_2003}).  A análise dos pontos depende de um operador humano que precisa classificar cada um deles se é ou não um espaço vazio. Como resultado das avaliações, verificou-se que, apesar de propiciar estimativas precisas dos fatores de empilhamento, houve uma leve tendência de superestimação dos fatores pelo software; e que é o treinamento do operador com relação à classificação dos pontos sobre as fotografias no sistema é condição primordial para obtenção de estimativas precisas destes fatores. Além disso, o programa depende da classificação manual dos vários pontos marcados na foto, o que contribui para o aumento do tempo de conclusão do trabalho.
-  
-\citeauthor{WU_1998} trata um problema de segmentação de fotos microscópicas de células através da criação de uma ``imagem paramétrica'', ou seja, uma imagem formada por um conjunto de variáveis (ou parâmetros). Os autores tratam do problema de segmentação como um problema de otimização, aplicando algoritmos conhecidos para maximizar/minimizar as equações e, logo após, aplicam o \textit{Threshold} simples. Os resultados mostram que, o algoritmo de otimização proposto é bem robusto quanto ao ruído da imagem. As comparações com o algoritmo \textit{K-mean} (K-vizinhos) e os métodos de classificação de Bayes em imagens de células sintéticas, mostraram que  o algoritmo proposto supera os outros dois quando são adicionados ruídos às imagens.
-
-\citeauthor{Bullitt-Aylward_2002} descrevem um novo método de redução de volume através de \textit{ray-casting} para fins cirúrgicos, a fim de detectar e diminuir os erros de segmentação, possibilitando analisar a base real de dados da imagem. Este método permite que o usuário remova objetos detectados erroneamente, e tem a capacidade de dilatar as margens da segmentação, de modo que os dados circunvizinhos da imagem possam ser vistos se houver dúvida sobre as regiões definidas na segmentação. O método encontra algumas limitações para selecionar determinados tipos de estrutura, mas permite que o clínico possa ver lesões de uma forma mais aproximada. 
-
-\citeauthor{Gao-Chi-Hou_2001}  mostra um sistema de segmentação de imagens não supervisionado, baseado em algumas estratégias conhecidas, considerando dados da imagem como cor ou luminescência, trabalhando em três passos: simplificação, extração da marcação e definição das bordas. Com base nos testes, conclui-se ser esta um técnica robusta, com resultados espaciais muito bons. 
-
-\citeauthor{Oliveira_et_al_2001} utiliza segmentação de imagens na verificação de cheques brasileiros em um banco. A representação dos resultados identifica a quantidade numérica, baseando-se em diversos níveis de processamento das imagens. Com isso, o esforço manual da tarefa de conferência de cheques é reduzido.
-
-\citeauthor{Bhanu-Peng_2001} apresentam um método de segmentação de imagens para reconstituição de objetos, no contexto de um ambiente em mudança, em \textit{real-time}. O trabalho propõe uma adaptação automática do algoritmo às condições do ambiente, como o tempo (sol, nublado, nevando, chovendo).
-
-\citeauthor{Albuquerque_2003} utiliza a entropia não extensiva para segmentação de imagens, aplicando as técnicas de C. Tsallis \cite{Tsallis_1988}. A técnica apresenta bons resultados em muitos casos, inclusive sobressaindo quando aplicada a imagens com ruídos. O método encontra vantagens na segmentação de imagens, quando é necessário um limiar automático. O procedimento utilizado é melhor discutido no Capítulo \ref{cap:metodo_proposto} deste trabalho.
-
-\citeauthor{Lombardo-Oliver_2001} utiliza a técnicas de probabilidade máxima para  processar imagens de satélite (SAR) e verificar determinados tipos de mudanças na superfície da terra. Essa técnica apresenta a segmentação de uma área, classificando em diversas regiões. A solução possui uma carga computacional elevada.
-
-\citeauthor{Santos_2001} se refere à utilização de técnicas de segmentação de imagens para a detecção de nódulos de câncer de mama, utilizando a técnica de \textit{Watershed} e técnicas de pré e pós-processamento. O pré-processamento aumenta o contraste da imagem para melhor detecção; embora com isso tenha sido detectado um aumento dos ruídos presentes nas imagens. Para isso a técnica de pós-processamento foi utilizada: para reduzir o mesmo e destacar as regiões de interesse. 
-
-\citeauthor{Medeiros_e_Silva} utilizam técnicas de Processamento Remoto e técnicas de Processamento Digital de Imagens (PDI), principalmente a de morfologia matemática na área de cartografia para a extração de feições. Também é utilizada a técnica \textit{watershed} para imagens de sensoriamento remoto.  Dentre as técnicas de PDI, a extração de feições pode ser muito útil ,no que diz respeito à interpretação e análise de dados combinados com a técnica \textit{watershed}, que captura mais dados de interesse para serem analisados.
-
-\citeauthor {Moreira-Delgado} verificam o desempenho da segmentação e classificação supervisionada por regiões, implementadas no SPRING/INPE, para identificar áreas com diferentes fases de degradação de pastagem. A técnica do sistema se divide em 3 partes: Segmentação, Treinamento e Classificação, que mostra de uma forma eficiente a separação das regiões.
- 
-\citeauthor{ALMEIDA_FILHO_1998} usa a segmentação de imagem baseada em um algoritmo de crescimento de regiões homogêneas em uma imagem baseadas na floresta Amazônica. A classificação temática é baseada em um grupo de elementos da imagem (pixels), analisando a informação contextual, evitando desse modo às limitações das técnicas de processamento digital que são baseadas individualmente nos pixels.
+\chapter{Robótica}
+\label{cap:robotica}
+\section{Sensores}
+\section{Efetuadores}
+\section{Percepção}
+\section{Localização}
+\section{Mapeamento}
+\section{Planejamento}
+\section{Movimento}
+\section{Controle}
