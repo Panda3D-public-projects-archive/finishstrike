@@ -215,3 +215,31 @@ def countTransitions(image, pixel):
     if(image.topLeftNeibor(pixel) == 0)&(image.topNeibor(pixel) == 255):
         count += 1
     return count
+
+
+def blocksIntensity(image):
+    """
+         
+    """    
+    pixelMatrix = image.matrix_content  
+    hSize = image.content.size[1]/5#image.content.size[1]/5
+    wSize = image.content.size[0]/5#image.content.size[0]/5
+    height_position = 0
+    width_position = 0     
+    pattern_list = []   
+    while height_position < image.content.size[1]:
+        while width_position < image.content.size[0]:
+            if (height_position + hSize) <= image.content.size[1] and (wSize + width_position) <= image.content.size[0]:
+                matrixCroped = [i[height_position:(height_position+hSize)] for i in pixelMatrix[width_position:width_position+wSize]]
+                blackItensity = 0
+                for line in matrixCroped:
+                    blackItensity += line.count(0)  
+                pattern_list.append(blackItensity)
+            width_position += wSize
+        height_position += hSize
+        width_position = 0           
+        
+    return pattern_list
+    
+    
+            

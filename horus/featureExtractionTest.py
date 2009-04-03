@@ -84,5 +84,26 @@ class FeatureExtractionTest(unittest.TestCase):
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/b_SK.PNG")
         imageP = image.Image(path = imagePath)
-        assert 2 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
+        assert 2 == featureExtraction.getNumLoops(imageP), \
+                                    featureExtraction.getNumLoops(imageP)
+        
+    def testBlackIntensity4Regions(self):
+        
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"testImages/blackItensityTest.PNG")
+        imageP = image.Image(path = imagePath)
+        output_expected = [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 
+                        0, 0, 0, 2, 1, 0, 3, 1, 0, 0, 0, 0, 0]
+        assert  output_expected == featureExtraction.blocksIntensity(imageP), \
+                                 featureExtraction.blocksIntensity(imageP)
+        
+    def testBlackIntensityFourNumber(self):
+        
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"testImages/blackItensityTestNumberFour.PNG")
+        imageP = image.Image(path = imagePath)
+        output_expected = [1, 0, 0, 0, 1, 4, 0, 0, 0, 4, 4, 0, 
+                     0, 0, 4, 1, 3, 3, 3, 5, 0, 0, 0, 0, 4]        
+        assert output_expected == featureExtraction.blocksIntensity(imageP), \
+                                 featureExtraction.blocksIntensity(imageP)
         
