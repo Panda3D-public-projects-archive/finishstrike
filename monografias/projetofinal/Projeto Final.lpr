@@ -122,8 +122,13 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
+<<<<<<< .mine
+CaretPos.X=235
+CaretPos.Y=8
+=======
 CaretPos.X=0
 CaretPos.Y=0
+>>>>>>> .r159
 CharSet=def
 FileName=cap2.tex
 FoldedLines=
