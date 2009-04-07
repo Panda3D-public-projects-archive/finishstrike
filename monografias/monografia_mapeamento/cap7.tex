@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Mapeamento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Mapeamento}
+\label{cap:mapeamento}
+\paragraph O mapeamento é uma funcionalidade que é tratada de muitas formas dentro da literatura. O uso de algoritmos de mapeamento permite que um agente móvel possa identificar sua posição em um ambiente desconhecido e identificar o local em que está inserido. Com o ambiente devidamente mapeado é possível otimizar a rota uma vez que o agente já o conhece.
+
+O método de mapeamento que será incluído no Toolkit Hórus será o SLAM (Simultaneous Localization and Mapping), tendo em vista que ele soluciona dois problemas clássicos da teoria das posições, que define a dificuldade de se localizar em um ambiente desconhecido e a dificuldade de mapear um ambiente onde não se sabe onde está.
+
+\section{SLAM}
+
+O Simultaneous Localization and Mapping é uma técnica utilizada em agentes autônomos para o mapeamento de ambientes desconhecidos levando em consideração a sua posição atual como a posição inicial para início do mapeamento. Os sensores que podem ser utilizados para a implementação do são diversos. Para a prova de conceito foi utilizado o odômetro, dispositivo que mensura distâncias percorridas, e o laser, dispositivo para detectar a presença de objetos na cena.
+
+O SLAM é composto por vários segmentos que são independentes e tem suas comunicações muito bem estabelecidas o que os torna mais flexíveis quanto aos algoritmos utilizados em cada um dos segmentos. Cada um dos segmentos tem uma enorme gama de algoritmos que o compõe. Foram incorporadas ao Tool Kit apenas as mais otimizadas e relevantes para melhor utilização no processo.
+
+Esses segmentos são:
+\begin{enumerate} 
+	\item Landmark Extraction: Segmento responsável pela extração de marcos no ambiente.
+	\item Data Association: Segmento que associa os dados extraídos de um mesmo marco por diferentes leituras do laser.
+	\item State Estimation: Segmento responsável por estimar a posição atual do robô com base em seu odômetro e nas extrações de marcos no ambiente.
+	\item State Update: Segmento que atualiza o estado atual do agente.
+	\item Landmark Update: Segmento que atualiza as posições dos marcos no ambiente em relação ao agente.
+\end{enumerate} 
+
+\subsection{Landmark Straction}
+A forma de gestão dos marcos (objetos) e dos pontos de movimentação (áreas de movimentação do agente) foi feita através de um grafo. A escolha dessa estrutura foi baseada na sua credibilidade e largo uso na literatura.
+
+\subsection{Data Association}
+O segmento Data Association (tradução livre: Associação de Dados) é responsável pela filtragem e associação dos dados obtidos através dos dispositivos do agente. 
+
+Uma vez que um marco seja visualizado em um passo do agente e esse mesmo marco é visto novamente em um novo passo, a sua posição mudou, em relação ao agente. O Data Association faz a analíse da posição autal do marco com a sua posição imediatamente aterior, com esse paralelo certifica-se que o marco existe ou se ele foi removido da cena.
+
+Este segmento tem como saída para o State Estimation um lista com os marcos da cena.
+
+\subsection{State Estimation}
+O segmento State Estimation (tradução livre: Estimação do Estado) tem com objetivo analisar as informações passadas pelo Data Association e estimar as posições dos marcos e do agente, com essas informações ele prepara as posições de cada elemento na cena e analisa o estado anterior já gravado. 
+
+\subsection{State Update}
+
+O State Update (tradução livre: Atualização do Estado) faz a gravação do estado atual do agente, sua posição, em relação a posição inicial, valores relativos ao odômetro. 
+
+\subsection{Landmark Update}
+
+Com o mesmo objetivo e com focos diferentes, o State Update (tradução livre: Atualização de marcos) faz a gravação do estado atual dos marcos, sua posição, em relação a posição do agente. 
