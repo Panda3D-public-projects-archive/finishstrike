@@ -234,15 +234,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=170
-CaretPos.Y=27
+CaretPos.X=0
+CaretPos.Y=0
 CharSet=def
 FileName=cap7.tex
 FoldedLines=
 IsMainFile=no
 Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=46
+ScrollPos.Y=1
 SearchListCount=1
 
 [Files\17\SearchList\0]
@@ -307,7 +307,7 @@ FoldedLines=
 IsMainFile=no
 Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=18
+ScrollPos.Y=1
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
