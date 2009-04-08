@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.3.7)  7 APR 2009 21:17
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.3.7)  8 APR 2009 20:17
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -267,6 +267,73 @@ LaTeX Info: Redefining \newblock on input line 562.
 LaTeX Info: Redefining \cite on input line 831.
 \ABCItoken=\toks23
 )
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
 \c@mypage=\count117
 
 (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
@@ -274,18 +341,24 @@ LaTeX Info: Redefining \cite on input line 831.
 (introducao.aux) (cap1.aux) (cap2.aux) (cap3.aux) (cap4.aux) (cap5.aux)
 (cap6.aux) (cap7.aux) (cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux)
 (apendice.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 64.
+ ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 64.
  (capa.tex [1
 
 
@@ -392,12 +465,6 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 ] (cap1.tex
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
@@ -478,17 +545,25 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[22])
+[22]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[23] (cap8.tex
+[23])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[24]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[25] (cap8.tex
 Cap\'{\i }tulo 9.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[24
+[26
 
 
 
@@ -500,7 +575,7 @@ Cap\'{\i }tulo 10.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[25
+[27
 
 
 
@@ -514,7 +589,7 @@ Ap\^endice A.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[26
+[28
 
 
 
@@ -526,7 +601,7 @@ Ap\^endice B.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[27
+[29
 
 ] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
@@ -534,21 +609,22 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 (cap6.aux) (cap7.aux) (cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux)
 (apendice.aux)) ) 
 Here is how much of TeX's memory you used:
- 2737 strings out of 95304
- 32508 string characters out of 1182725
- 95562 words of memory out of 1500000
- 5739 multiletter control sequences out of 110000
- 9821 words of font info for 35 fonts, out of 3000000 for 5000
+ 3158 strings out of 95304
+ 39017 string characters out of 1182725
+ 98134 words of memory out of 1500000
+ 6153 multiletter control sequences out of 110000
+ 10158 words of font info for 36 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 27i,12n,25p,510b,339s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cm
+ 27i,11n,25p,510b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/
+cm-super-ts1.enc}<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cm
 bx12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr10.pfb>
 <C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arqui
-vos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:/Arquivos de p
-rogramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmti12.pfb>
-Output written on Projeto_Final.pdf (28 pages, 66499 bytes).
+vos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmti12.pfb><C:/Arquivos de p
+rogramas/MiKTeX 2.7/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on Projeto_Final.pdf (30 pages, 77342 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 119 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

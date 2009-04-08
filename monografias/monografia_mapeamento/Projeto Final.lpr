@@ -178,15 +178,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=321
-CaretPos.Y=7
+CaretPos.X=38
+CaretPos.Y=9
 CharSet=def
 FileName=cap3.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=10
+ScrollPos.Y=9
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
@@ -255,7 +255,7 @@ Text=\cite
 [Files\17]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=1
+TabOrder=0
 UseThesaurus=yes
 WrapLine=yes
 
@@ -299,19 +299,19 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=147
+CaretPos.Y=8
 CharSet=def
 FileName=cap1.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
-ScrollPos.X=0
-ScrollPos.Y=1
+Opened=no
+ScrollPos.X=33
+ScrollPos.Y=0
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=0
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -439,15 +439,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=150
+CaretPos.X=160
 CaretPos.Y=8
 CharSet=def
 FileName=introducao.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
-ScrollPos.X=0
-ScrollPos.Y=7
+ScrollPos.X=2
+ScrollPos.Y=1
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
@@ -529,10 +529,10 @@ CharSet=def
 FileName=Projeto_Final.tex
 FoldedLines=
 IsMainFile=yes
-Opened=no
+Opened=yes
 ScrollPos.X=0
 ScrollPos.Y=1
-SearchListCount=1
+SearchListCount=2
 
 [Files\7\SearchList\0]
 CaseSensitive=no
@@ -541,10 +541,17 @@ RegExp=no
 Show=1
 Text=sub
 
+[Files\7\SearchList\1]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=1
+Text=text
+
 [Files\7]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=-1
+TabOrder=1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -662,10 +669,10 @@ Zoom=9
 FileName=1
 FirstPage=0
 Magnifier=5
-Page=12
+Page=24
 PaperHeight=297
 PaperWidth=210
-Zoom=14
+Zoom=7
 
 [Project\Dictionaries\1033\0]
 Active=Yes
