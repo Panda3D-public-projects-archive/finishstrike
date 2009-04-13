@@ -32,10 +32,11 @@
 \contentsline {section}{\numberline {8.1}SLAM}{22}
 \contentsline {subsection}{\numberline {8.1.1}Landmark Straction}{22}
 \contentsline {subsubsection}{\numberline {8.1.1.1}RANSAC}{23}
-\contentsline {subsection}{\numberline {8.1.2}Data Association}{24}
-\contentsline {subsection}{\numberline {8.1.3}State Estimation}{24}
-\contentsline {subsection}{\numberline {8.1.4}State Update}{24}
-\contentsline {subsection}{\numberline {8.1.5}Landmark Update}{24}
+\contentsline {subsubsection}{\numberline {8.1.1.2}RANSAC}{23}
+\contentsline {subsection}{\numberline {8.1.2}Data Association}{23}
+\contentsline {subsection}{\numberline {8.1.3}State Estimation}{23}
+\contentsline {subsection}{\numberline {8.1.4}State Update}{25}
+\contentsline {subsection}{\numberline {8.1.5}Landmark Update}{25}
 \contentsline {chapter}{\numberline {9}Aplica\c c\~ao do ambiente virtual com um rob\^o aut\^onomo}{26}
 \contentsline {chapter}{\numberline {10}Conclus\~oes e Trabalhos Futuros}{27}
 \contentsline {chapter}{Ap\^endices}{28}

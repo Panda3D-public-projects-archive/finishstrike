@@ -234,15 +234,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=43
+CaretPos.Y=59
 CharSet=def
 FileName=cap7.tex
 FoldedLines=
 IsMainFile=no
 Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=85
 SearchListCount=1
 
 [Files\17\SearchList\0]
@@ -523,15 +523,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=24
+CaretPos.Y=26
 CharSet=def
 FileName=Projeto_Final.tex
 FoldedLines=
 IsMainFile=yes
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=19
 SearchListCount=2
 
 [Files\7\SearchList\0]
@@ -551,7 +551,7 @@ Text=text
 [Files\7]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=1
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -672,7 +672,7 @@ Magnifier=5
 Page=24
 PaperHeight=297
 PaperWidth=210
-Zoom=7
+Zoom=8
 
 [Project\Dictionaries\1033\0]
 Active=Yes

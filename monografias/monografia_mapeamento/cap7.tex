@@ -43,37 +43,32 @@ Existem dois algoritmos que foram analisados para ser incorporados nesse segment
 O RANSAC (Random Sampling Consensus) algoritmo que utiliza-se de uma grande quantidade de informações para estimar os dados relevantes de um modelo matemático. Em conjunto com o SLAM o RANSAC identifica linhas de acordo com os pontos passados pelo laser, através da identificação de pontos muito próximos uns dos outros pode-se concluir que ali existe linhas, ou nesse caso, paredes que impossibilitam a transposição do agente.
 
 Através de vários marcos o RANSAC obtêm uma amostra que será analisada a fim de encontrar pontos próximos, consequentemente uma parede, baseado em um limir de proximidade. Esse limiar é chamado de Consensus.
+\begin{table}
+\centering         
+\begin{algorithmic}                
+	\WHILE{
+	\begin{itemize}
+		\item Houverem leituras de laser não associadas.  
+		\item  \textbf{E} o número de leituras for maior que o limiar; 
+		\item  \textbf{E} o número de iterações não for maior que o limite.
+	\end{itemize}}
+	\STATE - Selecionar uma leitura de laser na lista.
+	\STATE - Seleciona uma quantidade S de exemplos de leitura do laser que estão associadas a uma quantidade D de graus daquele laser.
+	\STATE - Usando esses exemplos S e a leitura original para calcular o menor quadrado que se ajuste a linha. 
+	\STATE - Determinar quantas leituras do laser estão dentro de X unidades de medida que melhor se ajustam a linha.
+	\IF {O número de leituras do laser que ficam sobre a linha é maior que o Consensus}
+	 \STATE - Calcular o novo mínimo quadrado que melhor se ajuste a linha, com base em todas as leituras e a linha formada anteriormente. 
+	\STATE - Adicionar o melhor ajuste baseado no calculo anterior. 
+	\STATE - Remover o número de leituras que cruzam a linha do total de leituras não associadas. 
+	\ENDIF
+	\ENDWHILE
+\end{algorithmic}
+\caption{Algoritmo RANSAC}
+\end{table}
 
-\begin{itemize}
-\item \textbf{While} \textit{(There are still unassociated laser readings, and the number of readings is larger than the consensus, and we have done less than N trials.)}
 
-\textbf{do}
 
- \texttwelveudash Select a random laser data reading. 
-
- \texttwelveudash Randomly sample S data readings within D degrees of this laser 
-data reading (for example, choose 5 sample readings that lie 
-within 10 degrees of the randomly selected laser data reading). 
- 
- \texttwelveudash  Using these S samples and the original reading calculate a 
-least squares best fit line. 
- 
- \texttwelveudash  Determine how many laser data readings lie within X centimeters 
-of this best fit line.   
- 
- \texttwelveudash  If the number of laser data readings on the line is above some 
-consensus C do the following: 
-
-~~~~~~~~~~\textasteriskcentered Calculate new least squares best fit line based on all the laser readings determined to lie on the old best fit 
-line. 
-
-~~~~~~~~~~\textasteriskcentered Add this best fit line to the lines we have extracted. 
- 
-~~~~~~~~\textasteriskcentered  Remove the number of readings lying on the line from the 
-total set of unassociated readings. 
-od
-
-\end{itemize}
+\subsubsection{RANSAC}
 
 \subsection{Data Association}
 O segmento Data Association (tradução livre: Associação de Dados) é responsável pela filtragem e associação dos dados obtidos através dos dispositivos do agente. 
