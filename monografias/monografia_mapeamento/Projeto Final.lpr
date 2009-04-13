@@ -242,7 +242,7 @@ FoldedLines=
 IsMainFile=no
 Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=85
+ScrollPos.Y=90
 SearchListCount=1
 
 [Files\17\SearchList\0]
