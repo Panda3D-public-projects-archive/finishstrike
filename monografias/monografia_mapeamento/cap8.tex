@@ -5,3 +5,18 @@
 
 \chapter{Aplicação do ambiente virtual com um robô autônomo}
 \label{cap:aplicacao_autonomo}
+A fim de produzir uma prova de conceito, foi implementada uma aplicação onde foi possível demonstrar a eficiência do algoritmo de mapeamento. Foi produzido um simulador com gravidade, colisão, rederização de texturas, objetos e atores (o agente nesse caso) e, tendo esse simulador como base, foi criada a aplicação que tem um agente utilizando-se do Toolkit Hórus para mapeamento e navegação dentro do ambiente simulado.
+\section{Simulador}
+O simulador desenvolvido foi tratado como uma aplicação a parte, pois não estava incluído no escopo do projeto, porém tendo em vista a necessidade de um simulador customizado para a realidade de um agente móvel (e na linguagem selecionada) o simulador foi incluido ao projeto. 
+
+\subsection{Requisitos para o ambiente virtual}
+Foram utilizados alguns softwares para que fosse possível a criação e renderização do ambiente. Esses softwares foram: Blender e Panda3d.
+Como uma das linguagens utilizadas foi Python, buscou-se ferramentas que fossem compatíveis (na verdade ambas são em Python) com as linguagens utilizadas.
+
+\subsubsection{Blender}
+O Blender é um produto da Blender Fundation, que é open source e desenvolvido em Python para modelagem de objetos 3D que está disponível para vários sistemas operacionais sobre a licença GNU (General Public License).
+
+\subsubsection{Panda3D}
+O Panda3D é um produto da equipe de desenvolvimento da Walt Disney para renderização de jogos e ambientes virtuais em terceira dimensão. Estão sobre licença da BSD License (com algumas modificações para adequação a realidade do projeto).
+
+\subsection{Ambiente}
