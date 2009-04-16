@@ -99,12 +99,17 @@ class Environment(DirectObject):
         self.createColliders()
         self.printLasersResult()
     #--------------------------------------------------
+        #music for test
+        self.musicBoxSound = base.loadMusic('./modelos/missaoimpossivel.mp3')
+        self.musicBoxSound.setVolume(1)
+        self.musicBoxSound.setLoopCount(200) 
+        self.musicBoxSound.play()
     # collision
 
     def createColliders(self):
             #create the collision sphere
             self.robotSphereCN = CollisionNode('robotSphere')
-            self.robotSphereCN.addSolid(CollisionSphere(0,0,3,2))
+            self.robotSphereCN.addSolid(CollisionSphere(0,0,3,2.216))
             self.robotEsfNP = self.robot.attachNewNode(self.robotSphereCN)
             self.robotEsfNP.show()
             base.cTrav.addCollider(self.robotEsfNP, base.pusher)
@@ -242,8 +247,6 @@ class Environment(DirectObject):
             base.cTrav.addCollider(self.laserNodePath17, base.laser17)
             base.cTrav.addCollider(self.laserNodePath18, base.laser18)
             base.cTrav.addCollider(self.laserNodePath19, base.laser19)
-
-            
             base.cTrav.traverse(render)
             #!! verifying necessity of the code bellow !!
             # self.laserNodePath.show()
@@ -266,8 +269,6 @@ class Environment(DirectObject):
             # self.laserNodePath18.show()
             # self.laserNodePath19.show()
             
-
-
 
     def addInterval(self, posInicial, posFinal):
         """
