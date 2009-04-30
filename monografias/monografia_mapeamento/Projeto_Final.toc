@@ -1,49 +1,47 @@
 \select@language {english}
 \select@language {brazil}
-\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{11}
-\contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{12}
-\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{12}
-\contentsline {section}{\numberline {2.2}Teste de Turing}{13}
-\contentsline {section}{\numberline {2.3}T\'ecnicas de IA}{13}
-\contentsline {subsection}{\numberline {2.3.1}RNA}{13}
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos Gen\'eticos}{13}
-\contentsline {subsection}{\numberline {2.3.3}L\'ogica Fuzzy}{13}
-\contentsline {chapter}{\numberline {3}Vis\~ao Computacional}{14}
-\contentsline {chapter}{\numberline {4}Rob\'otica}{15}
-\contentsline {section}{\numberline {4.1}Sensores}{16}
-\contentsline {section}{\numberline {4.2}Efetuadores}{16}
-\contentsline {section}{\numberline {4.3}Percep\c c\~ao}{16}
-\contentsline {section}{\numberline {4.4}Localiza\c c\~ao}{16}
-\contentsline {section}{\numberline {4.5}Mapeamento}{16}
-\contentsline {section}{\numberline {4.6}Planejamento}{16}
-\contentsline {section}{\numberline {4.7}Movimento}{16}
-\contentsline {section}{\numberline {4.8}Controle}{16}
-\contentsline {chapter}{\numberline {5}Arquiteturas em Rob\'otica}{17}
-\contentsline {chapter}{\numberline {6}O Toolkit Horus}{18}
-\contentsline {section}{\numberline {6.1}Objetivo}{18}
-\contentsline {section}{\numberline {6.2}Arquitetura}{18}
-\contentsline {section}{\numberline {6.3}M\'odulos do Horus}{18}
-\contentsline {subsection}{\numberline {6.3.1}Core do Horus}{18}
-\contentsline {subsection}{\numberline {6.3.2}Modulo de Vis\~ao}{18}
-\contentsline {subsection}{\numberline {6.3.3}Modulo de Mapeamento}{18}
-\contentsline {chapter}{\numberline {7}ANPR}{19}
-\contentsline {chapter}{\numberline {8}Mapeamento}{20}
-\contentsline {paragraph}{O}{20}
-\contentsline {section}{\numberline {8.1}SLAM}{21}
-\contentsline {subsection}{\numberline {8.1.1}Landmark Straction}{21}
-\contentsline {subsubsection}{\numberline {8.1.1.1}RANSAC}{22}
-\contentsline {subsubsection}{\numberline {8.1.1.2}RANSAC}{22}
-\contentsline {subsection}{\numberline {8.1.2}Data Association}{22}
-\contentsline {subsection}{\numberline {8.1.3}State Estimation}{22}
-\contentsline {subsection}{\numberline {8.1.4}State Update}{24}
-\contentsline {subsection}{\numberline {8.1.5}Landmark Update}{24}
-\contentsline {chapter}{\numberline {9}Aplica\c c\~ao do ambiente virtual com um rob\^o aut\^onomo}{25}
-\contentsline {section}{\numberline {9.1}Simulador}{25}
-\contentsline {subsection}{\numberline {9.1.1}Requisitos para o ambiente virtual}{25}
-\contentsline {subsubsection}{\numberline {9.1.1.1}Blender}{26}
-\contentsline {subsubsection}{\numberline {9.1.1.2}Panda3D}{26}
-\contentsline {subsection}{\numberline {9.1.2}Ambiente}{26}
-\contentsline {chapter}{\numberline {10}Conclus\~oes e Trabalhos Futuros}{28}
-\contentsline {chapter}{Ap\^endices}{29}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{29}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{30}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{12}
+\contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{13}
+\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{13}
+\contentsline {section}{\numberline {2.2}Teste de Turing}{14}
+\contentsline {section}{\numberline {2.3}T\'ecnicas de IA}{14}
+\contentsline {subsection}{\numberline {2.3.1}RNA}{14}
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos Gen\'eticos}{14}
+\contentsline {subsection}{\numberline {2.3.3}L\'ogica Fuzzy}{14}
+\contentsline {chapter}{\numberline {3}Vis\~ao Computacional}{15}
+\contentsline {chapter}{\numberline {4}Rob\'otica}{16}
+\contentsline {section}{\numberline {4.1}Sensores}{17}
+\contentsline {section}{\numberline {4.2}Efetuadores}{17}
+\contentsline {section}{\numberline {4.3}Percep\c c\~ao}{17}
+\contentsline {section}{\numberline {4.4}Localiza\c c\~ao}{17}
+\contentsline {section}{\numberline {4.5}Mapeamento}{17}
+\contentsline {section}{\numberline {4.6}Planejamento}{17}
+\contentsline {section}{\numberline {4.7}Movimento}{17}
+\contentsline {section}{\numberline {4.8}Controle}{17}
+\contentsline {chapter}{\numberline {5}Arquiteturas em Rob\'otica}{18}
+\contentsline {chapter}{\numberline {6}O Toolkit Horus}{19}
+\contentsline {section}{\numberline {6.1}Objetivo}{19}
+\contentsline {section}{\numberline {6.2}Arquitetura}{19}
+\contentsline {section}{\numberline {6.3}M\'odulos do Horus}{19}
+\contentsline {subsection}{\numberline {6.3.1}Core do Horus}{19}
+\contentsline {subsection}{\numberline {6.3.2}Modulo de Vis\~ao}{19}
+\contentsline {subsection}{\numberline {6.3.3}Modulo de Mapeamento}{19}
+\contentsline {chapter}{\numberline {7}ANPR}{20}
+\contentsline {chapter}{\numberline {8}Mapeamento}{21}
+\contentsline {paragraph}{O}{21}
+\contentsline {section}{\numberline {8.1}SLAM}{22}
+\contentsline {subsection}{\numberline {8.1.1}Landmark Straction}{22}
+\contentsline {subsubsection}{\numberline {8.1.1.1}RANSAC}{23}
+\contentsline {subsubsection}{\numberline {8.1.1.2}SPIKE}{23}
+\contentsline {subsection}{\numberline {8.1.2}Data Association}{23}
+\contentsline {subsection}{\numberline {8.1.3}State Estimation}{24}
+\contentsline {subsection}{\numberline {8.1.4}State Update}{25}
+\contentsline {subsection}{\numberline {8.1.5}Landmark Update}{25}
+\contentsline {chapter}{\numberline {9}Aplica\c c\~ao do ambiente virtual com um rob\^o aut\^onomo}{26}
+\contentsline {section}{\numberline {9.1}Simulador}{26}
+\contentsline {subsection}{\numberline {9.1.1}Requisitos para o ambiente virtual}{26}
+\contentsline {subsection}{\numberline {9.1.2}Ambiente}{27}
+\contentsline {chapter}{\numberline {10}Conclus\~oes e Trabalhos Futuros}{29}
+\contentsline {chapter}{Ap\^endices}{30}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{30}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{31}
