@@ -1,6 +1,7 @@
 # -*- coding: cp1252 -*-
 from direct.gui.OnscreenText import OnscreenText
 from framework.GraphFacade import *
+from framework.SLAM import *
 from direct.showbase.DirectObject import DirectObject
 from direct.interval.IntervalGlobal import *
 import direct.directbase.DirectStart
@@ -38,10 +39,22 @@ base.laser18 = CollisionHandlerQueue()
 base.laser19 = CollisionHandlerQueue()
 
 
+class PandaSlam(Slam):
+    #def __init__(self):
+
+    def startAutomaticWalk(self):
+        """  """
+        envi.setKey("forward", 1)
+    
+    def stopAutomaticWalk(self):
+        """  """
+        envi.setKey("forward", 0)
+
 class Environment(DirectObject):
     """ This class works with environments details """
 
     def __init__(self):
+        self.slam_obj = PandaSlam()
         # show the text on screen
         self.title = OnscreenText(pos=(0.8, -0.85), fg=(255, 255, 0, 90))
         self.title_odometer = \
@@ -77,8 +90,10 @@ class Environment(DirectObject):
         self.accept("arrow_left-up", self.setKey, ["left", 0])
         self.accept("arrow_right-up", self.setKey, ["right", 0])
         self.accept("arrow_up-up", self.setKey, ["forward", 0])
-        self.accept("p",      self.walkAway,["no1", "no9"])
-        self.accept("t",      self.doTest)
+        self.accept("m", self.playMusic, ['./modelos/missaoimpossivel.mp3'])
+        self.accept("p", self.walkAway,["no1", "no9"])
+        self.accept("s", self.slam_obj.startAutomaticWalk)
+        self.accept("o", self.slam_obj.stopAutomaticWalk)
     #--------------------------------------------------
         # game's aspect in initial state
         self.prevtime = 0
@@ -86,9 +101,26 @@ class Environment(DirectObject):
         self.floater = NodePath(PandaNode("floater"))
         self.floater.reparentTo(render)
         # this is the robot dictionary lasers - keys is degrees
-        self.laser_dic= {'180':0, '170':0, '160':0, '150':0, '140':0, '130':0,\
-            '120':0, '110':0, '100':0, '90':0, '80':0, '70':0, '60':0, '50':0,\
-            '40':0, '30':0, '20':0, '10':0, '0':0}
+        self.slam_obj.landmarkUpdate('+90', 0)
+        self.slam_obj.landmarkUpdate('+80', 0)
+        self.slam_obj.landmarkUpdate('+70', 0)
+        self.slam_obj.landmarkUpdate('+60', 0)
+        self.slam_obj.landmarkUpdate('+50', 0)
+        self.slam_obj.landmarkUpdate('+40', 0)
+        self.slam_obj.landmarkUpdate('+30', 0)
+        self.slam_obj.landmarkUpdate('+20', 0)
+        self.slam_obj.landmarkUpdate('+10', 0)
+        self.slam_obj.landmarkUpdate('0', 0)
+        self.slam_obj.landmarkUpdate('-10', 0)
+        self.slam_obj.landmarkUpdate('-20', 0)
+        self.slam_obj.landmarkUpdate('-30', 0)
+        self.slam_obj.landmarkUpdate('-40', 0)
+        self.slam_obj.landmarkUpdate('-50', 0)
+        self.slam_obj.landmarkUpdate('-60', 0)
+        self.slam_obj.landmarkUpdate('-70', 0)
+        self.slam_obj.landmarkUpdate('-80', 0)
+        self.slam_obj.landmarkUpdate('-90', 0)
+
         base.disableMouse()
         base.camera.setPos(self.robot.getX(), self.robot.getY()+160, 500)
         taskMgr.add(self.printXYZ, "printXYZTask")
@@ -99,12 +131,13 @@ class Environment(DirectObject):
         self.createColliders()
         self.printLasersResult()
     #--------------------------------------------------
-        #music for test
-        self.musicBoxSound = base.loadMusic('./modelos/missaoimpossivel.mp3')
+
+    def playMusic(self, music):
+        """ music for test """
+        self.musicBoxSound = base.loadMusic(music)
         self.musicBoxSound.setVolume(1)
         self.musicBoxSound.setLoopCount(200) 
         self.musicBoxSound.play()
-    # collision
 
     def createColliders(self):
             #create the collision sphere
@@ -247,28 +280,8 @@ class Environment(DirectObject):
             base.cTrav.addCollider(self.laserNodePath17, base.laser17)
             base.cTrav.addCollider(self.laserNodePath18, base.laser18)
             base.cTrav.addCollider(self.laserNodePath19, base.laser19)
+
             base.cTrav.traverse(render)
-            #!! verifying necessity of the code bellow !!
-            # self.laserNodePath.show()
-            # self.laserNodePath2.show()
-            # self.laserNodePath3.show()
-            # self.laserNodePath4.show()
-            # self.laserNodePath5.show()
-            # self.laserNodePath6.show()
-            # self.laserNodePath7.show()
-            # self.laserNodePath8.show()
-            # self.laserNodePath9.show()
-            # self.laserNodePath10.show()
-            # self.laserNodePath11.show()
-            # self.laserNodePath12.show()
-            # self.laserNodePath13.show()
-            # self.laserNodePath14.show()
-            # self.laserNodePath15.show()
-            # self.laserNodePath16.show()
-            # self.laserNodePath17.show()
-            # self.laserNodePath18.show()
-            # self.laserNodePath19.show()
-            
 
     def addInterval(self, posInicial, posFinal):
         """
@@ -309,7 +322,7 @@ class Environment(DirectObject):
     #--------------------------------------------------
 
     def setKey(self, key, value):
-        """    set a value within the key into keyMap """
+        """ set a value within the key into keyMap """
 
         self.keyMap[key] = value
     #--------------------------------------------------
@@ -342,6 +355,7 @@ class Environment(DirectObject):
                     base.cTrav.showCollisions(render)
                     self.last_odometer = self.odometer
                     self.printLasersResult()
+                    self.seeTheWay()
                 else:
                     base.cTrav.hideCollisions()
 
@@ -363,25 +377,25 @@ class Environment(DirectObject):
         self.floater.setZ(self.robot.getZ() + 10)
         base.camera.lookAt(self.floater)
 
-        self.getDistance(base.laser, "90")
-        self.getDistance(base.laser2, "170")
-        self.getDistance(base.laser3, "160")
-        self.getDistance(base.laser4, "150")
-        self.getDistance(base.laser5, "140")
-        self.getDistance(base.laser6, "130")
-        self.getDistance(base.laser7, "120")
-        self.getDistance(base.laser8, "110")
-        self.getDistance(base.laser9, "100")
-        self.getDistance(base.laser10, "180")
-        self.getDistance(base.laser11, "80")
-        self.getDistance(base.laser12, "70")
-        self.getDistance(base.laser13, "60")
-        self.getDistance(base.laser14, "50")
-        self.getDistance(base.laser15, "40")
-        self.getDistance(base.laser16, "30")
-        self.getDistance(base.laser17, "20")
-        self.getDistance(base.laser18, "10")
-        self.getDistance(base.laser19, "0")
+        self.getDistance(base.laser, "0")
+        self.getDistance(base.laser2, "-80")
+        self.getDistance(base.laser3, "-70")
+        self.getDistance(base.laser4, "-60")
+        self.getDistance(base.laser5, "-50")
+        self.getDistance(base.laser6, "-40")
+        self.getDistance(base.laser7, "-30")
+        self.getDistance(base.laser8, "-20")
+        self.getDistance(base.laser9, "-10")
+        self.getDistance(base.laser10, "-90")
+        self.getDistance(base.laser11, "+10")
+        self.getDistance(base.laser12, "+20")
+        self.getDistance(base.laser13, "+30")
+        self.getDistance(base.laser14, "+40")
+        self.getDistance(base.laser15, "+50")
+        self.getDistance(base.laser16, "+60")
+        self.getDistance(base.laser17, "+70")
+        self.getDistance(base.laser18, "+80")
+        self.getDistance(base.laser19, "+90")
 
         # Store the task time and continue.
         self.prevtime = task.time
@@ -399,13 +413,13 @@ class Environment(DirectObject):
 
         if (len(entries)>1):
             self.distance_laser = entries[1].getSurfacePoint(render)
-
-            self.laser_dic[degree] = sqrt((self.robot.getPos().getX()
+            value = sqrt((self.robot.getPos().getX()
             - self.distance_laser.getX())**2+(self.robot.getPos().getY()
             - self.distance_laser.getY())**2+(self.robot.getPos().getZ()
             - self.distance_laser.getZ())**2)-18
+            self.slam_obj.landmarkUpdate(degree, value)
         else:
-            self.laser_dic[degree] = 9999.99
+            self.slam_obj.landmarkUpdate(degree, 9999.99)
 
     def printXYZ(self, task):
         """ prints the X, Y, Z position of the actor """
@@ -416,18 +430,21 @@ class Environment(DirectObject):
     #--------------------------------------------------
 
     def printLasersResult(self):
-        self.title_lasers.setText("90: %.2f \n 180: %.2f \n 170: %.2f \n \
-160: %.2f \n 150: %.2f \n 140: %.2f \n 130: %.2f \n 120: %.2f \n \
-110: %.2f \n 100: %.2f \n 80: %.2f \n 70: %.2f \n 60: %.2f \n \
-50: %.2f \n 40: %.2f \n 30: %.2f \n 20: %.2f \n 10: %.2f \n \
-0: %.2f" %
-        (self.laser_dic["90"], self.laser_dic["180"],
-        self.laser_dic["170"], self.laser_dic["160"], self.laser_dic["150"],
-        self.laser_dic["140"], self.laser_dic["130"], self.laser_dic["120"],
-        self.laser_dic["110"], self.laser_dic["100"], self.laser_dic["80"],
-        self.laser_dic["70"], self.laser_dic["60"], self.laser_dic["50"],
-        self.laser_dic["40"], self.laser_dic["30"], self.laser_dic["20"],
-        self.laser_dic["10"], self.laser_dic["0"]))
+        self.title_lasers.setText("+90: %.2f \n +80: %.2f \n +70: %.2f \n \
++60: %.2f \n +50: %.2f \n +40: %.2f \n +30: %.2f \n +20: %.2f \n \
++10: %.2f \n 0: %.2f \n -10: %.2f \n -20: %.2f \n -30: %.2f \n \
+-40: %.2f \n -50: %.2f \n -60: %.2f \n -70: %.2f \n -80: %.2f \n \
+-90: %.2f" %
+        (self.slam_obj.landmark_dic["+90"], self.slam_obj.landmark_dic["+80"],
+        self.slam_obj.landmark_dic["+70"], self.slam_obj.landmark_dic["+60"], 
+        self.slam_obj.landmark_dic["+50"], self.slam_obj.landmark_dic["+40"], 
+        self.slam_obj.landmark_dic["+30"], self.slam_obj.landmark_dic["+20"],
+        self.slam_obj.landmark_dic["+10"], self.slam_obj.landmark_dic["0"], 
+        self.slam_obj.landmark_dic["-10"], self.slam_obj.landmark_dic["-20"], 
+        self.slam_obj.landmark_dic["-30"], self.slam_obj.landmark_dic["-40"],
+        self.slam_obj.landmark_dic["-50"], self.slam_obj.landmark_dic["-60"],
+        self.slam_obj.landmark_dic["-70"],
+        self.slam_obj.landmark_dic["-80"], self.slam_obj.landmark_dic["-90"]))
 
     def getXYZ(self):
         """
@@ -449,10 +466,12 @@ class Environment(DirectObject):
         else:
             return "Odometer: %.2f" %self.odometer
 
+    def seeTheWay(self):
+        """ see the way to walk """
+        actualH = self.robot.getH()
+        newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.landmark_dic)
+        newH = actualH + float(newH)
+        self.robot.setHpr(newH, 0, 0)
 
-    def doTest(self):
-        print ''
-
-
-a = Environment()
+envi = Environment()
 run()
