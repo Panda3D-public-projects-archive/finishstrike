@@ -4,20 +4,11 @@
 \contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{13}
 \contentsline {section}{\numberline {2.1}Agentes Inteligentes}{13}
 \contentsline {section}{\numberline {2.2}Teste de Turing}{14}
-\contentsline {section}{\numberline {2.3}T\'ecnicas de IA}{14}
-\contentsline {subsection}{\numberline {2.3.1}RNA}{14}
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos Gen\'eticos}{14}
-\contentsline {subsection}{\numberline {2.3.3}L\'ogica Fuzzy}{14}
+\contentsline {section}{\numberline {2.3}Cogni\c c\~ao}{14}
 \contentsline {chapter}{\numberline {3}Vis\~ao Computacional}{15}
 \contentsline {chapter}{\numberline {4}Rob\'otica}{16}
-\contentsline {section}{\numberline {4.1}Sensores}{17}
-\contentsline {section}{\numberline {4.2}Efetuadores}{17}
-\contentsline {section}{\numberline {4.3}Percep\c c\~ao}{17}
-\contentsline {section}{\numberline {4.4}Localiza\c c\~ao}{17}
-\contentsline {section}{\numberline {4.5}Mapeamento}{17}
-\contentsline {section}{\numberline {4.6}Planejamento}{17}
-\contentsline {section}{\numberline {4.7}Movimento}{17}
-\contentsline {section}{\numberline {4.8}Controle}{17}
+\contentsline {section}{\numberline {4.1}Dispositivos}{16}
+\contentsline {section}{\numberline {4.2}Rob\'otica M\'ovel}{17}
 \contentsline {chapter}{\numberline {5}Arquiteturas em Rob\'otica}{18}
 \contentsline {chapter}{\numberline {6}O Toolkit Horus}{19}
 \contentsline {section}{\numberline {6.1}Objetivo}{19}
@@ -32,16 +23,16 @@
 \contentsline {section}{\numberline {8.1}SLAM}{22}
 \contentsline {subsection}{\numberline {8.1.1}Landmark Straction}{22}
 \contentsline {subsubsection}{\numberline {8.1.1.1}RANSAC}{23}
-\contentsline {subsubsection}{\numberline {8.1.1.2}SPIKE}{23}
-\contentsline {subsection}{\numberline {8.1.2}Data Association}{23}
+\contentsline {subsubsection}{\numberline {8.1.1.2}SPIKE}{24}
+\contentsline {subsection}{\numberline {8.1.2}Data Association}{24}
 \contentsline {subsection}{\numberline {8.1.3}State Estimation}{24}
 \contentsline {subsection}{\numberline {8.1.4}State Update}{25}
 \contentsline {subsection}{\numberline {8.1.5}Landmark Update}{25}
-\contentsline {chapter}{\numberline {9}Aplica\c c\~ao do ambiente virtual com um rob\^o aut\^onomo}{26}
+\contentsline {chapter}{\numberline {9}Aplica\c c\~ao do ambiente virtual com um agente aut\^onomo}{26}
 \contentsline {section}{\numberline {9.1}Simulador}{26}
-\contentsline {subsection}{\numberline {9.1.1}Requisitos para o ambiente virtual}{26}
-\contentsline {subsection}{\numberline {9.1.2}Ambiente}{27}
-\contentsline {chapter}{\numberline {10}Conclus\~oes e Trabalhos Futuros}{29}
-\contentsline {chapter}{Ap\^endices}{30}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{30}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{31}
+\contentsline {section}{\numberline {9.2}Ambiente}{27}
+\contentsline {section}{\numberline {9.3}O mapeamento}{28}
+\contentsline {chapter}{\numberline {10}Conclus\~oes e Trabalhos Futuros}{30}
+\contentsline {chapter}{Ap\^endices}{31}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{31}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{32}

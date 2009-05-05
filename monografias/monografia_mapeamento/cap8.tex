@@ -1,32 +1,54 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   Aplicação do ambiente virtual com um robô autônomo
+%%   Aplicação do ambiente virtual com um agente autônomo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Aplicação do ambiente virtual com um robô autônomo}
+\chapter{Aplicação do ambiente virtual com um agente autônomo}
 \label{cap:aplicacao_autonomo}
 A fim de produzir uma prova de conceito, foi implementada uma aplicação onde foi possível demonstrar a eficiência do algoritmo de mapeamento. Foi produzido um simulador com gravidade, colisão, rederização de texturas, objetos e atores (o agente nesse caso) e, tendo esse simulador como base, foi criada a aplicação que tem um agente utilizando-se do Toolkit Hórus para mapeamento e navegação dentro do ambiente simulado.
 \section{Simulador}
 O simulador desenvolvido foi tratado como uma aplicação a parte, pois não estava incluído no escopo do projeto, porém tendo em vista a necessidade de um simulador customizado para a realidade de um agente móvel (e na linguagem selecionada) o simulador foi incluido ao projeto. 
 
-\subsection{Requisitos para o ambiente virtual}
-Foram utilizados alguns softwares para que fosse possível a criação e renderização do ambiente. Esses softwares foram: Blender e Panda3d.
+Alguns requisitos foram necessários para que o simulador fosse projetado. Alguns softwares que foram utilizados: Blender e Panda3d.
 Como uma das linguagens utilizadas foi Python, buscou-se ferramentas que fossem compatíveis (na verdade ambas são em Python) com as linguagens utilizadas.
+
+Python é um linguagem orientada objetos de tipagem dinâmica, onde os tipos dos dados são atribuídos durante a interpretação do código dinamicamente e forte. O Python tem foco na produtividade com uma sitaxe legível e simples, bem como módulos auxiliares (grande maioria OpenSource) que garatem um excelente desempenho.
 
 O Blender é um produto da Blender Fundation, que é open source e desenvolvido em Python para modelagem de objetos 3D que está disponível para vários sistemas operacionais sobre a licença GNU (General Public License).
 
 O Panda3D é um produto da equipe de desenvolvimento da Walt Disney para renderização de jogos e ambientes virtuais em terceira dimensão. Estão sobre licença da BSD License (com algumas modificações para adequação a realidade do projeto).
 
-\subsection{Ambiente}
-O ambiente em que o robô foi testado consiste em uma área que simula um galpão com 5 cômodos onde o agente inicia sua movimentação no cômodo 1 e pode alcançar qualquer ponto do ambiente a partir de sua posição inicial. O ambiente que foi desenvolvido tem como objetivo emular, em menor escala, um ambiente real.
+\section{Ambiente}
 
-O ambiente que foi utilizado foi modelado em Blender, tal ferramenta proporcionou os recursos de modelagem UV, texturização, determinação de medidas precisas, entre outros, assim como uma legibilidade de fácil assimilação tendo em vista que o Toolkit foi desenvolvido em Python e a ferramenta utiliza a mesma linguagem para produzir os modelos.
+O ambiente em que o agente foi testado consiste em uma área que simula um galpão com 5 cômodos onde o agente inicia sua movimentação no cômodo 1 e pode alcançar qualquer ponto do ambiente a partir de sua posição inicial. O ambiente que foi desenvolvido tem como objetivo emular, em menor escala, um ambiente real.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
-\caption{O ambiente utilizado para a prova de conceito.}
-\label{fig:ambiente}
+\caption{O agente utilizado nos testes. Modelada em Blende3D.}
+\label{fig:agente}
 \end{figure}
 
-Na figura \ref{fig:ambiente}, que demonstra o ambiente que foi utilizado, pode-se ter uma visão em perspectiva do ambiente modelado.
+O agente utilizado foi inspirado no personagem de um filme que também é um agente inteligente, é possível notar a semelhança na figura \ref{fig:agente}.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
+\caption{O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}
+\label{fig:ambiente_blender}
+\end{figure}
+
+A figura \ref{fig:ambiente_blender}, que demonstra o ambiente que foi utilizado, pode-se ter uma visão em perspectiva do ambiente modelado. Ele foi modelado em Blender, tal ferramenta proporcionou os recursos de modelagem UV, texturização, determinação de medidas precisas, entre outros. O Blender foi selecionado, também, por conta da sua legibilidade de fácil assimilação tendo em vista que o Toolkit foi desenvolvido em Python e a ferramenta utiliza a mesma linguagem para produzir os modelos.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
+\caption{Os lasers projetados a partir do agente. Gerenciados pelo Panda3D.}
+\label{fig:ambiente_panda}
+\end{figure}
+
+O Panda3d foi utilizado para fazer todos os tratamentos de colisão e virtualização de camêras e renderização do agente no ambiente. Os lasers, áreas de colisão são tratados conforme a imagem \ref{fig:ambiente_panda} Como o Blender3D agilizou o processo o fato do Panda3D ser em Python.
+
+\section{O mapeamento}
+
+No que diz respeito ao mapeamento foram utilizadas algumas técnicas a fim de testar o desempenho do agente no ambiente proposto. 

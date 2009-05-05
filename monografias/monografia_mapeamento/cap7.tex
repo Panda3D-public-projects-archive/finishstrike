@@ -42,8 +42,6 @@ Existem dois algoritmos que foram analisados para ser incorporados nesse segment
 
 O RANSAC (Random Sampling Consensus) algoritmo que utiliza-se de uma grande quantidade de informações para estimar os dados relevantes de um modelo matemático. Em conjunto com o SLAM o RANSAC identifica linhas de acordo com os pontos passados pelo laser, através da identificação de pontos muito próximos uns dos outros pode-se concluir que ali existe linhas, ou nesse caso, paredes que impossibilitam a transposição do agente.
 
-Através de vários marcos o RANSAC obtêm uma amostra que será analisada a fim de encontrar pontos próximos, consequentemente uma parede, baseado em um limir de proximidade. Esse limiar é chamado de Consensus.
-
 \begin{table}[htb]
 \centering         
 	\begin{algorithmic}                
@@ -66,6 +64,10 @@ Através de vários marcos o RANSAC obtêm uma amostra que será analisada a fim de 
 	\end{algorithmic}
 \caption{Algoritmo RANSAC}
 \end{table}
+
+Através de vários marcos o RANSAC obtêm uma amostra que será analisada a fim de encontrar pontos próximos, consequentemente uma parede, baseado em um limir de proximidade. Esse limiar é chamado de Consensus.
+
+
 
 
 \subsubsection{SPIKE}

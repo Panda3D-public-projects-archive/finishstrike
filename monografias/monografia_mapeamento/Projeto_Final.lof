@@ -9,7 +9,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces O ambiente utilizado para a prova de conceito.}}{28}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces O agente utilizado nos testes. Modelada em Blende3D.}}{28}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}}{29}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Os lasers projetados a partir do agente. Gerenciados pelo Panda3D.}}{29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
