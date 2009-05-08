@@ -39,3 +39,18 @@ class ProcessingImageTest(unittest.TestCase):
     def test_highlightLuminance(self):        
         image = processingimage.highlightLuminance(self.test_image)
         assert None != image
+    
+    def test_hildtchSkeletonize(self):
+        abspath = os.path.abspath('..')
+        imagePath = os.path.join(abspath,"testImages/skeletonization_test_img.PNG")                
+        sktestimage = image.Image(imagePath)
+        
+        expected_output = [255,255,0,255,255,
+                           255,255,0,255,255,
+                           255,255,0,255,255,
+                           255,255,0,255,255]
+        
+        result_img = processingimage.hildtchSkeletonize(sktestimage)
+        
+        assert list(result_img.getdata()) == expected_output, \
+                list(result_img.getdata()) 
