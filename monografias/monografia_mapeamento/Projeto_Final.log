@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2009.4.27)  7 MAY 2009 21:02
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2009.4.27)  7 MAY 2009 21:32
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -490,7 +490,7 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 [14] (cap2.tex
 Cap\'{\i }tulo 3.
-)
+
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
@@ -498,13 +498,17 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-] (cap3.tex
+])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[16] (cap3.tex
 Cap\'{\i }tulo 4.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[16
+[17
 
 
 
@@ -512,13 +516,13 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[17] (cap4.tex
+[18] (cap4.tex
 Cap\'{\i }tulo 5.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[18
+[19
 
 
 
@@ -528,7 +532,7 @@ Cap\'{\i }tulo 6.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[19
+[20
 
 
 
@@ -538,7 +542,7 @@ Cap\'{\i }tulo 7.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[20
+[21
 
 
 
@@ -546,25 +550,25 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[21]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
 [22]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[23])
+[23]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[24] (cap8.tex
+[24])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[25] (cap8.tex
 Cap\'{\i }tulo 8.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[25
+[26
 
 
 
@@ -579,15 +583,15 @@ File: imagens/fotos/colisions.png Graphic file (type eps)
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[26])
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[27]
+[27])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [28]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[29]
 No file cap9.tex.
 (conclusao.tex
 Cap\'{\i }tulo 9.
@@ -595,7 +599,7 @@ Cap\'{\i }tulo 9.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[29
+[30
 
 
 
@@ -609,7 +613,7 @@ Ap\^endice A.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[30
+[31
 
 
 
@@ -621,7 +625,7 @@ Ap\^endice B.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[31
+[32
 
 ] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
@@ -637,4 +641,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  27i,14n,25p,627b,533s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Projeto_Final.dvi (32 pages, 47608 bytes).
+Output written on Projeto_Final.dvi (33 pages, 50592 bytes).

@@ -12,4 +12,20 @@ Antes de imaginar um agente inteligente, deve-se pensar em um ambiente de tarefa
 
 \section{Especificando um ambiente}
 
-O ambiente de tarefa, onde o agente irá realizar suas tarefas, tem que ser o mais completo possível. L
+O ambiente de tarefa, onde o agente irá realizar suas tarefas, tem que ser o mais completo possível. Lembrado que o agente deve ser inserido em um ambiente que seja apropriado ao seu propósito. Alguns fatores serão levados em consideração ao projetar um agente:
+\begin{enumerate}
+\item Medida de desempenho: Qual será a o objetivo do projeto? minimizar custos, minimizar consumo de energia, otimizar rotas, melhorar mapeamente etc.
+\item Ambiente: Que tipo de ambiente? Estático, determinístico, previsível etc.
+\item Agente: Que tipo de agente? Humanóide, próprio para ambiente aquático, voador etc.
+\item Sensores: Que tipo de sensores devem ser inseridos no agente? Lasers, sonares, camêras etc.
+\end{enumerate}
+
+Esses fatores serão de enorme importância ao se determinar um ambiente.
+
+\section{Propriedades de ambientes de tarefas}
+
+A quantidade de ambientes de tarefas que podem ser criados é enorme, no entanto, podemos subdividir em categorias. Essas categorias determinam um projeto apropriado para o agente e as principais técnicas que devem ser implementadas no agente. As categorias são:
+
+\subsection{Completamente observável e parcialmente observável}
+
+Se os sensores de um agente permitem acesso ao estado completo do ambiente em cada instante, dize-se que o ambiente é completamente observável. Um ambiente tarefa é completamente observável se os sensores detectam todos os aspectos que são relevantes para escolha de uma ação, relevância tal que depende da medida de desempenho. Um ambiente é parcialmente observável quando devido a ruído, sensores impresisos, sensores mal configurados ou parte do ambiente estão ausentes nos dados do sensor.
