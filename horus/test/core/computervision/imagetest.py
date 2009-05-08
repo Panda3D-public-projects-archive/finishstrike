@@ -1,8 +1,8 @@
 import unittest
 import os
 from PIL import Image as PilImage
-import featureExtraction
-import image
+import horus.core.computervision.featureExtraction as featureExtraction
+import horus.core.computervision.image as image
 class ImageTest(unittest.TestCase):    
     def setUp(self):
         abspath = os.path.abspath('.')
@@ -16,7 +16,8 @@ class ImageTest(unittest.TestCase):
         imCroped = self.test_image.crop((0,0,3,3))
         im = image.Image(img_to_mix = imCroped)                  
         assert im != None
-        assert list(im.getdata()) == list(imCroped.getdata())
+        assert list(im.getdata()) == list(imCroped.getdata()), \
+                list(im.getdata())
         
     def test_getdata(self):
         expected_output = [255, 255, 255, 255,  0,\

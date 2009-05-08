@@ -9,6 +9,7 @@ class ImageMixIn(object):
     # Acho que os proximos metodos podem ser alocados em uma classe e 
     # relacionados com Image via composicao. A presenca deles esta
     # sobrecarregando essa classe
+            
     def get8Neiborhood(self,xy):
         n8List = []        
         if(self.topNeibor(xy) != None):
@@ -111,3 +112,6 @@ def Image(image_path = None, img_to_mix = None):
       newimg = NewClassImage(fp=image_path) 
       newimg.__dict__.update(im.__dict__)
   return newimg
+
+def new(mode = None, size = None, color = None):    
+    return Image(img_to_mix = PILImage.new(mode, size, color)) 

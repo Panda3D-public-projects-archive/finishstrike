@@ -1,17 +1,14 @@
 import unittest
 import os
 from PIL import Image as PilImage
-import featureExtraction
-import image
+import horus.core.computervision.featureExtraction as featureExtraction
+import horus.core.computervision.image as image
 class FeatureExtractionTest(unittest.TestCase):    
     def setUp(self):
         abspath = os.path.abspath('.')
         self.imagePath = os.path.join(abspath,"testImages/regionTestImage.PNG")
         self.edPath = os.path.join(abspath,"testImages/edgeDetectionTest.PNG")
         self.edPath2 = os.path.join(abspath,"testImages/edgeDetectionTest2.PNG")        
-#        image1 = PilImage.open(self.edPath2)
-#        image1 = image1.convert("L") 
-#        image1.save(self.edPath2)
         self.edImage = image.Image(self.edPath)
         self.edImage2 = image.Image(self.edPath2)
         self.regionTestImage = image.Image(self.imagePath)               
