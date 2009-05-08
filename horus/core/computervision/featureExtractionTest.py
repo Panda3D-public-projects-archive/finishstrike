@@ -12,9 +12,9 @@ class FeatureExtractionTest(unittest.TestCase):
 #        image1 = PilImage.open(self.edPath2)
 #        image1 = image1.convert("L") 
 #        image1.save(self.edPath2)
-        self.edImage = image.Image(path = self.edPath)
-        self.edImage2 = image.Image(path = self.edPath2)
-        self.regionTestImage = image.Image(path = self.imagePath)               
+        self.edImage = image.Image(self.edPath)
+        self.edImage2 = image.Image(self.edPath2)
+        self.regionTestImage = image.Image(self.imagePath)               
     
     def testGetSixRegionList(self):
         print
@@ -27,17 +27,16 @@ class FeatureExtractionTest(unittest.TestCase):
         assert (8,6) == self.regionTestImage.size, "The image size must be: " + str(self.regionTestImage.size)        
         sixRegionList = featureExtraction.getSixRegionList(self.regionTestImage)                
         assert 6 == len(sixRegionList)        
-        assert r0 == list(sixRegionList[0].content.getdata())
-        assert r1 == list(sixRegionList[1].content.getdata())
-        assert r2 == list(sixRegionList[2].content.getdata())
-        assert r3 == list(sixRegionList[3].content.getdata())
-        assert r4 == list(sixRegionList[4].content.getdata())
-        assert r5 == list(sixRegionList[5].content.getdata())
+        assert r0 == list(sixRegionList[0].getdata())
+        assert r1 == list(sixRegionList[1].getdata())
+        assert r2 == list(sixRegionList[2].getdata())
+        assert r3 == list(sixRegionList[3].getdata())
+        assert r4 == list(sixRegionList[4].getdata())
+        assert r5 == list(sixRegionList[5].getdata())
         
     def testExtractFeatureByEdgeDetection(self):
         print
-        featureMatrix = featureExtraction.extractFeatureByEdgeDetection(
-                                                                self.edImage)        
+        featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage)        
         assert 6 == len(featureMatrix[0])
         assert 10 == len(featureMatrix)     
         
@@ -51,8 +50,7 @@ class FeatureExtractionTest(unittest.TestCase):
         
     def testExtractFeatureByEdgeDetection2(self):
         print
-        featureMatrix = featureExtraction.extractFeatureByEdgeDetection(
-                                                                self.edImage2)        
+        featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage2)        
         assert 6 == len(featureMatrix[0])
         assert 10 == len(featureMatrix)
         
@@ -69,21 +67,21 @@ class FeatureExtractionTest(unittest.TestCase):
         
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/two_squares.PNG")
-        imageP = image.Image(path = imagePath)
+        imageP = image.Image(image_path= imagePath)
         assert 2 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
         
     def testGet3Loops(self):
         
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/three_squares.PNG")
-        imageP = image.Image(path = imagePath)
+        imageP = image.Image(image_path= imagePath)
         assert 3 == featureExtraction.getNumLoops(imageP), featureExtraction.getNumLoops(imageP)
         
     def testGet2LoopsFromBChar(self):
         
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/b_SK.PNG")
-        imageP = image.Image(path = imagePath)
+        imageP = image.Image(image_path= imagePath)
         assert 2 == featureExtraction.getNumLoops(imageP), \
                                     featureExtraction.getNumLoops(imageP)
         
@@ -91,7 +89,8 @@ class FeatureExtractionTest(unittest.TestCase):
         
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/blackItensityTest.PNG")
-        imageP = image.Image(path = imagePath)
+        imageP = image.Image(imagePath)
+        
         output_expected = [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 
                         0, 0, 0, 2, 1, 0, 3, 1, 0, 0, 0, 0, 0]
         assert  output_expected == featureExtraction.blocksIntensity(imageP), \
@@ -101,7 +100,7 @@ class FeatureExtractionTest(unittest.TestCase):
         
         abspath = os.path.abspath('.')
         imagePath = os.path.join(abspath,"testImages/blackItensityTestNumberFour.PNG")
-        imageP = image.Image(path = imagePath)
+        imageP = image.Image(imagePath)
         output_expected = [1, 0, 0, 0, 1, 4, 0, 0, 0, 4, 4, 0, 
                      0, 0, 4, 1, 3, 3, 3, 5, 0, 0, 0, 0, 4]        
         assert output_expected == featureExtraction.blocksIntensity(imageP), \

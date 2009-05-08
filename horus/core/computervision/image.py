@@ -63,8 +63,8 @@ class ImageMixIn(object):
         if(xy[0]-1 >= 0 ) & ( xy[1]-1 >= 0 ):
             return self.getpixel((xy[0]-1, xy[1]-1))        
 
-    @property
-    def matrix_content(self):
+    
+    def pixel_matrix(self):
         """
             This method returns a matrix with values of wich content's pixels.
         """
@@ -72,15 +72,16 @@ class ImageMixIn(object):
         #############################
         #### Alterar esse metodo ####
         #############################
-        if not self.__matrix_content:
-            self.__matrix_content = [[0 for i in range(self.size[1])] \
+        self.matrix = [[]]
+        if not self.matrix:
+            self.matrix = [[0 for i in range(self.size[1])] \
                                     for j in range(self.size[0]) ]
 
-            for i in range(len(self.__matrix_content)):
-                for j in range(len(self.__matrix_content[0])):
-                    self.__matrix_content[i][j] = self.getpixel((i,j))
+            for i in range(len(self.matrix)):
+                for j in range(len(self.matrix[0])):
+                    self.matrix[i][j] = self.getpixel((i,j))
 
-        return self.__matrix_content
+        return self.matrix
 
     #XXX: The doc string should be added.
     def getFourNeighborhood(self, index):
@@ -92,13 +93,21 @@ class ImageMixIn(object):
               [self.getpixel((index[0], index[1]+1)),
                self.getpixel((index[0]+1, index[1]+1))]]
 
-def Image(image_path):
+def Image(image_path = None, img_to_mix = None):
   """
     This method should return a PIL Image object mixed with ImageMixIn
   """
-  im = PILImage.open(image_path)
-  NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
-  newimg = NewClassImage(fp=image_path)
-  newimg.__dict__.update(im.__dict__)
+  newimg = None
+  if((img_to_mix != None) & (image_path == None)):      
+      im = PILImage.new(img_to_mix.mode, img_to_mix.size)
+      NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
+      newimg = NewClassImage()
+      newimg._new(img_to_mix)
+      newimg.__dict__.update(im.__dict__)
+      newimg.putdata(img_to_mix.getdata())
+  else:   
+      im = PILImage.open(image_path)
+      NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
+      newimg = NewClassImage(fp=image_path) 
+      newimg.__dict__.update(im.__dict__)
   return newimg
-

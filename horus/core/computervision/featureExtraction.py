@@ -18,7 +18,7 @@ def extractFeatureByEdgeDetection(image):
     for region in regionList:        
         for i in range(region.size[0]-1):
             for j in range(region.size[1]-1):
-                region2x2 = Image.getFourNeighborhood((i,j), region)                
+                region2x2 = region.getFourNeighborhood((i,j))                                
                 for edgeType in edgeTypeList:
                     if edgeType == region2x2:
                         regionIndex = regionList.index(region)
@@ -43,12 +43,13 @@ def getSixRegionList(image):
     r4_dimension = (0, (2*size[1]/3), (size[0]/2),size[1])
     r5_dimension = ((size[0]/2), 2*size[1]/3, size[0], size[1])
     regionList = []
-    regionList.append(image.crop(r0_dimension))
-    regionList.append(image.crop(r1_dimension))
-    regionList.append(image.crop(r2_dimension))
-    regionList.append(image.crop(r3_dimension))
-    regionList.append(image.crop(r4_dimension))
-    regionList.append(image.crop(r5_dimension))
+    print Image.Image(img_to_mix = image.crop(r0_dimension))
+    regionList.append(Image.Image(img_to_mix = image.crop(r0_dimension)))
+    regionList.append(Image.Image(img_to_mix = image.crop(r1_dimension)))
+    regionList.append(Image.Image(img_to_mix = image.crop(r2_dimension)))
+    regionList.append(Image.Image(img_to_mix = image.crop(r3_dimension)))
+    regionList.append(Image.Image(img_to_mix = image.crop(r4_dimension)))
+    regionList.append(Image.Image(img_to_mix = image.crop(r5_dimension)))
     return regionList
 
 """
@@ -127,8 +128,8 @@ def hildtchSkeletonize(image):
         letContinue = False
         boundaryPixelList = []
         pixelsToDelete = []
-        for i in range( image.content.size[0] ):
-            for j in range(image.content.size[1] ):
+        for i in range( image.size[0] ):
+            for j in range(image.size[1] ):
                 if(image.getpixel((i,j)) == 0):                    
                     n8 = image.get8Neiborhood((i,j))                                       
                     if(n8.count(255) > 0):                        
@@ -163,13 +164,13 @@ def getNumLoops(image):
     import pdb    
     numRegions = 0;    
     
-    for j in range( image.content.size[1] ):
+    for j in range( image.size[1] ):
         transition = 0;
         #if j == 5: pdb.set_trace()
-        for i in range(image.content.size[0] ):            
+        for i in range(image.size[0] ):            
                 flag = 0;
                 pixelValue = image.getpixel((i,j));
-                if(i+1 < image.content.size[0]):
+                if(i+1 < image.size[0]):
                     if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
                         if((image.topLeftNeibor((i+1, j)) == 0) and   
                                (image.topNeibor((i+1,j)) == 0)):
@@ -177,10 +178,10 @@ def getNumLoops(image):
                         #if(image.topLeftNeibor((i+1, j)) * image.topNeibor((i+1,j)) * 
                         # image.topRightNeibor((i+1, j)) == 0):                            
                             count = i + 1;                            
-                            while(count < image.content.size[0]):                                
+                            while(count < image.size[0]):                                
                                 if(image.getpixel((count, j)) == 0): 
                                     line_count = j + 1
-                                    while(line_count < image.content.size[1]):
+                                    while(line_count < image.size[1]):
                                         if(image.getpixel((i + 1, line_count)) == 0):
                                             numRegions += 1
                                             break
@@ -220,16 +221,17 @@ def countTransitions(image, pixel):
 def blocksIntensity(image):
     """
          
-    """    
-    pixelMatrix = image.matrix_content  
-    hSize = image.content.size[1]/5#image.content.size[1]/5
-    wSize = image.content.size[0]/5#image.content.size[0]/5
+    """
+       
+    pixelMatrix = image.pixel_matrix()  
+    hSize = image.size[1]/5#image.size[1]/5
+    wSize = image.size[0]/5#image.size[0]/5
     height_position = 0
     width_position = 0     
     pattern_list = []   
-    while height_position < image.content.size[1]:
-        while width_position < image.content.size[0]:
-            if (height_position + hSize) <= image.content.size[1] and (wSize + width_position) <= image.content.size[0]:
+    while height_position < image.size[1]:
+        while width_position < image.size[0]:
+            if (height_position + hSize) <= image.size[1] and (wSize + width_position) <= image.size[0]:
                 matrixCroped = [i[height_position:(height_position+hSize)] for i in pixelMatrix[width_position:width_position+wSize]]
                 blackItensity = 0
                 for line in matrixCroped:
