@@ -7,6 +7,8 @@
 \label{cap:aplicacao_autonomo}
 A fim de produzir uma prova de conceito, foi implementada uma aplicação onde foi possível demonstrar a eficiência do algoritmo de mapeamento. Foi produzido um simulador com gravidade, colisão, rederização de texturas, objetos e atores (o agente nesse caso) e, tendo esse simulador como base, foi criada a aplicação que tem um agente utilizando-se do Toolkit Hórus para mapeamento e navegação dentro do ambiente simulado.
 \section{Simulador}
+Um simulador é todo software (em nosso caso) que simula um comportamento de algum sistema. Deve ser capaz de reproduzir, de forma mais fiel possível, a realidade na qual ele tenta emular. No nosso caso foi desenvolvido um simulador de um ambiente, a fim de virtualizar um ambiente real.
+
 O simulador desenvolvido foi tratado como uma aplicação a parte, pois não estava incluído no escopo do projeto, porém tendo em vista a necessidade de um simulador customizado para a realidade de um agente móvel (e na linguagem selecionada) o simulador foi incluido ao projeto. 
 
 Alguns requisitos foram necessários para que o simulador fosse projetado. Alguns softwares que foram utilizados: Blender e Panda3d.
@@ -22,10 +24,12 @@ O Panda3D é um produto da equipe de desenvolvimento da Walt Disney para renderiz
 
 O ambiente em que o agente foi testado consiste em uma área que simula um galpão com 5 cômodos onde o agente inicia sua movimentação no cômodo 1 e pode alcançar qualquer ponto do ambiente a partir de sua posição inicial. O ambiente que foi desenvolvido tem como objetivo emular, em menor escala, um ambiente real.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
-\caption{O agente utilizado nos testes. Modelada em Blende3D.}
+\begin{center}
+    \includegraphics[scale=0.3,bb=0 0 700 560]{imagens/fotos/robot.png}
+\end{center}
+\caption{O agente utilizado nos testes. Modelado em Blende3D.}
 \label{fig:agente}
 \end{figure}
 
@@ -33,7 +37,7 @@ O agente utilizado foi inspirado no personagem de um filme que também é um agent
 
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
+\includegraphics[scale=0.3,bb=0 0 390 550]{imagens/fotos/galpao.png}
 \caption{O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}
 \label{fig:ambiente_blender}
 \end{figure}
@@ -42,7 +46,7 @@ A figura \ref{fig:ambiente_blender}, que demonstra o ambiente que foi utilizado,
 
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.5,bb=0 0 390 550]{imagens/fotos/galpao.png}
+\includegraphics[scale=0.3,bb=0 0 830 560]{imagens/fotos/colisions.png}
 \caption{Os lasers projetados a partir do agente. Gerenciados pelo Panda3D.}
 \label{fig:ambiente_panda}
 \end{figure}
