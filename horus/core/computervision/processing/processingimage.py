@@ -1,8 +1,9 @@
 # XXX: Add Copyright
 
-import core.computervision.image as Image
+import horus.core.computervision.image as Image
 import horusimagefilter as filter
-import utils.mathematic as Math
+import horus.core.computervision.featureExtraction as featureExtraction
+import horus.utils.mathematic as Math
 import math
 
 def fullEdgeDetection(image):
@@ -72,4 +73,37 @@ def highlightLuminance(image, u = 1):
             new_value = 100 + 20 * u * math.log(image.getpixel((i,j)) + 1)
             enhanced_image.putpixel((i,j), new_value)
     return enhanced_image
+
+def hildtchSkeletonize(image):        
+    while (True):
+        letContinue = False
+        boundaryPixelList = []
+        pixelsToDelete = []
+        for i in range( image.size[0] ):
+            for j in range(image.size[1] ):
+                if(image.getpixel((i,j)) == 0):                    
+                    n8 = image.get8Neiborhood((i,j))                                       
+                    if(n8.count(255) > 0):                        
+                        boundaryPixelList.append((i,j))                        
+        for pixel in boundaryPixelList:
+            n8 = image.get8Neiborhood(pixel)
+            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
+                image.leftNeibor(pixel)) == 0):
+                continue            
+            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
+                image.backNeibor(pixel)) == 0):
+                continue                
+            if not((n8.count(0) >= 2) & (n8.count(0) <= 6)):                
+                continue
+            numTransitions = featureExtraction.countTransitions(image, pixel)
+            if numTransitions <> 1:                
+                continue                        
+            pixelsToDelete.append(pixel)            
+            letContinue = True
+        for pixelToDelete in pixelsToDelete:                      
+            image.putpixel(pixelToDelete, 255)
+        print letContinue                        
+        if(not letContinue):            
+            break                                 
+    return image
 
