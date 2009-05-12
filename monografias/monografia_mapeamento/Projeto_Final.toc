@@ -17,30 +17,30 @@
 \contentsline {chapter}{\numberline {4}Rob\'otica}{20}
 \contentsline {section}{\numberline {4.1}Sensores}{20}
 \contentsline {section}{\numberline {4.2}Efetuadores}{21}
-\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{21}
-\contentsline {chapter}{\numberline {5}Arquiteturas em Rob\'otica}{22}
-\contentsline {chapter}{\numberline {6}O Toolkit Horus}{23}
-\contentsline {section}{\numberline {6.1}Objetivo}{23}
-\contentsline {section}{\numberline {6.2}Arquitetura}{23}
-\contentsline {section}{\numberline {6.3}M\'odulos do Horus}{23}
-\contentsline {subsection}{\numberline {6.3.1}Core do Horus}{23}
-\contentsline {subsection}{\numberline {6.3.2}Modulo de Vis\~ao}{23}
-\contentsline {subsection}{\numberline {6.3.3}Modulo de Mapeamento}{23}
-\contentsline {chapter}{\numberline {7}Mapeamento}{24}
-\contentsline {paragraph}{O}{24}
-\contentsline {section}{\numberline {7.1}SLAM}{25}
-\contentsline {subsection}{\numberline {7.1.1}Landmark Straction}{25}
-\contentsline {subsubsection}{\numberline {7.1.1.1}RANSAC}{26}
-\contentsline {subsubsection}{\numberline {7.1.1.2}SPIKE}{27}
-\contentsline {subsection}{\numberline {7.1.2}Data Association}{27}
-\contentsline {subsection}{\numberline {7.1.3}State Estimation}{27}
-\contentsline {subsection}{\numberline {7.1.4}State Update}{28}
-\contentsline {subsection}{\numberline {7.1.5}Landmark Update}{28}
-\contentsline {chapter}{\numberline {8}Aplica\c c\~ao do ambiente virtual com um agente aut\^onomo}{29}
-\contentsline {section}{\numberline {8.1}Simulador}{29}
-\contentsline {section}{\numberline {8.2}Ambiente}{30}
-\contentsline {section}{\numberline {8.3}O mapeamento}{32}
-\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{33}
-\contentsline {chapter}{Ap\^endices}{34}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{34}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{35}
+\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{22}
+\contentsline {chapter}{\numberline {5}Arquiteturas em Rob\'otica}{24}
+\contentsline {chapter}{\numberline {6}O Toolkit Horus}{25}
+\contentsline {section}{\numberline {6.1}Objetivo}{25}
+\contentsline {section}{\numberline {6.2}Arquitetura}{25}
+\contentsline {section}{\numberline {6.3}M\'odulos do Horus}{25}
+\contentsline {subsection}{\numberline {6.3.1}Core do Horus}{25}
+\contentsline {subsection}{\numberline {6.3.2}Modulo de Vis\~ao}{25}
+\contentsline {subsection}{\numberline {6.3.3}Modulo de Mapeamento}{25}
+\contentsline {chapter}{\numberline {7}Mapeamento}{26}
+\contentsline {paragraph}{O}{26}
+\contentsline {section}{\numberline {7.1}SLAM}{27}
+\contentsline {subsection}{\numberline {7.1.1}Landmark Straction}{27}
+\contentsline {subsubsection}{\numberline {7.1.1.1}RANSAC}{28}
+\contentsline {subsubsection}{\numberline {7.1.1.2}SPIKE}{29}
+\contentsline {subsection}{\numberline {7.1.2}Data Association}{29}
+\contentsline {subsection}{\numberline {7.1.3}State Estimation}{29}
+\contentsline {subsection}{\numberline {7.1.4}State Update}{30}
+\contentsline {subsection}{\numberline {7.1.5}Landmark Update}{30}
+\contentsline {chapter}{\numberline {8}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{31}
+\contentsline {section}{\numberline {8.1}Simulador}{31}
+\contentsline {section}{\numberline {8.2}Ambiente}{32}
+\contentsline {section}{\numberline {8.3}O mapeamento}{34}
+\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{35}
+\contentsline {chapter}{Ap\^endices}{36}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{36}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{37}

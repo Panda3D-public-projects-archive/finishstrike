@@ -17,9 +17,30 @@ Os robôs são agentes que executam tarefas no mundo físico. Para isso utilizam di
 
 \section{Sensores}
 
-A robótica se utiliza de vários dispositivos para emular os sentidos e as reações humanas em determinadas situações. Esses dispositivos tratam diferentemente cada um dos sentidos humanos. Os sensores passivos são aqueles que fazem a observação, propriamente dita, do ambiente, como por exemplo câmeras, que observam os sinais gerados por outras fontes no ambiente. Em contra partida, os sensores ativos são aqueles que a partir dele emite-se uma energia para obter medições do ambiente, assim como um sonar.
+A robótica se utiliza de vários dispositivos para emular os sentidos e as reações humanas em determinadas situações. Esses dispositivos tratam diferentemente cada um dos sentidos humanos. Os sensores passivos são aqueles que fazem a observação, propriamente dita, do ambiente, como por exemplo câmeras, que observam os sinais gerados por outras fontes no ambiente. Em contra partida, os sensores ativos são aqueles que a partir dele emite-se uma energia para obter medições do ambiente, assim como um sonar, que é um transdutor ultra-sônico.
+
+Muitos agentes utilizam telêmetro, sensores capazes de medir distâncias, para definir o quão próximo ele está do objeto. Um desses sensores é o telêmetro a laser que através de uma varredura obtem-se a distância dos pontos onde a emissão do laser colidiu com um objeto. Alguns sensores medem distâncias mais curtas tais sensores já chamados de táteis. Estes são sensores de pequenas distâncias, painéis de choque e pele sensível. Eles são usados para tarefas de maior precisão como segurar um vidro, por exemplo.
+
+Outro tipo de sensores são sos de tratamentos de imagem, tais como câmeras que analisam o ambiente e podem extrair características dos ambiente. Entre vários tipos de visão computacional, uma deve ser levada em consideração quando falamos em robótica, é a estereoscópica que analisa a imagem quanto a sua profundidade. Os odômetros também são importantes e se alocam na categoria sensores propeiceptivos que são aqueles que fornecem informações ao agente sobre ele próprio. 
+
 
 \section{Efetuadores}
+
+Os sensores são os dispositivos para obter informações do ambiente, já os efetuadores são aqueles que agem sobre o ambiente a fim de mover o agente por ele ou efetuar uma alteração de forma no ambiente, ou em sí. O grau de liberdade (GLD) é um conceito usado para saber a quantidade de direções independentes que um agente pode se mover. Todas essas direções em um agente são chamados de estado cinemático. Já um estado dinâmico é aquele que inclui uma dimensão adicional para a taxa de mudança de cada dimensão cinemática.
+
+Enquanto agentes não-rígidos podem ter por exemplo um grau de liberdade adicional, como um cotovelo que garante mais um grau de liberdade e é inerente ao agente, os agentes rígidos tem um grau de liberdade a menos com a falta de articulações como a anterior. 
+
+Para os agentes móveis a capacidade de locmoção pode ser através de vários tipos de tração. Tração diferencial possuem duas rodas (ou esteiras) acionadas de forma independente uma de cada lado. Quando ambas as rodas se movem na mesma velocidade e sentido movem o agente para frente ou para trás. Caso girem em sentidos opostos ele gira no mesmo ponto. Já na tração sincronizada cada roda é independente e pode mover-se e girar em seu próprio eixo. Tal movimentação é pouquíssimo usada pois se não for gerenciada corretamente pode causar problemas na movimentação incorreta.
+
+Outro tipo movimentação é a utilização de pernas na movimentação do agente. Elas tem a capacidade de percorrer terrenos acidentados mais facilmente porém são extremamente lentas e sua contrução é difícil. Existem duas categorias de movimentação através dos pés: 
+
+\begin{itemize}
+\item Dinamicamente estável: Onde o agente pode permanecer de pé desde que não pare de fazer movimentações, ou seja, ele necessita de movimentar-se para poder ficar de pé.
+\item Estaticamente estável: O agente tem capacidade de ficar de pé mesmo que esteja parado (ou seja, estático).
+\end{itemize}
+
+Dentre os mecanismos de movimentação são observadas várias formas de energia que mantêm a movimentação dos agentes. A grande maioria utiliza motores elétricos por ser mais barato e ter mais dispositivos que utilizam esse tipo de energia no mercado. Existem também os tipos de atuação pneumática, que utiliza gás comprimido e a hidráulica que usa fluídos pressurisados.
+
 
 \section{Categorias da robótica}
 
