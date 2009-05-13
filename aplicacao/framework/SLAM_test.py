@@ -28,7 +28,6 @@ class SlamTest(unittest.TestCase):
         
     def test_createLandmarkGraph(self):
         slam_obj = Slam()
-        print slam_obj.landmark_graph
         slam_obj.landmarkUpdate('+30', 45)
         slam_obj.landmarkUpdate('-30', 90)
         slam_obj.landmarkUpdate('0', slam_obj.infinity_point)
@@ -41,7 +40,20 @@ class SlamTest(unittest.TestCase):
         slam_obj.createLandmarkGraph('0')
         #-----------------------------------
         self.assertEqual(slam_obj.landmark_graph, tuple_test)
-        
+    
+    def test_linearRegession(self):
+        slam_obj = Slam()
+        slam_obj.landmarkUpdate('+30', 45)
+        slam_obj.landmarkUpdate('-30', 90)
+        slam_obj.landmarkUpdate('0', 94)
+        slam_obj.createLandmarkGraph('+30')
+        slam_obj.createLandmarkGraph('-30')
+        slam_obj.createLandmarkGraph('0')
+        lr = slam_obj.linearRegression()
+        print lr.getAlpha()
+        print lr.getBeta()
+        print lr.getError()
+
 def main():
     unittest.main()
 
