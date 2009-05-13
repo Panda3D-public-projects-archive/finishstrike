@@ -27,7 +27,7 @@ class LinearRegressionTest(unittest.TestCase):
         self.assertEqual(2, lr.getAlpha())
 
     def test_getBeta(self):
-        
+
         #to this list beta must be 3
         list = [(1,3),(2,3),(3,3),(4,3)]
         #to this list beta must be 1
@@ -40,7 +40,7 @@ class LinearRegressionTest(unittest.TestCase):
         self.assertEqual(1, lr.getBeta())
 
     def test_getError(self):
-        
+
         list = [(1,3),(2,3),(3,3),(4,3)]
         lr = LinearRegression(list)
 
