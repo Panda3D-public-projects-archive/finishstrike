@@ -44,8 +44,11 @@ class PandaSlam(Slam):
 
     def startAutomaticWalk(self):
         """  """
+        envi.getLasersDistance()
+        envi.printLasersResult()
+        envi.seeTheWay()
         envi.setKey("forward", 1)
-    
+
     def stopAutomaticWalk(self):
         """  """
         envi.setKey("forward", 0)
@@ -76,7 +79,7 @@ class Environment(DirectObject):
         self.slam_obj.landmarkUpdate('-70', 0)
         self.slam_obj.landmarkUpdate('-80', 0)
         self.slam_obj.landmarkUpdate('-90', 0)
-
+        
         # show the text on screen
         self.title = OnscreenText(pos=(0.8, -0.85), fg=(255, 255, 0, 90))
         self.title_odometer = \
@@ -85,20 +88,20 @@ class Environment(DirectObject):
         # load the environment model
         self.environment = \
             loader.loadModel("./modelos/[modelo] novo galpao.egg")
-        # load the actor from module Robot
-        self.robot = Robot().robot
-        self.odometer = 0
-        self.last_odometer = 0
-        self.distance_laser = self.robot
+        self.robot = Robot()
+        # load the character from module Robot
+        self.character = self.robot.character
+
+        self.distance_laser = self.character
         self.threshold = 0.96
         # adjusting scale and position of the model
         self.environment.setScale(10, 10, 10)
         self.environment.setPos(0, 0, 2.01)
-        self.robot.setScale(10, 10, 10)
-        self.robot.setPos(0, 0, 0)
+        self.character.setScale(10, 10, 10)
+        
         # render
         self.environment.reparentTo(render)
-        self.robot.reparentTo(render)
+        self.character.reparentTo(render)
         # building a graph with GraphFacade
         self.graph = \
         GraphFacade().getGraph("nos.txt", "arestas.txt")
@@ -119,20 +122,21 @@ class Environment(DirectObject):
         self.accept("t", self.doTest)
     #--------------------------------------------------
         # game's aspect in initial state
+        self.printLasersResult()
         self.prevtime = 0
         self.isMoving = False
         self.floater = NodePath(PandaNode("floater"))
         self.floater.reparentTo(render)
 
         base.disableMouse()
-        base.camera.setPos(self.robot.getX(), self.robot.getY()+160, 500)
+        base.camera.setPos(self.character.getX(), self.character.getY()+160, 500)
         taskMgr.add(self.printXYZ, "printXYZTask")
         # add a movement event in the environment
         taskMgr.add(self.move,"moveTask")
         # build a sequence of movements
         self.walk = Sequence()
         self.createColliders()
-        self.printLasersResult()
+        
     #--------------------------------------------------
 
     def playMusic(self, music):
@@ -144,124 +148,84 @@ class Environment(DirectObject):
 
     def createColliders(self):
             #create the collision sphere
-            self.robotSphereCN = CollisionNode('robotSphere')
-            self.robotSphereCN.addSolid(CollisionSphere(0,0,2,1))
-            self.robotEsfNP = self.robot.attachNewNode(self.robotSphereCN)
-            #self.robotEsfNP.show()
-            base.cTrav.addCollider(self.robotEsfNP, base.pusher)
-            base.pusher.addCollider(self.robotEsfNP, self.robot)
+            self.characterSphereCN = CollisionNode('characterSphere')
+            self.characterSphereCN.addSolid(CollisionSphere(0,0,2,1))
+            self.characterEsfNP = self.character.attachNewNode(self.characterSphereCN)
+            #self.characterEsfNP.show()
+            base.cTrav.addCollider(self.characterEsfNP, base.pusher)
+            base.pusher.addCollider(self.characterEsfNP, self.character)
 
-            #robot Collision Ray
-            self.robotGroundRay = CollisionRay()
-            self.robotGroundRay.setOrigin(0,0,10)
-            self.robotGroundRay.setDirection(0,0,-1)
-            self.robotGroundCol = CollisionNode('robotRay')
-            self.robotGroundCol.addSolid(self.robotGroundRay)
-            self.robotGroundColNp=self.robot.attachNewNode(self.robotGroundCol)
-            #self.robotGroundColNp.show()
-            base.cTrav.addCollider(self.robotGroundColNp, base.floor)
-            base.floor.addCollider(self.robotGroundColNp, self.robot)
-
-            # the lasers creation
-            #90
-            self.laser = CollisionSegment (0, 0, 2, 0, -30/2.25, 2)
-            #170
-            self.laser2 = CollisionSegment (0, 0, 2, -29.55/2.25, -5.21/2.25, 2)
-            #160
-            self.laser3 = CollisionSegment (0, 0, 2, -28.19/2.25, -10.26/2.25, 2)
-            #150
-            self.laser4 = CollisionSegment (0, 0, 2, -25.98/2.25, -15/2.25, 2)
-            #140
-            self.laser5 = CollisionSegment (0, 0, 2, -22.98/2.25, -19.28/2.25, 2)
-            #130
-            self.laser6 = CollisionSegment (0, 0, 2, -19.28/2.25, -22.98/2.25, 2)
-            #120
-            self.laser7 = CollisionSegment (0, 0, 2, -15/2.25, -25.98/2.25, 2)
-            #110
-            self.laser8 = CollisionSegment (0, 0, 2, -10.26/2.25, -28.19/2.25, 2)
-            #100
-            self.laser9 = CollisionSegment (0, 0, 2, -6.21/2.25, -29.54/2.25, 2)
-            #180
-            self.laser10  = CollisionSegment (0, 0, 2, -30/2.25, 0, 2)
-            #80
-            self.laser11 = CollisionSegment (0, 0, 2, 5.21/2.25, -29.54/2.25, 2)
-            #70
-            self.laser12 = CollisionSegment (0, 0, 2, 10.26/2.25, -28.19/2.25, 2)
-            #60
-            self.laser13 = CollisionSegment (0, 0, 2, 15/2.25, -25.98/2.25, 2)
-            #50
-            self.laser14 = CollisionSegment (0, 0, 2, 19.28/2.25, -22.98/2.25, 2)
-            #40
-            self.laser15 = CollisionSegment (0, 0, 2, 22.98/2.25, -19.28/2.25, 2)
-            #30
-            self.laser16 = CollisionSegment (0, 0, 2, 25.98/2.25, -15/2.25, 2)
-            #20
-            self.laser17 = CollisionSegment (0, 0, 2, 28.19/2.25, -10.26/2.25, 2)
-            #10
-            self.laser18 = CollisionSegment (0, 0, 2, 29.54/2.25, -5.21/2.25, 2)
-            #0
-            self.laser19 = CollisionSegment (0, 0, 2, 30/2.25, 0, 2)
+            #character Collision Ray
+            self.characterGroundRay = CollisionRay()
+            self.characterGroundRay.setOrigin(0,0,10)
+            self.characterGroundRay.setDirection(0,0,-1)
+            self.characterGroundCol = CollisionNode('characterRay')
+            self.characterGroundCol.addSolid(self.characterGroundRay)
+            self.characterGroundColNp=self.character.attachNewNode(self.characterGroundCol)
+            #self.characterGroundColNp.show()
+            base.cTrav.addCollider(self.characterGroundColNp, base.floor)
+            base.floor.addCollider(self.characterGroundColNp, self.character)
 
             # attach a node for each laser NodePath
             self.laserNodePath = \
-                self.robot.attachNewNode(CollisionNode('laserNode'))
+                self.character.attachNewNode(CollisionNode('laserNode'))
             self.laserNodePath2 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode2'))
+                self.character.attachNewNode(CollisionNode ('laserNode2'))
             self.laserNodePath3 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode3'))
+                self.character.attachNewNode(CollisionNode ('laserNode3'))
             self.laserNodePath4 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode4'))
+                self.character.attachNewNode(CollisionNode ('laserNode4'))
             self.laserNodePath5 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode5'))
+                self.character.attachNewNode(CollisionNode ('laserNode5'))
             self.laserNodePath6 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode6'))
+                self.character.attachNewNode(CollisionNode ('laserNode6'))
             self.laserNodePath7 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode7'))
+                self.character.attachNewNode(CollisionNode ('laserNode7'))
             self.laserNodePath8 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode8'))
+                self.character.attachNewNode(CollisionNode ('laserNode8'))
             self.laserNodePath9 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode9'))
+                self.character.attachNewNode(CollisionNode ('laserNode9'))
             self.laserNodePath10 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode10'))
+                self.character.attachNewNode(CollisionNode ('laserNode10'))
             self.laserNodePath11 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode11'))
+                self.character.attachNewNode(CollisionNode ('laserNode11'))
             self.laserNodePath12 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode12'))
+                self.character.attachNewNode(CollisionNode ('laserNode12'))
             self.laserNodePath13 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode13'))
+                self.character.attachNewNode(CollisionNode ('laserNode13'))
             self.laserNodePath14 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode14'))
+                self.character.attachNewNode(CollisionNode ('laserNode14'))
             self.laserNodePath15 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode15'))
+                self.character.attachNewNode(CollisionNode ('laserNode15'))
             self.laserNodePath16 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode16'))
+                self.character.attachNewNode(CollisionNode ('laserNode16'))
             self.laserNodePath17 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode17'))
+                self.character.attachNewNode(CollisionNode ('laserNode17'))
             self.laserNodePath18 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode18'))
+                self.character.attachNewNode(CollisionNode ('laserNode18'))
             self.laserNodePath19 = \
-                self.robot.attachNewNode(CollisionNode ('laserNode19'))
+                self.character.attachNewNode(CollisionNode ('laserNode19'))
 
             # each laser have its NodePath
-            self.laserNodePath.node().addSolid(self.laser)
-            self.laserNodePath2.node().addSolid(self.laser2)
-            self.laserNodePath3.node().addSolid(self.laser3)
-            self.laserNodePath4.node().addSolid(self.laser4)
-            self.laserNodePath5.node().addSolid(self.laser5)
-            self.laserNodePath6.node().addSolid(self.laser6)
-            self.laserNodePath7.node().addSolid(self.laser7)
-            self.laserNodePath8.node().addSolid(self.laser8)
-            self.laserNodePath9.node().addSolid(self.laser9)
-            self.laserNodePath10.node().addSolid(self.laser10)
-            self.laserNodePath11.node().addSolid(self.laser11)
-            self.laserNodePath12.node().addSolid(self.laser12)
-            self.laserNodePath13.node().addSolid(self.laser13)
-            self.laserNodePath14.node().addSolid(self.laser14)
-            self.laserNodePath15.node().addSolid(self.laser15)
-            self.laserNodePath16.node().addSolid(self.laser16)
-            self.laserNodePath17.node().addSolid(self.laser17)
-            self.laserNodePath18.node().addSolid(self.laser18)
-            self.laserNodePath19.node().addSolid(self.laser19)
+            self.laserNodePath.node().addSolid(self.robot.getSensor("laser",0))
+            self.laserNodePath2.node().addSolid(self.robot.getSensor("laser",1))
+            self.laserNodePath3.node().addSolid(self.robot.getSensor("laser",2))
+            self.laserNodePath4.node().addSolid(self.robot.getSensor("laser",3))
+            self.laserNodePath5.node().addSolid(self.robot.getSensor("laser",4))
+            self.laserNodePath6.node().addSolid(self.robot.getSensor("laser",5))
+            self.laserNodePath7.node().addSolid(self.robot.getSensor("laser",6))
+            self.laserNodePath8.node().addSolid(self.robot.getSensor("laser",7))
+            self.laserNodePath9.node().addSolid(self.robot.getSensor("laser",8))
+            self.laserNodePath10.node().addSolid(self.robot.getSensor("laser",9))
+            self.laserNodePath11.node().addSolid(self.robot.getSensor("laser",10))
+            self.laserNodePath12.node().addSolid(self.robot.getSensor("laser",11))
+            self.laserNodePath13.node().addSolid(self.robot.getSensor("laser",12))
+            self.laserNodePath14.node().addSolid(self.robot.getSensor("laser",13))
+            self.laserNodePath15.node().addSolid(self.robot.getSensor("laser",14))
+            self.laserNodePath16.node().addSolid(self.robot.getSensor("laser",15))
+            self.laserNodePath17.node().addSolid(self.robot.getSensor("laser",16))
+            self.laserNodePath18.node().addSolid(self.robot.getSensor("laser",17))
+            self.laserNodePath19.node().addSolid(self.robot.getSensor("laser",18))
 
             #each laser is now collidible
             base.cTrav.addCollider(self.laserNodePath, base.laser)
@@ -292,17 +256,17 @@ class Environment(DirectObject):
             two vertexes for the sequence movement
         """
 
-        robotPosInter1= \
-        self.robot.posInterval(5,Point3(posFinal[0], posFinal[1], posFinal[2]),
+        characterPosInter1= \
+        self.character.posInterval(5,Point3(posFinal[0], posFinal[1], posFinal[2]),
             startPos=Point3(posInicial[0], posInicial[1], posInicial[2]))
-        self.walk.append(robotPosInter1)
+        self.walk.append(characterPosInter1)
     #--------------------------------------------------
 
     def goTo(self):
         """
             Starts the sequence of movements, called walk
         """
-        self.robot.loop("run")
+        self.character.loop("run")
         self.walk.start()
     #--------------------------------------------------
 
@@ -335,36 +299,45 @@ class Environment(DirectObject):
 
         elapsed = task.time - self.prevtime
         beforePosition = \
-          {"X":self.robot.getX(), "Y":self.robot.getY(), "Z":self.robot.getZ()}
-        # If a move-key is pressed, move robot in the specified direction.
+          {"X":self.character.getX(), "Y":self.character.getY(), "Z":self.character.getZ()}
+        # If a move-key is pressed, move character in the specified direction.
 
         if (self.keyMap["left"]!=0):
-                self.robot.setH(self.robot.getH() + elapsed*160)
+                self.character.setH(self.character.getH() + elapsed*160)
         if (self.keyMap["right"]!=0):
-                self.robot.setH(self.robot.getH() - elapsed*160)
+                self.character.setH(self.character.getH() - elapsed*160)
         if (self.keyMap["forward"]!=0):
-                backward = self.robot.getNetTransform().getMat().getRow3(1)
+                backward = self.character.getNetTransform().getMat().getRow3(1)
                 backward.normalize()
-                self.robot.setPos(self.robot.getPos() - backward*(elapsed*50))
+                self.character.setPos(self.character.getPos() - backward*(elapsed*50))
                 #The odometer accumulates the value of the distance
                 #between its previous position until his current position.
-                self.odometer += self.threshold*sqrt(
-                    (self.robot.getX()-beforePosition["X"])**2 + 
-                    (self.robot.getY()-beforePosition["Y"])**2 + 
-                    (self.robot.getZ()-beforePosition["Z"])**2)
-
+                last_odometer = self.robot.getSensor("odometer", 1)
+                odometer = self.robot.getSensor("odometer", 0)
+                odometer += self.threshold*sqrt(
+                    (self.character.getX()-beforePosition["X"])**2 + 
+                    (self.character.getY()-beforePosition["Y"])**2 + 
+                    (self.character.getZ()-beforePosition["Z"])**2)
+                
+                self.robot.setSensor("odometer", 0, odometer)
                 #Use odometer to active/desactive laser scan and others tasks
-                if (self.odometer - self.last_odometer >= 25.0):
-                    self.last_odometer = self.odometer
+                if (odometer - last_odometer >= 25.0):
+                    self.robot.setSensor("odometer", 1, odometer)
                     base.cTrav.showCollisions(render)
                     self.getLasersDistance()
                     self.printLasersResult()
-                    self.seeTheWay()
-                    #self.slam_obj.createLandmarkGraph()
+                    h = self.seeTheWay()
+                    self.robot.position = \
+                        self.slam_obj.getRobotPosition(odometer - last_odometer, h)
+                    self.buildGraphOfLandmarks()
+                    
+                    print self.robot.position
+                    print self.slam_obj.collision_graph
+                
                 else:
                     base.cTrav.hideCollisions()
 
-        # If robot is moving, loop the run animation.
+        # If character is moving, loop the run animation.
         # If he is standing still, stop the animation.
         if (self.keyMap["forward"]!=0) or (self.keyMap["left"]!=0) or \
         (self.keyMap["right"]!=0):
@@ -372,16 +345,16 @@ class Environment(DirectObject):
                         self.isMoving = True
         else:
                 if self.isMoving:
-                        self.robot.stop()
+                        self.character.stop()
                         self.isMoving = False
 
-        self.floater.setPos(self.robot.getPos())
-        self.floater.setZ(self.robot.getZ() + 10)
+        self.floater.setPos(self.character.getPos())
+        self.floater.setZ(self.character.getZ() + 10)
         base.camera.lookAt(self.floater)
 
         # Store the task time and continue.
         self.prevtime = task.time
-
+        
         return Task.cont
 
     #--------------------------------------------------
@@ -395,11 +368,12 @@ class Environment(DirectObject):
 
         if (len(entries)>1):
             self.distance_laser = entries[1].getSurfacePoint(render)
-            value = sqrt((self.robot.getPos().getX()
-            - self.distance_laser.getX())**2+(self.robot.getPos().getY()
-            - self.distance_laser.getY())**2+(self.robot.getPos().getZ()
+            value = sqrt((self.character.getPos().getX()
+            - self.distance_laser.getX())**2+(self.character.getPos().getY()
+            - self.distance_laser.getY())**2+(self.character.getPos().getZ()
             - self.distance_laser.getZ())**2)-18
             self.slam_obj.landmarkUpdate(degree, value)
+            self.slam_obj.doProjection(self.character.getH(), self.character.getX(), self.character.getX())
         else:
             self.slam_obj.landmarkUpdate(degree, self.slam_obj.infinity_point)
 
@@ -426,7 +400,7 @@ class Environment(DirectObject):
 
     
     def printXYZ(self, task):
-        """ prints the X, Y, Z position of the actor """
+        """ prints the X, Y, Z position of the character """
 
         self.title.setText(self.getXYZ())
         self.title_odometer.setText(self.getInfos())
@@ -457,30 +431,32 @@ class Environment(DirectObject):
         """
 
         return "X: %.2f Y: %.2f Z: %.2f "\
-        % (self.robot.getX(), self.robot.getY(), self.robot.getZ())
+        % (self.character.getX(), self.character.getY(), self.character.getZ())
     #--------------------------------------------------
     def getInfos(self):
         """ returns odometer data """
         if (self.distance_laser == None):
             return "Odometer: %.2f Laser: %s"\
-            %( self.odometer, self.distance_laser)
+            %( self.robot.getSensor("odometer", 0), self.distance_laser)
         else:
-            return "Odometer: %.2f" %self.odometer
+            return "Odometer: %.2f" % self.robot.getSensor("odometer", 0)
 
     def seeTheWay(self):
         """ see the way to walk """
-        actualH = self.robot.getH()
+        actualH = self.character.getH()
         newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.landmark_dic)
         newH = actualH + float(newH)
-        self.robot.setHpr(newH, 0, 0)
-        
+        self.character.setHpr(newH, 0, 0)
+        return newH
+
     def buildGraphOfLandmarks(self):
         """ builds a landmark graph """
         for key in self.slam_obj.landmark_dic.iterkeys():
-            self.slam_obj.createLandmarkGraph(key)
+            self.slam_obj.createLandmarkGraph(self.robot, key, self.robot.position)
     
     def doTest(self):
-        angle = '+60'
+        #print self.character.getH() % 360
+        # angle = '+60'
         self.buildGraphOfLandmarks()
         print self.slam_obj.landmark_graph
         print self.slam_obj.landmark_graph.__len__()
