@@ -82,15 +82,21 @@ O segmento Data Association (tradução livre: Associação de Dados) é responsável 
 
 Uma vez que um marco seja visualizado em um passo do agente e esse mesmo marco é visto novamente em um novo passo, a sua posição mudou, em relação ao agente. O Data Association faz a analíse da posição autal do marco com a sua posição imediatamente aterior, com esse paralelo certifica-se que o marco existe ou se ele foi removido da cena.
 
-Este segmento tem como saída para o State Estimation um lista com os marcos da cena.
+Este segmento tem como saída para o State Estimation um lista indexada pela posição do agente contendo os marcos da cena. Dessa forma torna-se mais fácil a localização do marco e em que posição ele foi identificado.
 
 \subsection{State Estimation}
 O segmento State Estimation (tradução livre: Estimação do Estado) tem com objetivo analisar as informações passadas pelo Data Association e estimar as posições dos marcos e do agente, com essas informações ele prepara as posições de cada elemento na cena e analisa o estado anterior já gravado. 
 
+As posições dos marcos devem coicidir com as mesmas posições deles em posições anteriores do agente (caso os marcos sejam reobservados), essa garantia de que a posição irá coincidir é tida pelo cálculo da posição do marco num plano cartesiano. o cálculo é: 
+$$
+Landmark(x,y) = (AgentActualPositionX + \cos\theta, AgentActualPositionY + \sin\theta)
+$$
+a posição do marco leva em consideração posição do robô para identificar em que posição o marco está a partir dele, isso torna o agente capaz de mapear baseado na posição dele e o ângulo é em relação ao laser do agente que colide com marco.
+
 \subsection{State Update}
 
-O State Update (tradução livre: Atualização do Estado) faz a gravação do estado atual do agente, sua posição, em relação a posição inicial, valores relativos ao odômetro. 
+O State Update (tradução livre: Atualização do Estado) faz a gravação do estado atual do agente, sua posição, em relação a posição inicial, valores relativos ao odômetro. Esse passo do SLAM apesar de ter uma resposabilidade aparentemente pequena, leva-se muito tempo para definir o tipo de estrutura que será usada para gravação dos estados. Algumas, com o foco em performance, armazenam em listas devido alta velocidade de gravação, outros preferem uma lista indexada (também conhecido como \textit{map}) para facilitar na busca pelas informações. A mais recomendada é uma lista indexada, utilizando a posição atual como chave.
 
 \subsection{Landmark Update}
 
-Com o mesmo objetivo e com focos diferentes, o State Update (tradução livre: Atualização de marcos) faz a gravação do estado atual dos marcos, sua posição, em relação a posição do agente. 
+Com o mesmo objetivo e com focos diferentes, o State Update (tradução livre: Atualização de marcos) faz a gravação do estado atual dos marcos, sua posição, em relação a posição do agente. Assim como é no State Update, no Landmark Update é difícil definir a melhor estrutura de dados para armazenamento. A estrutura mais indicada nesse caso também é a lista indexada, que também deve ser indexada pela posição atual do agente.
