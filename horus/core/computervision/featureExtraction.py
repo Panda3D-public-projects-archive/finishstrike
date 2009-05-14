@@ -1,15 +1,15 @@
 import image as Image
 
-"""
-    this method extract features of an image counting the occurrences of
-    a specific edge type in the regions of the image.
-    
-    image: the image to extract features.
-    return: a matrix with dimensions = (number of edges x number of regions),
-    each value of the matrix contains the number of occurrences of an
-    edge type in a region of the image (matrix[edgeType][region])
-"""
 def extractFeatureByEdgeDetection(image):
+    """
+        this method extract features of an image counting the occurrences of
+        a specific edge type in the regions of the image.
+        
+        image: the image to extract features.
+        return: a matrix with dimensions = (number of edges x number of regions),
+        each value of the matrix contains the number of occurrences of an
+        edge type in a region of the image (matrix[edgeType][region])
+    """
     regionList = getSixRegionList(image)
     edgeTypeList = getRegionTypeList()
      
@@ -26,15 +26,15 @@ def extractFeatureByEdgeDetection(image):
                         featureMatrix[edgeIndex][regionIndex] += 1      
     return featureMatrix
      
-"""
-    This method divide a given image in six regions.
-    
-    image: the original image to be divided in six regions.
-     
-    return: a list of six images, each one represents a part of the original
-    image.
-"""
 def getSixRegionList(image):
+    """
+        This method divide a given image in six regions.
+        
+        image: the original image to be divided in six regions.
+         
+        return: a list of six images, each one represents a part of the original
+        image.
+    """
     size = image.size
     r0_dimension = (0, 0, ((size[0]/2) ),((size[1]/3)))
     r1_dimension = (size[0]/2, 0, size[0] ,(size[1]/3))
@@ -43,6 +43,8 @@ def getSixRegionList(image):
     r4_dimension = (0, (2*size[1]/3), (size[0]/2),size[1])
     r5_dimension = ((size[0]/2), 2*size[1]/3, size[0], size[1])
     regionList = []
+    # XXX: Why are you printing something over here?
+    # It should be removed asap.
     print Image.Image(img_to_mix = image.crop(r0_dimension))
     regionList.append(Image.Image(img_to_mix = image.crop(r0_dimension)))
     regionList.append(Image.Image(img_to_mix = image.crop(r1_dimension)))
@@ -52,66 +54,86 @@ def getSixRegionList(image):
     regionList.append(Image.Image(img_to_mix = image.crop(r5_dimension)))
     return regionList
 
-"""
-    returns a list of distinct edge types. Each edge type is represented by
-    one matrix 2 x 2.
-"""
 def getRegionTypeList():
+    """
+        returns a list of distinct edge types. Each edge type is represented by
+        one matrix 2 x 2.
+    """
+
     edgeTypes = []
+    # XXX: Why did you as multiline instead of comments?
     """
     Horizontal bottom
     1,1
     0,0
     """
     edgeTypes.append([[255,255],[0,0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Horizontal Upper
     0,0
     1,1
     """    
     edgeTypes.append([[0, 0],[255, 255]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Vertical left
     0,1
     0,1
     """
     edgeTypes.append([[0,255],[0,255]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Vertical Right
     1,0
     1,0
     """
     edgeTypes.append([[255,0],[255,0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal center left
     0,1
     1,0
     """
     edgeTypes.append([[0,255],[255, 0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal upper left
     0,0
     1,0
     """
     edgeTypes.append([[0,0],[255, 0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal bottom left
     0,1
     0,0
     """
     edgeTypes.append([[0,255],[0, 0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal center right
     1,0
     0,1
     """
     edgeTypes.append([[255,0],[0, 255]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal upper right
     1,0
     0,0
     """
     edgeTypes.append([[255,0],[0, 0]])
+
+    # XXX: Why did you as multiline instead of comments?
     """
     Diagonal bottom right
     0,0
@@ -120,10 +142,10 @@ def getRegionTypeList():
     edgeTypes.append([[0,0],[0, 255]])
     return edgeTypes
 
-"""
-    Skeletonize an image with the Hilditch's algorithm. 
-"""
 def hildtchSkeletonize(image):        
+    """
+        Skeletonize an image with the Hilditch's algorithm. 
+    """
     while (True):
         letContinue = False
         boundaryPixelList = []
@@ -158,14 +180,19 @@ def hildtchSkeletonize(image):
 
 def getNumJunctions(image):
     pass
+
 def getNumLineEnds(image):
     pass
+
+
 def getNumLoops(image):
+    #XXX: Please, do not commit the code with pdb.
     import pdb    
     numRegions = 0;    
     
     for j in range( image.size[1] ):
         transition = 0;
+        # XXX: useless comments should not be commited.
         #if j == 5: pdb.set_trace()
         for i in range(image.size[0] ):            
                 flag = 0;
@@ -174,7 +201,8 @@ def getNumLoops(image):
                     if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
                         if((image.topLeftNeibor((i+1, j)) == 0) and   
                                (image.topNeibor((i+1,j)) == 0)):
-                            
+
+                        # XXX: useless comments should not be commited as well.   
                         #if(image.topLeftNeibor((i+1, j)) * image.topNeibor((i+1,j)) * 
                         # image.topRightNeibor((i+1, j)) == 0):                            
                             count = i + 1;                            
@@ -193,11 +221,11 @@ def getNumLoops(image):
                         
                      
                 
-"""
-    count the number of 0 to 255 transitions in the 8 neighborhood of a pixel 
-    in a clock-wise order.      
-"""   
 def countTransitions(image, pixel):
+    """
+        count the number of 0 to 255 transitions in the 8 neighborhood of a pixel 
+        in a clock-wise order.      
+    """   
     count = 0
     if(image.topNeibor(pixel) == 0)&(image.topRightNeibor(pixel) == 255):        
         count += 1
@@ -219,29 +247,28 @@ def countTransitions(image, pixel):
 
 
 def blocksIntensity(image):
+    # XXX: Doc string can not be blank/empty.
     """
          
     """
-       
-    pixelMatrix = image.pixel_matrix()  
-    hSize = image.size[1]/5#image.size[1]/5
-    wSize = image.size[0]/5#image.size[0]/5
+    pixelMatrix = image.pixel_matrix()
+    hSize = image.size[1]/5
+    wSize = image.size[0]/5
     height_position = 0
-    width_position = 0     
-    pattern_list = []   
+    width_position = 0
+    pattern_list = []
     while height_position < image.size[1]:
         while width_position < image.size[0]:
-            if (height_position + hSize) <= image.size[1] and (wSize + width_position) <= image.size[0]:
+            if (height_position + hSize) <= image.size[1] and \
+                (wSize + width_position) <= image.size[0]:
                 matrixCroped = [i[height_position:(height_position+hSize)] for i in pixelMatrix[width_position:width_position+wSize]]
                 blackItensity = 0
                 for line in matrixCroped:
-                    blackItensity += line.count(0)  
+                    blackItensity += line.count(0)
                 pattern_list.append(blackItensity)
             width_position += wSize
         height_position += hSize
-        width_position = 0           
-        
+        width_position = 0
+
     return pattern_list
-    
-    
-            
+
