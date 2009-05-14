@@ -1,8 +1,7 @@
-import image as Image
 
 def extractFeatureByEdgeDetection(image):
     """
-        this method extract features of an image counting the occurrences of
+        This method extract features of an image counting the occurrences of
         a specific edge type in the regions of the image.
         
         image: the image to extract features.
@@ -10,7 +9,7 @@ def extractFeatureByEdgeDetection(image):
         each value of the matrix contains the number of occurrences of an
         edge type in a region of the image (matrix[edgeType][region])
     """
-    regionList = getSixRegionList(image)
+    regionList = image.getRegionList(col=6, row=6)
     edgeTypeList = getRegionTypeList()
      
     featureMatrix = [[0 for i in range(len(regionList))] \
@@ -26,33 +25,6 @@ def extractFeatureByEdgeDetection(image):
                         featureMatrix[edgeIndex][regionIndex] += 1      
     return featureMatrix
      
-def getSixRegionList(image):
-    """
-        This method divide a given image in six regions.
-        
-        image: the original image to be divided in six regions.
-         
-        return: a list of six images, each one represents a part of the original
-        image.
-    """
-    size = image.size
-    r0_dimension = (0, 0, ((size[0]/2) ),((size[1]/3)))
-    r1_dimension = (size[0]/2, 0, size[0] ,(size[1]/3))
-    r2_dimension = (0, (size[1]/3), (size[0]/2), (2*size[1]/3))
-    r3_dimension = (size[0]/2, size[1]/3, size[0], 2*size[1]/3)
-    r4_dimension = (0, (2*size[1]/3), (size[0]/2),size[1])
-    r5_dimension = ((size[0]/2), 2*size[1]/3, size[0], size[1])
-    regionList = []
-    # XXX: Why are you printing something over here?
-    # It should be removed asap.
-    print Image.Image(img_to_mix = image.crop(r0_dimension))
-    regionList.append(Image.Image(img_to_mix = image.crop(r0_dimension)))
-    regionList.append(Image.Image(img_to_mix = image.crop(r1_dimension)))
-    regionList.append(Image.Image(img_to_mix = image.crop(r2_dimension)))
-    regionList.append(Image.Image(img_to_mix = image.crop(r3_dimension)))
-    regionList.append(Image.Image(img_to_mix = image.crop(r4_dimension)))
-    regionList.append(Image.Image(img_to_mix = image.crop(r5_dimension)))
-    return regionList
 
 def getRegionTypeList():
     """
@@ -187,7 +159,6 @@ def getNumLineEnds(image):
 
 def getNumLoops(image):
     #XXX: Please, do not commit the code with pdb.
-    import pdb    
     numRegions = 0;    
     
     for j in range( image.size[1] ):

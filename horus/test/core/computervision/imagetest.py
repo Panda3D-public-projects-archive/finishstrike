@@ -3,8 +3,12 @@ import os
 from PIL import Image as PilImage
 import horus.core.computervision.featureExtraction as featureExtraction
 import horus.core.computervision.image as image
+
 class ImageTest(unittest.TestCase):    
     def setUp(self):
+        # XXX: from os.path import abspath, join, dirname
+        #      PREFIX = join(abspath(dirname(__file__)))
+        # Use . is not correct, you should use the code above.
         abspath = os.path.abspath('.')
         self.imagePath = os.path.join(abspath,"testImages/imageTest.PNG")                
 #        image1 = PilImage.open(self.edPath2)
