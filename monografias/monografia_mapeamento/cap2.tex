@@ -10,7 +10,7 @@ De uma forma geral, um ambiente é um conjunto das condições, situações e/ou cond
 
 Antes de imaginar um agente inteligente, deve-se pensar em um ambiente de tarefas, que será utilizado para ser o "problema" em si que os agentes devem utilizar para gerar suas "soluções". Esse problema é chamado de ambiente de tarefa.
 
-\section{Especificando um ambiente}
+\section{Especificação de um ambiente}
 
 O ambiente de tarefa, onde o agente irá realizar suas tarefas, tem que ser o mais completo possível. Lembrado que o agente deve ser inserido em um ambiente que seja apropriado ao seu propósito. Alguns fatores serão levados em consideração ao projetar um agente:
 \begin{enumerate}
@@ -49,3 +49,13 @@ A distinção entre discreto e contínuo pode se aplicar ao estado do ambiente, do 
 \subsection{Agente único e Multiagente}
 
 A distinção entre ambiente do agente único e o ambiente dos multiagentes pode parecer bastante simples. Por exemplo, um agente que resolve um jogo de palavras cruzadas sozinho está claramente em um ambiente de agente único, enquanto um agente que joga Poker está claramente em um ambiente multiagente.
+
+\section{Ambiente tarefa para agente virtual}
+
+Os ambientes tarefa que são utilizados com agentes virtuais, normalmente, tem seu foco em simular ambientes reais sejam eles quais forem. Dessa forma os ambientes tarefa funcionam como simuladores para os agentes virtuais agirem a fim de "solucionar" o problema que aquele ambiente propõe.
+
+Em sua grande maioria os ambientes tarefas virtuais são completamente observáveis para facilitar a implementação do agente, mesmo sabendo que isso pode variar e muito no ambiente real, bem como o ambiente também é determinístico para que o agente saiba exatamente qual será o próximo estado para o qual ele irá.
+
+Um ambiente tarefa virtual pode ser Dinâmico ou estático de acordo com o propósito, assim como discreto ou estático. Em quase todos os casos também se observa que são espisódicos, também para facilitar a implementação do agente.
+
+Os agentes únicos ou multiagente (vários agentes) são amplamente utilizados. Mesmo com propósitos diferentes, os agentes únicos são bons para testar a capacidade de um ser naquele ambiente, sendo ele único e com uma inteligência mais robusta, já ao utilizar-se de multiagentes, o uso de uma grande massa permite que a inteligência seja limitada porém a área de cobertura, comunicação entre outros atributos tornam eles tão capazes (se não mais capazes) que os agentes únicos.
