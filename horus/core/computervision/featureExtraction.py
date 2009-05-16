@@ -222,9 +222,7 @@ def blocksIntensity(image, row, col):
     """ This method consists in two steps. The first one, splits the image in rowXCol subimages.
         The last step counts the number of black pixels in each subimage.
         Return a list wich is the number of black pixel in each subimage."""
-    """
-         
-    """
+   
     pattern_list = []
     subImage_list = image.getRegionList(row, col)
         
