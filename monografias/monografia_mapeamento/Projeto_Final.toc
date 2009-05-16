@@ -4,53 +4,52 @@
 \contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{13}
 \contentsline {section}{\numberline {2.1}Agentes Inteligentes}{13}
 \contentsline {section}{\numberline {2.2}Estruturas de agentes}{14}
-\contentsline {subsection}{\numberline {2.2.1}Agentes reativos simples}{14}
-\contentsline {subsection}{\numberline {2.2.2}Agentes reativos baseados em modelos}{14}
-\contentsline {subsection}{\numberline {2.2.3}Agentes reativos em objetivos}{14}
-\contentsline {subsection}{\numberline {2.2.4}Agentes baseados em utilidade}{14}
-\contentsline {subsection}{\numberline {2.2.5}Agentes com aprendizagem}{14}
-\contentsline {section}{\numberline {2.3}Teste de Turing}{14}
-\contentsline {section}{\numberline {2.4}Cogni\c c\~ao}{15}
-\contentsline {chapter}{\numberline {3}Ambiente}{16}
-\contentsline {section}{\numberline {3.1}Especifica\c c\~ao de um ambiente}{16}
-\contentsline {section}{\numberline {3.2}Propriedades de ambientes de tarefas}{17}
-\contentsline {subsection}{\numberline {3.2.1}Completamente observ\'avel e parcialmente observ\'avel}{17}
-\contentsline {subsection}{\numberline {3.2.2}Determin\IeC {\'\i }stico e Estoc\'astico}{17}
-\contentsline {subsection}{\numberline {3.2.3}Espis\'odico e Sequencial}{18}
-\contentsline {subsection}{\numberline {3.2.4}Est\'atico e Din\^amico}{18}
-\contentsline {subsection}{\numberline {3.2.5}Discreto e Cont\IeC {\'\i }nuo}{18}
-\contentsline {subsection}{\numberline {3.2.6}Agente \'unico e Multiagente}{18}
-\contentsline {section}{\numberline {3.3}Ambiente tarefa para agente virtual}{19}
-\contentsline {chapter}{\numberline {4}Rob\'otica}{20}
-\contentsline {section}{\numberline {4.1}Sensores}{21}
-\contentsline {section}{\numberline {4.2}Efetuadores}{22}
-\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{23}
-\contentsline {section}{\numberline {4.4}Arquiteturas em Rob\'otica}{23}
-\contentsline {subsection}{\numberline {4.4.1}Arquitetura de subsun\c c\~ao}{24}
-\contentsline {subsection}{\numberline {4.4.2}Arquitetura de tr\^es camadas}{24}
-\contentsline {subsection}{\numberline {4.4.3}Arquitetura h\IeC {\'\i }brida}{24}
-\contentsline {chapter}{\numberline {5}O Toolkit Horus}{25}
-\contentsline {section}{\numberline {5.1}Objetivo}{25}
-\contentsline {section}{\numberline {5.2}Arquitetura}{25}
-\contentsline {section}{\numberline {5.3}M\'odulos do Horus}{25}
-\contentsline {subsection}{\numberline {5.3.1}Core do Horus}{25}
-\contentsline {subsection}{\numberline {5.3.2}Modulo de Vis\~ao}{25}
-\contentsline {subsection}{\numberline {5.3.3}Modulo de Mapeamento}{25}
-\contentsline {chapter}{\numberline {6}Mapeamento}{26}
-\contentsline {paragraph}{O}{26}
-\contentsline {section}{\numberline {6.1}SLAM}{27}
-\contentsline {subsection}{\numberline {6.1.1}Landmark Straction}{27}
-\contentsline {subsubsection}{\numberline {6.1.1.1}RANSAC}{28}
-\contentsline {subsubsection}{\numberline {6.1.1.2}SPIKE}{29}
-\contentsline {subsection}{\numberline {6.1.2}Data Association}{29}
-\contentsline {subsection}{\numberline {6.1.3}State Estimation}{30}
-\contentsline {subsection}{\numberline {6.1.4}State Update}{30}
-\contentsline {subsection}{\numberline {6.1.5}Landmark Update}{30}
-\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{32}
-\contentsline {section}{\numberline {7.1}Simulador}{32}
-\contentsline {section}{\numberline {7.2}Ambiente}{33}
-\contentsline {section}{\numberline {7.3}O mapeamento}{35}
-\contentsline {chapter}{\numberline {8}Conclus\~oes e Trabalhos Futuros}{36}
-\contentsline {chapter}{Ap\^endices}{37}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{37}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{38}
+\contentsline {subsection}{\numberline {2.2.1}Agentes reativos simples}{15}
+\contentsline {subsection}{\numberline {2.2.2}Agentes reativos baseados em modelos}{16}
+\contentsline {subsection}{\numberline {2.2.3}Agentes reativos em objetivos}{16}
+\contentsline {subsection}{\numberline {2.2.4}Agentes baseados em utilidade}{16}
+\contentsline {section}{\numberline {2.3}Teste de Turing}{16}
+\contentsline {section}{\numberline {2.4}Cogni\c c\~ao}{16}
+\contentsline {chapter}{\numberline {3}Ambiente}{18}
+\contentsline {section}{\numberline {3.1}Especifica\c c\~ao de um ambiente}{18}
+\contentsline {section}{\numberline {3.2}Propriedades de ambientes de tarefas}{19}
+\contentsline {subsection}{\numberline {3.2.1}Completamente observ\'avel e parcialmente observ\'avel}{19}
+\contentsline {subsection}{\numberline {3.2.2}Determin\IeC {\'\i }stico e Estoc\'astico}{19}
+\contentsline {subsection}{\numberline {3.2.3}Espis\'odico e Sequencial}{20}
+\contentsline {subsection}{\numberline {3.2.4}Est\'atico e Din\^amico}{20}
+\contentsline {subsection}{\numberline {3.2.5}Discreto e Cont\IeC {\'\i }nuo}{20}
+\contentsline {subsection}{\numberline {3.2.6}Agente \'unico e Multiagente}{20}
+\contentsline {section}{\numberline {3.3}Ambiente tarefa para agente virtual}{21}
+\contentsline {chapter}{\numberline {4}Rob\'otica}{22}
+\contentsline {section}{\numberline {4.1}Sensores}{23}
+\contentsline {section}{\numberline {4.2}Efetuadores}{24}
+\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{25}
+\contentsline {section}{\numberline {4.4}Arquiteturas em Rob\'otica}{25}
+\contentsline {subsection}{\numberline {4.4.1}Arquitetura de subsun\c c\~ao}{26}
+\contentsline {subsection}{\numberline {4.4.2}Arquitetura de tr\^es camadas}{26}
+\contentsline {subsection}{\numberline {4.4.3}Arquitetura h\IeC {\'\i }brida}{26}
+\contentsline {chapter}{\numberline {5}O Toolkit Horus}{27}
+\contentsline {section}{\numberline {5.1}Objetivo}{27}
+\contentsline {section}{\numberline {5.2}Arquitetura}{27}
+\contentsline {section}{\numberline {5.3}M\'odulos do Horus}{27}
+\contentsline {subsection}{\numberline {5.3.1}Core do Horus}{27}
+\contentsline {subsection}{\numberline {5.3.2}Modulo de Vis\~ao}{27}
+\contentsline {subsection}{\numberline {5.3.3}Modulo de Mapeamento}{27}
+\contentsline {chapter}{\numberline {6}Mapeamento}{28}
+\contentsline {paragraph}{O}{28}
+\contentsline {section}{\numberline {6.1}SLAM}{29}
+\contentsline {subsection}{\numberline {6.1.1}Landmark Straction}{29}
+\contentsline {subsubsection}{\numberline {6.1.1.1}RANSAC}{30}
+\contentsline {subsubsection}{\numberline {6.1.1.2}SPIKE}{31}
+\contentsline {subsection}{\numberline {6.1.2}Data Association}{31}
+\contentsline {subsection}{\numberline {6.1.3}State Estimation}{32}
+\contentsline {subsection}{\numberline {6.1.4}State Update}{32}
+\contentsline {subsection}{\numberline {6.1.5}Landmark Update}{32}
+\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{34}
+\contentsline {section}{\numberline {7.1}Simulador}{34}
+\contentsline {section}{\numberline {7.2}Ambiente}{35}
+\contentsline {section}{\numberline {7.3}O mapeamento}{37}
+\contentsline {chapter}{\numberline {8}Conclus\~oes e Trabalhos Futuros}{38}
+\contentsline {chapter}{Ap\^endices}{39}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{39}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{40}

@@ -11,7 +11,7 @@
 Tal inteligência pode ser aplicada de várias formas para tornar um agente, um agente inteligente, capaz de ter capacidades próprias.
 
 \section{Agentes Inteligentes} 
-Um Agente, por definição, e todo elemento ou entidade autonoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores.
+Um Agente, por definição, é todo elemento ou entidade autonoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores.
 
 Algumas definiçôes do termo agente na lingua portuguesa tais como "O que opera ou é capaz de operar", "O que promove negócios alheios" e "Autor".
 Existem definições de agentes em várias áreas do conhecimento
@@ -23,17 +23,43 @@ humano.
 	\item Robótica: Na robótica, que é nosso foco, o agente inteligente é visto como um agente que possui uma inteligência (artificial) e se utiliza dela para ter autonimia, pró-atividade e até mesmo tomada de decisões.
 \end{itemize}
 
+Nesse projeto será abordada a utilização de agentes inteligentes na área de técnologia, que engloba robótica e também a área de software com agentes em ambientes virtuais. Dentro desse propósito, o agente é todo aquele que é capaz de perceber o ambiente através de sensores e efetuar transformações nesse ambiente atraves de efetuadores.
+
 \section{Estruturas de agentes}
 
+Uma estrutura básica consiste no programa do agente e arquitetura do agente. O programa do agente é aquele que contêm a inteligência dele que analisará os dados obtidos dos sensores e passará para os efetuadores quais as ações necessitam ser tomadas, já a arquitetura é todo o aparato de dispositivos que o agente tem a sua disposição para perceber o ambiente.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6,bb=0 0 503 300]{imagens/digramas/diagrama_agente_ambiente.png}
+\caption{Ações entre ambiente e agentes inteligentes.}
+\label{fig:diagrama_agente_ambiente}
+\end{figure}
+
+Um arquitetura de agente deve estar preparada para receber as requisições que forem enviadas à ela pelo programa de agente, não seria correto pedir que a arquitetura seguisse recomendações como Ative o Laser se a mesma não contiver o dispositivo. É necessário que as percepções e ações estejam adequadas com a inteligência que as controlará.
+
+Os tipos de programas de agentes podem ser definidos em quatro categorias gerais. Que são:
+\begin{itemize}
+\item Agentes reativos simples.
+\item Agentes reativos baseados em modelo.
+\item Agentes baseados em objetivos.
+\item Agentes baseados em na utilidade.
+\end{itemize}
+
 \subsection{Agentes reativos simples}
+
+O tipo mais simples de agente, ele se utiliza apenas da condição atual para definir suas ações, deixando de lado todo o histórico de percepções que poderiam influenciar diretamente na ação atual. Ele utiliza-se apenas do que é chamado de regra da condição-ação, que define que toda vez que uma percepção atual do agente passa por uma condição, ele deve agir conforme o descrito naquela condição sem se quer analisar as anterioes. Essa é mesma inteligência que há no corpo humano no que diz respeito a reflexos inatos, aqueles que ocorrem de forma involuntária.
+
+Tal agente tem regras muito específicas de como agir em determinadas sitações e como agir no geral (uma espécie de \textit{default}) e normalmente capturam através dos sensores e passam para um mecanismo de inferência para simplesmente determinar em qual condição a leitura do ambiete se adequa e qual ação será tomada.
+
+
+
 
 \subsection{Agentes reativos baseados em modelos}
 
 \subsection{Agentes reativos em objetivos}
 
 \subsection{Agentes baseados em utilidade}
-
-\subsection{Agentes com aprendizagem}
 
 \section{Teste de Turing}
 
