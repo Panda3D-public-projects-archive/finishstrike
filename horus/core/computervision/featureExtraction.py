@@ -217,29 +217,23 @@ def countTransitions(image, pixel):
     return count
 
 
-def blocksIntensity(image):
-    # XXX: Doc string can not be blank/empty.
+def blocksIntensity(image, row, col):
+    #XXX: We have to test this method.
+    """ This method consists in two steps. The first one, splits the image in rowXCol subimages.
+        The last step counts the number of black pixels in each subimage.
+        Return a list wich is the number of black pixel in each subimage."""
     """
          
     """
-    pixelMatrix = image.pixel_matrix()
-    hSize = image.size[1]/5
-    wSize = image.size[0]/5
-    height_position = 0
-    width_position = 0
     pattern_list = []
-    while height_position < image.size[1]:
-        while width_position < image.size[0]:
-            if (height_position + hSize) <= image.size[1] and \
-                (wSize + width_position) <= image.size[0]:
-                matrixCroped = [i[height_position:(height_position+hSize)] for i in pixelMatrix[width_position:width_position+wSize]]
-                blackItensity = 0
-                for line in matrixCroped:
-                    blackItensity += line.count(0)
-                pattern_list.append(blackItensity)
-            width_position += wSize
-        height_position += hSize
-        width_position = 0
+    subImage_list = image.getRegionList(row, col)
+        
+    for subImage in subImage_list:
+        pixelMatrix = subImage.pixel_matrix()
+        blackItensity = 0
+        for line in matrixCroped:
+            blackItensity += line.count(0)
+        pattern_list.append(blackItensity)
 
     return pattern_list
 
