@@ -1,4 +1,3 @@
-
 def extractFeatureByEdgeDetection(image):
     """
         This method extract features of an image counting the occurrences of
@@ -125,16 +124,16 @@ def hildtchSkeletonize(image):
         for i in range( image.size[0] ):
             for j in range(image.size[1] ):
                 if(image.getpixel((i,j)) == 0):                    
-                    n8 = image.get8Neiborhood((i,j))                                       
+                    n8 = image.getEightNeighbourhood((i,j))                                       
                     if(n8.count(255) > 0):                        
                         boundaryPixelList.append((i,j))                        
         for pixel in boundaryPixelList:
-            n8 = image.get8Neiborhood(pixel)
-            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
-                image.leftNeibor(pixel)) == 0):
+            n8 = image.getEightNeighbourhood(pixel)
+            if((image.topNeighbour(pixel) + image.rightNeighbour(pixel) + 
+                image.leftNeighbour(pixel)) == 0):
                 continue            
-            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
-                image.backNeibor(pixel)) == 0):
+            if((image.topNeighbour(pixel) + image.rightNeighbour(pixel) + 
+                image.bottomNeighbour(pixel)) == 0):
                 continue                
             if not((n8.count(0) >= 2) & (n8.count(0) <= 6)):                
                 continue
@@ -170,12 +169,12 @@ def getNumLoops(image):
                 pixelValue = image.getpixel((i,j));
                 if(i+1 < image.size[0]):
                     if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
-                        if((image.topLeftNeibor((i+1, j)) == 0) and   
-                               (image.topNeibor((i+1,j)) == 0)):
+                        if((image.leftTopNeighbour((i+1, j)) == 0) and   
+                               (image.topNeighbour((i+1,j)) == 0)):
 
                         # XXX: useless comments should not be commited as well.   
-                        #if(image.topLeftNeibor((i+1, j)) * image.topNeibor((i+1,j)) * 
-                        # image.topRightNeibor((i+1, j)) == 0):                            
+                        #if(image.leftTopNeighbour((i+1, j)) * image.topNeighbour((i+1,j)) * 
+                        # image.rightTopNeighbour((i+1, j)) == 0):                            
                             count = i + 1;                            
                             while(count < image.size[0]):                                
                                 if(image.getpixel((count, j)) == 0): 
@@ -198,38 +197,36 @@ def countTransitions(image, pixel):
         in a clock-wise order.      
     """   
     count = 0
-    if(image.topNeibor(pixel) == 0)&(image.topRightNeibor(pixel) == 255):        
+    if(image.topNeighbour(pixel) == 0)&(image.rightTopNeighbour(pixel) == 255):        
         count += 1
-    if(image.topRightNeibor(pixel) == 0)&(image.rightNeibor(pixel) == 255):        
+    if(image.rightTopNeighbour(pixel) == 0)&(image.rightNeighbour(pixel) == 255):        
         count += 1
-    if(image.rightNeibor(pixel) == 0)&(image.backRightNeibor(pixel) == 255):
+    if(image.rightNeighbour(pixel) == 0)&(image.rightBottomNeighbour(pixel) == 255):
         count += 1
-    if(image.backRightNeibor(pixel) == 0)&(image.backNeibor(pixel) == 255):
+    if(image.rightBottomNeighbour(pixel) == 0)&(image.bottomNeighbour(pixel) == 255):
         count += 1
-    if(image.backNeibor(pixel) == 0)&(image.backLeftNeibor(pixel) == 255):        
+    if(image.bottomNeighbour(pixel) == 0)&(image.leftBottomNeighbour(pixel) == 255):        
         count += 1
-    if(image.backLeftNeibor(pixel) == 0)&(image.leftNeibor(pixel) == 255):
+    if(image.leftBottomNeighbour(pixel) == 0)&(image.leftNeighbour(pixel) == 255):
         count += 1
-    if(image.leftNeibor(pixel) == 0)&(image.topLeftNeibor(pixel) == 255):
+    if(image.leftNeighbour(pixel) == 0)&(image.leftTopNeighbour(pixel) == 255):
         count += 1
-    if(image.topLeftNeibor(pixel) == 0)&(image.topNeibor(pixel) == 255):
+    if(image.leftTopNeighbour(pixel) == 0)&(image.topNeighbour(pixel) == 255):
         count += 1
     return count
 
 
-def blocksIntensity(image, row, col):
-    #XXX: We have to test this method.
-    """ This method consists in two steps. The first one, splits the image in rowXCol subimages.
-        The last step counts the number of black pixels in each subimage.
-        Return a list wich is the number of black pixel in each subimage."""
-   
-    pattern_list = []
+def blocksIntensity(image, row=5, col=5):   
+    """This method consists in two steps. The first one, splits the image in rowXCol sub-images.
+        The last step counts the number of black pixels in each sub-image.
+        Return a list which is the number of black pixels in each sub-image."""
+    
     subImage_list = image.getRegionList(row, col)
-        
+    pattern_list = []
     for subImage in subImage_list:
         pixelMatrix = subImage.pixel_matrix()
         blackItensity = 0
-        for line in matrixCroped:
+        for line in pixelMatrix:
             blackItensity += line.count(0)
         pattern_list.append(blackItensity)
 
