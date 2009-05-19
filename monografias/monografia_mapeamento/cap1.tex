@@ -53,13 +53,20 @@ O tipo mais simples de agente, ele se utiliza apenas da condição atual para defi
 Tal agente tem regras muito específicas de como agir em determinadas sitações e como agir no geral (uma espécie de \textit{default}) e normalmente capturam através dos sensores e passam para um mecanismo de inferência para simplesmente determinar em qual condição a leitura do ambiete se adequa e qual ação será tomada.
 
 
-
-
 \subsection{Agentes reativos baseados em modelos}
+
+Modelos são as informações de como é o funcionamento de um determinado conhecimento que é migrado para um conhecimento computacional e torna-se assim um modelo do mundo (o conhecimento do ambiente em questão). O agente que se utiliza do conhecimento prévio de "como as coisas funcionam" para poder tomar decisões de alteração de estado ou alteração do ambiente é o agente baseado em modelos. 
+
+Com isso temos que o agente tem que armazenar o seu estado interno com o histórico de percepções previamente inseridas para assim ter com o que comparar no momento em que se colocar em uma situação com as mesmas características.
+
 
 \subsection{Agentes reativos em objetivos}
 
+Quando levamos em conta um destino ou um objetivo que o agente deve atingir, assim como um robô que deve localizar uma determinada sala, esse agente está agindo com foco no objetivo. Além da necessidade de armazenar o estado, quando se leva em consideração um objetivo, o agente deve conhecer algo que diga a ele quando parar (algum marco do objetivo). Assim ele poderá analisar se ele está mais próximo do objetivo e se para onde ele der ir.
+
 \subsection{Agentes baseados em utilidade}
+
+No momento em que um agente questiona se está seguindo por um caminho que terá maior êxito, ele está questionando a utilidade daquela ação. Os agente baseados em utilidade são aqueles que sabendo de seus objetivos e seu estado atual definem a melhor possibilidade para alcançar o objetivo(s) e poderando sempre se a importância do objetivo e seu estado atual. 
 
 \section{Teste de Turing}
 
