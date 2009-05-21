@@ -169,11 +169,11 @@ def getNumLoops(image):
                 pixelValue = image.getpixel((i,j));
                 if(i+1 < image.size[0]):
                     if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
-                        if((image.leftTopNeighbour((i+1, j)) == 0) and   
+                        if((image.topLeftNeighbour((i+1, j)) == 0) and   
                                (image.topNeighbour((i+1,j)) == 0)):
 
                         # XXX: useless comments should not be commited as well.   
-                        #if(image.leftTopNeighbour((i+1, j)) * image.topNeighbour((i+1,j)) * 
+                        #if(image.topLeftNeighbour((i+1, j)) * image.topNeighbour((i+1,j)) * 
                         # image.rightTopNeighbour((i+1, j)) == 0):                            
                             count = i + 1;                            
                             while(count < image.size[0]):                                
@@ -209,26 +209,27 @@ def countTransitions(image, pixel):
         count += 1
     if(image.leftBottomNeighbour(pixel) == 0)&(image.leftNeighbour(pixel) == 255):
         count += 1
-    if(image.leftNeighbour(pixel) == 0)&(image.leftTopNeighbour(pixel) == 255):
+    if(image.leftNeighbour(pixel) == 0)&(image.topLeftNeighbour(pixel) == 255):
         count += 1
-    if(image.leftTopNeighbour(pixel) == 0)&(image.topNeighbour(pixel) == 255):
+    if(image.topLeftNeighbour(pixel) == 0)&(image.topNeighbour(pixel) == 255):
         count += 1
     return count
 
 
 def blocksIntensity(image, row=5, col=5):   
-    """This method consists in two steps. The first one, splits the image in rowXCol sub-images.
-        The last step counts the number of black pixels in each sub-image.
-        Return a list which is the number of black pixels in each sub-image."""
-    
-    subImage_list = image.getRegionList(row, col)
+    """
+      This method consists in two steps. The first one, splits the image in rowXCol sub-images.
+      The last step counts the number of black pixels in each sub-image.
+      Return a list which is the number of black pixels in each sub-image.
+    """
+    sub_image_list = image.getRegionList(row, col)
     pattern_list = []
-    for subImage in subImage_list:
-        pixelMatrix = subImage.pixel_matrix()
-        blackItensity = 0
-        for line in pixelMatrix:
-            blackItensity += line.count(0)
-        pattern_list.append(blackItensity)
+    for sub_image in sub_image_list:
+        pixel_matrix = sub_image.pixel_matrix()
+        black_itensity = 0
+        for line in pixel_matrix:
+            black_itensity += line.count(0)
+        pattern_list.append(black_itensity)
 
     return pattern_list
 

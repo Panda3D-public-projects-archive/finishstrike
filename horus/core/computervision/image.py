@@ -7,7 +7,8 @@ class ImageMixIn(object):
         This class implements all content's methods required in anpr modules
     """
            
-    # XXX: over_group should be explained into the doc string   
+    # XXX: over_group should be explained into the doc string
+    # XXX: There are not tests for this method
     def getRegionList(self, row, col, over_group=None):
         """
             This method split a given image in NxM regions.
@@ -23,25 +24,26 @@ class ImageMixIn(object):
         width, height = self.size
         height_block_size = height/row
         width_block_size = width/col
-        cut_list = [(x, y) for x in range(0, width) for y in range(0, height)]
-        cut_list = [i for i in cut_list if i[0] % width_block_size == 0 and i[1] % height_block_size == 0]
+        x = [(x,y) for x in range(0, width+1) for y in range(0, height+1)]
+        x = [i for i in x if i[0] % width_block_size == 0 and i[1] % height_block_size == 0]
         subimage_list = []
-        for i in cut_list:
+        for i in x:
             # Getting indexes
             x0, y0 = i
-            x1 = (i[0]+width_block_size)
-            y1 = (i[1]+height_block_size)
-            if x1 > width: 
+            x1 = i[0]+width_block_size
+            y1 = i[1]+height_block_size
+             
+            if x1 > width:
               if over_group is None:
                   continue
-              x1 = width - 1
+              x1 = width
+
             if y1 > height:
                 if over_group is None:
                     continue
-                y1 = height -1
+                y1 = height
+
             subimage_list.append(Image(img_to_mix=self.crop((x0, y0, x1, y1))))
-        for i in subimage_list:
-            i.show()
         return subimage_list
 
 
@@ -49,22 +51,30 @@ class ImageMixIn(object):
         # XXX: This variable name is not so good
         # XXX: neighbourhood_list
         n8List = []        
-        if self.topNeighbour(xy) != None:
+        if self.topNeighbour(xy) is not None:
             n8List.append(self.topNeighbour(xy))
-        if self.rightTopNeighbour(xy) != None:
-            n8List.append(self.rightTopNeighbour(xy))
-        if self.rightNeighbour(xy) != None:
+
+        if self.topRightNeighbour(xy) is not None:
+            n8List.append(self.topRightNeighbour(xy))        
+
+        if self.rightNeighbour(xy) is not None:
             n8List.append(self.rightNeighbour(xy))
-        if self.rightBottomNeighbour(xy) != None:
-            n8List.append(self.rightBottomNeighbour(xy))
-        if self.bottomNeighbour(xy) != None:
-            n8List.append(self.bottomNeighbour(xy))
-        if self.leftBottomNeighbour(xy) != None:
-            n8List.append(self.leftBottomNeighbour(xy))
-        if self.leftNeighbour(xy) != None:
+
+        if self.bottomRightNeighbour(xy) is not None:
+            n8List.append(self.bottomRightNeighbour(xy))         
+
+        if self.bottomNeighbour(xy) is not None:
+            n8List.append(self.bottomNeighbour(xy))            
+
+        if self.bottomLeftNeighbour(xy) is not None:
+            n8List.append(self.bottomLeftNeighbour(xy))
+
+        if self.leftNeighbour(xy) is not None:
             n8List.append(self.leftNeighbour(xy))
-        if self.leftTopNeighbour(xy) != None:
-            n8List.append(self.leftTopNeighbour(xy))
+
+        if self.topLeftNeighbour(xy) is not None:
+            n8List.append(self.topLeftNeighbour(xy))                
+
         return n8List   
          
     def topNeighbour(self, xy):
@@ -75,17 +85,17 @@ class ImageMixIn(object):
     
     def bottomNeighbour(self, xy):
         if(xy[1]+1 < self.size[1]):
-            return self.getpixel((xy[0],xy[1]+1))
+            return self.getpixel((xy[0],xy[1]+1))            
 
-    def rightTopNeighbour(self, xy):
+    def topRightNeighbour(self, xy):
         if(xy[0]+1 < self.size[0]) & (xy[1]-1 >= 0):
-            return self.getpixel((xy[0]+1, xy[1]-1))
+            return self.getpixel((xy[0]+1, xy[1]-1))        
 
     def rightNeighbour(self, xy):
         if(xy[0]+ 1 < self.size[0]):
-            return self.getpixel((xy[0]+1,xy[1]))
+            return self.getpixel((xy[0]+1,xy[1]))        
 
-    def rightBottomNeighbour(self, xy):
+    def rightBottomNeighbour(self, xy):               
         if(xy[0]+1 < self.size[0]) & (xy[1]+1 < self.size[1]):
             return self.getpixel((xy[0]+1, xy[1]+1))
 
@@ -97,20 +107,24 @@ class ImageMixIn(object):
         if(xy[0]-1 >= 0 ) & ( xy[1]+1 < self.size[1]):
             return self.getpixel((xy[0]-1, xy[1]+1))
 
-    def leftTopNeighbour(self, xy):
+    def topLeftNeighbour(self, xy):
         if(xy[0]-1 >= 0 ) & ( xy[1]-1 >= 0 ):
-            return self.getpixel((xy[0]-1, xy[1]-1))
+            return self.getpixel((xy[0]-1, xy[1]-1))        
 
+    
     def pixel_matrix(self):
         """
             This method returns a matrix with values of wich content's pixels.
         """
-        matrix = [[]]
-        matrix = [[0 for i in range(self.size[1])] for j in range(self.size[0]) ]
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                    matrix[i][j] = self.getpixel((i,j))
-        return matrix
+        self.matrix = [[]]
+        self.matrix = [[0 for i in range(self.size[0])] \
+                                for j in range(self.size[1]) ]
+
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[0])):
+                self.matrix[i][j] = self.getpixel((j,i))
+
+        return self.matrix
 
     # XXX: The doc string should be added.
     def getFourNeighbourhood(self, index):
@@ -128,26 +142,28 @@ def Image(image_path=None, img_to_mix=None):
     """
     newimg = None
     if img_to_mix is not None and \
-       image_path is None:
+       image_path is None:      
         im = PILImage.new(img_to_mix.mode, img_to_mix.size)
         NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
         newimg = NewClassImage()
         newimg._new(img_to_mix)
-        newimg.__dict__.update(img_to_mix.__dict__)
-        newimg.putdata(img_to_mix.getdata())        
+        newimg.__dict__.update(im.__dict__)
+        newimg.putdata(img_to_mix.getdata())
     else:   
         im = PILImage.open(image_path)
         NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
         newimg = NewClassImage(fp=image_path) 
-        newimg.__dict__.update(im.__dict__)  
+        newimg.__dict__.update(im.__dict__)
     return newimg
 
 def new(mode = None, size = None, color = None):    
     return Image(img_to_mix = PILImage.new(mode, size, color)) 
 
 if __name__=='__main__':
-    x=Image(image_path='/home/lucas/lenna.jpg')
-    y=x.getRegionList(6,6)
+    x=Image(image_path='/home/lucas/lenna.jpg')#'/hd/projects/finishstrike/horus/test/core/computervision/testImages/region_test_image.png')#'/home/lucas/lenna.jpg')
+    import pdb; pdb.set_trace()
+    y=x.getRegionList(3,2)
     for i in y:
         i.save('/home/lucas/img/%s.jpg' % y.index(i))
+
 
