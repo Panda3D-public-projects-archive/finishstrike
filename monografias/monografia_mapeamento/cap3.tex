@@ -19,9 +19,6 @@ A ciência robótica é reponsável pela parte da tecnologia que tem por intuito oti
 \end{figure}
 
 
-
-
-
 Os robôs são agentes que executam tarefas no mundo físico. Para isso utilizam dispositivos para realizar sua ações: os sensores e os efetuadores. A grande maioria dos robôs podem ser incluídos em três categorias principais:
 
 \begin{enumerate}
@@ -37,7 +34,6 @@ A robótica se utiliza de vários dispositivos para emular os sentidos e as reaçõe
 Muitos agentes utilizam telêmetro, sensores capazes de medir distâncias, para definir o quão próximo ele está do objeto. Um desses sensores é o telêmetro a laser que através de uma varredura obtem-se a distância dos pontos onde a emissão do laser colidiu com um objeto. Alguns sensores medem distâncias mais curtas tais sensores já chamados de táteis. Estes são sensores de pequenas distâncias, painéis de choque e pele sensível. Eles são usados para tarefas de maior precisão como segurar um vidro, por exemplo.
 
 Outro tipo de sensores são sos de tratamentos de imagem, tais como câmeras que analisam o ambiente e podem extrair características dos ambiente. Entre vários tipos de visão computacional, uma deve ser levada em consideração quando falamos em robótica, é a estereoscópica que analisa a imagem quanto a sua profundidade. Os odômetros também são importantes e se alocam na categoria sensores propeiceptivos que são aqueles que fornecem informações ao agente sobre ele próprio. 
-
 
 \section{Efetuadores}
 
@@ -56,7 +52,6 @@ Outro tipo movimentação é a utilização de pernas na movimentação do agente. Elas
 
 Dentre os mecanismos de movimentação são observadas várias formas de energia que mantêm a movimentação dos agentes. A grande maioria utiliza motores elétricos por ser mais barato e ter mais dispositivos que utilizam esse tipo de energia no mercado. Existem também os tipos de atuação pneumática, que utiliza gás comprimido e a hidráulica que usa fluídos pressurisados.
 
-
 \section{Categorias da robótica}
 
 Os robôs manipuladores são aqueles que tem sua base fixa de forma a não se movimentar além do alcance de suas partes móveis, assim como um braço. Esse tipo de robô é muito utilizado nas linhas de produção em indústrias automotivas, sideúrgicas, metalúrgicas etc. Esses robôs tem normalmente tem, normalmente, efetuadores que alteram a forma do objeto afetado, como soldas, cortadores, efetuadores de pressão, entre outros. Também existem manipuladores em tarefas mais precisas como em hospitais no auxílio em cirurgias delicadas.
@@ -72,9 +67,18 @@ Uma forma de estruturar os algoritmos usados para gerenciar o robô, assim  como 
 Existem várias arquiteturas, dentro da literatura as mais citadas são a arquitetura de subsunção e a arquitetura em camadas.
 
 \subsection{Arquitetura de subsunção}
+Essa arquitetura é uma estrutura formada por controladores a partir de máquinas de estados finitos. Cada nó é representado por uma dessas máquinas que contém testes de variáveis ou para rastreio da execução da máquina de estados relativo a um teste. Já os arcos são usados para envio de mensagens para outras máquinas ou para dispositivos do robô. As máquinas resultantes contém um relógio interno que controla a duração do percurso da mensagem no arco, por esse motivo, elas são chamadas de MEFAs (máquinas de estados finitos ampliadas).
 
-
+O principal problema da utilização de MEFAs é que normalmente elas são implementadas com os valores brutos dos sensores ou seja sem tratamento, quando se tem um mecanismo de inferência que analisará de forma precisa as informações para tomar uma decisão não se pode ter entradas imprecisas. Isso causa problemas no momento de um MEFA aferir uma entrada. Por esse motivo a arquitetura de subsunção é raramente usada em larga escala, apenas para fins didáticos
 
 \subsection{Arquitetura de três camadas}
 
+A arquitetura em três camadas consiste em uma camada reativa, outra executiva e a última deliberativa.
 
+A camada reativa é aquele que se encontra no mais baixo nível, que controla o robô. Ela oferece um controle de análise repetitiva de sensor-ação. Tal ciclo capturará as leituras atuais dos sensores e atuará caso seja ordenado por uma camada superior.
+
+A camada executiva serve como união entre a camada reativa e a deliberativa. Recebe as reações obtidas da camada reativa e as propaga para a deliberativa assim como recebe um conjunto de pontos gerados pela camada deliberativa e passa para a camada reativa atuar.
+
+A camada deliberativa gera as soluções de planejamento baseadas em modelos previamente inseridos ou em modelos desenvolvidos através de aprendizado. Em geral todas as informações usadas por esta camada são retidas da camada executiva. 
+
+Existem algumas variações da arquitetura de três camadas em vários softwares de robôs, porém devido sua rigidez, são adicionadas outras camadas para torná-la mais adaptável aos outros tipos de problemas.
