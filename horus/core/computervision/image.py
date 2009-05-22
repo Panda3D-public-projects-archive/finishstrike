@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 # XXX: Add Copyright
 from PIL import Image as PILImage
        
@@ -20,14 +20,14 @@ class ImageMixIn(object):
              
             return: a list of six images, each one represents a part of the original
             image.
-        """
+        """        
         width, height = self.size
         height_block_size = height/row
         width_block_size = width/col
-        x = [(x,y) for x in range(0, width+1) for y in range(0, height+1)]
+        x = [(y,x) for x in range(0, height+1) for y in range(0, width+1)]
         x = [i for i in x if i[0] % width_block_size == 0 and i[1] % height_block_size == 0]
         subimage_list = []
-        for i in x:
+        for i in x:           
             # Getting indexes
             x0, y0 = i
             x1 = i[0]+width_block_size
@@ -42,7 +42,6 @@ class ImageMixIn(object):
                 if over_group is None:
                     continue
                 y1 = height
-
             subimage_list.append(Image(img_to_mix=self.crop((x0, y0, x1, y1))))
         return subimage_list
 
@@ -74,7 +73,6 @@ class ImageMixIn(object):
 
         if self.topLeftNeighbour(xy) is not None:
             n8List.append(self.topLeftNeighbour(xy))                
-
         return n8List   
          
     def topNeighbour(self, xy):
@@ -95,7 +93,7 @@ class ImageMixIn(object):
         if(xy[0]+ 1 < self.size[0]):
             return self.getpixel((xy[0]+1,xy[1]))        
 
-    def rightBottomNeighbour(self, xy):               
+    def bottomRightNeighbour(self, xy):               
         if(xy[0]+1 < self.size[0]) & (xy[1]+1 < self.size[1]):
             return self.getpixel((xy[0]+1, xy[1]+1))
 
@@ -103,7 +101,7 @@ class ImageMixIn(object):
         if(xy[0]-1 >= 0): 
             return self.getpixel((xy[0]-1, xy[1]))
 
-    def leftBottomNeighbour(self, xy):
+    def bottomLeftNeighbour(self, xy):
         if(xy[0]-1 >= 0 ) & ( xy[1]+1 < self.size[1]):
             return self.getpixel((xy[0]-1, xy[1]+1))
 
@@ -159,11 +157,9 @@ def Image(image_path=None, img_to_mix=None):
 def new(mode = None, size = None, color = None):    
     return Image(img_to_mix = PILImage.new(mode, size, color)) 
 
-if __name__=='__main__':
-    x=Image(image_path='/home/lucas/lenna.jpg')#'/hd/projects/finishstrike/horus/test/core/computervision/testImages/region_test_image.png')#'/home/lucas/lenna.jpg')
-    import pdb; pdb.set_trace()
-    y=x.getRegionList(3,2)
-    for i in y:
-        i.save('/home/lucas/img/%s.jpg' % y.index(i))
+
+
+
+
 
 

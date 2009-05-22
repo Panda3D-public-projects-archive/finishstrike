@@ -144,7 +144,6 @@ def hildtchSkeletonize(image):
             letContinue = True
         for pixelToDelete in pixelsToDelete:                      
             image.putpixel(pixelToDelete, 255)
-        print letContinue                        
         if(not letContinue):            
             break                                 
     return image
@@ -157,13 +156,10 @@ def getNumLineEnds(image):
 
 
 def getNumLoops(image):
-    #XXX: Please, do not commit the code with pdb.
     numRegions = 0;    
     
     for j in range( image.size[1] ):
         transition = 0;
-        # XXX: useless comments should not be commited.
-        #if j == 5: pdb.set_trace()
         for i in range(image.size[0] ):            
                 flag = 0;
                 pixelValue = image.getpixel((i,j));
@@ -197,17 +193,17 @@ def countTransitions(image, pixel):
         in a clock-wise order.      
     """   
     count = 0
-    if(image.topNeighbour(pixel) == 0)&(image.rightTopNeighbour(pixel) == 255):        
+    if(image.topNeighbour(pixel) == 0)&(image.topRightNeighbour(pixel) == 255):        
         count += 1
-    if(image.rightTopNeighbour(pixel) == 0)&(image.rightNeighbour(pixel) == 255):        
+    if(image.topRightNeighbour(pixel) == 0)&(image.rightNeighbour(pixel) == 255):        
         count += 1
-    if(image.rightNeighbour(pixel) == 0)&(image.rightBottomNeighbour(pixel) == 255):
+    if(image.rightNeighbour(pixel) == 0)&(image.bottomRightNeighbour(pixel) == 255):
         count += 1
-    if(image.rightBottomNeighbour(pixel) == 0)&(image.bottomNeighbour(pixel) == 255):
+    if(image.bottomRightNeighbour(pixel) == 0)&(image.bottomNeighbour(pixel) == 255):
         count += 1
-    if(image.bottomNeighbour(pixel) == 0)&(image.leftBottomNeighbour(pixel) == 255):        
+    if(image.bottomNeighbour(pixel) == 0)&(image.bottomLeftNeighbour(pixel) == 255):        
         count += 1
-    if(image.leftBottomNeighbour(pixel) == 0)&(image.leftNeighbour(pixel) == 255):
+    if(image.bottomLeftNeighbour(pixel) == 0)&(image.leftNeighbour(pixel) == 255):
         count += 1
     if(image.leftNeighbour(pixel) == 0)&(image.topLeftNeighbour(pixel) == 255):
         count += 1
