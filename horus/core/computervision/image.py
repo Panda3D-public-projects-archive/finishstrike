@@ -142,14 +142,14 @@ def Image(image_path=None, img_to_mix=None):
     if img_to_mix is not None and \
        image_path is None:      
         im = PILImage.new(img_to_mix.mode, img_to_mix.size)
-        NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
+        NewClassImage = type('PILImageMixedIn', (im.__class__, ImageMixIn,), {})
         newimg = NewClassImage()
         newimg._new(img_to_mix)
         newimg.__dict__.update(im.__dict__)
         newimg.putdata(img_to_mix.getdata())
     else:   
         im = PILImage.open(image_path)
-        NewClassImage = type('ImagePilMixedIn', (im.__class__, ImageMixIn,), {})
+        NewClassImage = type('PILImageMixedIn', (im.__class__, ImageMixIn,), {})
         newimg = NewClassImage(fp=image_path) 
         newimg.__dict__.update(im.__dict__)
     return newimg

@@ -1,5 +1,5 @@
 import unittest
-from PIL import Image as PIImage
+from PIL import Image as PILImage
 from horus.core.computervision.image import Image
 from os.path import join, abspath, dirname
 
@@ -81,12 +81,12 @@ class ImageTest(unittest.TestCase):
 
     def test_14_mixinFromPath(self):
         image = Image(image_path=self.image_path)
-        self.assertEqual(str(image.__class__.__name__), "ImagePILMixedIn")
+        self.assertEqual(str(image.__class__.__name__), "PILImageMixedIn")
 
     def test_15_mixinFromPath(self):
         image = PILImage.open(self.image_path)
         image_mixed = Image(img_to_mix=image)
-        self.assertEqual(str(image_mixed.__class__.__name__), "ImagePILMixedIn")
+        self.assertEqual(str(image_mixed.__class__.__name__), "PILImageMixedIn")
         self.assertEqual(image_mixed.size, image.size)
         self.assertEqual(image_mixed.mode, image.mode)
         self.assertNotEquals(getattr(image_mixed, 'pixel_matrix', None), None)
