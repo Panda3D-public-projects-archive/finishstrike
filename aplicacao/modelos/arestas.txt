@@ -1,0 +1,8 @@
+no1		no2		aresta1
+no2		no3		aresta2
+no3		no4		aresta3
+no4 	    no5		aresta4
+no5		no6		aresta5
+no6		no7		aresta6
+no7		no8		aresta7
+no8		no9		aresta8
