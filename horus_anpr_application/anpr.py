@@ -1,8 +1,8 @@
-
+#XXX: Add Copyright
 
 class PlateDetection(object):
     """
-        returns the plate string extracted from a car image
+        Returns the plate string extracted from a car image
         
         parameters
             carImage: the car image to be recognized, this object must be an
@@ -13,7 +13,7 @@ class PlateDetection(object):
     
 class Region(object):  
     """
-        returns a sorted region candidate list. The list is sorted by the
+        Returns a sorted region candidate list. The list is sorted by the
         probability of existence of the searched region in the candidates.
         
         parameters

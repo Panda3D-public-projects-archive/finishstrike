@@ -1,3 +1,4 @@
+# XXX: Add copyright
 import os
 import horus.featureExtraction as FeatureExtraction
 from PIL import Image as PilImage
