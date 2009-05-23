@@ -82,18 +82,18 @@ def hildtchSkeletonize(image):
         for i in range( image.size[0] ):
             for j in range(image.size[1] ):
                 if(image.getpixel((i,j)) == 0):                    
-                    n8 = image.get8Neiborhood((i,j))                                       
+                    n8 = image.getEightNeighbourhood((i,j))                                       
                     if(n8.count(255) > 0):                        
                         boundaryPixelList.append((i,j))                        
         for pixel in boundaryPixelList:
-            n8 = image.get8Neiborhood(pixel)
-            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
-                image.leftNeibor(pixel)) == 0):
+            n8 = image.getEightNeighbourhood(pixel)
+            if((image.topNeighbour(pixel) + image.rightNeighbour(pixel) + 
+                image.leftNeighbour(pixel)) == 0):
                 continue            
-            if((image.topNeibor(pixel) + image.rightNeibor(pixel) + 
-                image.backNeibor(pixel)) == 0):
+            if((image.topNeighbour(pixel) + image.rightNeighbour(pixel) + 
+                image.bottomNeighbour(pixel)) == 0):
                 continue                
-            if not((n8.count(0) >= 2) & (n8.count(0) <= 6)):                
+            if not((n8.count(0) >= 2) and (n8.count(0) <= 6)):                
                 continue
             numTransitions = featureExtraction.countTransitions(image, pixel)
             if numTransitions <> 1:                

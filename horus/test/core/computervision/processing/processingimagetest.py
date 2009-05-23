@@ -10,7 +10,7 @@ import horus.core.computervision.image as image
 class ProcessingImageTest(unittest.TestCase):
     def setUp(self):
         abspath = os.path.abspath('..')
-        self.imagePath = os.path.join(abspath,"testImages/imageTest.PNG")                
+        self.imagePath = os.path.join(abspath,"testImages/image_test.png")                
         self.test_image = image.Image(self.imagePath)
     
     def test_fullEdgeDetection(self):
@@ -42,14 +42,16 @@ class ProcessingImageTest(unittest.TestCase):
     
     def test_hildtchSkeletonize(self):
         abspath = os.path.abspath('..')
-        imagePath = os.path.join(abspath,"testImages/skeletonization_test_img.PNG")                
+        imagePath = os.path.join(abspath,"testImages/skeletonization_test_img.png")                
         sktestimage = image.Image(imagePath)
         
-        expected_output = [255,255,0,255,255,
-                           255,255,0,255,255,
-                           255,255,0,255,255,
-                           255,255,0,255,255]
-        
+        expected_output = [255, 255, 255, 255, 255, 255, 255, 255, 
+                           255, 255, 255, 255, 255, 255, 255, 255, 
+                           0, 255, 255, 255, 255, 0, 255, 255, 255,
+                           255, 0, 255, 255, 255, 255, 255, 0, 255,
+                           255, 255, 255, 255, 255, 255, 255, 255,
+                           255, 255, 255]
+         
         result_img = processingimage.hildtchSkeletonize(sktestimage)
         
         assert list(result_img.getdata()) == expected_output, \

@@ -48,31 +48,31 @@ class FeatureExtractionTest(unittest.TestCase):
         self.assertEquals(r4, image_list[4].pixel_matrix())      
         self.assertEquals(r5, image_list[5].pixel_matrix())
         
-#   def test_02_extractFeatureByEdgeDetection(self):
-#       featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage)
-#       self.assertEquals(6, len(featureMatrix[0]))
-#       self.assertEquals(10, len(featureMatrix))
-#       self.assertEquals(1, featureMatrix[2][0], featureMatrix[0])
-#       self.assertEquals(1, featureMatrix[3][0], featureMatrix[0])
-#       self.assertEquals(1, featureMatrix[6][1], featureMatrix[6])
-#       self.assertEquals(1, featureMatrix[7][2], featureMatrix[7])
-#       self.assertEquals(1, featureMatrix[5][3], featureMatrix[5])
-#       self.assertEquals(1, featureMatrix[0][4], featureMatrix[0])
-#       self.assertEquals(1, featureMatrix[4][5], featureMatrix[4])
+    def test_02_extractFeatureByEdgeDetection(self):
+       featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage)
+       self.assertEquals(6, len(featureMatrix[0]))
+       self.assertEquals(10, len(featureMatrix))
+       self.assertEquals(1, featureMatrix[2][0], featureMatrix[0])
+       self.assertEquals(1, featureMatrix[3][0], featureMatrix[0])
+       self.assertEquals(1, featureMatrix[6][1], featureMatrix[6])
+       self.assertEquals(1, featureMatrix[7][2], featureMatrix[7])
+       self.assertEquals(1, featureMatrix[5][3], featureMatrix[5])
+       self.assertEquals(1, featureMatrix[0][4], featureMatrix[0])
+       self.assertEquals(1, featureMatrix[4][5], featureMatrix[4])
 
-#     def test_03_extractFeatureByEdgeDetection2(self):
-#         featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage2)
-#         assert 6 == len(featureMatrix[0])
-#         assert 10 == len(featureMatrix)
-#         
-#         assert 1 == featureMatrix[2][0], featureMatrix[0]
-#         assert 2 == featureMatrix[3][0], featureMatrix[0]
-#         assert 1 == featureMatrix[6][1], featureMatrix[6]
-#         assert 1 == featureMatrix[7][2], featureMatrix[7]
-#         assert 1 == featureMatrix[6][2], featureMatrix[6]
-#         assert 1 == featureMatrix[5][3], featureMatrix[5]
-#         assert 1 == featureMatrix[0][4], featureMatrix[0]
-#         assert 1 == featureMatrix[4][5], featureMatrix[4]
+    def test_03_extractFeatureByEdgeDetection2(self):
+        featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage2)
+        self.assertEquals(6, len(featureMatrix[0]))
+        self.assertEquals(10, len(featureMatrix))
+         
+        self.assertEquals(1, featureMatrix[2][0])
+        self.assertEquals(2, featureMatrix[3][0])
+        self.assertEquals(1, featureMatrix[6][1])
+        self.assertEquals(1, featureMatrix[7][2])
+        self.assertEquals(1, featureMatrix[6][2])
+        self.assertEquals(1, featureMatrix[5][3])
+        self.assertEquals(1, featureMatrix[0][4])
+        self.assertEquals(1, featureMatrix[4][5])
 
     def test_04_getTwoLoops(self):
         """
