@@ -10,7 +10,7 @@ def extractFeatureByEdgeDetection(image):
         each value of the matrix contains the number of occurrences of an
         edge type in a region of the image (matrix[edgeType][region])
     """
-    regionList = image.getRegionList(col=6, row=6)
+    regionList = image.getRegionList(col=2, row=3)
     edgeTypeList = getRegionTypeList()
      
     featureMatrix = [[0 for i in range(len(regionList))] \
@@ -18,7 +18,7 @@ def extractFeatureByEdgeDetection(image):
     for region in regionList:        
         for i in range(region.size[0]-1):
             for j in range(region.size[1]-1):
-                region2x2 = region.getFourNeighborhood((i,j))                                
+                region2x2 = region.getFourNeighbourhood((i,j))                                
                 for edgeType in edgeTypeList:
                     if edgeType == region2x2:
                         regionIndex = regionList.index(region)
