@@ -1,6 +1,6 @@
 import sys
 import random
-from math_module import *
+from horus.core.math.math_module import *
 
 class Ransac():
 
