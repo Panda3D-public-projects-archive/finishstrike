@@ -1,4 +1,4 @@
-from math_module import *
+from horus.core.math.math_module import *
 from ransac import *
 from landmark import *
 
