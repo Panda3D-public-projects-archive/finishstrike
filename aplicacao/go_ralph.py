@@ -1,7 +1,7 @@
 # -*- coding: cp1252 -*-
 from direct.gui.OnscreenText import OnscreenText
-from framework.GraphFacade import *
-from framework.SLAM import *
+from horus.mapping.slam import *
+from horus.core.math.graph import *
 from direct.showbase.DirectObject import DirectObject
 from direct.interval.IntervalGlobal import *
 import direct.directbase.DirectStart

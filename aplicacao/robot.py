@@ -1,5 +1,5 @@
 from direct.actor.Actor import Actor
-from framework.Agent import Agent
+from agent import Agent
 from pandac.PandaModules import *
 import math
 
