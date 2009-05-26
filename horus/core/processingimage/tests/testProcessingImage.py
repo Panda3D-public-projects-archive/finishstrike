@@ -3,14 +3,14 @@ Created on 08/05/2009
 
 @author: thiagorinu
 '''
-import horus.core.computervision.processing.processingimage as processingimage
+import horus.core.processingimage.processingimage as processingimage
 import os
 import unittest
-import horus.core.computervision.image as image
+import horus.core.processingimage.image as image
 class ProcessingImageTest(unittest.TestCase):
     def setUp(self):
-        abspath = os.path.abspath('..')
-        self.imagePath = os.path.join(abspath,"testImages/imageTest.PNG")                
+        abspath = os.path.abspath('.')
+        self.imagePath = os.path.join(abspath,"data/image.png")                
         self.test_image = image.Image(self.imagePath)
     
     def test_fullEdgeDetection(self):
@@ -41,14 +41,15 @@ class ProcessingImageTest(unittest.TestCase):
         assert None != image
     
     def test_hildtchSkeletonize(self):
-        abspath = os.path.abspath('..')
-        imagePath = os.path.join(abspath,"testImages/skeletonization_test_img.PNG")                
+        abspath = os.path.abspath('.')
+        imagePath = os.path.join(abspath,"data/skeletonization_image.png")                
         sktestimage = image.Image(imagePath)
         
-        expected_output = [255,255,0,255,255,
-                           255,255,0,255,255,
-                           255,255,0,255,255,
-                           255,255,0,255,255]
+        expected_output = [255, 255, 255, 255, 255, 255,
+                           255, 255, 255, 255, 255, 255, 
+                           255, 255, 255, 255, 255, 0, 
+                           255, 255, 255, 255, 255, 255, 
+                           255, 255, 255, 255, 255, 255]
         
         result_img = processingimage.hildtchSkeletonize(sktestimage)
         

@@ -1,13 +1,13 @@
 import unittest
 from PIL import Image as PILImage
-from horus.core.computervision.image import Image
+from horus.core.processingimage.image import Image
 from os.path import join, abspath, dirname
 
 PREFIX = join(abspath(dirname(__file__)))
 
 class ImageTest(unittest.TestCase):
     def setUp(self):
-        self.image_path = join(PREFIX,"testImages/image_test.png")
+        self.image_path = join(PREFIX,"data/image.png")
         self.test_image = Image(self.image_path)
 
     def test_01_image(self):
