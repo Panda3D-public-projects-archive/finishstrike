@@ -10,22 +10,20 @@ class Trigonometry():
         cateto = math.sin(math.radians(angle))*hypotenuse
         return cateto
 
-class LinearRegression():
-    """ 
-        this class gets X, Y points and makes a line between this points
-        structure: LinearRegression(list), where list is a tuple of values
-        like [(x1, y1),(x2,y2),...,(xn,yn)]
-    """
+class LinearRegression:
+
     def __init__(self, pointlist):
-        # pointlist must be pairs (x, y)
+        # pointlist deve ser uma lista de pares (x, y)
         self.pointlist = pointlist
         self.alpha = None
         self.beta = None
         self.error = None
-        self.sumX = None    # sum x in pointlist
-        self.sumXX = None   #sum x**2 in pointlist
-        self.sumY = None    #sum y in pointlist
-        self.sumXY = None   #sum x*y in pointlist
+        self.sumX = None    # somatorio dos valores de x em pointlist
+        self.sumXX = None   #somatorio dos valores de x**2 em pointlist
+        self.sumY = None    #somatorio de y em pointlist
+        self.sumXY = None   #somatorio de x*y em pointlist
+        self.confidenceIntervals = None
+        self.__calculateSum()
 
     def __calculateSum(self):
         """ Calculo dos somatorios """
@@ -36,53 +34,52 @@ class LinearRegression():
 
     def getBeta(self):
         """
-            get beta value.
-            contant 'b' in function f(x) = ax + b
+            E outra constante, que representa o declive da reta;
+            e o valor de `b` na funcao f(x) = ax + b
         """
         if self.beta is None:
-          self.__calculateSum()
           # sumy * sumxx - sumx*y * sumx
           num = self.sumY * self.sumXX - self.sumXY * self.sumX
           # sizelist * sumx**2 - (sumx)**2
           den = len(self.pointlist) * self.sumXX - self.sumX**2
-          self.beta = num / den
+          self.beta = 0
+          if den is not 0:
+            self.beta = num / den
 
         return self.beta
 
     def getAlpha(self):
         """
-            get alpha value.
-            contant 'a' in function f(x) = ax + b
+            E uma constante, que representa a interceptacao da reta com o eixo vertical;
+            e o valor de `a` na funcao f(x) = ax + b
         """
         if self.alpha is None:
-          self.__calculateSum()
           # sizelist * sumY*X - sumX * sumY
           num = len(self.pointlist) * self.sumXY - self.sumX * self.sumY
           # sizelist * sumXX - sumX**2
-          den = len(self.pointlist) * self.sumXX - self.sumX**2        
-          self.alpha = num / den
+          den = len(self.pointlist) * self.sumXX - self.sumX**2
+          self.alpha = 0
+          if den is not 0:
+            self.alpha = num / den
 
         return self.alpha 
 
     def getError(self):
         """
-           i dont know how to explain 
+           Soma dos quadrados dos erros 
         """
         if self.error is None:
-          pointlist = self.pointlist
           alpha = self.getAlpha()
           beta = self.getBeta()
-          comprehension = [((alpha * e[0] + beta) - e[1])**2 for e in pointlist]
-          self.error = sum(comprehension)
+          self.error = sum([((alpha * e[0] + beta) - e[1])**2 for e in self.pointlist])
 
         return self.error
-    
+
     def getConfidenceIntervals(self, point):
         """
-          in test phase
+          em fase de teste
         """
         if self.confidenceIntervals is None:
-          self.__calculateSum()
           pointlist = self.pointlist
           extimateBeta = self.getBeta() - point
           averageX = self.sumX / len(self.pointlist)
@@ -91,7 +88,7 @@ class LinearRegression():
           differenceXaverageX = sum([(e[0] - averageX)**2 for e in pointlist])
           erro = math.sqrt(self.getError())
           confidence = 0
-          if erro > 0 :
+          if erro is not 0 :
             confidence = (extimateBeta * n * differenceXaverageX) / erro
           self.confidenceIntervals = confidence
 
@@ -99,12 +96,12 @@ class LinearRegression():
 
     def getErrorRatePoint(self, point):
         """
-           error rate
+           taxa de errro de um ponto
         """
         alpha = self.getAlpha()
         beta = self.getBeta()
         erro = self.getError()
         averateErro = erro/len(self.pointlist)
-        rateErroPoint = (point[0]*alpha + beta)
+        rateErroPoint = point[0]*alpha + beta
         erroPoint = rateErroPoint - point[1]
         return abs(erroPoint) + averateErro
