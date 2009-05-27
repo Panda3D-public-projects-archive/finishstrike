@@ -86,10 +86,10 @@ class LinearRegression():
           pointlist = self.pointlist
           extimateBeta = self.getBeta() - point
           averageX = self.sumX / len(self.pointlist)
-          n = sqrt(len(self.pointlist) - 2)
+          n = math.sqrt(len(self.pointlist) - 2)
           #somatorio do quadrado da diferenca entre x e medianX
           differenceXaverageX = sum([(e[0] - averageX)**2 for e in pointlist])
-          erro = sqrt(self.getError())
+          erro = math.sqrt(self.getError())
           confidence = 0
           if erro > 0 :
             confidence = (extimateBeta * n * differenceXaverageX) / erro

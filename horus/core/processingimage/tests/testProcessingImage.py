@@ -1,57 +1,51 @@
-'''
-Created on 08/05/2009
-
-@author: thiagorinu
-'''
-import horus.core.processingimage.processingimage as processingimage
-import os
+from horus.core.processingimage import processingimage, image  
 import unittest
-import horus.core.processingimage.image as image
+from os.path import join, abspath, dirname
+
+PREFIX = join(abspath(dirname(__file__)))
+
 class ProcessingImageTest(unittest.TestCase):
     def setUp(self):
-        abspath = os.path.abspath('.')
-        self.imagePath = os.path.join(abspath,"data/image.png")                
-        self.test_image = image.Image(self.imagePath)
-    
-    def test_fullEdgeDetection(self):
-        filtered_img = processingimage.fullEdgeDetection(self.test_image)        
-        assert None != filtered_img, list(filtered_img.getdata())
-    
-    def test_projection(self):
-        input_matrix = [[0,1,1,0],
-                        [2,3,4,0],
-                        [0,0,0,1]]
-        expected_output = [2,9,1]
+        self.image_path = join(PREFIX,'data/image.png')
+        self.test_image = image.Image(self.image_path)
+
+    def test_01_fullEdgeDetection(self):
+        filtered_img = processingimage.fullEdgeDetection(self.test_image)
+        self.assertTrue(filtered_img)
+
+    def test_02_projection(self):
+        input_matrix = [[0, 1, 1, 0],
+                        [2, 3, 4, 0],
+                        [0, 0, 0, 1]]
         
+        expected_output = [2, 9, 1]
+
         result_list = processingimage.projection(input_matrix)
-        assert result_list == expected_output, result_list
+        self.assertEqual(result_list, expected_output)
     
-    def test_verticalProjection(self):
+    def test_03_verticalProjection(self):
         result_list = processingimage.verticalProjection(self.test_image)
-        print result_list
-        assert result_list != None
+        self.assertTrue(result_list)
     
-    def test_horizontalProjection(self):
+    def test_04_horizontalProjection(self):
         result_list = processingimage.horizontalProjection(self.test_image)
-        print result_list
-        assert result_list != None
+        self.assertTrue(result_list)
     
-    def test_highlightLuminance(self):        
+    def test_05_highlightLuminance(self):
         image = processingimage.highlightLuminance(self.test_image)
-        assert None != image
+        self.assertTrue(image)
     
-    def test_hildtchSkeletonize(self):
-        abspath = os.path.abspath('.')
-        imagePath = os.path.join(abspath,"data/skeletonization_image.png")                
-        sktestimage = image.Image(imagePath)
+    def test_06_hildtchSkeletonize(self):
+        image_path = join(PREFIX,"data/skeletonization_image.png")
+        sktestimage = image.Image(image_path)
         
         expected_output = [255, 255, 255, 255, 255, 255,
                            255, 255, 255, 255, 255, 255, 
                            255, 255, 255, 255, 255, 0, 
                            255, 255, 255, 255, 255, 255, 
                            255, 255, 255, 255, 255, 255]
-        
         result_img = processingimage.hildtchSkeletonize(sktestimage)
-        
-        assert list(result_img.getdata()) == expected_output, \
-                list(result_img.getdata()) 
+        self.assertEqual(list(result_img.getdata()), expected_output)
+
+if __name__ == '__main__':
+    unittest.main()

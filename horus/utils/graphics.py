@@ -1,5 +1,4 @@
 import os
-import matplotlib
 from matplotlib import pylab
 
 def generateGraph(path = '.', name='defaultName', data=[], ponto = ([0],[0]), extension='png'):

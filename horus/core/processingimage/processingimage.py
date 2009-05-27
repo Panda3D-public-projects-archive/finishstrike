@@ -1,9 +1,9 @@
 # XXX: Add Copyright
 
-import image as Image
-import imagefilter as filter
-import horus.vision.featureextraction as featureExtraction
-import horus.core.math.mathematic as Math
+from horus.core.processingimage import imagefilter
+from horus.core.processingimage import image as horusImage
+from horus.vision import featureextraction
+from horus.core.math import mathematic
 import math
 
 def fullEdgeDetection(image):
@@ -13,8 +13,8 @@ def fullEdgeDetection(image):
     new_image = image
     if(image.mode != "L"):
         new_image = image.convert("L")       
-    vertical_edges = new_image.filter(filter.VERTICAL_EDGE_DETECTED)
-    horizontal_edges = new_image.filter(filter.HORIZONTAL_EDGE_DETECTED)
+    vertical_edges = new_image.filter(imagefilter.VERTICAL_EDGE_DETECTED)
+    horizontal_edges = new_image.filter(imagefilter.HORIZONTAL_EDGE_DETECTED)
 
     # fazer um breve comentario sobre esses fors
     for i in range( image.size[0] ):
@@ -23,7 +23,7 @@ def fullEdgeDetection(image):
                           horizontal_edges.getpixel( (i,j) )
             new_image.putpixel( (i,j), pixel_value )
     
-    return Image.Image(img_to_mix = new_image)
+    return horusImage.Image(img_to_mix = new_image)
 
 # XXX: Why __ ??
 def projection(matrix):
@@ -32,9 +32,9 @@ def projection(matrix):
         by parameter image. To calculate vertical projection just
         call this method passing pass as parameter image its transpose.
     """
-    projection = Math.List([0 for i in range( len(matrix) ) ])
-    for i in range( len(matrix) ):
-        projection[i] = Math.List( matrix[i] ).sumValues()
+    projection = mathematic.List([0 for i in range(len(matrix))])
+    for i in range(len(matrix) ):
+        projection[i] = mathematic.List(matrix[i]).sumValues()
     return projection
 
 # Transformar esses dois proximos metodos em property e calcular a projecao  
@@ -45,14 +45,14 @@ def verticalProjection(image):
     """
         TODO
     """
-    matrix = Math.Math().calculateTranspose(image.pixel_matrix())
-    return Math.List( [0,0] + projection(matrix)[2:][:-2] + [0,0] )
+    matrix = mathematic.Math().calculateTranspose(image.pixel_matrix())
+    return mathematic.List( [0,0] + projection(matrix)[2:][:-2] + [0,0] )
     
 def horizontalProjection(image):
     """
         TODO
     """
-    return Math.List(projection(image.pixel_matrix()))
+    return mathematic.List(projection(image.pixel_matrix()))
     
 # Qual nome eh melhor highlightLuminance ou enhancementLuminance ?
 # Eh necessario verificar se esta funcionando e testar valores para U
@@ -65,7 +65,7 @@ def highlightLuminance(image, u = 1):
         I and the highlight of the luminance of the image
         U is a constant (NAO SEI QUAL POR ENQUANTO)
     """    
-    enhanced_image = Image.new( mode = image.mode, 
+    enhanced_image = horusImage.new( mode = image.mode, 
                     size = image.size)
     for i in range(image.size[0]):
         for j in range(image.size[1]):
@@ -80,9 +80,9 @@ def hildtchSkeletonize(image):
         boundaryPixelList = []
         pixelsToDelete = []
         for i in range( image.size[0] ):
-            for j in range(image.size[1] ):
+            for j in range(image.size[1]):
                 if(image.getpixel((i,j)) == 0):                    
-                    n8 = image.getEightNeighbourhood((i,j))                                       
+                    n8 = image.getEightNeighbourhood((i,j))
                     if(n8.count(255) > 0):                        
                         boundaryPixelList.append((i,j))                        
         for pixel in boundaryPixelList:
@@ -95,7 +95,7 @@ def hildtchSkeletonize(image):
                 continue                
             if not((n8.count(0) >= 2) & (n8.count(0) <= 6)):                
                 continue
-            numTransitions = featureExtraction.countTransitions(image, pixel)
+            numTransitions = featureextraction.countTransitions(image, pixel)
             if numTransitions <> 1:                
                 continue                        
             pixelsToDelete.append(pixel)            

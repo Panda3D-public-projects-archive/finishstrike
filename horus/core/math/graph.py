@@ -165,7 +165,7 @@ class Graph():
         path_list = []
         for node in graph[start]:
             if node not in path:
-                newpaths = getPathListInGraph(graph, node, end, path)
+                newpaths = self.getPathListInGraph(graph, node, end, path)
                 for newpath in newpaths:
                     path_list.append(newpath)
         return path_list

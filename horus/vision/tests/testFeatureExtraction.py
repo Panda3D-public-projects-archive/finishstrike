@@ -1,7 +1,8 @@
 import unittest
-import horus.vision.featureextraction as featureExtraction
-import horus.core.processingimage.image as image
+from horus.vision import featureextraction
+from horus.core.processingimage import image
 from os.path import join, abspath, dirname
+
 PREFIX = join(abspath(dirname(__file__)))
 
 class FeatureExtractionTest(unittest.TestCase):
@@ -14,7 +15,6 @@ class FeatureExtractionTest(unittest.TestCase):
         self.edImage2 = image.Image(self.edPath2)
         self.region_test_image = image.Image(self.imagePath)
     
-    #XXX: Where is the doc string?
     def test_01_getRegionList(self):
         """
             Testing the getRegionList method. It divides the image 
@@ -48,8 +48,9 @@ class FeatureExtractionTest(unittest.TestCase):
         self.assertEquals(r4, image_list[4].pixel_matrix())      
         self.assertEquals(r5, image_list[5].pixel_matrix())
         
+    #XXX: Where is the DocString?    
     def test_02_extractFeatureByEdgeDetection(self):
-       featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage)
+       featureMatrix = featureextraction.extractFeatureByEdgeDetection(self.edImage)
        self.assertEquals(6, len(featureMatrix[0]))
        self.assertEquals(10, len(featureMatrix))
        self.assertEquals(1, featureMatrix[2][0], featureMatrix[0])
@@ -60,19 +61,19 @@ class FeatureExtractionTest(unittest.TestCase):
        self.assertEquals(1, featureMatrix[0][4], featureMatrix[0])
        self.assertEquals(1, featureMatrix[4][5], featureMatrix[4])
 
+    #XXX: DocString?
     def test_03_extractFeatureByEdgeDetection2(self):
-       featureMatrix = featureExtraction.extractFeatureByEdgeDetection(self.edImage2)
-       assert 6 == len(featureMatrix[0])
-       assert 10 == len(featureMatrix)
-         
-       assert 1 == featureMatrix[2][0], featureMatrix[0]
-       assert 2 == featureMatrix[3][0], featureMatrix[0]
-       assert 1 == featureMatrix[6][1], featureMatrix[6]
-       assert 1 == featureMatrix[7][2], featureMatrix[7]
-       assert 1 == featureMatrix[6][2], featureMatrix[6]
-       assert 1 == featureMatrix[5][3], featureMatrix[5]
-       assert 1 == featureMatrix[0][4], featureMatrix[0]
-       assert 1 == featureMatrix[4][5], featureMatrix[4]
+       featureMatrix = featureextraction.extractFeatureByEdgeDetection(self.edImage2)
+       self.assertEqual(6, len(featureMatrix[0]))
+       self.assertEqual(10, len(featureMatrix))
+       self.assertEqual(1, featureMatrix[2][0])
+       self.assertEqual(2, featureMatrix[3][0])
+       self.assertEqual(1, featureMatrix[6][1])
+       self.assertEqual(1, featureMatrix[7][2])
+       self.assertEqual(1, featureMatrix[6][2])
+       self.assertEqual(1, featureMatrix[5][3])
+       self.assertEqual(1, featureMatrix[0][4])
+       self.assertEqual(1, featureMatrix[4][5])
 
     def test_04_getTwoLoops(self):
         """
@@ -80,7 +81,7 @@ class FeatureExtractionTest(unittest.TestCase):
         """
         image_path = join(PREFIX, 'data/two_squares.png')
         img = image.Image(image_path=image_path)
-        self.assertEquals(2, featureExtraction.getNumLoops(img))
+        self.assertEquals(2, featureextraction.getNumLoops(img))
          
     def test_05_getThreeLoops(self):
         """
@@ -88,7 +89,7 @@ class FeatureExtractionTest(unittest.TestCase):
         """
         imagePath = join(PREFIX, 'data/three_squares.png')
         imageP = image.Image(image_path= imagePath)
-        self.assertEquals(3, featureExtraction.getNumLoops(imageP))
+        self.assertEquals(3, featureextraction.getNumLoops(imageP))
          
     def test_06_getTwoLoopsFromBCharacter(self):
         """
@@ -97,7 +98,7 @@ class FeatureExtractionTest(unittest.TestCase):
         """
         image_path = join(PREFIX, 'data/b_character_skeletonized.png')
         image_b_character = image.Image(image_path=image_path)
-        self.assertEquals(2, featureExtraction.getNumLoops(image_b_character))
+        self.assertEquals(2, featureextraction.getNumLoops(image_b_character))
 
     def test_07_blackIntensityInFourRegions(self):
         """
@@ -110,7 +111,7 @@ class FeatureExtractionTest(unittest.TestCase):
         img = image.Image(image_path)
         output_expected = [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
                            0, 0, 0, 2, 1, 0, 3, 1, 0, 0, 0, 0, 0]
-        self.assertEquals(featureExtraction.blocksIntensity(img),
+        self.assertEquals(featureextraction.blocksIntensity(img),
                                             output_expected)
         
     def test_08_BlackIntensityFourNumber(self):
@@ -124,7 +125,7 @@ class FeatureExtractionTest(unittest.TestCase):
         img = image.Image(image_path=image_path)
         output_expected = [1, 0, 0, 0, 1, 4, 0, 0, 0, 4, 4, 0,
                      0, 0, 4, 1, 3, 3, 3, 5, 0, 0, 0, 0, 4]
-        self.assertEquals(featureExtraction.blocksIntensity(img),
+        self.assertEquals(featureextraction.blocksIntensity(img),
                                  output_expected)
 
 if __name__=='__main__':
