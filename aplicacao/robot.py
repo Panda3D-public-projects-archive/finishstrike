@@ -12,8 +12,8 @@ class Robot(Agent):
         catetoY = lambda angle: math.sin(math.radians(angle))*hyp
         #create lasers
         # the lasers creation
-        laser = CollisionSegment(0, 0, 2, catetoX(210), catetoY(210), 2)
-        laser2 = CollisionSegment(0, 0, 2, catetoX(215), catetoY(215), 2)
+        laser = CollisionSegment(0, 0, 2, catetoX(210), catetoY(210), 2) # -60
+        laser2 = CollisionSegment(0, 0, 2, catetoX(215), catetoY(215), 2) # -55
         laser3 = CollisionSegment(0, 0, 2, catetoX(220), catetoY(220), 2)
         laser4 = CollisionSegment(0, 0, 2, catetoX(225), catetoY(225), 2)
         laser5 = CollisionSegment(0, 0, 2, catetoX(230), catetoY(230), 2)
@@ -35,15 +35,19 @@ class Robot(Agent):
         laser21 = CollisionSegment(0, 0, 2, catetoX(310), catetoY(310), 2)
         laser22 = CollisionSegment(0, 0, 2, catetoX(315), catetoY(315), 2)
         laser23 = CollisionSegment(0, 0, 2, catetoX(320), catetoY(320), 2)
-        laser24 = CollisionSegment(0, 0, 2, catetoX(325), catetoY(325), 2)
-        laser25 = CollisionSegment(0, 0, 2, catetoX(330), catetoY(330), 2)
+        laser24 = CollisionSegment(0, 0, 2, catetoX(325), catetoY(325), 2) # +55
+        laser25 = CollisionSegment(0, 0, 2, catetoX(330), catetoY(330), 2) # +60
+
+        hyp = 15
+        laser_left = CollisionSegment(0, 0, 2, catetoX(360), catetoY(360), 2)
+        laser_right = CollisionSegment(0, 0, 2, catetoX(180), catetoY(180), 2)
         
         
         self.sensors["laser"] = (laser, laser2, laser3, laser4, laser5, laser6,
                                 laser7, laser8, laser9, laser10, laser11, 
                                 laser12, laser13, laser14, laser15, laser16, 
                                 laser17, laser18, laser19, laser20, laser21, 
-                                laser22, laser23, laser24, laser25)
+                                laser22, laser23, laser24, laser25, laser_left, laser_right)
 
         self.sensors["odometer"] = [0.0, 0.0]
         

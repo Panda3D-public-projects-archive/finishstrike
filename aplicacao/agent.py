@@ -1,8 +1,12 @@
 #abstract class
 class Agent():
-    sensors = {} #lasers, odometer, sonar, camera...
-    position = (0, 0) # (x, y)
-    rotation = 0    
+    #lasers, odometer, sonar, camera...
+    sensors = {}
+    # (x, y)
+    position = (0, 0)
+    rotation = 0
+    #max robot steps
+    step = 25
     graph_steps_dic = {}
     
     #abstract method
