@@ -2,49 +2,116 @@
 # XXX: Add Copyright
 from PIL import Image as PILImage
        
-class ImageMixIn(object):
+class Image(object):    
     """
         This class implements all content's methods required in anpr modules
     """
-           
-    # XXX: over_group should be explained into the doc string
-    # XXX: There are not tests for this method
-    def getRegionList(self, row, col, over_group=None):
+    
+    def __init__(self, content = None, path = None, 
+                 mode = None, size = None, color = None):
         """
-            This method split a given image in NxM regions.
-            In other words,
-             - if we have an image with 30x30 pixels it should return a list
-            containing 25 sub-images.
+            TODO
+        """
+        self.matrix = None   
+        self.path = path        
+        
+        # if the parameter is not None (ie content refers a PilImage object) 
+        # then Image object refers this content
+        if content:
+            self.content = content
+        # if content is None, but the parameter path refers a image file then 
+        # open the image
+        elif path:
+            self.content = PILImage.open(path)
+            
+        # If there aren't content and path is necessary create a new Image
+        # based on parameters mode size and color
+        if not (content or path):
+            self.content = self.new(mode, size, color)
 
-            image: the original image to be divided in six regions.
-             
-            return: a list of six images, each one represents a part of the original
-            image.
+        
+
+
+    def new(self, mode = "L", size = (100,100), color = 0):
+        """
+            Create a new Image as follow:
+            
+            mode: 
+            'L': grayscale; 
+            'RGB': color image, based on Red, green and blue colors; 
+            'CMYK': color image based on cyan, magenta, yellow and black colors.
+            
+            size: tuple with width and height image
+            
+            color: the color of image. The image created is homogeneous 
+            (the image has a unique color). This parameter can be a integer 
+            (for greyscale image), a tuple is three (for RGB images) or four 
+            (for CMYK images) values between 0 and 255.
+        """
+        return Image(content = PilImage.new(mode, size, color))
+            
+       
+    @property    
+    def size(self):        
+        """
+            TODO
         """        
-        width, height = self.size
-        height_block_size = height/row
-        width_block_size = width/col
-        x = [(y,x) for x in range(0, height+1) for y in range(0, width+1)]
-        x = [i for i in x if i[0] % width_block_size == 0 and i[1] % height_block_size == 0]
-        subimage_list = []
-        for i in x:           
-            # Getting indexes
-            x0, y0 = i
-            x1 = i[0]+width_block_size
-            y1 = i[1]+height_block_size
-             
-            if x1 > width:
-              if over_group is None:
-                  continue
-              x1 = width
+        return self.content.size    
+        
+    @property    
+    def mode(self):        
+        """
+            TODO
+        """        
+        return self.content.mode    
+     
+    
+    def convert(self, mode):
+        return Image(content=self.content.convert(mode))
+    
+    def load(self):
+        self.content.load()
+        
+    def crop(self, bbox):
+        """
+            TODO
+        """
+        return Image( content = self.content.crop(bbox) )
 
-            if y1 > height:
-                if over_group is None:
-                    continue
-                y1 = height
-            subimage_list.append(Image(img_to_mix=self.crop((x0, y0, x1, y1))))
-        return subimage_list
+    def save(self, path):
+        """
+            TODO
+        """
+        self.content.save(path)
 
+    def getpixel(self,xy):
+        """
+            TODO
+        """
+        return self.content.getpixel(xy)       
+    
+    def putpixel(self, xy, value):
+        self.content.putpixel(xy, value)   
+        
+    def getdata(self):
+        return self.content.getdata()
+        
+
+    def pixel_matrix(self):
+        """
+            This method returns a matrix with values of wich content's pixels.
+        """
+        self.matrix = [[]]
+        self.matrix = [[0 for i in range(self.size[0])] \
+                                for j in range(self.size[1]) ]
+
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[0])):
+                self.matrix[i][j] = self.getpixel((j,i))
+
+        return self.matrix
+
+        
 
     def getEightNeighbourhood(self, xy):
         # XXX: This variable name is not so good
@@ -107,22 +174,8 @@ class ImageMixIn(object):
 
     def topLeftNeighbour(self, xy):
         if(xy[0]-1 >= 0 ) & ( xy[1]-1 >= 0 ):
-            return self.getpixel((xy[0]-1, xy[1]-1))        
+            return self.getpixel((xy[0]-1, xy[1]-1))         
 
-    
-    def pixel_matrix(self):
-        """
-            This method returns a matrix with values of wich content's pixels.
-        """
-        self.matrix = [[]]
-        self.matrix = [[0 for i in range(self.size[0])] \
-                                for j in range(self.size[1]) ]
-
-        for i in range(len(self.matrix)):
-            for j in range(len(self.matrix[0])):
-                self.matrix[i][j] = self.getpixel((j,i))
-
-        return self.matrix
 
     # XXX: The doc string should be added.
     def getFourNeighbourhood(self, index):
@@ -133,33 +186,40 @@ class ImageMixIn(object):
                self.getpixel((index[0]+1, index[1]))],
               [self.getpixel((index[0], index[1]+1)),
                self.getpixel((index[0]+1, index[1]+1))]]
+               
+               
+    def getRegionList(self, row, col, over_group=None):
+        """
+            This method split a given image in NxM regions.
+            In other words,
+             - if we have an image with 30x30 pixels it should return a list
+            containing 25 sub-images.
 
-def Image(image_path=None, img_to_mix=None):
-    """
-      This method should return a PIL Image object mixed with ImageMixIn
-    """
-    newimg = None
-    if img_to_mix is not None and \
-       image_path is None:      
-        im = PILImage.new(img_to_mix.mode, img_to_mix.size)
-        NewClassImage = type('PILImageMixedIn', (im.__class__, ImageMixIn,), {})
-        newimg = NewClassImage()
-        newimg._new(img_to_mix)
-        newimg.__dict__.update(im.__dict__)
-        newimg.putdata(img_to_mix.getdata())
-    else:   
-        im = PILImage.open(image_path)
-        NewClassImage = type('PILImageMixedIn', (im.__class__, ImageMixIn,), {})
-        newimg = NewClassImage(fp=image_path) 
-        newimg.__dict__.update(im.__dict__)
-    return newimg
+            image: the original image to be divided in six regions.
+             
+            return: a list of six images, each one represents a part of the original
+            image.
+        """        
+        width, height = self.size
+        height_block_size = height/row
+        width_block_size = width/col
+        x = [(y,x) for x in range(0, height+1) for y in range(0, width+1)]
+        x = [i for i in x if i[0] % width_block_size == 0 and i[1] % height_block_size == 0]
+        subimage_list = []
+        for i in x:           
+            # Getting indexes
+            x0, y0 = i
+            x1 = i[0]+width_block_size
+            y1 = i[1]+height_block_size
+             
+            if x1 > width:
+              if over_group is None:
+                  continue
+              x1 = width
 
-def new(mode = None, size = None, color = None):    
-    return Image(img_to_mix = PILImage.new(mode, size, color)) 
-
-
-
-
-
-
-
+            if y1 > height:
+                if over_group is None:
+                    continue
+                y1 = height
+            subimage_list.append(Image(img_to_mix=self.crop((x0, y0, x1, y1))))
+        return subimage_list               

@@ -107,3 +107,5 @@ def hildtchSkeletonize(image):
             break                                 
     return image
 
+def applyFilter(image, filter):
+    return image.content.filter(filter)
