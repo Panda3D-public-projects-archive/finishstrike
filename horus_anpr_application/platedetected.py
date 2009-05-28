@@ -3,7 +3,7 @@
 import os
 
 import horus.graphics as Graphics
-import horus.mathematic as Math
+import horus.mathematic as ath
 import horus.image as Image
 
 class RegionDetected(object):
@@ -16,7 +16,7 @@ class RegionDetected(object):
                 because the projection is based in edge detection and 
                 there are a edge in images border
         """
-        projection = Math.List([0,0]+projection[2:][:-2]+[0,0])
+        projection = ath.List([0,0]+projection[2:][:-2]+[0,0])
         return projection.maxValue()
 
 
@@ -250,10 +250,10 @@ class Characters(object):
 
         intervals =  RegionDetected().locateCandidates(projection, self.report)
 
-        peaks = Math.List()
+        peaks = ath.List()
         for interval in intervals:
             lenght = interval[1] - interval[0]
-            inter = Math.List(projection[interval[0]:][:lenght])
+            inter = ath.List(projection[interval[0]:][:lenght])
             peaks.append(interval[0] + inter.index(inter.maxValue()))
         
         print peaks
