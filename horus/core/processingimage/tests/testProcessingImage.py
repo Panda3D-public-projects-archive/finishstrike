@@ -7,7 +7,7 @@ PREFIX = join(abspath(dirname(__file__)))
 class ProcessingImageTest(unittest.TestCase):
     def setUp(self):
         self.image_path = join(PREFIX,'data/image.png')
-        self.test_image = image.Image(self.image_path)
+        self.test_image = image.Image(path=self.image_path)
 
     def test_01_fullEdgeDetection(self):
         filtered_img = processingimage.fullEdgeDetection(self.test_image)
@@ -37,7 +37,7 @@ class ProcessingImageTest(unittest.TestCase):
     
     def test_06_hildtchSkeletonize(self):
         image_path = join(PREFIX,"data/skeletonization_image.png")
-        sktestimage = image.Image(image_path)
+        sktestimage = image.Image(path=image_path)
         
         expected_output = [255, 255, 255, 255, 255, 255,
                            255, 255, 255, 255, 255, 255, 
@@ -45,7 +45,7 @@ class ProcessingImageTest(unittest.TestCase):
                            255, 255, 255, 255, 255, 255, 
                            255, 255, 255, 255, 255, 255]
         result_img = processingimage.hildtchSkeletonize(sktestimage)
-        self.assertEqual(list(result_img.getdata()), expected_output)
+        self.assertEqual(result_img.getData(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()

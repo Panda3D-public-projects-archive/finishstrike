@@ -18,16 +18,42 @@ class Image(object):
         # if the parameter is not None (ie content refers a PilImage object) 
         # then Image object refers this content
         if content:
-            self.content = content
+            if isinstance(content, Image):
+                self.content = content.content
+            else:
+                self.content = content
         # if content is None, but the parameter path refers a image file then 
         # open the image
         elif path:
             self.content = PILImage.open(path)
             
         # If there aren't content and path is necessary create a new Image
-        # based on parameters mode size and color
-        if not (content or path):
-            self.content = self.new(mode, size, color)
+        # based on parameters mode size and color, or case this parameter was
+        # none this is seted with default values
+        else:
+            if not color:
+                if not mode:
+                    mode = "L" 
+                    color = 0
+                else:
+                    if mode == "L":
+                        color = 0
+                    elif mode == "RGB":
+                        color = (0, 0, 0)
+                    elif mode == "CMYK":
+                        color = (0, 0, 0, 0)
+            else:
+                if not mode:
+                    if isinstance(color, int):
+                        mode = "L"
+                    elif len(color) == 3:
+                        mode == "RGB"
+                    elif len(color) == 4:
+                        mode == "CMYK"
+            if not size:
+                size = (255, 255)
+
+            self.content = self.new(mode, size, color).content
 
         
 
@@ -48,66 +74,87 @@ class Image(object):
             (for greyscale image), a tuple is three (for RGB images) or four 
             (for CMYK images) values between 0 and 255.
         """
-        return Image(content = PilImage.new(mode, size, color))
+        return Image(content=PILImage.new(mode, size, color))
             
        
     @property    
     def size(self):        
         """
-            TODO
+            This method return a tuple with the size of image: (width, height) 
         """        
         return self.content.size    
         
     @property    
     def mode(self):        
         """
-            TODO
+            Possible modes: 
+            'L': grayscale; 
+            'RGB': color image, based on Red, green and blue colors; 
+            'CMYK': color image based on cyan, magenta, yellow and black colors.
         """        
         return self.content.mode    
      
     
     def convert(self, mode):
+        """
+            This method convert the mode of the image
+        """
         return Image(content=self.content.convert(mode))
     
     def load(self):
+        """
+            Load the image
+        """
         self.content.load()
         
-    def crop(self, bbox):
+    def crop(self, region):
         """
-            TODO
+            Crop the image based on rectangle passed on parameter region
         """
-        return Image( content = self.content.crop(bbox) )
+        return Image( content = self.content.crop(region) )
 
     def save(self, path):
         """
-            TODO
+            Save the image
         """
         self.content.save(path)
 
-    def getpixel(self,xy):
+    def getPixel(self,xy):
         """
-            TODO
+            Return the color of pixel (x, y)
+            
+            ps: the parameter xy should be a tuple
         """
         return self.content.getpixel(xy)       
     
-    def putpixel(self, xy, value):
+    #TODO: Write test
+    def putPixel(self, xy, value):
+        """
+            Define the color of pixel xy (tuple with value of row and collumn 
+            of pixel map) with value.
+            
+            ps: value must have the specifc structure of the mode of image
+        """
         self.content.putpixel(xy, value)   
-        
-    def getdata(self):
-        return self.content.getdata()
+    
+    # the Pil pattern is getdata, but dehorus pattern is getData.    
+    def getData(self):
+        """
+            This method return a list of values of color of image. This list 
+            is orderly placing column after column.
+        """
+        return list(self.content.getdata())
         
 
+    # modify the name of this method to getmatrixdata or getmatrix.
+    # Is not @property better? If yes, pixel_matrix is OK.
     def pixel_matrix(self):
         """
             This method returns a matrix with values of wich content's pixels.
         """
-        self.matrix = [[]]
-        self.matrix = [[0 for i in range(self.size[0])] \
-                                for j in range(self.size[1]) ]
-
-        for i in range(len(self.matrix)):
-            for j in range(len(self.matrix[0])):
-                self.matrix[i][j] = self.getpixel((j,i))
+        data = self.getData()
+        self.matrix = [[data[(self.size[1]*j)+i] for i in range(self.size[1])]
+                                                 for j in range(self.size[0]) ]
 
         return self.matrix
 
@@ -144,37 +191,37 @@ class Image(object):
          
     def topNeighbour(self, xy):
         if(xy[1]-1 >= 0):
-            return self.getpixel((xy[0],xy[1]-1))
+            return self.getPixel((xy[0],xy[1]-1))
         else:
             return None
     
     def bottomNeighbour(self, xy):
         if(xy[1]+1 < self.size[1]):
-            return self.getpixel((xy[0],xy[1]+1))            
+            return self.getPixel((xy[0],xy[1]+1))            
 
     def topRightNeighbour(self, xy):
         if(xy[0]+1 < self.size[0]) & (xy[1]-1 >= 0):
-            return self.getpixel((xy[0]+1, xy[1]-1))        
+            return self.getPixel((xy[0]+1, xy[1]-1))        
 
     def rightNeighbour(self, xy):
         if(xy[0]+ 1 < self.size[0]):
-            return self.getpixel((xy[0]+1,xy[1]))        
+            return self.getPixel((xy[0]+1,xy[1]))        
 
     def bottomRightNeighbour(self, xy):               
         if(xy[0]+1 < self.size[0]) & (xy[1]+1 < self.size[1]):
-            return self.getpixel((xy[0]+1, xy[1]+1))
+            return self.getPixel((xy[0]+1, xy[1]+1))
 
     def leftNeighbour(self, xy):
         if(xy[0]-1 >= 0): 
-            return self.getpixel((xy[0]-1, xy[1]))
+            return self.getPixel((xy[0]-1, xy[1]))
 
     def bottomLeftNeighbour(self, xy):
         if(xy[0]-1 >= 0 ) & ( xy[1]+1 < self.size[1]):
-            return self.getpixel((xy[0]-1, xy[1]+1))
+            return self.getPixel((xy[0]-1, xy[1]+1))
 
     def topLeftNeighbour(self, xy):
         if(xy[0]-1 >= 0 ) & ( xy[1]-1 >= 0 ):
-            return self.getpixel((xy[0]-1, xy[1]-1))         
+            return self.getPixel((xy[0]-1, xy[1]-1))         
 
 
     # XXX: The doc string should be added.
@@ -182,10 +229,10 @@ class Image(object):
       """
          TODO
       """
-      return [[self.getpixel((index[0],index[1])),
-               self.getpixel((index[0]+1, index[1]))],
-              [self.getpixel((index[0], index[1]+1)),
-               self.getpixel((index[0]+1, index[1]+1))]]
+      return [[self.getPixel((index[0],index[1])),
+               self.getPixel((index[0]+1, index[1]))],
+              [self.getPixel((index[0], index[1]+1)),
+               self.getPixel((index[0]+1, index[1]+1))]]
                
                
     def getRegionList(self, row, col, over_group=None):

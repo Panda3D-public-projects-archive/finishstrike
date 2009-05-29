@@ -250,7 +250,7 @@ if __name__ == "__main__":
     file_list = os.listdir(path_load)
     file_list.sort()
     
-    for file_name in file_list[1:][:20]:
+    for file_name in file_list[1:][:1]:
         path_image = os.path.join(path_load, file_name)
         car_image = Image(path=path_image)
         platedetection = PlateDetection()        

@@ -17,17 +17,17 @@ class ImageTest(unittest.TestCase):
         self.assertTrue(img)
         self.assertEqual(img.size, img_cropped.size)
         
-    def test_02_getdata(self):
+    def test_02_getData(self):
         expected_output = [255, 255, 255, 255, 0,
                            255, 0, 0, 0, 255,
                            255, 0, 0, 0, 255,
                            255, 0, 0, 0, 255,
                            255, 255, 255, 255, 255]
-        self.assertEqual(list(self.test_image.getdata()), expected_output)
+        self.assertEqual(list(self.test_image.getData()), expected_output)
 
     def test_03_column_row(self):
-        self.assertEqual(self.test_image.getpixel((4,0)), 0)
-        self.assertEqual(self.test_image.getpixel((0,4)), 255)
+        self.assertEqual(self.test_image.getPixel((4,0)), 0)
+        self.assertEqual(self.test_image.getPixel((0,4)), 255)
 
     def test_04_getEightNeiborhood(self):
         expected_output = [0, 0, 0, 0, 0, 0, 0, 0]
