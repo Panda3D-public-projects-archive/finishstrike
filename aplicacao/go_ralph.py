@@ -42,39 +42,31 @@ class Environment(DirectObject):
     """ This class works with environments details """
 
     def __init__(self):
-        #Create lasers
+        
+        base.bufferViewer.setCardSize(0.8, 0)
+        mainWindow = base.win
+        base.altBuffer = mainWindow.makeTextureBuffer("hello", 256, 256)
+        
+
+        base.first_vision_camera = base.makeCamera(base.altBuffer)
+        base.first_vision_camera.reparentTo(render)
+     
+     #Create lasers
         for i in range(25):
             base.laser_list.append(CollisionHandlerQueue())
-
+    
         # this is the robot dictionary lasers - keys is degrees
-        
+        # -60 to -5
         self.slam_obj = PandaSlam()
-        self.slam_obj.laserUpdate('+60', 0)
-        self.slam_obj.laserUpdate('+55', 0)
-        self.slam_obj.laserUpdate('+50', 0)
-        self.slam_obj.laserUpdate('+45', 0)
-        self.slam_obj.laserUpdate('+40', 0)
-        self.slam_obj.laserUpdate('+35', 0)
-        self.slam_obj.laserUpdate('+30', 0)
-        self.slam_obj.laserUpdate('+25', 0)
-        self.slam_obj.laserUpdate('+20', 0)
-        self.slam_obj.laserUpdate('+15', 0)
-        self.slam_obj.laserUpdate('+10', 0)
-        self.slam_obj.laserUpdate('+5', 0)
-        self.slam_obj.laserUpdate('0', 0)
-        self.slam_obj.laserUpdate('-5', 0)
-        self.slam_obj.laserUpdate('-10', 0)
-        self.slam_obj.laserUpdate('-15', 0)
-        self.slam_obj.laserUpdate('-20', 0)
-        self.slam_obj.laserUpdate('-25', 0)
-        self.slam_obj.laserUpdate('-30', 0)
-        self.slam_obj.laserUpdate('-35', 0)
-        self.slam_obj.laserUpdate('-40', 0)
-        self.slam_obj.laserUpdate('-45', 0)
-        self.slam_obj.laserUpdate('-50', 0)
-        self.slam_obj.laserUpdate('-55', 0)
-        self.slam_obj.laserUpdate('-60', 0)
+        for i in range(60, 0, -5):
+            self.slam_obj.laserUpdate('+' + str(i), 0)
         
+        # 0
+        self.slam_obj.laserUpdate('0', 0)
+        
+        # -5 to -60
+        for i in range(5,  61,  5):
+            self.slam_obj.laserUpdate('-' + str(i), 0)
         
         # show the text on screen
         self.title = OnscreenText(pos=(0.8, -0.85), fg=(255, 255, 0, 90))
@@ -92,7 +84,7 @@ class Environment(DirectObject):
         self.distance_laser = self.character
         self.threshold = 0.96
         # adjusting scale and position of the model
-        self.environment.setScale(10, 10, 10)
+        self.environment.setScale(20, 20, 20)
         self.environment.setPos(0, 0, 2.01)
         self.character.setScale(10, 10, 10)
         
@@ -116,13 +108,16 @@ class Environment(DirectObject):
         self.accept("s", self.slam_obj.startAutomaticWalk)
         self.accept("o", self.slam_obj.stopAutomaticWalk)
         self.accept("t", self.doTest)
+        self.accept("v", base.bufferViewer.toggleEnable)
     #--------------------------------------------------
         # game's aspect in initial state
         self.printLasersResult()
         self.prevtime = 0
         self.isMoving = False
         self.floater = NodePath(PandaNode("floater"))
+        self.first_vision_floater = NodePath(PandaNode("floater"))
         self.floater.reparentTo(render)
+        self.first_vision_floater.reparentTo(render)
 
         base.disableMouse()
         base.camera.setPos(self.character.getX(), 
@@ -226,12 +221,20 @@ class Environment(DirectObject):
 
     def move(self, task):
         """ allow the keyboard movement """
-
+        #first_vision_camera adjusting
+        hyp = 140
+        catetoX = lambda angle: math.cos(math.radians(angle))*hyp
+        catetoY = lambda angle: math.sin(math.radians(angle))*hyp
+        self.first_vision_floater.setX(self.character.getX() + catetoX(self.character.getH()-90))
+        self.first_vision_floater.setY(self.character.getY() + catetoY(self.character.getH()-90))
+        self.first_vision_floater.setZ(self.character.getZ() + 20)
+        base.first_vision_camera.setPos(self.character.getX(),  self.character.getY(),  45)
+                
         elapsed = task.time - self.prevtime
         beforePosition = \
           {"X":self.character.getX(), "Y":self.character.getY(), "Z":self.character.getZ()}
-        # If a move-key is pressed, move character in the specified direction.
 
+        # If a move-key is pressed, move character in the specified direction.
         if (self.keyMap["left"]!=0):
                 self.character.setH(self.character.getH() + elapsed*160)
         if (self.keyMap["right"]!=0):
@@ -254,7 +257,7 @@ class Environment(DirectObject):
                 #Use odometer to active/desactive laser scan and others tasks
                 if (odometer - last_odometer >= self.robot.step):
                     self.robot.setSensor("odometer", 1, odometer)
-                    base.cTrav.showCollisions(render)
+                    #base.cTrav.showCollisions(render)
                     self.getLasersDistance()
                     self.printLasersResult()
                     self.robot.rotation += self.seeTheWay()
@@ -282,6 +285,7 @@ class Environment(DirectObject):
         self.floater.setPos(self.character.getPos())
         self.floater.setZ(self.character.getZ() + 10)
         base.camera.lookAt(self.floater)
+        base.first_vision_camera.lookAt(self.first_vision_floater)
 
         # Store the task time and continue.
         self.prevtime = task.time
@@ -375,6 +379,9 @@ class Environment(DirectObject):
         """ see the way to walk """
         actualH = self.character.getH()
         newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.laser_dic)
+        if self.slam_obj.laser_dic[newH] <= 6:
+            newH = float(newH) - 180
+        #newH = self.slam_obj.closestDictionaryKey(self.slam_obj.laser_dic)
         rotation = float(newH)
         newH = actualH + float(newH)
         self.character.setHpr(newH, 0, 0)
@@ -384,8 +391,8 @@ class Environment(DirectObject):
     def doTest(self):
         #print self.character.getH() % 360
         # angle = '+60'
-
-        print self.robot.graph_steps_dic
+        base.camera.zoomCam(2)
+        #print self.robot.graph_steps_dic
 
 envi = Environment()
 run()

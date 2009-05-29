@@ -23,7 +23,9 @@ class Robot(Agent):
         laser9 = CollisionSegment(0, 0, 2, catetoX(250), catetoY(250), 2)
         laser10  = CollisionSegment(0, 0, 2, catetoX(255), catetoY(255), 2)
         laser11 = CollisionSegment(0, 0, 2, catetoX(260), catetoY(260), 2)
+        hyp = 20
         laser12 = CollisionSegment(0, 0, 2, catetoX(265), catetoY(265), 2)
+        hyp = 10
         laser13 = CollisionSegment(0, 0, 2, catetoX(270), catetoY(270), 2)
         laser14 = CollisionSegment(0, 0, 2, catetoX(275), catetoY(275), 2)
         laser15 = CollisionSegment(0, 0, 2, catetoX(280), catetoY(280), 2)
