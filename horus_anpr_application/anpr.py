@@ -2,13 +2,16 @@
 
 import os
 import copy
+import math
+
 import horus.core.processingimage.imagefilter as filter
 import horus.core.processingimage.processingimage as processingimage
 import horus.utils.graphics as graphics
 
+import pytesser
+
 from horus.core.processingimage.image import Image
 
-import pytesser
 
 SAVE = os.path.join(os.path.abspath(os.path.dirname(__file__)),"placa")
 SAVE = os.path.join(os.path.abspath('.'),"placa")
@@ -45,13 +48,12 @@ class PlateDetection(object):
         # a copia e necessaria pois o sort altera a lista ao ordena-la, e o 
         # estado inicial dos pares (indices, picos) e necessario para resgatar 
         # o band inicial
-
         peak_sort = copy.copy(peak_list)
         peak_sort.sort()
 
         for peak in peak_sort[::-1]:
             band_sort.append(band_list[peak_list.index(peak)])
-        
+        print band_sort
         return band_sort
             
 
@@ -68,6 +70,10 @@ class PlateDetection(object):
         grayscale_filtered_image = Image(content=content)
         projection_list = processingimage.horizontalProjection(
                                                     grayscale_filtered_image)
+                                                    
+        print "Band"
+        print car_image.size
+        print len(projection_list)                                            
 
         # removing the first and the last peak
         projection_list[0] = 0
@@ -76,21 +82,29 @@ class PlateDetection(object):
         projection_list[-2] = 0
 
         # empirical parameters obtained by calibration
-        blur_list = projection_list.applyBlur(0.07)
+        blur_list = projection_list.applyBlur(0.04)
         
         threshold = projection_list.calculateAvarage()
-        threshold_list = blur_list.applyThreshold(threshold)
+        threshold_list = blur_list.applyThreshold(threshold*0.8)
+
+
+        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"_band_proj.png", threshold_list )        
+
 
         band_index_list = locateNonZeroIntervals(threshold_list)
 
 
         sorted_band_index_list = self.sortBand(projection_list, 
                                                band_index_list)
+                                               
+        i = 0
         for band_index in sorted_band_index_list:
+            i += 1
             range_to_crop = (0, band_index[0], car_image.size[0], 
                                                            band_index[1])
             band_image = car_image.crop(range_to_crop)
-            band_list.append(Band(band_image))
+            band_list.append(Band(band_image, range_to_crop))
+            band_image.save(SAVE+"/%s-%s.png" % ( car_image.content.filename[-12:-4], str(i) ) )
             
         return band_list
 
@@ -105,8 +119,13 @@ class PlateDetection(object):
             raise ImpossiblePlateExtraction, message
 
         first_band = band_object_list[0]
-
+        
         first_band.getPlate().plate_image.save('./placa/bianin.jpg')
+        
+        i = 0
+        for band in band_object_list:
+            i += 1
+            band.getPlate()#.plate_image.save('./placa/bianin.jpg')
 
         return None
 
@@ -119,12 +138,34 @@ class Band(object):
     """
       This class contains a band image.
     """
-    def __init__(self, band_image=None):
+    def __init__(self, band_image=None, bbox = (0.0, 0.0, 0.0, 0.0)  ):
         if band_image is None:
             raise AttributeError, 'Band image can not be None.'
         else:
             self.band_image = band_image
+        self.bbox = bbox 
 
+    def sortPlate(self, plate_list):
+        """
+            Ordena os plates de modo decrescente de acordo com a distancia do
+            centro do intervalo com o centro (coordenada horizontal) da imagem.
+        """
+        center_list = []
+        plate_sort = []
+        
+        center = self.band_image.size[0] / 2.0
+        for plate in plate_list:
+            center_list.append( math.fabs(((plate[1]+plate[0])/2.0) - center) )
+
+        # a copia e necessaria pois o sort altera a lista ao ordena-la, e o 
+        # estado inicial dos pares (indices, picos) e necessario para resgatar 
+        # o band inicial
+        center_sort = copy.copy(center_list)
+        center_sort.sort()
+
+        for center in center_sort:
+            plate_sort.append(plate_list[center_list.index(center)])
+        return plate_sort
 
     def getPlate(self):
         """
@@ -133,37 +174,41 @@ class Band(object):
         band_list = []
         content = processingimage.applyFilter(self.band_image, 
                                               filter.HORIZONTAL_EDGE_DETECTED)
-        horizontal_filtered_image = Image(content=content)
+        vertical_filtered_image = Image(content=content)
   
-        content = horizontal_filtered_image.convert('L')
+        content = vertical_filtered_image.convert('L')
         grayscale_filtered_image = Image(content=content)
-        projection_list = processingimage.verticalProjection(
+        projection_list = processingimage.horizontalProjection(
                                                     grayscale_filtered_image)
-  
-        # removing the first and the last peak
-        projection_list[0] = 0
-        projection_list[1] = 0
-        projection_list[-1] = 0
-        projection_list[-2] = 0
-  
+        
+        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"_plate_proj.png", projection_list )    
+        
         # empirical parameters obtained by calibration
         blur_list = projection_list.applyBlur(0.05)
+        
+        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"_plate_proj.png", projection_list )          
 
         threshold = projection_list.calculateAvarage()
+
         #TODO: melhorar algoritmo
+        # Transformar em generatePlateList
         candidate_list = []
-        sensibility = 1
-        while not candidate_list or sensibility==0:
-            sensibility -= 0.1
-            threshold_list = blur_list.applyThreshold(threshold*sensibility)
-            candidate_list = locateNonZeroIntervals(threshold_list)
-            for elem in candidate_list:
-                # Estes parametros foram calculados empiricamente
-                # Em outras palavras: chute...
-                if elem[1] - elem[0] > len(projection_list)*0.6 \
-                   or elem[1] - elem[0] < len(projection_list)*0.2:
-                    candidate_list.remove(elem)
-        
+        threshold_list = blur_list.applyThreshold(threshold)
+        candidate_list = locateNonZeroIntervals(threshold_list)   
+#        print candidate_list
+        candidate_list =  self.sortPlate(candidate_list)
+#        print "bbox"
+#        print self.bbox
+#        print candidate_list
+#        print a
+        i = 0
+        for plate in candidate_list:
+            i+=1
+            im = car_image.crop((plate[0], self.bbox[1], plate[1], self.bbox[3]))
+            im.save(os.path.join(SAVE, "%s_plate_%s.jpg"%(car_image.content.filename[-12:-4],i)) )
+
+        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+ "_plate_tresh.png", threshold_list  )      
+
         # Escolhe o maior intervalo dentre os candidatos
         inferior_index = superior_index = lenght = 0
         for elem in candidate_list:
@@ -176,7 +221,6 @@ class Band(object):
         range_to_crop = (inferior_index, 0, superior_index, self.band_image.size[1])
         plate_image = self.band_image.crop(range_to_crop)
         self.band_image.save('./placa/band_placa.jpg')
-        print range_to_crop
         return Plate(plate_image)
 
 class Plate(object):
@@ -214,7 +258,7 @@ def locateNonZeroIntervals(value_list):
     """
     nonzero_interval_list = []
     inf = 0
-
+#    print value_list   
     # cria uma lista de candidatos a placas
     # intervalos de valores diferentes de zero
     for i in range(len(value_list)):
@@ -226,7 +270,7 @@ def locateNonZeroIntervals(value_list):
                 if i+1 < len(value_list) and value_list[i+1] == 0:
                     nonzero_interval_list.append((inf, i))
                     inf = 0
-                    
+#    print nonzero_interval_list                    
     return nonzero_interval_list
 
   
@@ -256,7 +300,7 @@ if __name__ == "__main__":
         platedetection = PlateDetection()        
         plate = platedetection.getPlateAsImage(car_image)
         #from horus.core.processingimage.processingimage import hildtchSkeletonize
-        break
+        #break
 
     img = binarizeImage('./placa/bianin.jpg')
 
@@ -264,5 +308,5 @@ if __name__ == "__main__":
     #img_filtered = hildtchSkeletonize(img)
     #img_filtered.save('./placa/bianin_sk2.jpg')
     #print pytesser.image_to_string(img)
-    import sys
-    sys.exit(0)
+#    import sys
+#    sys.exit(0)
