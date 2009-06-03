@@ -71,10 +71,6 @@ class PlateDetection(object):
         projection_list = processingimage.horizontalProjection(
                                                     grayscale_filtered_image)
                                                     
-        print "Band"
-        print car_image.size
-        print len(projection_list)                                            
-
         # removing the first and the last peak
         projection_list[0] = 0
         projection_list[1] = 0
@@ -118,14 +114,10 @@ class PlateDetection(object):
             message = 'The plate could not be extracted.'
             raise ImpossiblePlateExtraction, message
 
-        first_band = band_object_list[0]
-        
-        first_band.getPlate().plate_image.save('./placa/bianin.jpg')
-        
         i = 0
         for band in band_object_list:
             i += 1
-            band.getPlate()#.plate_image.save('./placa/bianin.jpg')
+            band.getPlate()
 
         return None
 
@@ -195,12 +187,7 @@ class Band(object):
         candidate_list = []
         threshold_list = blur_list.applyThreshold(threshold)
         candidate_list = locateNonZeroIntervals(threshold_list)   
-#        print candidate_list
         candidate_list =  self.sortPlate(candidate_list)
-#        print "bbox"
-#        print self.bbox
-#        print candidate_list
-#        print a
         i = 0
         for plate in candidate_list:
             i+=1
@@ -258,7 +245,6 @@ def locateNonZeroIntervals(value_list):
     """
     nonzero_interval_list = []
     inf = 0
-#    print value_list   
     # cria uma lista de candidatos a placas
     # intervalos de valores diferentes de zero
     for i in range(len(value_list)):
@@ -270,7 +256,6 @@ def locateNonZeroIntervals(value_list):
                 if i+1 < len(value_list) and value_list[i+1] == 0:
                     nonzero_interval_list.append((inf, i))
                     inf = 0
-#    print nonzero_interval_list                    
     return nonzero_interval_list
 
   
@@ -299,14 +284,4 @@ if __name__ == "__main__":
         car_image = Image(path=path_image)
         platedetection = PlateDetection()        
         plate = platedetection.getPlateAsImage(car_image)
-        #from horus.core.processingimage.processingimage import hildtchSkeletonize
-        #break
 
-    img = binarizeImage('./placa/bianin.jpg')
-
-
-    #img_filtered = hildtchSkeletonize(img)
-    #img_filtered.save('./placa/bianin_sk2.jpg')
-    #print pytesser.image_to_string(img)
-#    import sys
-#    sys.exit(0)
