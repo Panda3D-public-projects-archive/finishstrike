@@ -46,6 +46,12 @@ class ProcessingImageTest(unittest.TestCase):
                            255, 255, 255, 255, 255, 255]
         result_img = processingimage.hildtchSkeletonize(sktestimage)
         self.assertEqual(result_img.getData(), expected_output)
+    def test_localThreshold(self):
+        image_path = join(PREFIX,"data/band_placa.jpg")
+        ltTestImage = image.Image(path=image_path)
+        ltTestImage = ltTestImage.convert('L')        
+        resultImg = processingimage.localThreshold(ltTestImage, 5, 7)
+        self.assertTrue(resultImg)
 
 if __name__ == '__main__':
     unittest.main()

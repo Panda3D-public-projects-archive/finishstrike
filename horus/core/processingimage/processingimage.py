@@ -1,6 +1,7 @@
 # XXX: Add Copyright
 
 from horus.core.processingimage import imagefilter
+from PIL import Image as PilImage 
 from horus.core.processingimage import image as horusImage
 from horus.vision import featureextraction
 from horus.core.math import mathematic
@@ -108,5 +109,37 @@ def hildtchSkeletonize(image):
             break                                 
     return image
 
+def localThreshold(image, size, con):
+    """
+        This method binarize an image using the mean local adaptive threshold
+        algorithm.
+        for more information access: 
+        http://homepages.inf.ed.ac.uk/rbf/HIPR2/adpthrsh.htm
+        
+        params:
+            image: a grayscale horus image to be thresholded.
+            size: the size of the pixel's neighborhood.
+            con: a constant to subtracted from the mean of the neighborhood. 
+    """
+    thresholdedImage = PilImage.new(image.mode, image.size)
+    for i in range( image.size[0] ):
+        for j in range( image.size[1] ):
+            mean = 0
+            count = 0
+            for k in range(size):
+                for l in range(size):
+                    try:
+                        index = ((i - (int(size/2))+ k),(j - int(size/2)+ l))                        
+                        mean = mean + image.getPixel(index)                        
+                        count += 1
+                    except:
+                        pass            
+            mean = int(mean/count) - con
+            if(image.getPixel((i,j)) > mean):                
+                thresholdedImage.putpixel((i,j), 255)
+            else:
+                thresholdedImage.putpixel((i,j), 0)    
+    return horusImage.Image(content = thresholdedImage)
+                    
 def applyFilter(image, filter):
     return horusImage.Image(content=image.content.filter(filter))
