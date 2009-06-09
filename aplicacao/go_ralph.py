@@ -45,13 +45,12 @@ class Environment(DirectObject):
         
         base.bufferViewer.setCardSize(0.8, 0)
         mainWindow = base.win
-        base.altBuffer = mainWindow.makeTextureBuffer("hello", 256, 256)
+        base.altBuffer = mainWindow.makeTextureBuffer("window", 256, 256)
         
-
         base.first_vision_camera = base.makeCamera(base.altBuffer)
         base.first_vision_camera.reparentTo(render)
      
-     #Create lasers
+        #Create lasers
         for i in range(25):
             base.laser_list.append(CollisionHandlerQueue())
     
@@ -84,7 +83,7 @@ class Environment(DirectObject):
         self.distance_laser = self.character
         self.threshold = 0.96
         # adjusting scale and position of the model
-        self.environment.setScale(20, 20, 20)
+        self.environment.setScale(10, 10, 10)
         self.environment.setPos(0, 0, 2.01)
         self.character.setScale(10, 10, 10)
         
@@ -222,6 +221,7 @@ class Environment(DirectObject):
     def move(self, task):
         """ allow the keyboard movement """
         #first_vision_camera adjusting
+
         hyp = 140
         catetoX = lambda angle: math.cos(math.radians(angle))*hyp
         catetoY = lambda angle: math.sin(math.radians(angle))*hyp
@@ -257,7 +257,7 @@ class Environment(DirectObject):
                 #Use odometer to active/desactive laser scan and others tasks
                 if (odometer - last_odometer >= self.robot.step):
                     self.robot.setSensor("odometer", 1, odometer)
-                    #base.cTrav.showCollisions(render)
+                    base.cTrav.showCollisions(render)
                     self.getLasersDistance()
                     self.printLasersResult()
                     self.robot.rotation += self.seeTheWay()
@@ -265,8 +265,10 @@ class Environment(DirectObject):
                         odometer - last_odometer, self.robot.rotation, self.robot.position)
                     
                     self.slam_obj.landmarkExtraction(self.robot.position)
+                    self.slam_obj.createMarkPoint(self.robot.position)
                     self.robot.graph_steps_dic[self.robot.position] = self.character.getPos()
                     self.robot.step = min(self.slam_obj.laser_dic.values())
+                    
                
                 else:
                     base.cTrav.hideCollisions()
@@ -391,8 +393,11 @@ class Environment(DirectObject):
     def doTest(self):
         #print self.character.getH() % 360
         # angle = '+60'
-        base.camera.zoomCam(2)
-        #print self.robot.graph_steps_dic
-
+        base.cTrav.showCollisions(render)
+        self.getLasersDistance()
+        self.printLasersResult()
+        print self.robot.position
+        print len(self.slam_obj.mark_point_list)
+        
 envi = Environment()
 run()
