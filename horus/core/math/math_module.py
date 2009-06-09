@@ -9,6 +9,12 @@ class Trigonometry():
     def getYCateto(self, hypotenuse, angle):
         cateto = math.sin(math.radians(angle))*hypotenuse
         return cateto
+    
+    def isPointInCircle(self,  center_tuple,  point_tuple,  radius):
+        x_values = point_tuple[0] - center_tuple[0]
+        y_values = point_tuple[1] - center_tuple[1]
+        radius_point = math.sqrt((x_values**2)+(y_values**2))
+        return radius_point <= radius 
 
 class LinearRegression:
 
@@ -69,15 +75,16 @@ class LinearRegression:
            Soma dos quadrados dos erros 
         """
         if self.error is None:
-          alpha = self.getAlpha()
-          beta = self.getBeta()
-          self.error = sum([((alpha * e[0] + beta) - e[1])**2 for e in self.pointlist])
+            alpha = self.getAlpha()
+            beta = self.getBeta()
+            #          self.error = sum([((alpha * e[0] + beta) - e[1])**2 for e in self.pointlist])
+            self.error = sum([abs(((alpha * e[0] + beta) - e[1])) for e in self.pointlist])
 
         return self.error
 
     def getConfidenceIntervals(self, point):
         """
-          em fase de teste
+          in test phase
         """
         if self.confidenceIntervals is None:
           pointlist = self.pointlist

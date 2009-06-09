@@ -3,6 +3,9 @@ from horus.core.math import math_module
 
 class TrigonometryTest(unittest.TestCase):
     
+    def setUp(self):
+        pass
+    
     def test_getXCateto(self):
         hypotenuse = 1
         angle = 60
@@ -10,7 +13,20 @@ class TrigonometryTest(unittest.TestCase):
         to = math_module.Trigonometry()
         self.assertAlmostEqual(to.getXCateto(hypotenuse, angle), .5)
         self.assertAlmostEqual(to.getYCateto(hypotenuse, angle2), .5)
-
+    
+    def test_isPointInCircle(self):
+        radius = 10
+        center_tuple = (0, 0)
+        point_tuple = (3, 4)
+        to = math_module.Trigonometry()
+        self.assertTrue(to.isPointInCircle(center_tuple,  point_tuple,  radius))
+        
+        radius = 1
+        center_tuple = (0, 0)
+        point_tuple = (3, 4)
+        self.assertFalse(to.isPointInCircle(center_tuple,  point_tuple,  radius))
+        
+        
 class LinearRegressionTest(unittest.TestCase):
         
     def test_getAlpha(self):
