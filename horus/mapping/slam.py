@@ -1,4 +1,4 @@
-from horus.core.math.math_module import *
+from horus.core.math.math_module import Trigonometry,  LinearRegression
 from ransac import *
 from landmark import *
 
@@ -10,12 +10,11 @@ class Slam():
         self.bigger_key = None
         self.bigger_value = None
         self.laser_dic = {}
-        self.projection = ()
-        # this is a list of tuples like [(x1,y1),...,(xn,yn)]
-        self.collision_graph = []
         self.trigonometry_obj = Trigonometry()
         self.extraction_obj = Ransac()
         self.landmark_list = []
+        self.circuference_radius = 300
+        self.mark_point_list = [(0, 0)]
         
     def biggerDictionaryKey(self, dictionary):
         """ gets bigger key in dictionary """
@@ -27,37 +26,35 @@ class Slam():
         self.bigger_key = self.bigger_key.pop()
 
         return self.bigger_key
-        
+    
 #-------------------------------------
 #self.slam_obj.landmarkExtraction
 #-------------------------------------
 
-    #abstractmethod
     def startAutomaticWalk():
         pass
 
-    #abstractmethod
     def stopAutomaticWalk():
         pass
 
     def laserUpdate(self, key, value):
         self.laser_dic[key] = value
     
-    def createCollisionList(self, angle, position_tuple):
+    def createCollisionTuple(self, angle, position_tuple):
         """
-            creates a landmark Graph using mathematical 
+            creates a collision list using mathematical 
             calculations of rectangle triangle
         """
-        #note: position_tuple parameter is robot`s (x, y)
         hypotenuse = self.laser_dic[angle]
         angle = float(angle)
+        #note: position_tuple parameter is robot`s (x, y)
         x = position_tuple[0] + self.trigonometry_obj.getXCateto(hypotenuse, angle)
         y = position_tuple[1] + self.trigonometry_obj.getYCateto(hypotenuse, angle)
         x = round(x,1)
         y = round(y,1)
         tuple = (x, y)
-        if tuple not in self.collision_graph and hypotenuse != self.infinity_point:
-            self.collision_graph.append(tuple)
+#        if tuple not in self.collision_graph and hypotenuse != self.infinity_point:
+#            self.collision_graph.append(tuple)
         return tuple
         
         
@@ -66,18 +63,17 @@ class Slam():
         
         collision_list = []
         for key in self.laser_dic.iterkeys():
-            tuple = self.createCollisionList(key, robot_position)
+            tuple = self.createCollisionTuple(key, robot_position)
             collision_list.append(tuple)
-
-        model = self.extraction_obj.getBestFitModel(collision_list)
-
-        if model is not None:
-            oid = self.landmark_list.__len__()
-            landmark = Landmark(oid, model)
-            self.landmark_list.append(landmark)
-        else:
-            print "model e none"
         
+        try:
+            oid = self.landmark_list.__len__()
+            landmark = self.extraction_obj.getBestFitModel(collision_list,  oid)
+            self.landmark_list.append(landmark)
+        except:
+            print 'curve not found!'
+            pass
+
     def getRobotPosition(self, walk_distance, rotation, position):
     
         """ 
@@ -91,6 +87,17 @@ class Slam():
         y = round(y, 1)
         
         return (x , y)
+        
+    def createMarkPoint(self, robot_position):
+        """
+            target_point is the (X, Y) witch this method will test before create a MarkPoint 
+            MarkPoint is a circuference in the ground where the robot has passed by
+        """   
+        for mark_point in self.mark_point_list:
+            result = self.trigonometry_obj.isPointInCircle(mark_point, robot_position,  self.circuference_radius)
+            if (result is False):
+                self.mark_point_list.append(robot_position)
+                break
 
 #---------------------------------------------------------------------        
 # verifying this
