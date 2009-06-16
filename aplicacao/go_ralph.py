@@ -221,7 +221,6 @@ class Environment(DirectObject):
     def move(self, task):
         """ allow the keyboard movement """
         #first_vision_camera adjusting
-
         hyp = 140
         catetoX = lambda angle: math.cos(math.radians(angle))*hyp
         catetoY = lambda angle: math.sin(math.radians(angle))*hyp
@@ -230,6 +229,7 @@ class Environment(DirectObject):
         self.first_vision_floater.setZ(self.character.getZ() + 20)
         base.first_vision_camera.setPos(self.character.getX(),  self.character.getY(),  45)
                 
+        self.robot.rotation = self.character.getH()
         elapsed = task.time - self.prevtime
         beforePosition = \
           {"X":self.character.getX(), "Y":self.character.getY(), "Z":self.character.getZ()}
@@ -253,23 +253,23 @@ class Environment(DirectObject):
                     (self.character.getZ()-beforePosition["Z"])**2)
                 
                 self.robot.setSensor("odometer", 0, odometer)
-                
                 #Use odometer to active/desactive laser scan and others tasks
-                if (odometer - last_odometer >= self.robot.step):
+                if (odometer - last_odometer >= 25):#self.robot.step):
                     self.robot.setSensor("odometer", 1, odometer)
-                    base.cTrav.showCollisions(render)
+                    #base.cTrav.showCollisions(render)
                     self.getLasersDistance()
-                    self.printLasersResult()
-                    self.robot.rotation += self.seeTheWay()
-                    self.robot.position = self.slam_obj.getRobotPosition(
-                        odometer - last_odometer, self.robot.rotation, self.robot.position)
-                    
+                    self.printLasersResult()           
+                    self.seeTheWay()
+                    self.robot.position = (self.character.getX(), self.character.getY() )
                     self.slam_obj.landmarkExtraction(self.robot.position)
-                    self.slam_obj.createMarkPoint(self.robot.position)
-                    self.robot.graph_steps_dic[self.robot.position] = self.character.getPos()
+
+                    if self.slam_obj.createMarkPoint(self.robot.position) <= 0:
+                        self.slam_obj.stopAutomaticWalk()
+                    
+                    self.robot.graph_steps_list.append(self.robot.position)
                     self.robot.step = min(self.slam_obj.laser_dic.values())
                     
-               
+
                 else:
                     base.cTrav.hideCollisions()
 
@@ -383,21 +383,14 @@ class Environment(DirectObject):
         newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.laser_dic)
         if self.slam_obj.laser_dic[newH] <= 6:
             newH = float(newH) - 180
-        #newH = self.slam_obj.closestDictionaryKey(self.slam_obj.laser_dic)
         rotation = float(newH)
-        newH = actualH + float(newH)
-        self.character.setHpr(newH, 0, 0)
-        return rotation
+        finalH = actualH + rotation
+        self.character.setH(finalH)
 
        
     def doTest(self):
-        #print self.character.getH() % 360
-        # angle = '+60'
-        base.cTrav.showCollisions(render)
-        self.getLasersDistance()
-        self.printLasersResult()
-        print self.robot.position
-        print len(self.slam_obj.mark_point_list)
+        self.slam_obj.createMarkPoint(self.robot.position)
+        print self.robot.po
         
 envi = Environment()
 run()

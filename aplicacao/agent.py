@@ -8,7 +8,8 @@ class Agent():
     rotation = 0
     #max robot steps
     step = 25
-    graph_steps_dic = {}
+    graph_steps_list = []
+
    
     def getSensor(self, sensor_type, id):
         pass
