@@ -13,8 +13,10 @@ class Slam():
         self.trigonometry_obj = Trigonometry()
         self.extraction_obj = Ransac()
         self.landmark_list = []
-        self.circuference_radius = 300
+        self.circuference_radius = 30
         self.mark_point_list = [(0, 0)]
+        #max try number before stop searching mark points
+        self.max_point_try = 5
         
     def biggerDictionaryKey(self, dictionary):
         """ gets bigger key in dictionary """
@@ -53,8 +55,7 @@ class Slam():
         x = round(x,1)
         y = round(y,1)
         tuple = (x, y)
-#        if tuple not in self.collision_graph and hypotenuse != self.infinity_point:
-#            self.collision_graph.append(tuple)
+
         return tuple
         
         
@@ -71,7 +72,7 @@ class Slam():
             landmark = self.extraction_obj.getBestFitModel(collision_list,  oid)
             self.landmark_list.append(landmark)
         except:
-            print 'curve not found!'
+            #print 'curve not found!'
             pass
 
     def getRobotPosition(self, walk_distance, rotation, position):
@@ -81,11 +82,12 @@ class Slam():
             angle must be in degrees
         """
         rotation = rotation % 360
+        print "Walk distance "+ str(walk_distance )+"  Rotation "+ str(rotation )+ " Position " + str(position)
         x = position[0] + self.trigonometry_obj.getXCateto(walk_distance, rotation)
         y = position[1] + self.trigonometry_obj.getYCateto(walk_distance, rotation)
-        x = round(x, 1)
-        y = round(y, 1)
-        
+        x = round(x)
+        y = round(y)
+        print "X "+str(x) +"  Y "+ str(y)
         return (x , y)
         
     def createMarkPoint(self, robot_position):
@@ -93,19 +95,18 @@ class Slam():
             target_point is the (X, Y) witch this method will test before create a MarkPoint 
             MarkPoint is a circuference in the ground where the robot has passed by
         """   
+        append_condition = False
         for mark_point in self.mark_point_list:
             result = self.trigonometry_obj.isPointInCircle(mark_point, robot_position,  self.circuference_radius)
             if (result is False):
-                self.mark_point_list.append(robot_position)
-                break
-
-#---------------------------------------------------------------------        
-# verifying this
-#   def linearRegression(self):
-#      """ overrides linear regression from LinearRegression module """ 
-#       lr = LinearRegression(self.collision_graph)
-#        return lr
-#---------------------------------------------------------------------    
+                append_condition = True
+            else:
+                self.max_point_try = self.max_point_try - 1
+        if append_condition:
+            self.max_point_try += 1.5
+            self.mark_point_list.append(robot_position)
+        return self.max_point_try
+    
 
     def dataAssociation(self, last_position, distance_traveled, rotantion_angle):
         """ based on triangulation """
