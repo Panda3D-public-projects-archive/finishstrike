@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  1 JUN 2009 20:09
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  22 JUN 2009 20:46
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -610,17 +610,27 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-])
+]
+Overfull \hbox (3.9125pt too wide) in paragraph at lines 42--43
+[]\OT1/cmr/bx/n/12 isPointInCircle(self, cen-ter[]tuple, point[]tuple, ra-dius)
+ \OT1/cmr/m/n/12 - re-sponsavel por definir
+ []
+
+
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[29] (cap7.tex
+[29])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[30] (cap7.tex
 Cap\'{\i }tulo 6.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[30
+[31
 
 
 
@@ -628,29 +638,29 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[31]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
 [32]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[33])
+[33]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[34]
+[34])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[35] (cap8.tex
+[35]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[36] (cap8.tex
 Cap\'{\i }tulo 7.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[36
+[37
 
 
 
@@ -659,7 +669,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 30.
 
-<imagens/fotos/robot.png, id=128, 795.97375pt x 614.295pt>
+<imagens/fotos/robot.png, id=131, 795.97375pt x 614.295pt>
 File: imagens/fotos/robot.png Graphic file (type png)
 
 <use imagens/fotos/robot.png>
@@ -667,7 +677,7 @@ File: imagens/fotos/robot.png Graphic file (type png)
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 40.
 
-<imagens/fotos/galpao.png, id=129, 426.09187pt x 545.03625pt>
+<imagens/fotos/galpao.png, id=132, 426.09187pt x 545.03625pt>
 File: imagens/fotos/galpao.png Graphic file (type png)
 
 <use imagens/fotos/galpao.png>
@@ -675,29 +685,29 @@ File: imagens/fotos/galpao.png Graphic file (type png)
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 49.
 
-<imagens/fotos/colisions.png, id=130, 895.345pt x 564.1075pt>
+<imagens/fotos/colisions.png, id=133, 895.345pt x 564.1075pt>
 File: imagens/fotos/colisions.png Graphic file (type png)
 
 <use imagens/fotos/colisions.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[37])
+[38])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[38 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png (PNG copy)>]
+[39 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png (PNG copy)>]
 
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[39 <imagens/fotos/colisions.png (PNG copy)>] (cap9.tex
+[40 <imagens/fotos/colisions.png (PNG copy)>] (cap9.tex
 Cap\'{\i }tulo 8.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[40
+[41
 
 
 
@@ -707,7 +717,7 @@ Cap\'{\i }tulo 9.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[41
+[42
 
 
 
@@ -715,7 +725,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[42
+[43
 
 
 
@@ -725,7 +735,7 @@ Ap\^endice A.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[43
+[44
 
 
 
@@ -735,17 +745,17 @@ Ap\^endice B.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[44
+[45
 
 ] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
 (introducao.aux) (cap1.aux) (cap2.aux) (cap3.aux) (cap5.aux) (cap7.aux)
 (cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux) (apendice.aux)) ) 
 Here is how much of TeX's memory you used:
- 3651 strings out of 95304
- 45910 string characters out of 1182724
+ 3653 strings out of 95304
+ 45947 string characters out of 1182724
  107690 words of memory out of 1500000
- 6641 multiletter control sequences out of 110000
+ 6643 multiletter control sequences out of 110000
  10158 words of font info for 36 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  27i,14n,32p,679b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -757,9 +767,9 @@ amas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr10.pfb><C:/Arquivos de programas/MiKT
 eX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fo
 nts/type1/bluesky/cm/cmti12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type
 1/public/cm-super/sfrm1200.pfb>
-Output written on Projeto_Final.pdf (45 pages, 2649184 bytes).
+Output written on Projeto_Final.pdf (46 pages, 2652935 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
+ 182 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

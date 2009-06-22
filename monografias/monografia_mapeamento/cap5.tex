@@ -6,9 +6,9 @@
 \chapter{O Toolkit Horus}
 \label{cap:o_toolkit_horus}
 
-O Horús é um toolkit, ou seja, uma coleção de ferramentas, nesse caso módulos, que servem para gerenciar agentes inteligentes, escrito em Python. Duas partes estão sendo desenvovdidas, a princípio, estas são: Módulo de Visão e Módulo de Mapeamento.
+O Horus é um toolkit, ou seja, uma coleção de ferramentas (nesse caso módulos) que servem para gerenciar agentes inteligentes, escrito em Python. Duas partes estão sendo desenvovdidas a princípio: Módulo de Visão e Módulo de Mapeamento.
 
-No módulo de visão é onde se localiza os mais váriados algoritmos de visão computacional e no módulo de mapeamento trata-se do problema de mapear ambientes a partir de dispositivos de leitura do ambiente e de efetuadores.
+No módulo de visão estão os mais variados algoritmos de visão computacional e no módulo de mapeamento trata-se do problema de mapear ambientes a partir de dispositivos de leitura do ambiente e de efetuadores.
 \section{Objetivo}
 
 O objetivo do toolkit é prover ferramentas necessárias para produção de agentes inteligentes. 
@@ -20,10 +20,47 @@ Demonstrar a arquitetura utilizada.
 \section{Módulos do Horus}
 
 Principais funcionalidades de cada um dos módulos, de forma mais explicada. .
-
+\
 \begin{itemize}
 \item Core do Horus: Contêm módulos que serão utilizados como suporte para os módulos principais. Sendo assim não necessitam ser utilizados diretamente pelo usuário.
 \item Modulo de Visão: Tem por objetivo tratar as principais técnicas de visão computacional de um agente inteligente.
-\item Modulo de Mapeamento: O módulo de mapeamento é responsável por gerenciar os tipos mapeamento bem como os dispositivos utilizados para mapear e navegar no ambiente.
+\item Modulo de Mapeamento: O módulo de mapeamento é responsável por gerenciar os tipos de mapeamento bem como os dispositivos utilizados para mapear e navegar no ambiente.
 \end{itemize}
 
+\subsection{Core do Horus}
+As funções e métodos presentes no Core do Horus estão dispostas como segue:
+
+\subsubsection{O módulo "math\textunderscore module"}
+Este módulo possui funções matemáticas usadas pelo Horus. Ele está subdividido em algumas categorias dentre elas, funções trigonométricas e regressão linear.
+
+As funções trigonométricas são:
+\begin{itemize}
+\item \textbf{getXCateto(self, hypotenuse, angle)} - responsável por encontrar a coordenada X em um plano cartesiano tendo como parâmetros a distância (hipotenusa) até o ponto e o ângulo de rotação atingido para observar aquele ponto.
+
+\item \textbf{getYCateto(self, hypotenuse, angle)} - responsável por encontrar a coordenada Y em um plano cartesiano tendo como parâmetros a distância (hipotenusa) até o ponto e o ângulo de rotação atingido para observar aquele ponto.
+
+\item \textbf{isPointInCircle(self,  center\textunderscore tuple,  point\textunderscore tuple,  radius)} - responsável por definir se um ponto (X, Y) qualquer está ou não contido em um círculo, dado o centro deste e o raio.
+\end{itemize}
+
+A função de regressão linear é responsável por fazer uma identificação de uma condicional de uma variável y, tendo dados de vários x.
+
+\textbf{COMPLETE WALLACE}
+
+
+\subsubsection{O módulo "processingimage"}
+Nesse módulo está definido o processo de tratamento de imagem.
+
+
+
+\subsection{Módulo de Visão}
+
+\subsection{Módulo de Mapeamento}
+
+O módulo responsável pela inteligência do agente, no que diz respeito à localização, movimentação, mapeamento e navegação. 
+\begin{itemize}
+\item Localização: Entende-se por localização a capacidade do agente localizar-se em um ambiente. 
+\item Movimentação: É a capacidade de locomoção em um ambiente.
+\item Mapeamento: É o modo como o agente localiza marcos para identificar a forma do ambiente.
+\item Navegação: O agente se move pelo ambiente mapeado visando um objetivo, com tarefas como otimização de rotas.
+
+\end{itemize}

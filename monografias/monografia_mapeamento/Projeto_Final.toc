@@ -31,22 +31,27 @@
 \contentsline {section}{\numberline {5.1}Objetivo}{28}
 \contentsline {section}{\numberline {5.2}Arquitetura}{28}
 \contentsline {section}{\numberline {5.3}M\'odulos do Horus}{28}
-\contentsline {chapter}{\numberline {6}Mapeamento}{30}
-\contentsline {paragraph}{O}{30}
-\contentsline {section}{\numberline {6.1}SLAM}{31}
-\contentsline {subsection}{\numberline {6.1.1}Landmark Straction}{31}
-\contentsline {subsubsection}{\numberline {6.1.1.1}RANSAC}{32}
-\contentsline {subsubsection}{\numberline {6.1.1.2}SPIKE}{33}
-\contentsline {subsection}{\numberline {6.1.2}Data Association}{33}
-\contentsline {subsection}{\numberline {6.1.3}State Estimation}{34}
-\contentsline {subsection}{\numberline {6.1.4}State Update}{34}
-\contentsline {subsection}{\numberline {6.1.5}Landmark Update}{34}
-\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{36}
-\contentsline {section}{\numberline {7.1}Simulador}{36}
-\contentsline {section}{\numberline {7.2}Ambiente}{37}
-\contentsline {section}{\numberline {7.3}O mapeamento}{39}
-\contentsline {chapter}{\numberline {8}Resultados obtidos}{40}
-\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{41}
-\contentsline {chapter}{Ap\^endices}{43}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{43}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{44}
+\contentsline {subsection}{\numberline {5.3.1}Core do Horus}{29}
+\contentsline {subsubsection}{\numberline {5.3.1.1}O m\'odulo "math\textunderscore module"}{29}
+\contentsline {subsubsection}{\numberline {5.3.1.2}O m\'odulo "processingimage"}{30}
+\contentsline {subsection}{\numberline {5.3.2}M\'odulo de Vis\~ao}{30}
+\contentsline {subsection}{\numberline {5.3.3}M\'odulo de Mapeamento}{30}
+\contentsline {chapter}{\numberline {6}Mapeamento}{31}
+\contentsline {paragraph}{O}{31}
+\contentsline {section}{\numberline {6.1}SLAM}{32}
+\contentsline {subsection}{\numberline {6.1.1}Landmark Straction}{32}
+\contentsline {subsubsection}{\numberline {6.1.1.1}RANSAC}{33}
+\contentsline {subsubsection}{\numberline {6.1.1.2}SPIKE}{34}
+\contentsline {subsection}{\numberline {6.1.2}Data Association}{34}
+\contentsline {subsection}{\numberline {6.1.3}State Estimation}{35}
+\contentsline {subsection}{\numberline {6.1.4}State Update}{35}
+\contentsline {subsection}{\numberline {6.1.5}Landmark Update}{35}
+\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{37}
+\contentsline {section}{\numberline {7.1}Simulador}{37}
+\contentsline {section}{\numberline {7.2}Ambiente}{38}
+\contentsline {section}{\numberline {7.3}O mapeamento}{40}
+\contentsline {chapter}{\numberline {8}Resultados obtidos}{41}
+\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{42}
+\contentsline {chapter}{Ap\^endices}{44}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{44}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{45}
