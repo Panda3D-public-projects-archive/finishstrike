@@ -6,17 +6,19 @@ class Slam():
 
     def __init__(self):
         self.robot_rotation = 0
-        self.infinity_point = 110
+        self.infinity_point = 150
         self.bigger_key = None
         self.bigger_value = None
         self.laser_dic = {}
         self.trigonometry_obj = Trigonometry()
         self.extraction_obj = Ransac()
         self.landmark_list = []
-        self.circuference_radius = 30
+        self.circuference_radius = 45
         self.mark_point_list = [(0, 0)]
         #max try number before stop searching mark points
         self.max_point_try = 5
+        
+        self.graph_dic = {}
         
     def biggerDictionaryKey(self, dictionary):
         """ gets bigger key in dictionary """
@@ -87,10 +89,9 @@ class Slam():
         y = position[1] + self.trigonometry_obj.getYCateto(walk_distance, rotation)
         x = round(x)
         y = round(y)
-        print "X "+str(x) +"  Y "+ str(y)
         return (x , y)
         
-    def createMarkPoint(self, robot_position):
+    def tryAMarkPoint(self, robot_position,  robot_rotation):
         """
             target_point is the (X, Y) witch this method will test before create a MarkPoint 
             MarkPoint is a circuference in the ground where the robot has passed by
@@ -103,10 +104,28 @@ class Slam():
             else:
                 self.max_point_try = self.max_point_try - 1
         if append_condition:
-            self.max_point_try += 1.5
-            self.mark_point_list.append(robot_position)
+            self.max_point_try += 2
+            self.mark_point_list.append(robot_position) 
+            
+            #buiding graph
+            index = len(self.graph_dic)
+            self.graph_dic[index] = robot_position,  robot_rotation
+            
         return self.max_point_try
     
+    def isPointInMarkPointList(self, point):
+        """
+            Returns True if point is in mark_point_list, else returns False.
+        """
+
+        for mark_point in self.mark_point_list:
+            result = self.trigonometry_obj.isPointInCircle(mark_point, point,  self.circuference_radius)
+            if (result is False):
+                condition = True
+            else:
+                condition = False
+        return condition
+
 
     def dataAssociation(self, last_position, distance_traveled, rotantion_angle):
         """ based on triangulation """

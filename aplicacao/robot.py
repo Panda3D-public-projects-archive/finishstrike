@@ -1,5 +1,6 @@
 from direct.actor.Actor import Actor
 from agent import Agent
+from pandac.PandaModules import *
 import math
 
 class Robot(Agent):
@@ -19,6 +20,7 @@ class Robot(Agent):
         # set the texture loaded
         self.character.setTexture(self.tex, 1)
         self.position = (0, 0, 0)
+        self.credits_to_walk = 0
         
     def setPos(self, tuple):
         self.character.actual_position = tuple

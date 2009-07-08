@@ -68,6 +68,7 @@ class Environment(DirectObject):
             self.slam_obj.laserUpdate('-' + str(i), 0)
         
         # show the text on screen
+        self.where_am_i = OnscreenText(pos=(0.8, 0.85), fg=(255, 255, 0, 90))
         self.title = OnscreenText(pos=(0.8, -0.85), fg=(255, 255, 0, 90))
         self.title_odometer = \
             OnscreenText(pos=(0.8, -0.95), fg=(255, 255, 0, 90))
@@ -174,42 +175,37 @@ class Environment(DirectObject):
             base.cTrav.traverse(render)
 
 
-    def addInterval(self, posInicial, posFinal):
+
+    def addInterval(self, init_pos, final_pos):
         """
             This method adds a time interval between 
             two vertexes for the sequence movement
         """
 
         character_interval= \
-        self.character.posInterval(5,Point3(posFinal[0], posFinal[1], posFinal[2]),
-            startPos=Point3(posInicial[0], posInicial[1], posInicial[2]))
+        self.character.posInterval(1,Point3(final_pos[0], final_pos[1], 0.0),
+            startPos=Point3(init_pos[0], init_pos[1], 0.0))
         self.walk.append(character_interval)
     #--------------------------------------------------
 
-    def goTo(self):
+    def walkAway(self,  destiny):
         """
-            Starts the sequence of movements, called walk
-        """
-        self.character.loop("run")
-        self.walk.start()
-    #--------------------------------------------------
-
-    def walkAway(self, initial, final):
-        """
+            destiny is an integer
             Builds the vertexes dictionary and executes Dijkstra (from GraphFacade)
         """
-
-        self.graph.buildVertexDic()
-        adjacency_matrix = self.graph.buildAdjMatrix()
-        # way is the shortest path between two vertexes
-        way = self.graph.shortestPath(adjacency_matrix, initial, final)
-        i = 0
-        while (i <= (len(way)-2)):
-            aux = self.graph.getPositionVertex(way[i])
-            aux1 = self.graph.getPositionVertex(way[i+1])
-            self.addInterval(aux, aux1)
-            i += 1
-        self.goTo()
+        i = len(self.slam_obj.graph_dic)-2
+        self.walk = Sequence()
+        while (i != destiny-1):
+            init = self.slam_obj.graph_dic[i][0]
+            final = self.slam_obj.graph_dic[i+1][0]
+            rotation = self.slam_obj.graph_dic[i][1]            
+            self.addInterval(final,  init)
+            self.character.setH(rotation)
+            i -= 1
+            
+        self.walk.start()
+        #starts the sequence of movements, called walk
+        
     #--------------------------------------------------
 
     def setKey(self, key, value):
@@ -228,7 +224,7 @@ class Environment(DirectObject):
         self.first_vision_floater.setY(self.character.getY() + catetoY(self.character.getH()-90))
         self.first_vision_floater.setZ(self.character.getZ() + 20)
         base.first_vision_camera.setPos(self.character.getX(),  self.character.getY(),  45)
-                
+        
         self.robot.rotation = self.character.getH()
         elapsed = task.time - self.prevtime
         beforePosition = \
@@ -253,17 +249,28 @@ class Environment(DirectObject):
                     (self.character.getZ()-beforePosition["Z"])**2)
                 
                 self.robot.setSensor("odometer", 0, odometer)
+                
                 #Use odometer to active/desactive laser scan and others tasks
-                if (odometer - last_odometer >= 25):#self.robot.step):
+                if (odometer - last_odometer >= 25):
                     self.robot.setSensor("odometer", 1, odometer)
-                    #base.cTrav.showCollisions(render)
+                    base.cTrav.showCollisions(render)
                     self.getLasersDistance()
                     self.printLasersResult()           
-                    self.seeTheWay()
+                    self.seeNewWay()
                     self.robot.position = (self.character.getX(), self.character.getY() )
                     self.slam_obj.landmarkExtraction(self.robot.position)
-
-                    if self.slam_obj.createMarkPoint(self.robot.position) <= 0:
+                    
+                    last_credits_to_walk = self.robot.credits_to_walk
+                    #max tries (stop condition is when tries reach zero)
+                    tries = self.slam_obj.tryAMarkPoint(self.robot.position,  self.robot.rotation)
+                    self.robot.credits_to_walk = tries
+                    
+                    if last_credits_to_walk < self.robot.credits_to_walk:
+                        self.where_am_i.setText("Ainda não estive aqui.")
+                    else:
+                        self.where_am_i.setText("Já estive aqui!")
+                    if self.robot.credits_to_walk <= 0:
+                        self.where_am_i.setText("Acho que acabou...")
                         self.slam_obj.stopAutomaticWalk()
                     
                     self.robot.graph_steps_list.append(self.robot.position)
@@ -359,7 +366,6 @@ class Environment(DirectObject):
         self.slam_obj.laser_dic["-35"], self.slam_obj.laser_dic["-40"],
         self.slam_obj.laser_dic["-45"], self.slam_obj.laser_dic["-50"],
         self.slam_obj.laser_dic["-55"], self.slam_obj.laser_dic["-60"]))
-
     def getXYZ(self):
         """
             returns a string of the actual position like 
@@ -380,6 +386,7 @@ class Environment(DirectObject):
     def seeTheWay(self):
         """ see the way to walk """
         actualH = self.character.getH()
+        
         newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.laser_dic)
         if self.slam_obj.laser_dic[newH] <= 6:
             newH = float(newH) - 180
@@ -387,10 +394,38 @@ class Environment(DirectObject):
         finalH = actualH + rotation
         self.character.setH(finalH)
 
-       
+    def seeNewWay(self):
+        catetoX = lambda angle: math.cos(math.radians(angle))*hyp
+        catetoY = lambda angle: math.sin(math.radians(angle))*hyp
+        actualH = self.character.getH()
+        dic_aux = self.slam_obj.laser_dic.copy()
+        stop_condition = False
+        max_not_found = False
+        while (stop_condition is False):
+            newH = self.slam_obj.biggerDictionaryKey(dic_aux)
+            dic_aux.pop(newH)
+            hyp = self.slam_obj.laser_dic[newH]
+            angle = float(newH)
+            x = catetoX(angle)
+            y = catetoY(angle)
+            coordLaser = (x, y)
+            if not(self.slam_obj.isPointInMarkPointList(coordLaser)):
+                stop_condition = True
+            if len(dic_aux) == 0:
+                stop_condition = True
+                max_not_found = True
+        if max_not_found:
+            self.seeTheWay()
+        else:
+            rotation = float(newH)
+            finalH = actualH + rotation
+            self.character.setH(finalH)
+        
     def doTest(self):
-        self.slam_obj.createMarkPoint(self.robot.position)
-        print self.robot.po
+        print self.slam_obj.graph_dic
+        
+        self.walkAway(4)        
+        #print dir(self.walk)
         
 envi = Environment()
 run()
