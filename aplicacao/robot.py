@@ -9,7 +9,7 @@ class Robot(Agent):
     def __init__(self):
 
         # the lasers creation
-        self.createLasers(25,  5,  210,  15)
+        self.createLasers(25,  5,  210,  10)
         #odometer is a list witch first element is actual odometer
         # and second is last odomenter
         self.sensors["odometer"] = [0.0, 0.0]

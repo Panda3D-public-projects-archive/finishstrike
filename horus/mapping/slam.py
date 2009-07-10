@@ -4,18 +4,18 @@ from landmark import *
 
 class Slam():
 
-    def __init__(self):
+    def __init__(self,  infinity_point=150,  circuference_radius=30):
         self.robot_rotation = 0
-        self.infinity_point = 150
+        self.infinity_point = infinity_point
         self.bigger_key = None
         self.bigger_value = None
         self.laser_dic = {}
         self.trigonometry_obj = Trigonometry()
         self.extraction_obj = Ransac()
         self.landmark_list = []
-        self.circuference_radius = 45
+        self.circuference_radius = circuference_radius
         self.mark_point_list = [(0, 0)]
-        #max try number before stop searching mark points
+        #max try number before stop earching mark points
         self.max_point_try = 5
         
         self.graph_dic = {}
@@ -31,9 +31,60 @@ class Slam():
 
         return self.bigger_key
     
-#-------------------------------------
-#self.slam_obj.landmarkExtraction
-#-------------------------------------
+    def seeFarthestPoint(self,  actual_robot_rotation=0):
+        """ returns farthest laser direction """
+        
+        actualH = actual_robot_rotation
+        new_h = self.biggerDictionaryKey(self.laser_dic)
+        if self.laser_dic[new_h] <= 6:
+            new_h = float(new_h) - 180
+        rotation = float(new_h)
+        finalH = actualH + rotation
+        return new_h
+        
+    def seeNewWay(self,  actual_robot_rotation=0):
+        """ see a new way to walk """
+        
+        actualH = actual_robot_rotation
+        catetoX = lambda angle: math.cos(math.radians(angle))*hyp
+        catetoY = lambda angle: math.sin(math.radians(angle))*hyp
+        right_dic = {}
+        left_dic = {}
+        left_count = 0
+        right_count = 0
+       
+        for  key in self.laser_dic.keys():
+            
+            if float(key) < 0.0:
+                left_dic[key] = self.laser_dic[key]
+                hyp = left_dic[key]
+                angle = float(key)
+                x = catetoX(angle)
+                y = catetoY(angle)
+                coordLaser = (x, y)
+                if self.isPointInMarkPointList(coordLaser):
+                    left_count += 1
+            elif float(key) > 0.0:
+                right_dic[key] = self.laser_dic[key]
+                hyp = right_dic[key]
+                angle = float(key)
+                x = catetoX(angle)
+                y = catetoY(angle)
+                coordLaser = (x, y)
+                if self.isPointInMarkPointList(coordLaser):
+                    right_count += 1
+                
+        if left_count < right_count:
+            new_h = self.biggerDictionaryKey(left_dic)
+        elif right_count > left_count:
+            new_h = self.biggerDictionaryKey(right_dic)
+        else:
+            new_h = self.seeFarthestPoint(actualH)
+        
+        rotation = float(new_h)     
+        finalH = actualH + rotation
+        
+        return finalH
 
     def startAutomaticWalk():
         pass

@@ -24,14 +24,15 @@ base.collision_node_list = []
 base.laser_list = []
 
 class PandaSlam(Slam):
-    def __init__(self):
-        Slam.__init__(self)
+    def __init__(self,  infinity_point=150,  circuference_radius=30):
+        Slam.__init__(self,  infinity_point,  circuference_radius)
 
     def startAutomaticWalk(self):
         """  """
         envi.getLasersDistance()
         envi.printLasersResult()
-        envi.seeTheWay()
+#        envi.seeFarthestPoint()
+        self.seeFarthestPoint()
         envi.setKey("forward", 1)
 
     def stopAutomaticWalk(self):
@@ -48,6 +49,7 @@ class Environment(DirectObject):
         base.altBuffer = mainWindow.makeTextureBuffer("window", 256, 256)
         
         base.first_vision_camera = base.makeCamera(base.altBuffer)
+        
         base.first_vision_camera.reparentTo(render)
      
         #Create lasers
@@ -56,7 +58,7 @@ class Environment(DirectObject):
     
         # this is the robot dictionary lasers - keys is degrees
         # -60 to -5
-        self.slam_obj = PandaSlam()
+        self.slam_obj = PandaSlam(150,  38)
         for i in range(60, 0, -5):
             self.slam_obj.laserUpdate('+' + str(i), 0)
         
@@ -84,9 +86,9 @@ class Environment(DirectObject):
         self.distance_laser = self.character
         self.threshold = 0.96
         # adjusting scale and position of the model
-        self.environment.setScale(10, 10, 10)
+        self.environment.setScale(10)
         self.environment.setPos(0, 0, 2.01)
-        self.character.setScale(10, 10, 10)
+        self.character.setScale(10)
         
         # render
         self.environment.reparentTo(render)
@@ -225,6 +227,7 @@ class Environment(DirectObject):
         self.first_vision_floater.setZ(self.character.getZ() + 20)
         base.first_vision_camera.setPos(self.character.getX(),  self.character.getY(),  45)
         
+        
         self.robot.rotation = self.character.getH()
         elapsed = task.time - self.prevtime
         beforePosition = \
@@ -256,7 +259,6 @@ class Environment(DirectObject):
                     base.cTrav.showCollisions(render)
                     self.getLasersDistance()
                     self.printLasersResult()           
-                    self.seeNewWay()
                     self.robot.position = (self.character.getX(), self.character.getY() )
                     self.slam_obj.landmarkExtraction(self.robot.position)
                     
@@ -275,7 +277,7 @@ class Environment(DirectObject):
                     
                     self.robot.graph_steps_list.append(self.robot.position)
                     self.robot.step = min(self.slam_obj.laser_dic.values())
-                    
+                    self.character.setH(self.slam_obj.seeNewWay(self.character.getH()))
 
                 else:
                     base.cTrav.hideCollisions()
@@ -377,54 +379,18 @@ class Environment(DirectObject):
     #--------------------------------------------------
     def getInfos(self):
         """ returns odometer data """
+        
         if (self.distance_laser == None):
             return "Odometer: %.2f Laser: %s"\
             %( self.robot.getSensor("odometer", 0), self.distance_laser)
         else:
             return "Odometer: %.2f" % self.robot.getSensor("odometer", 0)
-
-    def seeTheWay(self):
-        """ see the way to walk """
-        actualH = self.character.getH()
         
-        newH = self.slam_obj.biggerDictionaryKey(self.slam_obj.laser_dic)
-        if self.slam_obj.laser_dic[newH] <= 6:
-            newH = float(newH) - 180
-        rotation = float(newH)
-        finalH = actualH + rotation
-        self.character.setH(finalH)
-
-    def seeNewWay(self):
-        catetoX = lambda angle: math.cos(math.radians(angle))*hyp
-        catetoY = lambda angle: math.sin(math.radians(angle))*hyp
-        actualH = self.character.getH()
-        dic_aux = self.slam_obj.laser_dic.copy()
-        stop_condition = False
-        max_not_found = False
-        while (stop_condition is False):
-            newH = self.slam_obj.biggerDictionaryKey(dic_aux)
-            dic_aux.pop(newH)
-            hyp = self.slam_obj.laser_dic[newH]
-            angle = float(newH)
-            x = catetoX(angle)
-            y = catetoY(angle)
-            coordLaser = (x, y)
-            if not(self.slam_obj.isPointInMarkPointList(coordLaser)):
-                stop_condition = True
-            if len(dic_aux) == 0:
-                stop_condition = True
-                max_not_found = True
-        if max_not_found:
-            self.seeTheWay()
-        else:
-            rotation = float(newH)
-            finalH = actualH + rotation
-            self.character.setH(finalH)
         
     def doTest(self):
-        print self.slam_obj.graph_dic
-        
-        self.walkAway(4)        
+        #print self.slam_obj.graph_dic
+        #self.seeNewWay()
+        self.walkAway(4)
         #print dir(self.walk)
         
 envi = Environment()
