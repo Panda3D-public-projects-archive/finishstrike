@@ -101,6 +101,12 @@ class Image(object):
         """
         return Image(content=self.content.convert(mode))
     
+    def resize(self, size):
+        """
+            This method resizes an image.
+        """ 
+        return Image(content=self.content.resize(size))
+    
     def load(self):
         """
             Load the image
@@ -153,8 +159,8 @@ class Image(object):
             This method returns a matrix with values of wich content's pixels.
         """
         data = self.getData()
-        self.matrix = [[data[(self.size[1]*j)+i] for i in range(self.size[1])]
-                                                 for j in range(self.size[0]) ]
+        self.matrix = [[data[(self.size[0]*j)+i] for i in range(self.size[0])]
+                                                 for j in range(self.size[1]) ]
 
         return self.matrix
 
@@ -268,5 +274,24 @@ class Image(object):
                 if over_group is None:
                     continue
                 y1 = height
-            subimage_list.append(Image(img_to_mix=self.crop((x0, y0, x1, y1))))
+            subimage_list.append(Image(content=self.crop((x0, y0, x1, y1))))
         return subimage_list               
+
+    def negative(self):
+        """
+            This method calculate the negative image. The source image must be Grayscale.
+            XXX: TODO: To make this method accept as many modes as possible.
+        """
+        new_img = Image(mode=self.mode, size=self.content.size)
+        for col in range(new_img.size[0]):
+            for line in range(new_img.size[1]):
+               
+                new_img.putPixel((col,line), (255 - self.getPixel((col, line))))
+        return new_img
+
+if __name__ == '__main__':
+    from horus.core.processingimage import image, processingimage
+    ni = image.Image(path='/home/ucam/dev/projetofinal/sk/direita5.png')
+    ni = ni.negative()
+    ni.content.show()
+    print processingimage.verticalProjection(ni)
