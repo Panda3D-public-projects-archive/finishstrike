@@ -48,7 +48,8 @@ def verticalProjection(image):
         TODO
     """
     matrix = mathematic.Math().calculateTranspose(image.pixel_matrix())
-    return mathematic.List( [0,0] + projection(matrix)[2:][:-2] + [0,0] )
+    r =  mathematic.List( [0,0] + projection(matrix)[2:][:-2] + [0,0] )
+    return r
     
 def horizontalProjection(image):
     """
@@ -143,3 +144,37 @@ def localThreshold(image, size, con):
                     
 def applyFilter(image, filter):
     return horusImage.Image(content=image.content.filter(filter))
+
+def globalThreshold(img, threshold=128):
+    new_img = horusImage.Image(mode=img.mode, size=img.size)
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            if img.getPixel((i,j)) > threshold:
+                new_img.putPixel((i,j), 255) 
+            else:
+                new_img.putPixel((i,j), 0)
+    return new_img
+
+
+
+
+def locateNonZeroIntervals(value_list):
+    """
+        cria uma lista distacando os intervalos (os pares com o indice
+        inicial e final definem o intervalo) diferentes de zeros.
+    """
+    nonzero_interval_list = []
+    inf = 0
+    # cria uma lista de candidatos a placas
+    # intervalos de valores diferentes de zero
+    for i in range(len(value_list)):
+        if value_list[i] != 0:
+            if inf == 0:
+                if value_list[i-1] == 0:
+                    inf = i
+            else:
+                if i+1 < len(value_list) and value_list[i+1] == 0:
+                    nonzero_interval_list.append((inf, i))
+                    inf = 0
+    return nonzero_interval_list
+

@@ -125,7 +125,7 @@ def hildtchSkeletonize(image):
         pixelsToDelete = []
         for i in range( image.size[0] ):
             for j in range(image.size[1] ):
-                if(image.getpixel((i,j)) == 0):                    
+                if(image.getPixel((i,j)) == 0):                    
                     n8 = image.getEightNeighbourhood((i,j))                                       
                     if(n8.count(255) > 0):                        
                         boundaryPixelList.append((i,j))                        
@@ -164,9 +164,9 @@ def getNumLoops(image):
         transition = 0;
         for i in range(image.size[0] ):            
                 flag = 0;
-                pixelValue = image.getpixel((i,j));
+                pixelValue = image.getPixel((i,j))
                 if(i+1 < image.size[0]):
-                    if(pixelValue == 0) & (image.getpixel((i+1, j)) == 255):
+                    if(pixelValue == 0) & (image.getPixel((i+1, j)) == 255):
                         if((image.topLeftNeighbour((i+1, j)) == 0) and   
                                (image.topNeighbour((i+1,j)) == 0)):
 
@@ -175,14 +175,14 @@ def getNumLoops(image):
                         # image.rightTopNeighbour((i+1, j)) == 0):                            
                             count = i + 1;                            
                             while(count < image.size[0]):                                
-                                if(image.getpixel((count, j)) == 0): 
+                                if(image.getPixel((count, j)) == 0): 
                                     line_count = j + 1
                                     while(line_count < image.size[1]):
-                                        if(image.getpixel((i + 1, line_count)) == 0):
+                                        if(image.getPixel((i + 1, line_count)) == 0):
                                             numRegions += 1
                                             break
                                         line_count += 1
-                                    if(image.getpixel((i + 1, line_count)) == 0):
+                                    if(image.getPixel((i + 1, line_count)) == 0):
                                             break 
                                 count += 1
     return numRegions

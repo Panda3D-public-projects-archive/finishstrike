@@ -12,6 +12,7 @@ import pytesser
 
 from horus.core.processingimage.image import Image
 
+  raw_input()
 
 SAVE = os.path.join(os.path.abspath(os.path.dirname(__file__)),"placa")
 SAVE = os.path.join(os.path.abspath('.'),"placa")
@@ -238,9 +239,9 @@ class Character(object):
 
 class ImpossiblePlateExtraction(Exception): pass
   
-def locateNonZeroIntervals(value_list):
+def locatenonzerointervals(value_list):
     """
-        Cria uma lista distacando os intervalos (os pares com o indice
+        cria uma lista distacando os intervalos (os pares com o indice
         inicial e final definem o intervalo) diferentes de zeros.
     """
     nonzero_interval_list = []

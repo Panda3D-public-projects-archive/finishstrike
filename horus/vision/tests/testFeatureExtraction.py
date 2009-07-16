@@ -11,9 +11,9 @@ class FeatureExtractionTest(unittest.TestCase):
         self.imagePath = join(PREFIX, "data/region_image.png")
         self.edPath = join(PREFIX,"data/edge_detection.png")
         self.edPath2 = join(PREFIX,"data/edge_detection_two.png")
-        self.edImage = image.Image(self.edPath)
-        self.edImage2 = image.Image(self.edPath2)
-        self.region_test_image = image.Image(self.imagePath)
+        self.edImage = image.Image(path=self.edPath)
+        self.edImage2 = image.Image(path=self.edPath2)
+        self.region_test_image = image.Image(path=self.imagePath)
     
     def test_01_getRegionList(self):
         """
@@ -41,6 +41,7 @@ class FeatureExtractionTest(unittest.TestCase):
         
         image_list = self.region_test_image.getRegionList(3, 2)
         self.assertEquals(len(image_list), 6)
+
         self.assertEquals(r0, image_list[0].pixel_matrix())
         self.assertEquals(r1, image_list[1].pixel_matrix())
         self.assertEquals(r2, image_list[2].pixel_matrix())
@@ -80,7 +81,7 @@ class FeatureExtractionTest(unittest.TestCase):
             Testing the number of loops, using the getNumLoops method.
         """
         image_path = join(PREFIX, 'data/two_squares.png')
-        img = image.Image(image_path=image_path)
+        img = image.Image(path=image_path)
         self.assertEquals(2, featureextraction.getNumLoops(img))
          
     def test_05_getThreeLoops(self):
@@ -88,7 +89,7 @@ class FeatureExtractionTest(unittest.TestCase):
             Testing the number of loops, using the getNumLoops method.
         """
         imagePath = join(PREFIX, 'data/three_squares.png')
-        imageP = image.Image(image_path= imagePath)
+        imageP = image.Image(path= imagePath)
         self.assertEquals(3, featureextraction.getNumLoops(imageP))
          
     def test_06_getTwoLoopsFromBCharacter(self):
@@ -97,7 +98,7 @@ class FeatureExtractionTest(unittest.TestCase):
            using the getNumLoops method.
         """
         image_path = join(PREFIX, 'data/b_character_skeletonized.png')
-        image_b_character = image.Image(image_path=image_path)
+        image_b_character = image.Image(path=image_path)
         self.assertEquals(2, featureextraction.getNumLoops(image_b_character))
 
     def test_07_blackIntensityInFourRegions(self):
@@ -108,7 +109,7 @@ class FeatureExtractionTest(unittest.TestCase):
            of this method is a matrix with 25 patterns.
         """
         image_path = join(PREFIX, 'data/black_intensity.png')
-        img = image.Image(image_path)
+        img = image.Image(path=image_path)
         output_expected = [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
                            0, 0, 0, 2, 1, 0, 3, 1, 0, 0, 0, 0, 0]
         self.assertEquals(featureextraction.blocksIntensity(img),
@@ -122,7 +123,7 @@ class FeatureExtractionTest(unittest.TestCase):
             of this method is a matrix with 25 patterns.
         """
         image_path = join(PREFIX,"data/black_intensity_number_four.png")
-        img = image.Image(image_path=image_path)
+        img = image.Image(path=image_path)
         output_expected = [1, 0, 0, 0, 1, 4, 0, 0, 0, 4, 4, 0,
                      0, 0, 4, 1, 3, 3, 3, 5, 0, 0, 0, 0, 4]
         self.assertEquals(featureextraction.blocksIntensity(img),
