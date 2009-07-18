@@ -76,6 +76,7 @@ class Environment(DirectObject):
             OnscreenText(pos=(0.8, -0.95), fg=(255, 255, 0, 90))
         self.title_lasers = OnscreenText(pos=(-1, 0.9), fg=(255, 255, 0, 90)) 
         self.title_lasers.setScale(.05)
+        self.credits_text =  OnscreenText(pos=(0.8, 0.65), fg=(255, 255, 0, 90))
         # load the environment model
         self.environment = \
             loader.loadModel("./modelos/[modelo] novo galpao.egg")
@@ -266,6 +267,7 @@ class Environment(DirectObject):
                     #max tries (stop condition is when tries reach zero)
                     tries = self.slam_obj.tryAMarkPoint(self.robot.position,  self.robot.rotation)
                     self.robot.credits_to_walk = tries
+                    self.credits_text.setText(str(tries))
                     
                     if last_credits_to_walk < self.robot.credits_to_walk:
                         self.where_am_i.setText("Ainda não estive aqui.")
