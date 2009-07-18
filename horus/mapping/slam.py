@@ -5,6 +5,7 @@ from landmark import *
 class Slam():
 
     def __init__(self,  infinity_point=150,  circuference_radius=30):
+        self.quadrant_dic = {'1': [], '2': [], '3': [], '4': [],  '0': []  }
         self.robot_rotation = 0
         self.infinity_point = infinity_point
         self.bigger_key = None
@@ -177,7 +178,17 @@ class Slam():
                 condition = False
         return condition
 
-
+    def pointsByQuadrants(self, center_tuple):
+        """
+        
+        """
+        for mark_point in self.mark_point_list:
+            if whatQuadrant(center_tuple, mark_point) == '1': self.quadrant_dic['1'].append(mark_point)
+            elif whatQuadrant(center_tuple, mark_point) == '2': self.quadrant_dic['2'].append(mark_point)
+            elif whatQuadrant(center_tuple, mark_point) == '3': self.quadrant_dic['3'].append(mark_point)
+            elif whatQuadrant(center_tuple, mark_point) == '4': self.quadrant_dic['4'].append(mark_point)
+            else: self.quadrant_dic['0'].append(mark_point)
+    
     def dataAssociation(self, last_position, distance_traveled, rotantion_angle):
         """ based on triangulation """
         pass
