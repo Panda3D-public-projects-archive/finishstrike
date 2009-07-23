@@ -75,11 +75,19 @@ class ImageTest(unittest.TestCase):
         self.assertEqual(self.test_image.topLeftNeighbour((3,2)), 0)
     
     def test_13_getFourNeighborhood(self):
-       expected_output = [[0, 0],
+        expected_output = [[0, 0],
                           [0, 0]]
-       result_list = self.test_image.getFourNeighbourhood((2,2))
-       self.assertEqual(expected_output, result_list)
+        result_list = self.test_image.getFourNeighbourhood((2,2))
+        self.assertEqual(expected_output, result_list)
 
+    def test_14_pixel_matrix(self):
+        img = Image(path="data/img3x5.png")
+        pixelmatrix= [[(255,255,255), (255,255,255), (255,255,255)],
+                      [(255,255,255), (0,0,0),       (255,255,255)],
+                      [(255,255,255), (0,0,0),       (255,255,255)],
+                      [(255,255,255), (0,0,0),       (255,255,255)],
+                      [(255,255,255), (255,255,255), (255,255,255)]]
+        self.assertEquals( img.pixel_matrix(), pixelmatrix)
 
 if __name__ == '__main__':
     unittest.main()

@@ -18,4 +18,5 @@ class VERTICAL_EDGE_DETECTED(ImageFilter.BuiltinFilter):
        -1,  0,  1,
         )
 
-
+class MEDIAN(ImageFilter.MedianFilter):
+    pass

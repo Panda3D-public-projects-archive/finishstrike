@@ -159,9 +159,8 @@ class Image(object):
             This method returns a matrix with values of wich content's pixels.
         """
         data = self.getData()
-        self.matrix = [[data[(self.size[0]*j)+i] for i in range(self.size[0])]
-                                                 for j in range(self.size[1]) ]
-
+        self.matrix = [[ data[(self.size[0]*y)+x] for y in range(self.size[1])]
+                                                  for x in range(self.size[0])]
         return self.matrix
 
         

@@ -12,7 +12,6 @@ def generateGraph(path = '.', name='defaultName', data=[], ponto = ([0],[0]), ex
                     such as emf, eps, pdf, png, ps, raw, rgba, svg, svgz. 
                     Nevertheless, the default extension is png. 
     """
-    
     figure = pylab.figure()
     graph = figure.add_subplot(111)
     graph.plot(data)
