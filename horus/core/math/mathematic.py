@@ -82,3 +82,33 @@ class List(list):
                                      [ :int( len(self) * sensibility ) ] )
             self[i] = neighboors.calculateAvarage()
         return self
+
+    def locateNonZeroIntervals(self):
+        """
+            cria uma lista distacando os intervalos (os pares com o indice
+            inicial e final definem o intervalo) diferentes de zeros.
+        """
+        import copy
+        value_list = copy.copy(self)
+        value_list[0] = value_list[-1] = 0
+        
+        nonzero_interval_list = []
+        inf = 0
+        # cria uma lista de candidatos a placas
+        # intervalos de valores diferentes de zero
+        for i in range(len(value_list)):
+            if value_list[i] != 0:
+                if inf == 0:
+                    if value_list[i-1] == 0:
+                        inf = i
+                else:
+                    if i+1 < len(value_list) and value_list[i+1] == 0:
+                        nonzero_interval_list.append((inf, i))
+                        inf = 0
+        return nonzero_interval_list
+    
+    def removeSmallIntervals(self, lenght):             
+        for intervals in self:
+            if intervals[1] - intervals[0] < lenght:
+                self.remove(intervals)
+        return self
