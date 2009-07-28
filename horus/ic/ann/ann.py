@@ -1,11 +1,11 @@
 from pyfann import libfann
 def create_and_train_ann(train_file, target_file="./default.train"):
-  num_input = 287
+  num_input = 250
   num_output = 1
-  num_layers = 15
-  num_neurons_hidden = 100
+  num_layers = 3
+  num_neurons_hidden = 10
   desired_error = 0.0001
-  max_epochs = 50000
+  max_epochs = 5000
   epochs_between_reports = 1000
   max_neurons = 100
   neurons_between_reports = 1
@@ -84,10 +84,10 @@ def load(net_file):
 if __name__ == '__main__':
   import util
   from horus.core.processingimage import image 
- # create_and_train_ann('/tmp/train/default.train', '/tmp/train/ann.net')
-  img = image.Image(path='/tmp/train/direitaNova.png')                              
+  #create_and_train_ann('./default.train', './ann.net')
+  img = image.Image(path='/tmp/train/esquerdaNova.png')                              
   input = util.get_pattern_from_image(img)
   print "input --------------------------------%s"%str(input)
-  load_and_run_ann('/tmp/train/ann.net', input)
+  load_and_run_ann('./ann.net', input)
   
 
