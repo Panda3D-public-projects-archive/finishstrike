@@ -1,0 +1,13 @@
+This is TeX, Version 3.1415926 (MiKTeX 2.7) (preloaded format=tex 2009.7.29)  30 JUL 2009 19:17
+**Projeto_Final.tex
+(Projeto_Final.tex
+! Undefined control sequence.
+l.11 \documentclass
+                   [a4paper,12pt]{report}
+? 
+! Emergency stop.
+l.11 \documentclass
+                   [a4paper,12pt]{report}
+End of file on the terminal!
+
+No pages of output.

@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Projeto Final - Arquivo principal
+%% UNIVERSIDADE CÂNDIDO MENDES - Bacharel em Ciências da Computação
+%% Projeto final: Módulo de Mapeamento do Toolkit Hórus.
+%% Jônatas Oliveria Lopes Soares / Maycon Barreto Lopes / Wallace Gomes de Souza
+%% Orientador: Prof. D. Ítalo Matias
+%% Campos dos Goytacazes - RJ
+%% 2009
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt]{report}
+%Configuração geral
+
+\usepackage[brazil,english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage[latin1]{inputenc}
+\usepackage{doublespace}
+\usepackage{fancyheadings}
+\usepackage{longtable}
+\usepackage{dropping}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{abntcite}
+\usepackage{textcomp}
+\usepackage{algorithmic}
+\def\citeopen{[}
+\def\citeclose{]}
+
+\newcommand{\figr}[1]{Figura~\ref{#1}}
+\newcommand{\eqt}[1]{Eq.~(\ref{#1})}
+\newcommand{\eqts}[2]{Eq.~(\ref{#1})~e~(\ref{#2})}
+\newcommand{\eqtss}[3]{Eq.~(\ref{#1})~,~(\ref{#2})~e~(\ref{#3})}
+\newcommand{\tab}[1]{Tabela~\ref{#1}}
+
+%Comandos para se definir cabeçalhos nas páginas da dissertação
+\pagestyle{fancyplain}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\small\leftmark}}
+\rhead[\fancyplain{}{\small\rightmark}]{\fancyplain{}{\thepage}}
+\cfoot{\fancyplain{\thepage}{}}
+
+%Configuração para numeração de subsubseções
+\setcounter{secnumdepth}{3}
+
+%Instancia do contador que será usado como referência na monografia
+\newcounter{mypage}
+
+% Frases de efeito no início de cada capítulo
+\newcommand{\epigraph}[2]{%
+  \vspace{1ex}%
+  {\footnotesize%
+   \begin{spacing}{1}
+    \begin{flushright}%
+      \begin{minipage}{.6\textwidth}%
+        #1\\
+      \end{minipage}\\
+      \textit{#2}%
+    \end{flushright}
+    \end{spacing}}%
+  \vspace{1ex}}
+
+\DeclareGraphicsExtensions{.jpg, .pdf, .mps, .png}
+
+\begin{document}
+ \stepcounter{mypage}
+
+%--------------------------------
+%  PRIMEIRAS PÁGINAS
+%--------------------------------
+%Include da capa
+\include{capa}
+\stepcounter{mypage}
+%Include da folha de rosto
+\include{folharosto}
+\stepcounter{mypage}
+%Include da folha de aprovações
+\include{folhaaprovacao}
+\stepcounter{mypage}
+%Include da dedicatória
+\include{dedicatoria}
+\stepcounter{mypage}
+%Include dos agradecimentos
+\include{agradecimentos}
+\stepcounter{mypage}
+
+
+%-----------------------------------
+% DOCUMENTAÇÃO DO TRABALHO
+%-----------------------------------
+\renewcommand{\baselinestretch}{1.3}
+
+%-----------------------------------
+% NUMERAÇÃO DE PÁGINA EM ROMANO
+%-----------------------------------
+\pagenumbering{roman}
+\setlength{\voffset}{0.0in}
+
+%Atribui ao contador page (default do latex, que é usado por todo o documento)
+%o valor do contador é mypage
+\setcounter{page}{\value{mypage}}
+
+%Espaçamento das páginas
+\begin{spacing}{1.5}
+%Include do resumo
+\include{resumo}
+\end{spacing}
+
+\begin{spacing}{1.5}
+%Include do abstract
+\include{abstract}
+\end{spacing}
+
+\selectlanguage{brazil}
+
+%Índices
+\begin{spacing}{1.0}
+%Índice de capítulos
+\tableofcontents
+%Índice de figuras
+\listoffigures
+%Índice de tabelas
+\listoftables
+\end{spacing}
+
+\clearpage
+
+% Atribuindo ao nosso contador o valor do contador page
+% e depois incremento...
+\setcounter{mypage}{\value{p.styage}}
+\clearpage
+
+
+\pagenumbering{arabic}
+
+%Includes da monografia propriamente dita
+\begin{spacing}{1.5}
+\setcounter{page}{\value{mypage}} % Atribuindo o contador page novamente....
+\include{introducao}
+\include{cap1}
+\include{cap2}
+}
+
+
+%%
+%%Inluir todos os capitulos aqui
+
+%%\include{file}
+%%
+
+\include{conclusao}
+\end{spacing}
+
+%Include da bibliografia
+\begin{spacing}{1.0}
+\include{bibliografia}
+\end{spacing}
+
+%Include do apêndice
+\begin{spacing}{1.5}
+\include{apendice}
+\end{spacing}
+
+\end{document}

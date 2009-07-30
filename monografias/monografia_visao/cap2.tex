@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Extração de Características
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Horus}
+\label{cap:horus}
+ Horus é um toolkit de desenvolvimento e controle de agentes inteligentes, desenvolvido na linguagem de programação Python.  Outros exemplos de aplicações desenvolvidas com o Horus são: um sistema de Reconhecimento Automatico de Placas de Automóveis, um sistema de Processamento de Imagens e Extração de Características e um sistema de mapeamento autônomo de ambientes chamado Teseu.
+
+	O toolkit Horus fornece os módulos Core, Mapeamento, Visão e Util. O módulo Core apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias que podem ser usadas tanto no toolkit Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
+
+\section{Core}
+O horus pode ser utilizado de dois modos. A primeira forma é como uma coleção de algoritmos, que podem ser utilizados de forma independente. A segunda forma consiste na extensão das abstrações fornecidas pelo módulo core do Horus. Nesse módulo existem abstrações para implementação de agentes, dispositivos e comportamentos. 
+
+ Os comportamentos são procedimentos implementados para representar ações e reações dos agentes. As ações são comportamentos ativos, ou seja, procedimentos que visam realizar um objetivo previamente definido. Por outro lado, reações são procedimentos realizados mediante a estimulos externos. Exemplos de ação e reação ocorrem no deslocamento de um agente de uma posição a outra. Para realizar o deslocamento é necessário traçar uma rota. Tal comportamento é definido como uma ação. Levando em consideração que durante o percurso, esse agente se deparou com algum obstáculo. Isso deve gerar um comportamento de replanejamento da rota para alcançar o objetivo inical sem colidir com o obstáculo. A esse replanejamento, denomina-se reação.
+
+A ordem de execução dos comportamentos define a máquina de estados de cada agente de acordo com cada aplicação. O toolkit Horus, desenvolvido nesse projeto, permite a configuração dessa máquina de estados. 
+
+\section{Visão}
+	Esse módulo tem como principal objetivo o reconhecimento de padrões.	No Ariadnes o padrão a ser reconhecido é uma placa com o nome dos locais do ambiente e setas que indicam as direções dos mesmos. Para reconhecimento de uma placa é necessário identificar algumas características de uma imagem, que servirão de padrões de entrada para uma rede neural. 
+
+\section{Mapeamento e Navegação}
+ Chamamos de mapeamento ao processo de identificar locais no ambiente do simulador e representa-los em um grafo. O mapeamento no horus utiliza uma técnica genérica denominada SLAM. Nessa técnica, um agente consegue realizar o mapeamento e a localização no ambiente de forma simultânea. Os dispositivos utilizados pela implementação da técnica SLAM são lasers,  para identificar obstáculos, e um odômetro, para medir distâncias percorridas.
+ 
+	O SLAM é composto por vários procedimentos interligados. Cada um desses procedimentos pode ser implementado de diversas formas. Dentre os procedimentos implementados no Horus, podemos citar:
+
+\begin{enumerate}
+	\item Landmark Extraction: procedimento responsável pela extração de marcos no ambiente.
+	\item Data Association: procedimento que associa os dados extraídos de um mesmo marco por diferentes leituras de lasers.
+	\item State Estimation: procedimento responsável por estimar a posição atual do robô com base em seu odômetro e nas extrações de marcos no ambiente.
+	\item State Update: procedimento que atualiza o estado atual do agente.
+	\item Landmark Update: procedimento que atualiza as posições dos marcos no ambiente em relação ao agente. 
+\end{enumerate}
+
+  Neste trabalho, a proposta utilizada é mapear o ambiente através de um grafo conexo, cujos nós referem-se a: entradas/saídas do ambiente, acessos aos cômodos, obstáculos fixos e esquinas. O peso das arestas será calculado de acordo com o custo de processamento no deslocamento entre a posição de um nó ao outro. 
+
+  O problema de navegação consiste na localização e definição do caminho que o agente deve seguir. Após a construção de uma representação do ambiente em forma de um grafo, o agente é capaz de se localizar e se movimentar pelo ambiente através dos vértices e arestas, previamente mapeados no grafo. Para a utilização de grafos, o Horus fornece classes para su
+
+
+OCR (Optical character recoginition) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
+	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações que seriam impossíveis de serem realizadas sobre imagens, como por exemplo, a busca de determinado conteúdo de interesse.
+	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade d
+as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\% de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
+	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
+	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. Dentre eles temos: 
+	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura 1 apresenta um esquema básico do processo de OCR.
+
+{Figura 1: Etapas do processo de OCR}
+
+	Na figura 1, temos as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que inicialmente se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
+	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. Nas sessões seguintes serão apresentadas algumas formas de implementação dessas etapas juntamente com os algoritmos implementados no toolkit horus utilizados no processo de OCR.
+
