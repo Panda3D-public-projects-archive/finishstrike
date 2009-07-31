@@ -5,7 +5,15 @@
 
 \chapter*{Resumo}
 
+O presente trabalho demonstra a utilização do Toolkit Horus, com foco no módulo de mapeamento, para a criação de agentes inteligentes para ambientes desconhecidos onde agiram reconhecendo e explorando o ambiente. Foi usada a filosofia de mapeamento SLAM (Simultaneos Location and Mapping), além de outras técnicas desenvolvidas para resolver os problemas dos ambientes-tarefa propostos.
 
+Dentre as outras técnicas está a apresentação de um método de mapeamento baseado em marcos (markpoints) que o agente cria durante a sua navegação a fim de identificar posteriormente lugares nos quais já esteve.
+
+Também apresentaremos um método de mapeamento próprio baseado na idéia de punição e recompensa, no qual o agente ganha ao encontrar novos marcos e perde ao reencontrá-los, criando assim uma condição de parada desejada quando a sua perda atender a um requisito previamente criado.
+
+Neste trabalho, o agente utiliza apenas dois tipos de sensores para comprir sua tarefa de navegação, localização e mapeamento simultâneo: laser e odômetro.
+
+Finalmente, o trabalho pretende criar uma prova de conceito para o módulo desenvolvido comprovando assim o seu funcionamento. O módulo SLAM desenvolvido é responsável apenas pelas tarefas de localização e mapeamento simultâneo, sendo a aplicação que o utiliza a responsável por conceder o agente, sua navegação e os dispositivos usados.
 
 \vspace{0.5cm}
 Palavras-chave: MAPEAMENTO, LOCALIZAÇÃO, SIMULTANEOUS LOCALIZATION AND MAPPING, SLAM, TOOLKIT, AGENTE INTELIGENTE.
