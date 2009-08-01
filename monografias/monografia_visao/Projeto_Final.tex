@@ -127,7 +127,8 @@
 
 % Atribuindo ao nosso contador o valor do contador page
 % e depois incremento...
-\setcounter{mypage}{\value{p.styage}}
+%\setcounter{mypage}{\value{p.styage}}
+\setcounter{mypage}{0}
 \clearpage
 
 
@@ -139,26 +140,18 @@
 \include{introducao}
 \include{cap1}
 \include{cap2}
-}
-
-
-%%
-%%Inluir todos os capitulos aqui
-
-%%\include{file}
-%%
-
 \include{conclusao}
+
 \end{spacing}
 
 %Include da bibliografia
 \begin{spacing}{1.0}
-\include{bibliografia}
+%\include{bibliografia}
 \end{spacing}
 
 %Include do apêndice
 \begin{spacing}{1.5}
-\include{apendice}
+%\include{apendice}
 \end{spacing}
 
 \end{document}

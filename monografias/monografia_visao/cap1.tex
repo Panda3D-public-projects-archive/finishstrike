@@ -12,7 +12,7 @@ A Inteligência Computacional (IA) é uma área de estudo da ciência da computação 
 
 Existem diferentes definições para a arquitetura de um robô presentes na literatura. Este trabalho considera a definição abordada por Arkin \cite{Ark98} a qual considera que uma arquitetura de um robô está mais relacionada com os aspectos de software que os de hardware. Apesar de algumas diferenças, os modelos de arquitetura para robôs móveis descrevem um mecanismo para construção de um sistema de desenvolvimento e controle de agentes inteligentes, apresentando, principalmente, quais os módulos presentes e como estes interagem. 
 
-De uma forma geral, os módulos de uma arquitetura de um agente inteligente se preocupam com aspectos como percepção, planejamento e atuação/execução. A percepção refere-se à compreensão do ambiente e dos elementos nele contido; o planejamento à inteligência do robô; e a atuação, ou execução, ao modo como o robô procede no ambiente, ou seja, movimentos, captura de informações, etc.
+De uma forma geral, os módulos de uma arquitetura de um agente inteligente se preocupam com aspectos como percepção, planejamento e atuação/execução. A percepção refere-se à compreensão do ambiente e dos elementos nele contido. Denomina-se \textit{sequência de percepções}, a história completa de tudo que o agente já percebeu, ou seja, o conjunto de todas as percepções do agente até um dado momento; o planejamento à inteligência do robô; e a atuação, ou execução, é o modo como o robô procede no ambiente, ou seja, movimentos, captura de informações, etc.
 
 Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos os modelos de três camadas como: SSS \cite{CON92}, Atlantis \cite{Gat91}, 3T \cite{Bon91}. Todas as arquiteturas se dividem semelhantemente da seguinte forma:
 
@@ -23,13 +23,28 @@ Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos
 	\item camada de execução: intermedia essas duas outras camadas.
 \end{itemize}
  
-As camadas reativa e deliberativa provêem processos denominados de comportamentos. Tais comportamentos podem ser divididos em duas categorias. Os Comportamentos Primários: parar, reduzir velocidade, acelerar, desviar de obstáculos, virar, inverter direção, dirigir-se a meta, fotografar, disparar lasers e etc; e Comportamentos Inteligentes: mapear, reconhecer objeto, navegar e executar uma tarefa específica. Um Comportamento Inteligente executa um conjunto de comportamentos primários para atingir seu objetivo. Os comportamentos primários ocorrem na camada reativa, enquanto que, os inteligentes ocorrem na camada deliberativa.
+As camadas reativa e deliberativa provêem processos denominados de comportamentos. Em termos matemáticos, o comportamento do agente á a função que mapeia qualquer percecpção ou sequência de percepções para uma ação específica[LivroWallace] essa função é conhecida como \textit{função de agente}. 
 
-Com base nesses conceitos, definiu-se neste trabalho um agente como uma entidade composta de comportamentos, dispositivos e um cérebro. Os dispositivos do agente, utilizados no sistema em questão, são de sensoriamento (lasers e câmeras) e de movimentação (rodas). Os comportamentos do agente são: mapeamento, navegação e reconhecimento de objetos. Já o cérebro, é o responsável pelo controle de execução de todos os comportamentos supracitados.
+Com base nesses conceitos, definiu-se neste trabalho um agente como uma entidade composta de comportamentos, dispositivos e um programa de agente. Os dispositivos do agente, utilizados no sistema em questão, são de sensoriamento (lasers e câmeras) e de movimentação (rodas). Os comportamentos do agente são: mapeamento, navegação e reconhecimento de objetos. O programa de agente é responsável pelo controle da execução de todos os comportamentos supracitados.
 
+ Os comportamentos são procedimentos implementados para representar ações e reações dos agentes. As ações são comportamentos ativos, ou seja, procedimentos que visam realizar um objetivo previamente definido. Por outro lado, reações são procedimentos realizados mediante a estimulos externos. Exemplos de ação e reação ocorrem no deslocamento de um agente de uma posição a outra. Para realizar o deslocamento é necessário traçar uma rota. Tal comportamento é definido como uma ação. Levando em consideração que durante o percurso, esse agente se deparou com algum obstáculo. Isso deve gerar um comportamento de replanejamento da rota para alcançar o objetivo inical sem colidir com o obstáculo. A esse replanejamento, denomina-se reação.
 
+	Comportamentos podem ser divididos em duas categorias. Os Comportamentos Primários: parar, reduzir velocidade, acelerar, desviar de obstáculos, virar, inverter direção, dirigir-se a meta, fotografar, disparar lasers e etc; e Comportamentos Inteligentes: mapear, reconhecer objeto, navegar e executar uma tarefa específica. Um Comportamento Inteligente executa um conjunto de comportamentos primários para atingir seu objetivo. Os comportamentos primários ocorrem na camada reativa, enquanto que, os inteligentes ocorrem na camada deliberativa.
 
+Entende-se por \textit{Programa de Agente} o programa que recebe as percepções do ambiente como entrada e as mapeia para uma determinada ação através da função de agente. Além da estrutura citada acima, o programa de agente pode ser estruturado de outras maneiras. Um exemplo de estrutura é construir o programa de agente como um conjunto de sub-rotinas que serão executadas de forma assíncrona em relação ao ambiente. O programa permanece em \textit{loop}, recebendo todas as percepções geradas pelo ambiente, e repassa cada percepção para uma sub-rotina que irá tratá-la.
 
+Os programas de agente podem ser classificados em quatro categorias principais:
+\begin{itemize}
+	\item Agentes reativos simples: esse tipo de programa de agente se basea apenas na percepção atual para executar as suas ações, onde a sequência de percepções até o momento é ignorada.
+	
+	\item Agentes reativos baseados em modelo: esse programa de agente armazena uma sequência de percepções e toma suas decisões levando em consideração as percepções dessa sequência.
+	
+	\item Agentes baseados em objetivos: esse programa de agente possui informações sobre o objetivo que deve alcançar. Logo, suas decisões são tomadas com base na combinação das percepções do ambiente e nas informações do objetivo.
+
+	\item Agentes baseados na utilidade: esse tipo de programa de agente tem a preocupação, não só de alcançar o seu objetivo final, como também em determinar a melhor forma possível de alcançá-lo. 
+\end{itemize}
+
+Em duas das aplicações desenvolvidas neste trabalho, os programas de agente utilizados se enquadram na categoria de agentes baseados na utilidade.
 
 \section{Reconhecimento de Padrões}
 Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
@@ -59,14 +74,14 @@ As redes neurais possuem a capacidade de aprendizado e, como conseqüência, de ge
 \subsection{Neurônio Biológico}
 O sistema nervoso é formado por um conjunto extremamente complexo de neurônios. Os neurônios estão conectados uns aos outros através de sinapses. Nos neurônios a comunicação é realizada através de impulsos elétricos, quando um impulso é recebido, o neurônio o processa, e passado um limite de ação, dispara um segundo impulso o qual flui do corpo celular para o axônio que, por sua vez, pode ou não estar conectado a um dendrito de outra célula. A Figura 1 apresenta uma representação de um neurônio.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{neuronioBio.eps}
-\end{center}
-\caption{Neurônio biológico}
-\label{fig:neuroBiol}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{neuronioBio.eps}
+%\end{center}
+%\caption{Neurônio biológico}
+%\label{fig:neuroBiol}
+%\end{figure}
 
 Os principais componentes de um neurônio são:
 \begin{itemize}
@@ -75,8 +90,6 @@ Os principais componentes de um neurônio são:
 \item Soma: é o corpo do neurônio, que é responsável por coletar e combinar informações vindas de outros neurônios;
 
 \item O axônio: membrana constituída de uma fibra tubular que é responsável por transmitir os estímulos para outras células. O axônio representa a saída do neurônio.
-
-
 \end{itemize}
 
 O neurônio biológico é constituído de um corpo celular denominado soma. Nesse Local ocorre o processamento metabólico da célula nervosa ou neurônio. A partir da soma, projetam-se extensões filamentares denominadas dendritos, e o axônio. Este modelo anatômico foi identificado por Ramon Cajal em 1894. Com base nas pesquisas de Erlanger e Gasser, em 1920, e outras posteriores, passou-se a entender o comportamento do neurônio biológico como sendo o dispositivo computacional do sistema nervoso, o qual possui muitas entradas e uma única saída.
@@ -90,25 +103,25 @@ O neurônio biológico é constituído de um corpo celular denominado soma. Nesse Lo
 \subsection{O Neurônio Artificial MCP}
 McCulloch e Pits [4] propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada x1, x2, ..., xn (representando os dendritos) e apenas um terminal de saída y (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados w1,w2, ..., wn cujos valores podendo ser positivos ou negativos dependendo de as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular i no neurônio pós-sináptico é dado por xiwi. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura 2.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{mcculloch.eps}
-\end{center}
-\caption{Modelo do neurônio de McCulloch e Pits}
-\label{fig:mcculloch}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{mcculloch.eps}
+%\end{center}
+%\caption{Modelo do neurônio de McCulloch e Pits}
+%\label{fig:mcculloch}
+%\end{figure}
 
 O corpo do neurônio realiza um simples somatório dos valores xiwi que chegam a ele. Se o somatório dos valores ultrapassa o limiar de ativação ou threshold, o neurônio dispara (valor 1 na saída), caso contrário o neurônio permanece inativo (valor 0 na saída). A ativação do neurônio é realizada através de uma função de ativação, que dispara ou não o neurônio dependendo do valor da soma ponderada das suas entradas. No modelo MCP original, a função de ativação ativará a saída quando:
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacao.eps}
-\end{center}
-\caption{Figura Somatorio}
-\label{fig:equacao}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacao.eps}
+%\end{center}
+%\caption{Figura Somatorio}
+%\label{fig:equacao}
+%\end{figure}
 
 Na equação acima, n é a quantidade de entradas do neurônio, wi é o peso associado à entrada xi e ? é o limiar do neurônio.
 
@@ -118,92 +131,92 @@ A partir do modelo apresentado por McCulloch e Pits, surgiram vários outros mode
 \begin{itemize}
 \item Função Limiar: função utilizada no modelo de McCulloch e Pits, caracterizada por "tudo ou nada", representada da seguinte forma: 
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoFcLinear.eps}
-\end{center}
-\caption{Equacao funcao linear}
-\label{fig:equacaoLinear}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoFcLinear.eps}
+%\end{center}
+%\caption{Equacao funcao linear}
+%\label{fig:equacaoLinear}
+%\end{figure}
 
 Onde v é igual ao valor produzido pelo somatório das entradas do neurônio. 
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função Limiar.eps}
-\end{center}
-\caption{Gráfico da função Limiar}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função Limiar.eps}
+%\end{center}
+%\caption{Gráfico da função Limiar}
+%\label{}
+%\end{figure}
 
 
 \item Função Sigmóide: essa é uma função semilinear, limitada e monotônica que pode assumir valores entre 0 e 1. Existem várias funções sigmodais, porém, a mais usada é a função logística definida pela equação abaixo:
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoSigmoide.eps}
-\end{center}
-\caption{GFuncao Sigmoide}
-\label{fig:equacaoSigmoide}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoSigmoide.eps}
+%\end{center}
+%\caption{GFuncao Sigmoide}
+%\label{fig:equacaoSigmoide}
+%\end{figure}
 
 Onde a é o parâmetro de inclinação da função sigmóide e v é o valor de ativação do neurônio.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função sigmóide.eps}
-\end{center}
-\caption{Gráfico da função sigmóide}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função %sigmóide.eps}
+%\end{center}
+%\caption{Gráfico da função sigmóide}
+%\label{}
+%\end{figure}
 
 \item Função Signum: essa função apresenta as mesmas características da função limiar, porém, se limita ao intervalo entre 1 e -1. Essa função é representada por:
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoSigmun.eps}
-\end{center}
-\caption{GFuncao Signum}
-\label{fig:equacaoSigmum}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{equacaoSigmun.eps}
+%\end{center}
+%\caption{GFuncao Signum}
+%\label{fig:equacaoSigmum}
+%\end{figure}
 
 Onde b são os limites inferiores e superiores (b = |1| no gráfico) e v é o valor de ativação.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função sigmóide.eps}
-\end{center}
-\caption{Gráfico da função Signum}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{Gráfico da função %sigmóide.eps}
+%\end{center}
+%\caption{Gráfico da função Signum}
+%\label{}
+%\end{figure}
 
 \item Tangente Hiperbólica: seu gráfico é parecido com o da Função Sigmóide, assumindo valores entre 1 e -1, sendo representada por:
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{Hiperbólica.eps}
-\end{center}
-\caption{GFuncao Hiperbólica}
-\label{fig:equacaoHiperbólica}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{Hiperbólica.eps}
+%\end{center}
+%\caption{GFuncao Hiperbólica}
+%\label{fig:equacaoHiperbólica}
+%\end{figure}
 
 Onde a é o parâmetro de inclinação da curva, b são os limites inferiores e superiores (b = |1| no gráfico) e v o valor de ativação.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{GráficTangenteólica.eps}
-\end{center}
-\caption{Gráfico da Tangente Hiperbólica}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{GráficTangenteólica.eps}
+%\end{center}
+%\caption{Gráfico da Tangente Hiperbólica}
+%\label{}
+%\end{figure}
 
 \end{itemize}
 
@@ -217,26 +230,26 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 \begin{itemize}
 \item Redes de uma única camada: existe apenas um nó entre uma entrada e uma saída da rede. A Figura 3 apresenta dois exemplos de redes de única camada.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{edes de uma única camada.eps}
-\end{center}
-\caption{Redes de uma única camada}
-\label{fig:únicacamada}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{edes de uma única camada.eps}
+%\end{center}
+%\caption{Redes de uma única camada}
+%\label{fig:únicacamada}
+%\end{figure}
 
 \item Redes de múltiplas camadas: existe mais de um neurônio entre alguma entrada e alguma saída (Figura 4).
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{Redescamadas.eps}
-\end{center}
-\caption{redes de múltiplas camadas}
-\label{fig:únicacamada}
-\end{figure}
-
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{Redescamadas.eps}
+%\end{center}
+%\caption{redes de múltiplas camadas}
+%\label{fig:únicacamada}
+%\end{figure}
+\end{itemize}
 Quanto ao tipo de conexão têm-se:
 
 \begin{itemize}
@@ -244,14 +257,14 @@ Quanto ao tipo de conexão têm-se:
 
 \item Feedback, ou cíclica: a saída de algum neurônio na i-ésima camada da rede é utilizada como entrada em neurônios da camada de índice menor ou igual a i (Figura 5).
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{feedback.eps}
-\end{center}
-\caption{Exemplo de rede feedback.}
-\label{fig:feedback}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{feedback.eps}
+%\end{center}
+%\caption{Exemplo de rede feedback.}
+%\label{fig:feedback}
+%\end{figure}
 
 Quanto à conectividade têm-se:
 
@@ -261,8 +274,7 @@ Quanto à conectividade têm-se:
 
 \end{itemize}
 
-\sub
-section{Processo de aprendizado}
+\subsection{Processo de aprendizado}
 	A principal propriedade de uma rede neural é a sua habilidade de aprender sobre o ambiente no qual está inserida de forma a melhorar a sua performance na resolução de problemas complexos. Essa melhora na performance é adquirida a cada instante do processo de aprendizado de acordo com uma forma de medição pré-estabelecida. Com isso, uma rede neural aprende sobre seu ambiente através de um processo iterativo de ajuste dos pesos sinápticos adquirindo mais conhecimento sobre o problema após cada iteração do processo de aprendizado.
 	Segundo Mendel e McLaren [4], no contexto de redes neurais, aprendizado é o processo pelo qual os parâmetros de uma rede neural são ajustados através de estímulos produzidos pelo ambiente no qual a rede está inserida. O tipo de aprendizado é determinado pela maneira particular com que os parâmetros são modificados.
 	Foram desenvolvidos diversos métodos de treinamento de redes, podendo ser agrupados em dois paradigmas principais: aprendizado supervisionado e aprendizado não-supervisionado. No entanto, outros dois paradigmas bastante conhecidos são os de aprendizado por reforço (que é um caso particular de aprendizado supervisionado) e aprendizado por competição (que é um caso particular de aprendizado não supervisionado). 
@@ -272,14 +284,14 @@ section{Processo de aprendizado}
 Esse tipo de aprendizado é o mais utilizado em RNAs. Esse aprendizado é dito supervisionado porque as entrada e as respectivas saídas desejadas são fornecidas por um supervisor externo, normalmente chamado de "professor. Seu objetivo é ajustar os pesos da rede, de forma a encontrar uma ligação entre os pares de entrada e saída fornecidos pelo professor.
 	O professor é responsável por direcionar o processo de aprendizado fornecendo os padrões de entrada, as saídas desejadas e a taxa de erro desejada.  A cada padrão de entrada submetido à rede pelo professor, compara-se a resposta desejada (que representa uma solução ótima para aquele padrão de entrada) com a resposta calculada, ajustando-se os pesos das conexões para minimizar o erro. A minimização da diferença é incremental, já que pequenos ajustes são feitos nos pesos a cada iteração do aprendizado. A soma dos erros quadráticos de todas as saídas é normalmente utilizada como medida de desempenho da rede e também como função de custo a ser minimizada pelo algoritmo de treinamento. A Figura 6 apresenta um esquema básico de aprendizado supervisionado.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{esquemaAprendizadosupervis.eps}
-\end{center}
-\caption{esquema de aprendizado supervisionado.}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{esquemaAprendizadosupervis.eps}
+%\end{center}
+%\caption{esquema de aprendizado supervisionado.}
+%\label{}
+%\end{figure}
 
 Nesse trabalho, o algoritmo de aprendizado utilizado nesse trabalho foi o backpropagation.
 
@@ -287,14 +299,14 @@ Nesse trabalho, o algoritmo de aprendizado utilizado nesse trabalho foi o backpr
 \item Aprendizado Não Supervisionado.
 No aprendizado não supervisionado não há um professor que oriente o processo de aprendizado. Ao contrário do aprendizado supervisionado, que possui pares de entrada e saída, para esses algoritmos, somente são disponibilizados os padrões de entrada. De acordo com as regularidades estatísticas com que as entradas ocorrem, a rede cria classes de acordo com as características extraídas de cada padrão de entrada. Dessa forma, para cada entrada fornecida a rede, a saída será a classe a qual a entrada pertence.  Caso a entrada não pertença a nenhuma classe pré-existente, a rede cria uma nova classe para essa entrada. A base para a utilização desse tipo de aprendizado é a redundância nos dados, sem redundância, seria praticamente impossível a utilização bem sucedida do aprendizado não supervisionado. A Figura 7 apresenta uma esquema de um sistema de aprendizado não supervisionado.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{esquemaNAprendizadosupervis.eps}
-\end{center}
-\caption{esquema de aprendizado não supervisionado.}
-\label{}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 %310]{esquemaNAprendizadosupervis.eps}
+%\end{center}
+%\caption{esquema de aprendizado não supervisionado.}
+%\label{}
+%\end{figure}
 
 A estrutura do sistema de aprendizado não supervisionado pode adquirir uma variedade de formas diferentes. Como exemplo de arquitetura, pode-se considerar uma rede como uma camada de entrada, uma camada de saída, conexões feedforward da entrada para a saída e conexões laterais dos neurônios da camada de saída. Outro exemplo é uma rede feedforward com múltiplas camadas, em que a livre organização procede na base de camada por camada. Nestes dois exemplos, o processo de aprendizado consiste em modificar repetidamente o peso sináptico de todas as conexões do sistema em resposta às entradas.
 
@@ -313,79 +325,22 @@ No campo de reconhecimento de padrões, extrair caracerísticas significa extrair 
         
         O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "`descritores"', ou "`padrões"'. Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
 
-Nas sessões seguintes, serão explicados alguns métodos de extração de características implementados no toolkit horus.
+No capítulo que trata do toolkit Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
 
-\begin{itemize}
-\item Matriz de Pixel
+\subsection{Reconhecimento Óptico de Caracteres}
 
-   A maneira mais simples de extrair características de um bitmap é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
+Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
+	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações que seriam impossíveis de serem realizadas sobre imagens, como por exemplo, a busca de determinado conteúdo de interesse.
+	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade d
+as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\% de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
+	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
+	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. Dentre eles temos: 
+	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura 1 apresenta um esquema básico do processo de OCR.
 
-   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do bitmap multiplicado pela sua largura, portanto, bitmaps grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do bitmap é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o bitmap do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
-            
-            
- \begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.2, bb= 0 0 559 310]{pixelMatrix.eps}
-\end{center}
-\caption{Matriz de pixel de um bitmap.}
-\label{fig:seg}
-\end{figure}
-            
-            
-\item Histograma de Arestas por Regiões
+{Figura 1: Etapas do processo de OCR}
 
-Esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do bitmap. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o bitmap representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do bitmap em seis regiões $(r0, r1, ..., r5)$ organizadas em três linhas e duas colunas. Quatro layouts podem ser utilizados para a divisão do bitmap em regiões.
- \begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.3]{layout.eps}
-\end{center}
-\caption{layout com seis regiões em três linhas e duas colunas.}
-\label{fig:seg2}
-\end{figure}
-Definindo a aresta de um caractere como uma matriz 2X2 de transições de branco para preto nos valores dos pixels, tem-se quatorze diferentes tipos de arestas, como ilustrado na figura 4.
-
- \begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.3]{quatorze.eps}
-\end{center}
-\caption{Quatorze diferentes tipos de arestas}
-\label{fig:seg4}
-\end{figure}
-
-O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é normalmente muito longo o que não é uma boa prática em reconhecimento de padrões, onde o vetor de características deve ser tão menor quanto possível. Com isso, pode-se agrupar tipos de arestas semelhantes para reduzir o tamanho do vetor de características. Por questões de simplicidade, o agrupamento dos tipos de aresta será desconsiderado no algoritmo de extração de características. Sendo $n$ igual ao número de tipos de arestas diferentes, onde $h_{i}$ é uma matriz $2\times2$  que corresponde ao tipo específico de aresta, e $p$ igual ao número de regiôes retangulares em um caractere têm-se:
-
-
- \begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.3]{matriz.eps}
-\end{center}
-\caption{Matrizes referentes aos tipos de arestas}
-\label{fig:seg4}
+	Na figura 1, temos as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que inicialmente se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
+	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. Nas sessões seguintes serão apresentadas algumas formas de implementação dessas etapas juntamente com os algoritmos implementados no toolkit horus utilizados no processo de OCR.
 
 
 
-
-
-
-
-
-\end{figure}
-
-O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ siginifica "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$": 
- \begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.55, bb= 0 0 385 100]{vetorCaracteristicas.eps}
-\end{center}
-\caption{Quatorze diferentes tipos de arestas}
-\label{fig:seg4}
-\end{figure}
-	
-\end{itemize}
-
-
-\subsection{OCR}

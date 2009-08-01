@@ -10,15 +10,98 @@
 	O toolkit Horus fornece os módulos Core, Mapeamento, Visão e Util. O módulo Core apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias que podem ser usadas tanto no toolkit Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
 
 \section{Core}
-O horus pode ser utilizado de dois modos. A primeira forma é como uma coleção de algoritmos, que podem ser utilizados de forma independente. A segunda forma consiste na extensão das abstrações fornecidas pelo módulo core do Horus. Nesse módulo existem abstrações para implementação de agentes, dispositivos e comportamentos. 
+O horus pode ser utilizado de dois modos. A primeira forma é como uma coleção de algoritmos, que podem ser utilizados de forma independente. A segunda forma consiste na extensão das abstrações fornecidas pelo módulo core do Horus. Nesse módulo existem abstrações para implementação de agentes, dispositivos,  comportamentos e programas de agente. As principais abstrações e seus relacionamentos são apresentados na Figura x.
 
- Os comportamentos são procedimentos implementados para representar ações e reações dos agentes. As ações são comportamentos ativos, ou seja, procedimentos que visam realizar um objetivo previamente definido. Por outro lado, reações são procedimentos realizados mediante a estimulos externos. Exemplos de ação e reação ocorrem no deslocamento de um agente de uma posição a outra. Para realizar o deslocamento é necessário traçar uma rota. Tal comportamento é definido como uma ação. Levando em consideração que durante o percurso, esse agente se deparou com algum obstáculo. Isso deve gerar um comportamento de replanejamento da rota para alcançar o objetivo inical sem colidir com o obstáculo. A esse replanejamento, denomina-se reação.
+{Arquitetura do Core}
 
-A ordem de execução dos comportamentos define a máquina de estados de cada agente de acordo com cada aplicação. O toolkit Horus, desenvolvido nesse projeto, permite a configuração dessa máquina de estados. 
+Na arquitetura acima, toda a implementação da inteligência do agente deve estar localizada em subclasses da classe \textit{Brain} (cérebro). Essa classe representa o programa de agente. Como a implementaç programa de agente depende de
 
+
+A ordem de execução dos comportamentos define a máquina de estados de cada agente de acordo com cada aplicação. O toolkit Horus, desenvolvido nesse projeto, permite a configuração dessa máquina de estados.
+
+Todo comportamento deve ser subclasse da abstração \textit{Behavior} presente no horus. Instâncias da classe \textit{Behavior} recebem 
+
+\section{Processamento de Imagem}
 \section{Visão}
 	Esse módulo tem como principal objetivo o reconhecimento de padrões.	No Ariadnes o padrão a ser reconhecido é uma placa com o nome dos locais do ambiente e setas que indicam as direções dos mesmos. Para reconhecimento de uma placa é necessário identificar algumas características de uma imagem, que servirão de padrões de entrada para uma rede neural. 
 
+\subsection{Extração de características}
+	Para realizar o reconhecimento de objetos em uma cena, é necessário extrair características das imagens desse objeto, de forma a identificá-lo, independentemente das variações com que ele possa ocorrer na imagem. O toolkit Horus apresenta três algoritmos para extração de características. Cada um deles será explicado nos itens abaixo.
+\begin{itemize}
+\item Matriz de Pixel
+
+   A maneira mais simples de extrair características de um bitmap é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
+
+   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do bitmap multiplicado pela sua largura, portanto, bitmaps grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do bitmap é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o bitmap do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
+            
+            
+% \begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.2, bb= 0 0 559 310]{pixelMatrix.eps}
+%\end{center}
+%\caption{Matriz de pixel de um bitmap.}
+%\label{fig:seg}
+%\end{figure}
+            
+            
+\item Histograma de Arestas por Regiões
+
+Esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do bitmap. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o bitmap representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do bitmap em seis regiões $(r0, r1, ..., r5)$ organizadas em três linhas e duas colunas. Quatro layouts podem ser utilizados para a divisão do bitmap em regiões.
+% \begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.3]{layout.eps}
+%\end{center}
+%\caption{layout com seis regiões em três linhas e duas colunas.}
+%\label{fig:seg2}
+%\end{figure}
+Definindo a aresta de um caractere como uma matriz 2X2 de transições de branco para preto nos valores dos pixels, tem-se quatorze diferentes tipos de arestas, como ilustrado na figura 4.
+
+% \begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.3]{quatorze.eps}
+%\end{center}
+%\caption{Quatorze diferentes tipos de arestas}
+%\label{fig:seg4}
+%\end{figure}
+
+O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é normalmente muito longo o que não é uma boa prática em reconhecimento de padrões, onde o vetor de características deve ser tão menor quanto possível. Com isso, pode-se agrupar tipos de arestas semelhantes para reduzir o tamanho do vetor de características. Por questões de simplicidade, o agrupamento dos tipos de aresta será desconsiderado no algoritmo de extração de características. Sendo $n$ igual ao número de tipos de arestas diferentes, onde $h_{i}$ é uma matriz $2\times2$  que corresponde ao tipo específico de aresta, e $p$ igual ao número de regiôes retangulares em um caractere têm-se:
+
+
+% \begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.3]{matriz.eps}
+%\end{center}
+%\caption{Matrizes referentes aos tipos de arestas}
+%\label{fig:seg4}
+%\end{figure}
+
+O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ siginifica "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$": 
+% \begin{figure}[!htb]
+%\centering
+%\begin{center}
+%    \includegraphics[scale=0.55, bb= 0 0 385 100]{vetorCaracteristicas.eps}
+%\end{center}
+%\caption{Quatorze diferentes tipos de arestas}
+%\label{fig:seg4}
+%\end{figure}
+\item Intensidade de blocos	{falta falar}
+
+\end{itemize}
+\subsection{Reconhecimento de Objetos}
+	Reconhecimento de objetos é o processo de identificar um determinado objeto através de suas características. Normalmente, esse processo se inicia com a captura de informações sobre o objeto através de câmeras ou outros tipos de sensores, como sonares por exemplo. Em seguida, essas informações passam pelo processo de extração de características com a finalidade de se extrair um vetor de informações que identifiquem unicamente o objeto independente das variações com que ele se apresente. Por fim, esse vetor de características é passado para o processo de reconhecimento, o qual identifica o objeto através de suas características.
+
+	Para tarefas de reconhecimento, o Horus disponibiliza funções para construção e treinamento de redes neurais através da utilização de uma biblioteca denominada FANN (\textit{Fast Artificial Neural Network}). O FANN é uma biblioteca de código aberto implementada em linguagem C que fornece conectores para diversas linguagems de alto nível, dentre elas pode-se citar: Java, C++, Python e Ruby.
+
+	Outra funcionalidade disponibilizada pelo horus para reconhecimento de objetos é o módulo de OCR. Esse módulo é utilizado em aplicações em que haja a necessidade de se reonhecer textos existentes em imagens.
+
+{falar do tesseract}
+
+	O módulo OCR é utilizado nas aplicações ANPR e Ariadnes. No ANPR, o módulo OCR é utilizado para reconhecer o texto que se encontra nas placas dos automóveis. Já na aplicação Ariadnes, o módulo OCR é utilizado pelo agente inteligente para reconhecer os textos que se encontram nas placas informativas presentes no ambiente.
+	
 \section{Mapeamento e Navegação}
  Chamamos de mapeamento ao processo de identificar locais no ambiente do simulador e representa-los em um grafo. O mapeamento no horus utiliza uma técnica genérica denominada SLAM. Nessa técnica, um agente consegue realizar o mapeamento e a localização no ambiente de forma simultânea. Os dispositivos utilizados pela implementação da técnica SLAM são lasers,  para identificar obstáculos, e um odômetro, para medir distâncias percorridas.
  
@@ -37,16 +120,5 @@ A ordem de execução dos comportamentos define a máquina de estados de cada agent
   O problema de navegação consiste na localização e definição do caminho que o agente deve seguir. Após a construção de uma representação do ambiente em forma de um grafo, o agente é capaz de se localizar e se movimentar pelo ambiente através dos vértices e arestas, previamente mapeados no grafo. Para a utilização de grafos, o Horus fornece classes para su
 
 
-OCR (Optical character recoginition) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
-	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações que seriam impossíveis de serem realizadas sobre imagens, como por exemplo, a busca de determinado conteúdo de interesse.
-	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade d
-as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\% de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
-	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
-	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. Dentre eles temos: 
-	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura 1 apresenta um esquema básico do processo de OCR.
 
-{Figura 1: Etapas do processo de OCR}
-
-	Na figura 1, temos as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que inicialmente se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
-	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. Nas sessões seguintes serão apresentadas algumas formas de implementação dessas etapas juntamente com os algoritmos implementados no toolkit horus utilizados no processo de OCR.
 
