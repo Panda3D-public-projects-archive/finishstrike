@@ -1,23 +1,23 @@
 \select@language {english}
 \select@language {brazil}
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{0}
-\contentsline {chapter}{\numberline {2}Intelig\^encia Computacional}{1}
-\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{1}
-\contentsline {section}{\numberline {2.2}Reconhecimento de Padr\~oes}{4}
-\contentsline {section}{\numberline {2.3}Redes Neurais Artificiais}{6}
-\contentsline {subsection}{\numberline {2.3.1}Neur\^onio Biol\'ogico}{7}
-\contentsline {subsection}{\numberline {2.3.2}O Neur\^onio Artificial MCP}{9}
-\contentsline {subsection}{\numberline {2.3.3}Fun\c c\~oes de Ativa\c c\~ao}{10}
-\contentsline {subsection}{\numberline {2.3.4}Arquiteturas de Redes Neurais}{11}
-\contentsline {subsection}{\numberline {2.3.5}Processo de aprendizado}{12}
-\contentsline {section}{\numberline {2.4}Vis\~ao Computacional}{14}
-\contentsline {subsection}{\numberline {2.4.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{15}
-\contentsline {subsection}{\numberline {2.4.2}Reconhecimento \'Optico de Caracteres}{16}
-\contentsline {chapter}{\numberline {3}Horus}{19}
-\contentsline {section}{\numberline {3.1}Core}{20}
-\contentsline {section}{\numberline {3.2}Processamento de Imagem}{21}
-\contentsline {section}{\numberline {3.3}Vis\~ao}{21}
-\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{21}
-\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{23}
-\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{24}
-\contentsline {chapter}{\numberline {4}Conclus\~oes e Trabalhos Futuros}{26}
+\contentsline {chapter}{\numberline {2}Intelig\^encia Computacional}{3}
+\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{3}
+\contentsline {section}{\numberline {2.2}Reconhecimento de Padr\~oes}{7}
+\contentsline {section}{\numberline {2.3}Redes Neurais Artificiais}{8}
+\contentsline {subsection}{\numberline {2.3.1}Neur\^onio Biol\'ogico}{9}
+\contentsline {subsection}{\numberline {2.3.2}O Neur\^onio Artificial MCP}{11}
+\contentsline {subsection}{\numberline {2.3.3}Fun\c c\~oes de Ativa\c c\~ao}{12}
+\contentsline {subsection}{\numberline {2.3.4}Arquiteturas de Redes Neurais}{13}
+\contentsline {subsection}{\numberline {2.3.5}Processo de aprendizado}{14}
+\contentsline {section}{\numberline {2.4}Vis\~ao Computacional}{17}
+\contentsline {subsection}{\numberline {2.4.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{17}
+\contentsline {subsection}{\numberline {2.4.2}Reconhecimento \'Optico de Caracteres}{19}
+\contentsline {chapter}{\numberline {3}Horus}{21}
+\contentsline {section}{\numberline {3.1}Core}{22}
+\contentsline {section}{\numberline {3.2}Processamento de Imagem}{23}
+\contentsline {section}{\numberline {3.3}Vis\~ao}{23}
+\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{23}
+\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{25}
+\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{26}
+\contentsline {chapter}{\numberline {4}Conclus\~oes e Trabalhos Futuros}{28}

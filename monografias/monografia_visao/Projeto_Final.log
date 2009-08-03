@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  31 JUL 2009 18:52
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  3 AUG 2009 18:48
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -485,7 +485,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 ] (introducao.tex
 Cap\'{\i }tulo 1.
-)
+
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
@@ -494,10 +494,18 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-] (cap1.tex
+]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[1])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[2] (cap1.tex
 Cap\'{\i }tulo 2.
 
-LaTeX Warning: Citation `Ark98' on page 1 undefined on input line 13.
+LaTeX Warning: Citation `Ark98' on page 3 undefined on input line 13.
 
 
 Overfull \hbox (8.90836pt too wide) in paragraph at lines 13--14
@@ -509,7 +517,7 @@ Overfull \hbox (8.90836pt too wide) in paragraph at lines 13--14
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[1
+[3
 
 
 
@@ -520,23 +528,15 @@ e-ja-mento e atuac~ao/execuc~ao.
  []
 
 
-LaTeX Warning: Citation `CON92' on page 2 undefined on input line 17.
+LaTeX Warning: Citation `CON92' on page 4 undefined on input line 17.
 
 
-LaTeX Warning: Citation `Gat91' on page 2 undefined on input line 17.
+LaTeX Warning: Citation `Gat91' on page 4 undefined on input line 17.
 
 
-LaTeX Warning: Citation `Bon91' on page 2 undefined on input line 17.
+LaTeX Warning: Citation `Bon91' on page 4 undefined on input line 17.
 
 
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[2]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[3]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -549,24 +549,6 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [6]
-Overfull \hbox (1.98482pt too wide) in paragraph at lines 71--72
-\OT1/cmr/m/n/12 Nos neur^onios a co-mu-nicac~ao e re-al-izada atraves de im-
-pul-sos eletricos, quando
- []
-
-
-Overfull \hbox (1.20436pt too wide) in paragraph at lines 88--89
-[]\OT1/cmr/m/n/12 O ax^onio: mem-brana con-stituda de uma fi-bra tubu-lar que
- e re-sponsavel
- []
-
-
-Overfull \hbox (0.514pt too wide) in paragraph at lines 91--92
-\OT1/cmr/m/n/12 Nesse Lo-cal ocorre o pro-ces-sa-mento metabolico da celula n
-er-vosa ou neur^onio.
- []
-
-
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -575,19 +557,25 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [8]
+Overfull \hbox (1.98482pt too wide) in paragraph at lines 75--76
+\OT1/cmr/m/n/12 Nos neur^onios a co-mu-nicac~ao e re-al-izada atraves de im-
+pul-sos eletricos, quando
+ []
+
+
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [9]
-Overfull \hbox (0.57928pt too wide) in paragraph at lines 195--196
-[]\OT1/cmr/m/n/12 Tangente Hiperbolica: seu grafico e pare-cido com o da Fun
-c~ao Sigmoide,
+Overfull \hbox (1.20436pt too wide) in paragraph at lines 92--93
+[]\OT1/cmr/m/n/12 O ax^onio: mem-brana con-stituda de uma fi-bra tubu-lar que
+ e re-sponsavel
  []
 
 
-Overfull \hbox (3.5711pt too wide) in paragraph at lines 222--223
-\OT1/cmr/m/n/12 A definic~ao da ar-quite-tura de uma RNA de-fine a maneira com
- que os neur^onios
+Overfull \hbox (0.514pt too wide) in paragraph at lines 95--96
+\OT1/cmr/m/n/12 Nesse Lo-cal ocorre o pro-ces-sa-mento metabolico da celula n
+er-vosa ou neur^onio.
  []
 
 
@@ -603,6 +591,18 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [12]
+Overfull \hbox (0.57928pt too wide) in paragraph at lines 199--200
+[]\OT1/cmr/m/n/12 Tangente Hiperbolica: seu grafico e pare-cido com o da Fun
+c~ao Sigmoide,
+ []
+
+
+Overfull \hbox (3.5711pt too wide) in paragraph at lines 226--227
+\OT1/cmr/m/n/12 A definic~ao da ar-quite-tura de uma RNA de-fine a maneira com
+ que os neur^onios
+ []
+
+
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -611,23 +611,31 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [14]
-Overfull \hbox (6.95004pt too wide) in paragraph at lines 322--323
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[15]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[16]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[17]
+Overfull \hbox (6.95004pt too wide) in paragraph at lines 326--327
 \OT1/cmr/m/n/12 atraves de ve-tores numericos chama-dos de "`de-scritores"', 
 ou "`padr~oes"'.
  []
 
 
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[15]
-Overfull \hbox (0.91643pt too wide) in paragraph at lines 328--335
+Overfull \hbox (0.91643pt too wide) in paragraph at lines 332--339
 \OT1/cmr/m/n/12 Reconhecimento []Optico de Car-ac-teres ou OCR (\OT1/cmr/m/it/1
 2 Op-ti-cal char-ac-ter recog-
  []
 
 
-Overfull \hbox (6.1063pt too wide) in paragraph at lines 328--335
+Overfull \hbox (6.1063pt too wide) in paragraph at lines 332--339
 \OT1/cmr/m/it/12 i-ni-tion\OT1/cmr/m/n/12 ) e um campo de pesquisa nas areas 
 de re-con-hec-i-mento de padr~oes,
  []
@@ -636,15 +644,15 @@ de re-con-hec-i-mento de padr~oes,
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[16]
+[18]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[17])
+[19])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[18] (cap2.tex
+[20] (cap2.tex
 Cap\'{\i }tulo 3.
 
 Overfull \hbox (3.22508pt too wide) in paragraph at lines 8--9
@@ -662,19 +670,11 @@ ec~oes seguintes.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[19
+[21
 
 
 
 ]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[20]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[21]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -686,17 +686,25 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[24])
+[24]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[25] (conclusao.tex
+[25]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[26])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[27] (conclusao.tex
 Cap\'{\i }tulo 4.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[26
+[28
 
 
 
@@ -717,6 +725,9 @@ l.157 \end{document}
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  )
 (\end occurred inside a group at level 1)
 
@@ -725,11 +736,11 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  3511 strings out of 95304
  43704 string characters out of 1182724
- 104171 words of memory out of 1500000
+ 106171 words of memory out of 1500000
  6568 multiletter control sequences out of 110000
  10158 words of font info for 36 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 28i,11n,32p,1066b,515s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,14n,27p,1066b,511s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/c
 m-super-ts1.enc}<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmb
 x12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb>
@@ -739,9 +750,9 @@ ogramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/M
 iKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:/Arquivos de programas/MiKTeX 2.
 7/fonts/type1/bluesky/cm/cmti12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/
 type1/public/cm-super/sfrm1200.pfb>
-Output written on Projeto_Final.pdf (39 pages, 118909 bytes).
+Output written on Projeto_Final.pdf (41 pages, 126649 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
+ 168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
