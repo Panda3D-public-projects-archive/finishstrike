@@ -5,9 +5,64 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.42.2.1 }
 
+\bibitem{Bellman_1978}
+\abntrefinfo{Bellman}{BELLMAN}{1978}
+{BELLMAN, R. \emph{An introduction to artificial intelligence: Can Computers
+  think?} [S.l.]: Paperback, 1978.}
+
+\bibitem{Bittencourt_2003}
+\abntrefinfo{Bittencourt}{BITTENCOURT}{2001}
+{BITTENCOURT, G. \emph{Inteligência Artificial: Ferramentas e Teorias}. [S.l.]:
+  Editora da UFSC, 2001.}
+
 \bibitem{Russell_2003}
 \abntrefinfo{Russel e Norvig}{RUSSEL; NORVIG}{2003}
 {RUSSEL, S.; NORVIG, P. \emph{Inteligência Artificial}. [S.l.]: Editora Campus,
   2003.}
+
+\bibitem{Rosenschein_1985}
+\abntrefinfo{Rosenschein}{ROSENSCHEIN}{1985}
+{ROSENSCHEIN, S.~J. \emph{Formal theories of knowledge in AI and robotics}.
+  [S.l.]: New Generation Computing, 1985.}
+
+\bibitem{Flavio_2006}
+\abntrefinfo{Esperança}{ESPERANçA}{2006}
+{ESPERANçA, F.~N. e C. Implementando células e portais no blender.
+\emph{Seminário LCG}, Julho 2006.}
+
+\bibitem{Christiam_2005}
+\abntrefinfo{Dalfovos}{DALFOVOS}{2005}
+{DALFOVOS, C. R.~C. de~Abreu~e D.~O. Simulação de robôs aplicando o algoritmo
+  de dijkstra e subida da montanha.
+\emph{Seminário de Computação, 2005, Blumenau - SC. XIV SEMINCO. Blumenau - Sc
+  : FURB}, Outubro 2005.}
+
+\bibitem{Biggs_1989}
+\abntrefinfo{Biggs}{BIGGS}{1989}
+{BIGGS, N.~L. \emph{Graph Teory}. [S.l.]: Oxford University Press, 1989.}
+
+\bibitem{Aho_1974}
+\abntrefinfo{Aho, Hopcroft e Ullman}{AHO; HOPCROFT; ULLMAN}{1974}
+{AHO, A.~V.; HOPCROFT, J.~E.; ULLMAN, J.~D. \emph{The design and analysis of
+  computer algorithms}. [S.l.]: Paperback, 1974.}
+
+\bibitem{Montermelo_2002}
+\abntrefinfo{Montemerlo et al.}{MONTEMERLO et al.}{2002}
+{MONTEMERLO, M. et al. Fastslam: A factored solution to the simultaneous
+  localization and mapping problem.
+\emph{Pro-ceedings of the AAAI National Conference on Articial Intelligence},
+  2002.}
+
+\bibitem{Wesley_1979}
+\abntrefinfo{Lozano-Pérez e Wesley}{LOZANO-PéREZ; WESLEY}{1979}
+{LOZANO-PéREZ, T.; WESLEY, M.~A. \emph{An algorithm for planning collision-free
+  paths among polyhedral obstacles}. [S.l.]: Communications of the ACM, 1979.}
+
+\bibitem{Souza_2005}
+\abntrefinfo{Souza}{SOUZA}{2005}
+{SOUZA, J. P. R.~P. de.
+\emph{Mapeamento e localização de robôs móveis: Uma proposta baseada em marcos
+  visuais e regras de produção}.
+Dissertação (Mestrado) --- Universidade Federal da Bahia, 2005.}
 
 \end{thebibliography}

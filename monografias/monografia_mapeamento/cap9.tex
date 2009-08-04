@@ -6,3 +6,41 @@
 \chapter{Resultados obtidos}
 \label{cap:resultados_obtidos}
 
+Durante o desenvolvimento muitos testes e ajustes foram executados na expectativa de atingir o objetivo de forma mais rápida e eficiente, ou seja, mapear todo ambiente com o menor tempo possível.
+Para isso alteramos o tamanho do raio dos \textit{mark points}, o tamanho dos lasers e o tamanho do ambiente empiricamente, ou seja, testando e observando os resultados obtidos.
+
+\section{Quanto ao tamanho do ambiente}
+
+Ambientes muito grandes não prejudicaram o processo de mapeamento, mas o tornou muito lento. Enquanto que ambientes muito pequenos fizeram com que o número de colisões do agente nas paredes aumentasse consideravelmente, prejudicando a navegacão.
+
+O ambiente ideal deve ter o triplo do tamanho do agente, sendo que o dobro também garante boa navegacão e mapeamento.
+Matematicamente: sendo \textit{xa, ya e za,} as coordenadas ideais do ambiente, e \textit{xr, yr, zr} as coordenadas do agente, $xa = 3xr$, $ya = 3yr$ e $za = 3zr$
+
+\section{Quanto à distribuicão dos lasers e sua quantidade}
+
+
+Nestes testes levamos sempre em consideracao o custo em processamento de informacao (para o caso de uma quantidade muito grande de lasers) e a exatidão da interpretacao dos dados a fim de proporcionar uma boa navegacão pelo ambiente, pré-requisito para um bom mapeamento.
+
+
+Em outras palavras, o agente deve ter a menor quantidade de lasers possível para não sobrecarregar o processamento das informacoes e garantir agilidade. Contudo, se por um lado muitos lasers causam um desperdício de processamento, poucos lasers resultam em um mapeamento ineficiente, pois o agente volta várias vezes em pontos muito próximos dos que já foram mapeados, ou seja, o número de \textit{mark points} aumenta de forma consideravel e desnecessária. 
+
+O número de lasers do agente deve ser em torno de 22, variando em até 3 unidades.
+
+Um outro problem que causa um mapeamento ineficiente é se os lasers forem muito curtos, pois o agente tenderá a andar pelos cantos das salas e quando estes cantos estiverem mapeados ele irá para longe das paredes e ficará andando em círculos até que seus créditos terminem. O ideal é que o tamanho do laser seja a média aritmética das coordenasdas \textit{(x, y, z)} do agente.
+
+Matematicamente: sendo \textbf{l} o tamanho ideal de cada laser, $$l = \frac{xr+yr+zr}{3}$$
+
+A distribuicão ideal dos lasers é a que proporciona um campo de visão de 120 graus, sendo 60 graus para a esquerda e 60 para direita, apesar de um campo de 180 graus também proporcionar uma navegacao e mapeamento eficientes, contudo, neste ultimo caso o cuidado com o tamanho dos lasers deve ser maior, pois tendo o agente uma visão muito ampla (de 90 graus para cada lado), ele poderá retornar para um comodo já mapeado com mais frequencia. Um campo de visão acima de 180 graus é desencorajado, visto que o agente quase sempre retornará para um comodo já mapeado.
+
+
+Em contrapartida, um campo de visão extreito (menor do que 120 graus) faz com que o agente ignore portas e passagens frequentemente a menos que estas estejam à sua frente.
+
+\section{Quanto ao raio dos mark points}
+
+O agente cria mark points conforme navega e descobre novos caminhos. Quanto menor o raio \textit{mais mark} points são encontrados, mais créditos o agente ganha, mais vezes ele retorna nos cômodos e mais tempo demora o mapeamento. O contrário ocorre quanto menor for o raio.
+
+
+O raio ideal, para um abiente ideal, é a média aritmética das coordenadas (x, y, z) desse ambiente.
+
+Matematicamente: sendo \textbf{r} o raio dos \textit{mark points}, 
+$$r = \frac{xa+ya+za}{3}$$
