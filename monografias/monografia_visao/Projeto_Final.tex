@@ -10,7 +10,7 @@
 
 \documentclass[a4paper,12pt]{report}
 %Configuração geral
-
+\usepackage{a4wide}
 \usepackage[brazil,english]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -94,6 +94,7 @@
 % NUMERAÇÃO DE PÁGINA EM ROMANO
 %-----------------------------------
 \pagenumbering{roman}
+
 \setlength{\voffset}{0.0in}
 
 %Atribui ao contador page (default do latex, que é usado por todo o documento)
@@ -127,10 +128,8 @@
 
 % Atribuindo ao nosso contador o valor do contador page
 % e depois incremento...
-%\setcounter{mypage}{\value{p.styage}}
-\setcounter{mypage}{0}
+\setcounter{mypage}{\value{page}}
 \clearpage
-
 
 \pagenumbering{arabic}
 
@@ -138,20 +137,30 @@
 \begin{spacing}{1.5}
 \setcounter{page}{\value{mypage}} % Atribuindo o contador page novamente....
 \include{introducao}
-\include{cap1}
+%\include{cap1}
 \include{cap2}
-\include{conclusao}
+\include{cap3}
+%\include{cap5}
+%\include{cap7}
+%\include{cap8}
+%\include{cap9}
 
+%%
+%%Inluir todos os capitulos aqui
+%%\include{file}
+%%
+
+\include{conclusao}
 \end{spacing}
 
 %Include da bibliografia
 \begin{spacing}{1.0}
-%\include{bibliografia}
+\include{bibliografia}
 \end{spacing}
 
 %Include do apêndice
 \begin{spacing}{1.5}
-%\include{apendice}
+\include{apendice}
 \end{spacing}
 
 \end{document}

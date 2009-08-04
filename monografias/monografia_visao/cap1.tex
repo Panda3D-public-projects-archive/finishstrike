@@ -1,3 +1,4 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Extração de Características
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6,15 +7,14 @@
 \chapter{Inteligência Computacional}
 \label{cap:ia}
 
-
 \section{Agentes Inteligentes}
 A Inteligência Computacional (IA) é uma área de estudo da ciência da computação que procura desenvolver sistemas computacionais capazes de ter ações e reações similares as capacidades humanas, tais como: pensar, criar, solucionar problemas entre outros. Um Agente, por definição, é todo elemento ou entidade autônoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores. Pode-se citar como exemplos de agentes inteligentes, além de um robô autônomo ou semi-autônomo, personagens de um jogo, agentes de busca e recuperação de informação e agentes de chats.
 
-Existem diferentes definições para a arquitetura de um robô presentes na literatura. Este trabalho considera a definição abordada por Arkin \cite{Ark98} a qual considera que uma arquitetura de um robô está mais relacionada com os aspectos de software que os de hardware. Apesar de algumas diferenças, os modelos de arquitetura para robôs móveis descrevem um mecanismo para construção de um sistema de desenvolvimento e controle de agentes inteligentes, apresentando, principalmente, quais os módulos presentes e como estes interagem. 
+Existem diferentes definições para a arquitetura de um robô presentes na literatura. Este trabalho considera a definição abordada por Arkin cite(Ark98) a qual considera que uma arquitetura de um robô está mais relacionada com os aspectos de software que os de hardware. Apesar de algumas diferenças, os modelos de arquitetura para robôs móveis descrevem um mecanismo para construção de um sistema de desenvolvimento e controle de agentes inteligentes, apresentando, principalmente, quais os módulos presentes e como estes interagem. 
 
-De uma forma geral, os módulos de uma arquitetura de um agente inteligente se preocupam com aspectos como percepção, planejamento e atuação/execução. A percepção refere-se à compreensão do ambiente e dos elementos nele contido. Denomina-se \textit{sequência de percepções}, a história completa de tudo que o agente já percebeu, ou seja, o conjunto de todas as percepções do agente até um dado momento; o planejamento à inteligência do robô; e a atuação, ou execução, é o modo como o robô procede no ambiente, ou seja, movimentos, captura de informações, etc.
+De uma forma geral, os módulos de uma arquitetura de um agente inteligente se preocupam com aspectos como percepção, planejamento e atuação$/$execução. A percepção refere-se à compreensão do ambiente e dos elementos nele contido. Denomina-se \textit{sequência de percepções}, a história completa de tudo que o agente já percebeu, ou seja, o conjunto de todas as percepções do agente até um dado momento; o planejamento à inteligência do robô; e a atuação, ou execução, é o modo como o robô procede no ambiente, ou seja, movimentos, captura de informações, etc.
 
-Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos os modelos de três camadas como: SSS \cite{CON92}, Atlantis \cite{Gat91}, 3T \cite{Bon91}. Todas as arquiteturas se dividem semelhantemente da seguinte forma:
+Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos os modelos de três camadas como: SSS cite(CON92), Atlantis cite(Gat91), 3T cite{Bon91}. Todas as arquiteturas se dividem semelhantemente da seguinte forma:
 
     
 \begin{itemize}
@@ -50,14 +50,14 @@ Em duas das aplicações desenvolvidas neste trabalho, os programas de agente util
 Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
 	A área de Reconhecimento de Padrões é responsável por projetar algoritmos e abordagens  que procuram aproximar as tarefas realizadas computacionalmente das habilidades humanas. Esse processo consiste em classificar e descrever objetos através de um conjunto de características ou propriedades. Um dos principais conceitos dentro de reconhecimento de padrões é o discriminante.  Tal conceito consiste em medir uma distância de um determinado padrão para cada outro previamente conhecido. Logo, a classe de um determinado padrão será a mesma do seu vizinho mais próximo [Simp 92], [Simp 93], de menor distância ou o protótipo mais parecido [Torb 98].
     	Espera-se de um  sistema de reconhecimento de padrões que este seja capaz de aprender de uma forma adaptativa e dinâmica. Em sistemas de reconhecimento de padrões automáticos, as etapas de aprendizagem e reconhecimento são combinados a fim de atingir um objetivo desejado [Cagn 93] [Valli 98]. Portanto, redes neurais artificiais é uma das principais técnicas utilizadas nesse sentido [Nigr 93] e será apresentada na seção seguinte.
- 	Um típico sistema de reconhecimento de padrão consiste em três partes: aquisição de dados, seleção/extração de características e classificação/clustering [Pattern recognition book].
+ 	Um típico sistema de reconhecimento de padrão consiste em três partes: aquisição de dados, seleção$/$extração de características e classificação$/$clustering [Pattern recognition book].
 
 \begin{itemize}
 \item Aquisição de dados: é o processo de seleção dos dados que serão usados como entrada no processo de reconhecimento. Tais dados podem ser qualitativos, quantitativos ou ambos. Podendo ser numéricos, linguísticos, entre outros. 
 
-\item Seleção/Extração de características: o objetivo principal desta etapa consiste em gerar o melhor conjunto de características necessárias para o processo de reconhecimento, de modo a maximizar a eficácia do sistema.  A grande dificuldade dessa etapa está na determinação de um critério adequado para a escolha de um bom conjunto de características. Um bom critério é aquele que é imutável para qualquer variação possível dentro de uma classe, todavia, deve ser capaz de destacar as diferenças importantes a fim de discriminar entre diferentes tipos de padrões.
+\item Seleção$/$Extração de características: o objetivo principal desta etapa consiste em gerar o melhor conjunto de características necessárias para o processo de reconhecimento, de modo a maximizar a eficácia do sistema.  A grande dificuldade dessa etapa está na determinação de um critério adequado para a escolha de um bom conjunto de características. Um bom critério é aquele que é imutável para qualquer variação possível dentro de uma classe, todavia, deve ser capaz de destacar as diferenças importantes a fim de discriminar entre diferentes tipos de padrões.
 
-\item Classificação/clustering: classificação é o processo de definição de qual classe um determinado padrão de entrada pertence. Essa classificação pode ser feita utilizando técnicas determinísticas e probabilísticas. As classes são definidas a partir de um conjunto de amostas apresentadas na etapa de aprendizagem.
+\item Classificação$/$clustering: classificação é o processo de definição de qual classe um determinado padrão de entrada pertence. Essa classificação pode ser feita utilizando técnicas determinísticas e probabilísticas. As classes são definidas a partir de um conjunto de amostas apresentadas na etapa de aprendizagem.
 
 \end{itemize}
 
@@ -101,7 +101,7 @@ O neurônio biológico é constituído de um corpo celular denominado soma. Nesse Lo
 	O mecanismo como é criado o potencial de ação ou impulso nervoso é o seguinte: quando o potencial da membrana está menos eletronegativo do que o potencial de repouso, diz-se que a membrana está despolarizada e quando está mais negativo, diz-se que ela está hiperpolarizada. O impulso nervoso ou potencial de ação é uma onda de despolarização de certa duração de tempo, que se propaga ao longo da membrana. A formação de um potencial de ação na membrana axonal ocorre quando essa membrana sofre despolarização suficientemente acentuada para cruzar um determinado valor conhecido como limiar de disparo. Quando esse limiar é superado, os estímulos são passados para outras células através das ligações sinápticas.
 
 \subsection{O Neurônio Artificial MCP}
-McCulloch e Pits [4] propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada x1, x2, ..., xn (representando os dendritos) e apenas um terminal de saída y (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados w1,w2, ..., wn cujos valores podendo ser positivos ou negativos dependendo de as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular i no neurônio pós-sináptico é dado por xiwi. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura 2.
+McCulloch e Pits [4] propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada $x_1, x_2, ..., x_n$ (representando os dendritos) e apenas um terminal de saída $y$ (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados$ w_1,w_2, ..., w_n$ cujos valores podendo ser positivos ou negativos dependendo de as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular $i$ no neurônio pós-sináptico é dado por $x_i$$w_i$. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura 2.
 
 %\begin{figure}[!htb]
 %\centering
@@ -112,7 +112,7 @@ McCulloch e Pits [4] propuseram um modelo matemático do neurônio artificial MCP.
 %\label{fig:mcculloch}
 %\end{figure}
 
-O corpo do neurônio realiza um simples somatório dos valores xiwi que chegam a ele. Se o somatório dos valores ultrapassa o limiar de ativação ou threshold, o neurônio dispara (valor 1 na saída), caso contrário o neurônio permanece inativo (valor 0 na saída). A ativação do neurônio é realizada através de uma função de ativação, que dispara ou não o neurônio dependendo do valor da soma ponderada das suas entradas. No modelo MCP original, a função de ativação ativará a saída quando:
+O corpo do neurônio realiza um simples somatório dos valores $x_iw_i$ que chegam a ele. Se o somatório dos valores ultrapassa o limiar de ativação ou threshold, o neurônio dispara (valor 1 na saída), caso contrário o neurônio permanece inativo (valor 0 na saída). A ativação do neurônio é realizada através de uma função de ativação, que dispara ou não o neurônio dependendo do valor da soma ponderada das suas entradas. No modelo MCP original, a função de ativação ativará a saída quando:
 
 %\begin{figure}[!htb]
 %\centering
@@ -123,7 +123,7 @@ O corpo do neurônio realiza um simples somatório dos valores xiwi que chegam a e
 %\label{fig:equacao}
 %\end{figure}
 
-Na equação acima, n é a quantidade de entradas do neurônio, wi é o peso associado à entrada xi e ? é o limiar do neurônio.
+Na equação acima, $n$ é a quantidade de entradas do neurônio, $w_i$ é o peso associado à entrada $x_i$ e ? é o limiar do neurônio.
 
 \subsection{Funções de Ativação}
 A partir do modelo apresentado por McCulloch e Pits, surgiram vários outros modelos que permitem a produção de qualquer saída, não apenas zero ou um, e com várias funções de ativação. As funções de ativação mais comuns são: 
@@ -140,7 +140,7 @@ A partir do modelo apresentado por McCulloch e Pits, surgiram vários outros mode
 %\label{fig:equacaoLinear}
 %\end{figure}
 
-Onde v é igual ao valor produzido pelo somatório das entradas do neurônio. 
+Onde $v$ é igual ao valor produzido pelo somatório das entradas do neurônio. 
 
 %\begin{figure}[!htb]
 %\centering
@@ -152,7 +152,7 @@ Onde v é igual ao valor produzido pelo somatório das entradas do neurônio.
 %\end{figure}
 
 
-\item Função Sigmóide: essa é uma função semilinear, limitada e monotônica que pode assumir valores entre 0 e 1. Existem várias funções sigmodais, porém, a mais usada é a função logística definida pela equação abaixo:
+\item Função Sigmóide: essa é uma função semilinear, limitada e monotônica que pode assumir valores entre $0$ e $1$. Existem várias funções sigmodais, porém, a mais usada é a função logística definida pela equação abaixo:
 
 %\begin{figure}[!htb]
 %\centering
@@ -163,7 +163,7 @@ Onde v é igual ao valor produzido pelo somatório das entradas do neurônio.
 %\label{fig:equacaoSigmoide}
 %\end{figure}
 
-Onde a é o parâmetro de inclinação da função sigmóide e v é o valor de ativação do neurônio.
+Onde $a$ é o parâmetro de inclinação da função sigmóide e $v$ é o valor de ativação do neurônio.
 
 %\begin{figure}[!htb]
 %\centering
@@ -174,7 +174,7 @@ Onde a é o parâmetro de inclinação da função sigmóide e v é o valor de ativação 
 %\label{}
 %\end{figure}
 
-\item Função Signum: essa função apresenta as mesmas características da função limiar, porém, se limita ao intervalo entre 1 e -1. Essa função é representada por:
+\item Função Signum: essa função apresenta as mesmas características da função limiar, porém, se limita ao intervalo entre $1$ e $-1$. Essa função é representada por:
 
 %\begin{figure}[!htb]
 %\centering
@@ -185,7 +185,7 @@ Onde a é o parâmetro de inclinação da função sigmóide e v é o valor de ativação 
 %\label{fig:equacaoSigmum}
 %\end{figure}
 
-Onde b são os limites inferiores e superiores (b = |1| no gráfico) e v é o valor de ativação.
+Onde $b$ são os limites inferiores e superiores $(b = |1|$ no gráfico$)$ e $v$ é o valor de ativação.
 
 %\begin{figure}[!htb]
 %\centering
@@ -196,7 +196,7 @@ Onde b são os limites inferiores e superiores (b = |1| no gráfico) e v é o valor
 %\label{}
 %\end{figure}
 
-\item Tangente Hiperbólica: seu gráfico é parecido com o da Função Sigmóide, assumindo valores entre 1 e -1, sendo representada por:
+\item Tangente Hiperbólica: seu gráfico é parecido com o da Função Sigmóide, assumindo valores entre $1$ e $-1$, sendo representada por:
 
 %\begin{figure}[!htb]
 %\centering
@@ -207,7 +207,7 @@ Onde b são os limites inferiores e superiores (b = |1| no gráfico) e v é o valor
 %\label{fig:equacaoHiperbólica}
 %\end{figure}
 
-Onde a é o parâmetro de inclinação da curva, b são os limites inferiores e superiores (b = |1| no gráfico) e v o valor de ativação.
+Onde a é o parâmetro de inclinação da curva, b são os limites inferiores e superiores $(b = |1|$ no gráfico$)$ e $v$ o valor de ativação.
 
 %\begin{figure}[!htb]
 %\centering
@@ -253,9 +253,9 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 Quanto ao tipo de conexão têm-se:
 
 \begin{itemize}
-\item Feedforward, ou acíclica: a saída de um neurônio na i-ésima camada da rede não pode ser usada como entrada de nodos em camadas de índice menos ou igual a i (Figura 4).
+\item Feedforward, ou acíclica: a saída de um neurônio na $i$-ésima camada da rede não pode ser usada como entrada de nodos em camadas de índice menos ou igual a $i$ (Figura 4).
 
-\item Feedback, ou cíclica: a saída de algum neurônio na i-ésima camada da rede é utilizada como entrada em neurônios da camada de índice menor ou igual a i (Figura 5).
+\item Feedback, ou cíclica: a saída de algum neurônio na $i$-ésima camada da rede é utilizada como entrada em neurônios da camada de índice menor ou igual a $i$ (Figura 5).
 
 %\begin{figure}[!htb]
 %\centering
@@ -323,7 +323,7 @@ No campo de reconhecimento de padrões, extrair caracerísticas significa extrair 
     
        Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
         
-        O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "`descritores"', ou "`padrões"'. Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
+        O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "descritores", ou "padrões". Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
 
 No capítulo que trata do toolkit Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
 
@@ -332,7 +332,7 @@ No capítulo que trata do toolkit Horus, serão explicados alguns métodos de extra
 Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
 	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações que seriam impossíveis de serem realizadas sobre imagens, como por exemplo, a busca de determinado conteúdo de interesse.
 	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade d
-as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\% de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
+as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
 	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
 	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. Dentre eles temos: 
 	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura 1 apresenta um esquema básico do processo de OCR.
@@ -341,6 +341,5 @@ as imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem 
 
 	Na figura 1, temos as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que inicialmente se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
 	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. Nas sessões seguintes serão apresentadas algumas formas de implementação dessas etapas juntamente com os algoritmos implementados no toolkit horus utilizados no processo de OCR.
-
 
 
