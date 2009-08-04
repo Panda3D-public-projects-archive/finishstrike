@@ -25,11 +25,58 @@ Principais funcionalidades de cada um dos módulos, de forma mais explicada. .
 \item Core do Horus: Contêm módulos que serão utilizados como suporte para os módulos principais. Sendo assim não necessitam ser utilizados diretamente pelo usuário.
 \item Modulo de Visão: Tem por objetivo tratar as principais técnicas de visão computacional de um agente inteligente.
 \item Modulo de Mapeamento: O módulo de mapeamento é responsável por gerenciar os tipos de mapeamento bem como os dispositivos utilizados para mapear e navegar no ambiente.
+\item Utils: Módulo que contêm funções de suporte para auxiliar no funcionamento dos demais módulos.
 \end{itemize}
 
 \subsection{\textit{Core} do Horus}
-As funções e métodos presentes no \textit{Core} do Horus estão dispostas como segue:
 
+O Core do Horus é onde se encontram as partes relativas ao agente e seus comportamentos.
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4675,bb=0 0 902 386]{imagens/digramas/diagrama_core.png}
+\end{center}
+\caption{Diagrama que demonstra a arquitetura do Core do Horus.}
+\label{fig:robos}
+\end{figure}
+
+O ambiente 
+Agente e dispositivo.
+Comportamento: Explicar cada um.
+Event: Eventos gerados pelo ambiente que influenciam no comportamento.
+Brain
+
+
+\subsection{Módulo de Visão}
+
+Módulo onde ficam as funções relativas a visão computacional para agentes inteligenes, ele leva em consideração o uso de redes neurais para fazer a extração de característicase também vários algoritmos de segmentação.
+
+
+\subsection{Módulo de Mapeamento}
+
+O módulo responsável pela inteligência do agente, no que diz respeito à localização, movimentação, mapeamento e navegação. 
+\begin{itemize}
+\item Localização: Entende-se por localização a capacidade do agente localizar-se em um ambiente. 
+\item Movimentação: É a capacidade de locomoção em um ambiente.
+\item Mapeamento: É o modo como o agente localiza marcos para identificar a forma do ambiente.
+\item Navegação: O agente se move pelo ambiente mapeado visando um objetivo, com tarefas como otimização de rotas.
+
+\end{itemize}
+
+Dentro deste módulo também se enquandram o módulo Graph e suas funcionalidades, que são:
+\begin{itemize}
+\item \textit{ShortestPath} - Função que retorna o menor caminho de um grafo tendo em vista o algoritmo que for passado, na atual conjultura do projeto apenas um algoritmo foi implementado, o Dijkstra.
+\item \textit{ShowAllPaths} - Retorna todos caminhos possíveis até um dedterminado nó independente de ser o mais distante ou o mais próximo.
+\item \textit{BuildaGraph} - Como a construção de um grafo necessita da criação correta dee nós e arestas, foi criado este método para construir um grafo e retorná-lo ao final do processo.
+\item \textit{Geters} e \textit{Seters} de nós e de arestas do grafo.
+\end{itemize}
+
+\subsection{Utils}
+
+Conforme o nome do módulo sugere, ele torna os códigos dos demais módulos livres reimplementações de coisas comuns a todos os módulos. Tal módulo pode ser usado tanto em conjunto com o toolkit quanto a parte, devido sua usabilidade alta e seu nível de acoplamento baixo.
+
+Algumas funções e métodos presentes no \textit{Utils} do Horus estão dispostas como segue:
 \subsubsection{O módulo \textit{"math\textunderscore module"}}
 Este módulo possui funções matemáticas usadas pelo Horus. Ele está subdividido em algumas categorias dentre elas, funções trigonométricas e regressão linear.
 
@@ -42,31 +89,4 @@ As funções trigonométricas são:
 \item \textbf{isPointInCircle(self,  center\textunderscore tuple,  point\textunderscore tuple,  radius)} - responsável por definir se um ponto (X, Y) qualquer está ou não contido em um círculo, dado o centro deste e o raio.
 \end{itemize}
 
-Além das funções trigonométricas existem também as funções relativas a 
-
-
-A função de regressão linear é responsável por fazer uma identificação de uma condicional de uma variável y, tendo dados de vários x.
-
-\textbf{COMPLETE WALLACE}
-
-
-
-\subsubsection{O módulo \textit{"processingimage"}}
-Nesse módulo está definido o processo de tratamento de imagem.
-
-
-
-\subsection{Módulo de Visão}
-
-Módulo onde ficam as funções relativas a visão computacional para agentes inteligenes, ele leva em consideração o uso de redes neurais para fazer a extração de característicase também vários algoritmos de segmentação.
-
-\subsection{Módulo de Mapeamento}
-
-O módulo responsável pela inteligência do agente, no que diz respeito à localização, movimentação, mapeamento e navegação. 
-\begin{itemize}
-\item Localização: Entende-se por localização a capacidade do agente localizar-se em um ambiente. 
-\item Movimentação: É a capacidade de locomoção em um ambiente.
-\item Mapeamento: É o modo como o agente localiza marcos para identificar a forma do ambiente.
-\item Navegação: O agente se move pelo ambiente mapeado visando um objetivo, com tarefas como otimização de rotas.
-
-\end{itemize}
+Além das funções trigonométricas existem também as funções relativas a  Regressão linear que é responsável por fazer uma identificação de uma condicional de uma variável y, tendo dados de vários x.

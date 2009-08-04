@@ -7,11 +7,12 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces \`A esquerda, rob\^o que trabalha como policial, no Jap\~ao. \`A direita, rob\^o criado para ser maestro de uma orquestra.}}{22}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama que demonstra a arquitetura do Core do Horus.}}{29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces O agente utilizado nos testes. Modelado em \textit {Blende3D}.}}{39}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}}{39}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Os lasers projetados a partir do agente. Gerenciados pelo \textit {Panda3D}.}}{40}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces O agente utilizado nos testes. Modelado em \textit {Blende3D}.}}{40}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}}{40}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Os lasers projetados a partir do agente. Gerenciados pelo \textit {Panda3D}.}}{41}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
