@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2009.7.29)  4 AUG 2009 19:28
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2009.7.29)  5 AUG 2009 19:55
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -314,9 +314,12 @@ LaTeX Info: Redefining \addtolength on input line 76.
 )
 \c@mypage=\count116
 
-(Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
-(dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
-(introducao.aux) (cap2.aux) (cap3.aux
+(Projeto_Final.aux (capa.aux) (folhaaprovacao.aux) (dedicatoria.aux)
+(agradecimentos.aux) (resumo.aux) (abstract.aux) (introducao.aux) (cap1.aux)
+(cap2.aux) (cap3.aux
+
+LaTeX Warning: Label `fig:seg4' multiply defined.
+
 
 LaTeX Warning: Label `fig:seg4' multiply defined.
 
@@ -344,46 +347,28 @@ LaTeX Font Info:    ... okay on input line 65.
 [1
 
 
-]) (folharosto.tex
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+]) (folhaaprovacao.tex
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
 [][]\OT1/cmr/m/n/12 Monografia ap-re-sen-tada a Uni-ver-si-dade
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 31--32
+Underfull \hbox (badness 1048) in paragraph at lines 30--31
 \OT1/cmr/m/n/12 C^andido Mendes como req-ui-sito obri-gatorio
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 31--32
+Underfull \hbox (badness 1448) in paragraph at lines 30--31
 \OT1/cmr/m/n/12 para a obtenc~ao do grau de Bacharel em
  []
 
 [2
 
 
-]) (folhaaprovacao.tex
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-[][]\OT1/cmr/m/n/12 Monografia ap-re-sen-tada a Uni-ver-si-dade
- []
+]) (dedicatoria.tex [3
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 32--33
-\OT1/cmr/m/n/12 C^andido Mendes como req-ui-sito obri-gatorio
- []
-
-
-Underfull \hbox (badness 1448) in paragraph at lines 32--33
-\OT1/cmr/m/n/12 para a obtenc~ao do grau de Bacharel em
- []
-
-[3
-
-
-]) (dedicatoria.tex [4
-
-
-]) (agradecimentos.tex) [5
+]) (agradecimentos.tex) [4
 
 
 
@@ -396,13 +381,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-] (abstract.tex
-Overfull \hbox (9.29094pt too wide) in paragraph at lines 9--10
-[]\OT1/cmr/m/n/12 Keywords: MAP-PING, LO-CAL-IZA-TION, SI-MUL-TA-NE-OUS LO-CAL-
-IZA-TION AND MAP-
- []
-
-)
+] (abstract.tex)
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
@@ -410,30 +389,38 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-] (Projeto_Final.toc)
-\tf@toc=\write3
-
+] (Projeto_Final.toc
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 [8
 
 
-] (Projeto_Final.lof)
+])
+\tf@toc=\write3
+
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[9] (Projeto_Final.lof
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[10
+
+])
 \tf@lof=\write4
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[9
-
-] (Projeto_Final.lot)
+[11] (Projeto_Final.lot)
 \tf@lot=\write5
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[10
+[12
 
 ] (introducao.tex
 Cap\'{\i }tulo 1.
@@ -441,7 +428,7 @@ Cap\'{\i }tulo 1.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[11
+[13
 
 
 
@@ -450,97 +437,88 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[12])
+[14])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[13] (cap2.tex
+[15] (cap1.tex
 Cap\'{\i }tulo 2.
-File: imagens/core.PNG Graphic file (type eps)
-<imagens/core.PNG>
+
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[14
+[16
 
 
 
 ]
-File: imagens/brainExtension.PNG Graphic file (type eps)
- <imagens/brainExtension.PNG>
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[15]
-File: imagens/behaviorExtension.PNG Graphic file (type eps)
- <imagens/behaviorExtension.PNG>
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[16]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [17]
-File: imagens/vizinhanca.png Graphic file (type eps)
- <imagens/vizinhanca.png>
+Overfull \hbox (13.76505pt too wide) in paragraph at lines 32--33
+[][]\OT1/cmr/m/n/12 Comportamentos po-dem ser di-vi-di-dos em duas cat-e-go-ria
+s. Os Com-por-ta-men-tos Primarios:
+ []
+
+
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [18]
-File: imagens/t_sk.PNG Graphic file (type eps)
- <imagens/t_sk.PNG>
-File: imagens/b_sk.PNG Graphic file (type eps)
- <imagens/b_sk.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [19]
-File: imagens/grid.PNG Graphic file (type eps)
- <imagens/grid.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [20]
-File: imagens/grid2_3.PNG Graphic file (type eps)
- <imagens/grid2_3.PNG>
+File: imagens/neuronioBio.PNG Graphic file (type eps)
+ <imagens/neuronioBio.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [21]
-File: imagens/condition1.PNG Graphic file (type eps)
- <imagens/condition1.PNG>
-File: imagens/condition2.PNG Graphic file (type eps)
- <imagens/condition2.PNG>
-File: imagens/grid11.PNG Graphic file (type eps)
- <imagens/grid11.PNG>
-File: imagens/grid13.PNG Graphic file (type eps)
-
-<imagens/grid13.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [22]
-File: imagens/sk_demonstration.PNG Graphic file (type eps)
- <imagens/sk_demonstration.PNG>
-File: imagens/erodedPatterns.PNG Graphic file (type eps)
- <imagens/erodedPatterns.PNG>
+File: imagens/mcculloch.PNG Graphic file (type eps)
+ <imagens/mcculloch.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [23]
+File: imagens/funcaoAtivacao.PNG Graphic file (type eps)
+ <imagens/funcaoAtivacao.PNG>
+File: imagens/graficoFuncaoLimiar.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoLimiar.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [24]
+File: imagens/graficoFuncaoSigmoide.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoSigmoide.PNG>
+File: imagens/graficoFuncaoSignun.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoSignun.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [25]
+File: imagens/graficoHiperbolica.PNG Graphic file (type eps)
+ <imagens/graficoHiperbolica.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [26]
+File: imagens/redeUmaCamada.PNG Graphic file (type eps)
+ <imagens/redeUmaCamada.PNG>
+File: imagens/redeMultiplaCamada.PNG Graphic file (type eps)
+ <imagens/redeMultiplaCamada.PNG>
+File: imagens/feedBack.PNG Graphic file (type eps)
+
+<imagens/feedBack.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -548,35 +526,27 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[28])
+[28]
+
+LaTeX Warning: File `imagens/aprendizadoSuper.PNG' not found on input line 278.
+
+
+File: imagens/aprendizadoSuper.PNG Graphic file (type eps)
+<imagens/aprendizadoSuper.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[29] (cap3.tex
-Cap\'{\i }tulo 3.
-File: imagens/arquiteturaAmbiente.png Graphic file (type eps)
-<imagens/arquiteturaAmbiente.png>
-
-LaTeX Warning: Reference `arquiteturaAriadnes' on page 30 undefined on input li
-ne 21.
-
-
-Overfull \vbox (2.49998pt too high) has occurred while \output is active []
-
-
-[30
-
-
-
-]
-File: imagens/robo.png Graphic file (type eps)
- <imagens/robo.png>
+[29]
+File: imagens/aprendizadoNSuper.PNG Graphic file (type eps)
+ <imagens/aprendizadoNSuper.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[31]
-File: imagens/galpao.png Graphic file (type eps)
- <imagens/galpao.png>
+[30]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[31])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -584,23 +554,171 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[33]
-File: imagens/placa.png Graphic file (type eps)
- <imagens/placa.png>)
+[33] (cap2.tex
+Cap\'{\i }tulo 3.
+
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[34
+
+
+
+]
+File: imagens/core.PNG Graphic file (type eps)
+ <imagens/core.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[34]
+[35]
+File: imagens/brainExtension.PNG Graphic file (type eps)
+ <imagens/brainExtension.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[35] (conclusao.tex
+[36]
+File: imagens/behaviorExtension.PNG Graphic file (type eps)
+ <imagens/behaviorExtension.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[37]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[38]
+File: imagens/vizinhanca.png Graphic file (type eps)
+ <imagens/vizinhanca.png>
+File: imagens/t_sk.PNG Graphic file (type eps)
+ <imagens/t_sk.PNG>
+File: imagens/b_sk.PNG Graphic file (type eps)
+ <imagens/b_sk.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[39]
+File: imagens/grid.PNG Graphic file (type eps)
+ <imagens/grid.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[40]
+File: imagens/grid2_3.PNG Graphic file (type eps)
+ <imagens/grid2_3.PNG>
+File: imagens/condition1.PNG Graphic file (type eps)
+ <imagens/condition1.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[41]
+File: imagens/condition2.PNG Graphic file (type eps)
+ <imagens/condition2.PNG>
+File: imagens/grid11.PNG Graphic file (type eps)
+ <imagens/grid11.PNG>
+File: imagens/grid13.PNG Graphic file (type eps)
+ <imagens/grid13.PNG>
+File: imagens/sk_demonstration.PNG Graphic file (type eps)
+
+<imagens/sk_demonstration.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[42]
+File: imagens/erodedPatterns.PNG Graphic file (type eps)
+ <imagens/erodedPatterns.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[43]
+File: imagens/pixelMatrix.PNG Graphic file (type eps)
+ <imagens/pixelMatrix.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[44]
+File: imagens/layoutsix.PNG Graphic file (type eps)
+ <imagens/layoutsix.PNG>
+File: imagens/quatorze.PNG Graphic file (type eps)
+ <imagens/quatorze.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[45]
+File: imagens/matriz.PNG Graphic file (type eps)
+ <imagens/matriz.PNG>
+File: imagens/vetorCaracteristicas.PNG Graphic file (type eps)
+ <imagens/vetorCaracteristicas.PNG>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[46]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[47]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[48])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[49] (cap3.tex
 Cap\'{\i }tulo 4.
+File: imagens/arquiteturaAmbiente.png Graphic file (type eps)
+<imagens/arquiteturaAmbiente.png>
+Overfull \vbox (2.49998pt too high) has occurred while \output is active []
+
+
+[50
+
+
+
+]
+File: imagens/robo.png Graphic file (type eps)
+ <imagens/robo.png>
+File: imagens/galpao.png Graphic file (type eps)
+ <imagens/galpao.png>
+Overfull \hbox (1.95322pt too wide) in paragraph at lines 58--60
+[][]\OT1/cmr/m/n/12 A maquina de es-ta-dos uti-lizada no Ari-adnes e com-post
+a por: ma-pea-mento, navegac~ao,
+ []
+
+
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[51]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[52]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[53]
+File: imagens/placa.png Graphic file (type eps)
+ <imagens/placa.png>
+Overfull \hbox (2.97256pt too wide) in paragraph at lines 95--96
+[][]\OT1/cmr/m/n/12 Para re-alizar o re-con-hec-i-mento dos lo-cais e direc~oe
+s ap-re-sen-ta-dos na placa, e necessario
+ []
+
+)
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[54]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[55] (conclusao.tex
+Cap\'{\i }tulo 5.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[36
+[56
 
 
 
@@ -608,7 +726,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[37
+[57
 
 
 
@@ -618,7 +736,7 @@ Ap\^endice A.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[38
+[58
 
 
 
@@ -628,26 +746,37 @@ Ap\^endice B.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[39
+[59
 
-] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
-(dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
-(introducao.aux) (cap2.aux) (cap3.aux) (conclusao.aux) (bibliografia.aux)
-(apendice.aux))
+]
 
-LaTeX Warning: There were undefined references.
+! LaTeX Error: \begin{spacing} on input line 137 ended by \end{document}.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.166 \end{document}
+                    
+? 
+(Projeto_Final.aux (capa.aux) (folhaaprovacao.aux) (dedicatoria.aux)
+(agradecimentos.aux) (resumo.aux) (abstract.aux) (introducao.aux) (cap1.aux)
+(cap2.aux) (cap3.aux) (conclusao.aux) (bibliografia.aux) (apendice.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 137 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 2859 strings out of 95305
- 34991 string characters out of 1182751
- 94609 words of memory out of 1500000
- 5908 multiletter control sequences out of 110000
+ 2921 strings out of 95305
+ 36097 string characters out of 1182751
+ 95804 words of memory out of 1500000
+ 5953 multiletter control sequences out of 110000
  10158 words of font info for 36 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 28i,15n,27p,1460b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,15n,27p,1487b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Projeto_Final.dvi (39 pages, 73372 bytes).
+Output written on Projeto_Final.dvi (58 pages, 133280 bytes).

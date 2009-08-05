@@ -1,4 +1,4 @@
-\chapter{Aplicações}
+\chapter{Aplicacoes}
 \label{cap:aplicacoes}
 
 \section{Anpr}
@@ -6,28 +6,36 @@
 \section{Teseu}
 
 \section{Ariadnes}
-Ariadnes é um sistema que simula a movimentação autônoma de um agente inteligente em um ambiente. Nele é possivel simular o comportamento de um robô real no que tange mapeamento e navegação. Inicialmente, o agente tem o objetivo de chegar a uma determinada sala no ambiente utilizando técnicas de localização e mapeamento de ambientes e de visão computacional. O simulador Ariadnes é composto por quatro partes principais, onde duas delas utilizam o toolkit Horus. 
+Ariadnes é um sistema que simula a movimentação autônoma de um agente inteligente em um ambiente. Nele é possivel simular o comportamento de um robô real no que tange mapeamento e navegação. Inicialmente, o agente tem o objetivo de chegar a uma determinada sala no ambiente utilizando técnicas de localização e mapeamento de ambientes e de visão computacional. O simulador Ariadnes é composto por quatro partes principais, onde duas delas utilizam o \textit{toolkit} Horus. A Figura \ref{fig:arquiteturaAriadnes} apresenta a arquitetura conceitual do simulador Ariadnes com seus principais componentes.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.6, bb=0 0 300 300]{imagens/arquiteturaAmbiente.png}
+ \includegraphics[scale=0.2, bb=0 0 1036 1161]{imagens/arquiteturaAmbiente.png}
 \end{center}
 \caption{Arquitetura conceitual do simulador Ariadnes. }
 \label{fig:arquiteturaAriadnes}
 \end{figure}
 
 
-A Figura \ref{arquiteturaAriadnes} apresenta a arquitetura conceitual do simulador Ariadnes com seus principais componentes. Por fim, o agente identifica os locais e suas respectivas direções, presentes na placa, e define a direção para qual ele deve seguir baseado em seu objetivo pré-estabelecido.
+%\begin{figure}[!htb]
+%\centering
+%begin{center}
+%   \includegraphics[scale=0.2, bb=0 0 1567 990]{imagens/robo.png}
+%\end{center}
+%\caption{AMBIENTE e placa.}
+%\label{fig:seg4}
+%\end{figure}
 
-As principais partes do simulador Ariadnes são: ambiente, engine 3D, agentes e dispositivos. O ambiente, nesse simulador, foi construído utilizando o modelador Blender3D. Esse ambiente é composto basicamente de diversos cômodos interligados por corredores, em alguns pontos desse ambiente existem placas informativas cujo objetivo é orientar o agente durante o mapeamento, como mostra a Figura 8. A
-engine 3D utilizada no controle do ambiente e do agente foi o Panda3D. Por último, agentes e dispositivos são extensões de abstrações fornecidas no módulo Core do Horus para implementação de tais partes. O agente configurado com
+As principais partes do simulador Ariadnes são: ambiente, engine 3D, agentes e dispositivos. O ambiente, nesse simulador, foi construído utilizando o modelador Blender3D. Esse ambiente é composto basicamente de diversos cômodos interligados por corredores, em alguns pontos desse ambiente existem placas informativas cujo objetivo é orientar o agente durante o mapeamento, como mostra a Figura 0000. 
+
+A engine 3D utilizada no controle do ambiente e do agente foi o Panda3D. Por último, agentes e dispositivos são extensões de abstrações fornecidas no módulo Core do Horus para implementação de tais partes. O agente configurado com
 dispositivos emissores de lasers é mostrado na Figura 00001.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.8, bb=0 0 350 200]{imagens/robo.png}
+    \includegraphics[scale=0.2, bb=0 0 1567 990]{imagens/robo.png}
 \end{center}
 \caption{Agente configurado com dispositivos de lasers.}
 \label{fig:seg4}
@@ -39,16 +47,15 @@ Inicialmente, o agente é configurado com os comportamentos de Navegação, Mapeame
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.6, bb=0 0 350 450]{imagens/galpao.png}
+    \includegraphics[scale=0.2, bb=0 0 566 724]{imagens/galpao.png}
 \end{center}
 \caption{Ambiente utilizado no Ariadnes}
 \label{fig:ambienteEplaca}
 \end{figure}
 
-Após o estabelecimento da missão, o agente inicia o mapeamento do ambiente utilizando os algoritmos do módulo Mapeamento do Horus para construir uma representação do ambiente em forma de grafo. A máquina de estados utilizada
-no Ariadnes é composta por: mapeamento, navegação, reconhecimento de objetos e execução. O agente tem por objetivo partir de um ponto inicial para um ponto final, para isso, ele tenta definir uma rota. Nesse momento, o agente se encontra no estado de navegação. Caso ele não consiga definir uma
-rota, o estado desse agente muda para mapeamento. Nesse estado, ele explorará o ambiente até que encontre uma placa ou algum ponto já mapeado. Caso encontre a placa, seu estado mudará para reconhecimento de objetos. No estado de reconhecimento de objetos, caso a placa seja a identificação do cômodo destino, seu estado muda para execução. Caso contrário, o agente muda para o estado de navegação ou retorna para o estado de reconhecimento de objetos, caso a
-placa identificada seja informativa. No estado de execução, uma tarefa especifica, previamente determinada, é realizada. No estado de mapeamento, ao encontrar um ponto já mapeado, ele verifica se agora é possível traçar uma rota até seu objetivo. Caso não seja possível, o agente continua no estado de mapeamento.
+Após o estabelecimento da missão, o agente inicia o mapeamento do ambiente utilizando os algoritmos do módulo Mapeamento do Horus para construir uma representação do ambiente em forma de grafo. 
+
+A máquina de estados utilizada no Ariadnes é composta por: mapeamento, navegação, reconhecimento de objetos e execução. O agente tem por objetivo partir de um ponto inicial para um ponto final, para isso, ele tenta definir uma rota. Nesse momento, o agente se encontra no estado de navegação. Caso ele não consiga definir uma rota, o estado desse agente muda para mapeamento. Nesse estado, ele explorará o ambiente até que encontre uma placa ou algum ponto já mapeado. Caso encontre a placa, seu estado mudará para reconhecimento de objetos. Nesse estado, caso a placa seja a identificação do cômodo destino, seu estado muda para execução. Caso contrário, o agente muda para o estado de navegação ou retorna para o estado de reconhecimento de objetos, caso a placa identificada seja informativa. No estado de execução, uma tarefa especifica, previamente determinada, é realizada. No estado de mapeamento, ao encontrar um ponto já mapeado, ele verifica se agora é possível traçar uma rota até seu objetivo. Caso não seja possível, o agente continua no estado de mapeamento.
 O agente é capaz de estimar sua posição local para se localizar globalmente e recuperar-se de possíveis erros de localização. A proposta utilizada para realização das etapas de mapeamento e localização é a técnica SLAM, descrita na Seção 0000. Durante o mapeamento, uma câmera é utilizada pelo agente para localizar as placas informativas presentes no ambiente. Quando este depara-se com uma dessas placas, interrompe o processo de mapeamento e utiliza algoritmos de visão para interpretar o conteúdo existente na placa, a fim de estabalecer a direção para a qual ele deve seguir no ambiente. A captura da cena por câmeras permite a utilização de procedimentos de visão computacional, como extração de características, OCR, localização de placas e reconhecimento de informações de direção presentes no ambiente. No ambiente utilizado no Ariadnes existem marcos, localizados no chão, com os objetivos de: auxiliar a localização das placas identificadoras de cômodos e direções e diminuir o tempo necessário no processo de localização das placas. Para isso, o agente é configurado com duas câmeras: uma delas apontando para o chão, utilizada para localizar os marcos no chão do ambiente; e a segunda câmera é apontada para frente do agente, simulando sua visão, essa câmera é utilizada no processo de localização e reconhecimento das placas. A figura a seguir mostra uma foto capturada por cada uma das câmeras citas.
 
             
@@ -62,7 +69,7 @@ O agente é capaz de estimar sua posição local para se localizar globalmente e re
 %\end{figure}
 
   Ao encontrar um marco, (FALAR do ALINHAMENTODO ROBO ANTES DE FOTOGRAFAR) o agente fotografa a placa. Com essa imagem, inicia-se o processo de reconhecimento da placa. Esse processo consiste nas etapas de: localização e segmentação da placa, distinção de setas e textos, reconhecimento do texto, identificação da direção da seta.
-  O processo de localização da placa pode ser resolvido em duas etapas. A primeira etapa consiste em localizar a região da placa na imagem. Inicialmente, aplica-se o filtro de Sobel, descrito na Secao 000000, a fim de detectar as arestas horizontais e verticais. Após a detecção das arestas, pretende-se encontrar a região com maior densidade de arestas, pois, geralmente a placa se encontra nessa região. Para isso, a técnica utilizada consiste na utilização da projeção vertical e da horizontal, ambas descritas na Seção 000. A projeção horizontal (vertical) consiste em, para cada linha (coluna), aplicar o somatório da intensidade de luminância. Após o cálculo das projeções, calcula-se a média e aplica-se um threshold global. Isso define intervalos de valores, na projeção, diferentes de zero. A placa, normalmente, encontra-se no intervalo que contém o ponto de máximo da função projeção, pode-se observar na FIGURA 000000.
+  O processo de localização da placa pode ser resolvido em duas etapas. A primeira etapa consiste em localizar a região da placa na imagem. Inicialmente, aplica-se o filtro de Sobel, descrito na Secao 000000, a fim de detectar as arestas horizontais e verticais. Após a detecção das arestas, pretende-se encontrar a região com maior densidade de arestas, pois, geralmente a placa se encontra nessa região. Para isso, a técnica utilizada consiste na utilização da projeção vertical e da horizontal, ambas descritas na Seção 000. Após o cálculo das projeções, calcula-se a média e aplica-se um \textit{threshold} global. Isso define intervalos de valores, na projeção, diferentes de zero. A placa, normalmente, encontra-se no intervalo que contém o ponto de máximo da função projeção, pode-se observar na FIGURA 000000.
 
 % \begin{figure}[!htb]
 %\centering
@@ -78,7 +85,7 @@ A placa é constituída de várias linhas, cada linha contém duas colunas. A primei
  \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.7, bb=0 0 300 150]{imagens/placa.png}
+    \includegraphics[scale=0.2, bb=0 0 761 408]{imagens/placa.png}
 \end{center}
 \caption{Placa informativa.}
 \label{fig:seg4}
@@ -96,7 +103,7 @@ Para realizar o reconhecimento dos locais e direções apresentados na placa, é ne
 %\label{fig:seg4}
 %\end{figure}
 
-Após a etapa de segmentação da imagem em duas regiões, separa-se a cada coluna em linhas. Isso é feito através da projeção vertical, como mostra a figura a seguir.
+Após a etapa de segmentação da imagem em duas regiões, separa-se cada coluna em linhas. Isso é feito através da projeção vertical, como mostra a figura a seguir.
 
 % \begin{figure}[!htb]
 %\centering
@@ -108,4 +115,5 @@ Após a etapa de segmentação da imagem em duas regiões, separa-se a cada coluna e
 %\end{figure}
 
  Para a identificação do texto e da seta de cada linha, utiliza-se os
-métodos de extração de características do Horus, utilizando-os como padrões de entrada para uma rede neural artificial, também implementada no toolkit criado.
+métodos de extração de características do Horus, utilizando-os como padrões de entrada para uma rede neural artificial, também implementada no Horus. Por fim, o agente identifica os locais e suas respectivas direçoões, presentes na placa, e define a direção para qual ele deve seguir baseado em
+seu objetivo pré-estabelecido.
