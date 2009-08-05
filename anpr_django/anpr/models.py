@@ -7,9 +7,12 @@ class Person(models.Model):
     city = models.CharField(max_length=60)
     country = models.CharField(max_length=50)
     email = models.EmailField()
-    identity = models.CharField(max_length=14)
-    cpf = models.CharField(max_length=14)
+    identity = models.CharField(max_length=14, unique=True)
+    cpf = models.CharField(max_length=14, unique=True)
     phone = models.CharField(max_length=14)
+
+    def __unicode__(self):
+        return self.cpf
 
 
 class Car(models.Model):
