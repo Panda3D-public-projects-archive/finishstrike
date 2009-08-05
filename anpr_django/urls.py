@@ -40,7 +40,8 @@ urlpatterns = patterns('',
 
     (r'^person/view/(?P<object_id>\d+)/?$', 'django.views.generic.list_detail.object_detail',
             dict({'queryset': Person.objects.all(),
-                  'template_name': 'person/person_view.html'},
+                 'template_object_name': 'person',
+                 'template_name': 'person/person_view.html'},
                  extra_context=extra_context)),
 
     (r'^person/create/?$', 'django.views.generic.create_update.create_object',
@@ -53,17 +54,19 @@ urlpatterns = patterns('',
       'django.views.generic.create_update.update_object',
       dict({'model': Person,
             'template_name': 'person/person_form.html'},
-            extra_context=extra_context)),
+            extra_context=extra_context,
+            post_save_redirect="/person/view/")),
 
     (r'^person/delete/(?P<object_id>\d+)/?$',
       'django.views.generic.create_update.delete_object',
       dict({'model': Person, 
+            'template_object_name': 'person',
             'template_name': 'person/person_confirm_delete.html'}, 
             extra_context=extra_context,
             post_delete_redirect="/person/list/")),
 
    # XXX - it is not required for now.
-   # (r'^person/search/$','anpr_project.anpr.views.search'),
+   # (r'^person/search/$','anpr_django.anpr.views.search'),
 
    #Car url's
     (r'^car/create/?$','django.views.generic.create_update.create_object',
@@ -92,6 +95,6 @@ urlpatterns = patterns('',
     #	     'paginate_by': 10,	
     #	},
     #	    extra_context=car_extra_context)),
-    (r'^car/list/?$', 'anpr_project.anpr.views.car_list'),
+    (r'^car/list/?$', 'anpr_django.anpr.views.car_list'),
     
 )

@@ -1,4 +1,4 @@
-from anpr_project.anpr.models import *
+from anpr_django.anpr.models import *
 from django.forms import *
 
 class PersonForm(ModelForm):

@@ -6,7 +6,7 @@
       People not found.
     {% else %}
       {% for person in person_list %}
-      <div class='label'>Name: <a href="/person/{{ person.id }}/">{{ person.name }}</a> <br/>
+      <div class='label'>Name: <a href="/person/view/{{ person.id }}/">{{ person.name }}</a> <br/>
           E-mail: {{person.email}}<br/>
           <a href="/person/view/{{ person.id }}/"> View </a> |
           <a href="/person/update/{{ person.id }}/"> Update </a> |
@@ -30,6 +30,7 @@
         <a href="/person/list/?page={{ next }}"> Next </a>
       {% endif %}
       <br/>
-      <a href="/person/create/"> New Person </a>
     {% endif %}
+    <br/>
+    <a href="/person/create/"> New Person </a>
 {% endblock %}

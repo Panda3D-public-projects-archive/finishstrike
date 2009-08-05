@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from django.template import Context
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from anpr_project.anpr.models import Person, Car
-from anpr_project.anpr.forms import PersonForm
+from anpr_django.anpr.models import Person, Car
+from anpr_django.anpr.forms import PersonForm
 
 def index(request):
   context_instance=RequestContext(request)
