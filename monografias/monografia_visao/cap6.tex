@@ -2,6 +2,78 @@
 %%  ANPR
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{amssymb}
 
 \chapter{ANPR}
 \label{cap:anpr}
+
+    Nesse capitulo serão abordados os conceitos sobre um sistema de Reconhecimento Automatico De Numeros de Placas (Automatic Number Plate Recognition - ANPR). Nesse trabalho será adotado o acrônimo do termo em inglês ANPR. Atualmente, ANPR se tornou a principal técnica para muitos sistemas de transporte automatizado, como monitoramento de tráfego em estradas, pagamento automático de pedágios e controle de acesso a pontes e estacionamentos. Esse tipo de sistema consiste em, a partir de uma imagem de um carro, localizar a placa e identificar os caracteres presentes nesta. Com base no reconhecimento dos caracteres presentes na placa, é possivel identificar o carro e levantar informações sobre o mesmo automaticamente.
+
+    Sistemas ANPR também são conhecidos como: Automatic licence plate recognition (ALPR), Automatic vehicle identification (AVI), Car plate recognition (CPR), Licence plate recognition (LPR) e Lecture Automatique de Plaques d'Immatriculation (LAPI). A idéia de um sistema ANPR foi criado em 1976, pelo Departamento de Desenvolvimento Científico de Polícia no Reino Unido, com o objetivo de identificar carros roubados. O primeiro prototipo desenvolvido, ficou pronto em 1979, e foi desenvolvido pela empresa Britanica EMI Electronics. Esse sistema começou a ser testado na rodovia A! e no Túnel Dartford, ambos na Inglaterra. Somente em 1981 identificação de um carro roubado, seguido de prisão do delinquente, através da utilizalção deste sistema.
+
+    Há algum tempo atrás, a identificação de veículos era um trabalho completamente manual, porém, com o crescimento do tráfego de veículos nas rodovias, a tarefa de identificação manual de veículos se tornou inviável. Com a evolução dos componentes eletrônicos, foi criado um sistema AVI, onde, o código do veículo era armazenado em um transponder que era instalado em cada veículo. Quando o veículo passava por alguns pontos de controle da rodovia, unidades de leitura identificavam a sua presença e realizavam a leitura do seu código, presente no transponder. Muitos sistema AVI eram equipados com um sistema de captura de vídeo, aumentando o seu custo. Com o aumento considerável de veículos, a produção e manutenção em larga escala desses sistemas passou a se tornar extremamente custosa. Com a evolução das técnicas de visão computacional, tornou-se possível a identificação de veículos pela leitura de suas placas através de câmeras de monitoramento, diminuindo o custo para implantação desse tipo de sistema.
+
+    No Aplicação ANPR desenvolvida existem três etapas entre a inclusão da imagem de um carro até a extração do caracter. A primeira consiste na localização da Placa. A segunda consiste num pre-processamento da placa, para binarizar a imagem e remover ruidos. E a terceira etapa consiste em aplicar uma função de OCR para identificar os caracteres da placa.
+
+    CRIAR IMAGEM: .... Imagem .....> || Localização da Placa || ...... Placa ....> || Pre-Processamento||  ... Imagem Binaria e sem Ruido ...> || OCR || ... caracteres...>
+
+
+    \section{Localização}
+    O processo de localização da placa consiste em definir uma região (normalmente um retângulo com a orientação da imagem, mas também pode ser um retângulo rotacionado de modo a se ajustar otimamente a placa) que contenha a Imagem. Quanto melhor ajustar o retângulo a placa, melhor será para o processo de reconhecimento dessa. Para gerar este retângulo, neste trabalho, aplicou-se duas etapas. Na primeira aplica-se um corte vertical definindo o intervalo de linhas que inclua a placa. Essa região foi denominada de \textit{Band}. A segunda etapa é semelhante. Realiza-se um corte horizontal no \textit{band} definindo a região que contém a placa, denominada de \textit{Plate}. A Figura X mostra essas duas etapas.
+
+    Figura X: (a) Fotografia de um carro; (b) band; (c) plate.
+
+    O método de localização do Band inicia-se com um pré-processamento na imagem do carro. Esse pré-processamento consiste em aplicar um filtro de detecção de arestas verticais (filtro de sobel - vertical) em uma imagem em escala de cinza. Esse processo é mostrado na Figura X.
+
+    Figura X: (a) Fotografia de um carro; (b) imagem convertida para escala de cinza; (c) imagem filtrada por Sobel-Vertical.
+
+    Após o pré-processamento aplica-se uma projeção vertical. Essa projeção consiste em somar a itensidade de cor dos pixels da imagem filtrada linha a linha. Matematicamente podemos definir a projeção vertical como uma função $pv: {0,...,h-1}\longrightarrow \mathbb{N}$ onde $pv(i)=\sum_{j=0}^{w-1} I(i,j)$ sendo $I:[0, w]\times[0, h]\longrightarrow{0,1,...,255}]$ a função de intensidade de luz da imagem pre-processada cuja largura é $w$ e altura é $h$. A figura X mostra o exemplo de uma projeção vertical de uma imagem de um carro.
+
+    Figura X: (a) Imagem do carro; (b) pré-processamento (c) projeção vertical
+
+    Analogamente, no processo de detecção do plate aplica-se um pré-processamento, que difere-se do pré-processamento do band somente no fato que o filtro de detecção de arestas usado é o filtro de sobre - horizontal. No resultado do pré-processamento aplica-se uma projeção horizontal. Essa projeção é analoga a projeção vertical. Nessa soma-se, coluna a coluna, as intensidades de cor de cada pixel. Matematicamente essa é dada pela função $ph: {0,...,w-1}\longrightarrow \mathbb{N}$ onde $pw(j)=\sum_{i=0}^{h-1} I(i,j)$. A figura X mostra o exemplo de uma projeção horizontal de uma imagem de um band.
+
+    Figura X: (a) Imagem do band; (b) pré-processamento (c) projeção horizontal
+ća
+    Normalmente o máximo global da projeção vertical está na região que contém a placa. Isso se deve ao fato que em uma imagem de carro filtrada por Sobel-Vertical, normalmente, a região da placa é a região que contém mais arestas, e portanto a região que contém o máximo global da função. Sendo essa uma função discreta o processo de deteção de maximo global pde ser determinado por inspeção, sem grandes custos computacionais. A esse valor de maximo global, denominaremos de \textit{pico}.
+
+    Para definir o band é necessário encontrar a linha inicial e a linha final da imagem do carro que o determinarão. Para tal é necessario definir uma região próximo ao pico. A abordagem utilizada nesse projeto para definir essa região divide-se em duas etapas. Na primeira aplica-se uma suavização na projeção vertical. Para isso aplica-se um processo de convolução na imagem da função projeção. Essa convolução calcula a média de valores em uma determinada vizinhança. Após isso, na segunda etapa aplica-se uma função \textit{threshold}, que consiste em, dado um valor $x$ que nesse caso é a média dos valores da imagem da projeção, para cada elemento da imagem da projeção verifica se este é menor que x: caso seja zera-o. Após essa etapa temos uma função cuja imagem está dividida em intervalos não nulos. Normalmente a placa está no intervalo que contém o pico. Logo, basta pegar o indice inicial e o final que definem esse intervalo e considera-los como as linhas inicial e final, respectivamente, usadas para o corte do Band. A Figura X mostra o processo de projeção para determinar o band.
+
+    FiguraX: (a) Imagem do carro; (b) pre-processamento; (c) projeção vertical; (d) projeção suavizada; (e) threshold; (f) band.
+
+    O processo de detecção do plate é semelhante. Aplica-se a projećao horizontal na imagem do band pré-processada, como dito anteriormente, e aplica-se as duas etapas de processamento na projeção, assim como feito na projeção vertical o que resultará em uma função cuja imagem estará dividida em intervalos não nulos. Normalmente a placa esta no intervalo de maior comprimento.
+
+    Como dito ao longo do texto esse processo não é determinístico. Ele basea-se na alta probabilidade de acerto verificada empiricamente. Porém pode-se adotar algumas tecnicas caso o band adotado nao seja o que contenha o pico. Isso pode acontecer quando alguma outra região da imagem que contenha o carro contenha algum objeto com riqueza de detalhes, ou haja excesso de ruidos concentrado em uma região. Nessas possibilidades haverá região de alta frequencia, além da região da placa. No caso do band podemos ordenar os intervalos obtidos na etapa final após a projeção. Essa ordenação basea-se em picos locais (picos nos intervalos). Então os intervalos são organizados decrescentemente baseado nos picos locais. Vale destacar que o conjunto dos picos locais não é o conjunto de máximos locais, pois em um intervalo podem ter mais de um máximo local. Com essa ordenação continua-se o processo a partir do primeiro intervalo. Caso no fim do processo não encontre nenhuma placa repete o processo com o band na segunda posição. Analogamente o plate pode não estar intervalo de maior comprimento. Dessa forma realiza-se uma ordenação decrescente baseada no tamanho dos intervalos. Outra alternativa é utilizar algum metodo para estimar a probabilidade de haver uma placa no band e no plate. Um método que pode ser utilizado é aplicar a Transforada de Hough e verificar se existe um quadrilatero na região determinada pelo band ou plate. Mais uma vez esse é um método probabilístico. Porém vale destacar que a taxa eficiencia é satisfatória.
+
+    \section{Pre-processamento da placa}
+
+    Normalmente a imagem da placa contém ruido ou está em uma resolução baixa. Esses fatores costumam baixar a taxa de acerto do reconhecimento dos caracteres (OCR). Para melhorar a qualidade da imagem, aumentando a taxa de acerto do reconhecimento de caracteres no sistema ANPR desenvolvido adotou-se um processo dividido em tres etapas. Na primeira etapa converte-se a imagem para escala de cinza. Na segunda extrai-se o ruido através de um filtro de convolução, cujo núcleo basea-se na mediana. Por fim aplica-se um threshold. Um possivel valor do limiar é 128, mas este pode ser alterado caso insira-se alguma outra etapa intermediaria. Uma etapa que pode ser utilizada é aplicar um filtro que realce arestas.
+
+    Dessa forma após o pré-processamento obtém-se uma imagem binária da placa que servirá de entrada para a próxima etapa: a de reconhecimento de caracter.
+
+
+    \section{OCR}
+    
+    Em computação, OCR (Optical Character Recognition) é o processo de tradução eletrônica de imagens que contenha um textos para textos que possam ser editados computacionalmente.Isso permite realizar operações que seriam inviáveis em texto no formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90, assim como em equipamentos como scanners.
+     
+    Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações que seriam impossíveis de serem realizadas sobre imagens, como por exemplo, a busca de determinado conteúdo de interesse.
+    
+    Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade das imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia [1]. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como “6” e “9”, “B” e “8” e “o” e “0”, são facilmente confundidos em imagens imperfeitas.
+    
+    Nesse sentido, atualmente, boa parte das pesquisas em OCR estão focadas na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda é uma área de pesquisa muito ativa. Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje.
+    
+    O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura 1 apresenta um esquema básico do processo de OCR.
+    
+    {Figura 1: Etapas do processo de OCR}
+    
+    Na figura 1, temos as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que inicialmente se encontra em escala de cinza ou colorida, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto. Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. Nas sessões seguintes serão apresentadas algumas formas de implementação dessas etapas juntamente com os algoritmos implementados no toolkit horus utilizados no processo de OCR.
+
+    \section{Aplicação Web}
+    - Comentar sobre a aplicação web criada para o sistema anpr
+    
+    \section{Aplicações do Horus}
+    O sistema de ANPR desenvolvido nesse projeto, e aborddao nesse capítulo foi desenvolvido utilizando recursos de visão computacional, processamento de imagem e de matemática disponiveis no toolkit horus. As funcionalidades de localização de uma placa e reconhecimento de caracterer também são utilizadas em uma outra aplicação desenvolvida utilizando o horus ao longo desse projeto. Essa aplicação foi denominada de Ariadenes e consiste em um sistema de mapeamento e navegação autônoma em ambientes virtuais. Nele um agente inteligente, que simula um robô real, se desloca em um ambiente. Para se orientar o agente realiza a leitura de placas colocadas no ambiente. Para que esse seja capaz de entender o conteudo da placa ele captura uma imagem que contenha a placa, localiza a placa nessa imagem e reconhece os caracteres. Esse processe é analogo ao desenvolvido no sistema ANPR abordado nesse capítulo. Uma melhor descrição do Ariadnes será feita no capítulo 8.
+
+Referências
+
+[1] S. V. Rice, G. Nagy, and T. A. Nartker, Optical Character Recognition: An Illustrated Guide to the Frontier, Kluwer Academic Publishers, Norwell, Massachusetts, 1999
