@@ -57,6 +57,11 @@ class Image(object):
 
         
 
+    def __getattribute__(self, attr):
+        try:
+            return super(Image, self).__getattribute__(attr)
+        except AttributeError:
+            return getattr(self.content, attr)
 
     def new(self, mode = "L", size = (100,100), color = 0):
         """
