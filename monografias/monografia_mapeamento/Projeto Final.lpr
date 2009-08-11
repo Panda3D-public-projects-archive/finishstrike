@@ -122,19 +122,56 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=43
+CaretPos.Y=78
 CharSet=def
 FileName=cap5.tex
 FoldedLines=
 IsMainFile=no
-Opened=no
+Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=113
-SearchListCount=0
+ScrollPos.Y=20
+SearchListCount=5
+
+[Files\13\SearchList\0]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=0
+Text=seen
+
+[Files\13\SearchList\1]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=0
+Text=já mape
+
+[Files\13\SearchList\2]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=0
+Text=já
+
+[Files\13\SearchList\3]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=1
+Text=agente encontra um
+
+[Files\13\SearchList\4]
+CaseSensitive=no
+Color=11730904
+RegExp=no
+Show=1
+Text=significa
+
+[Files\13]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=-1
+TabOrder=1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -150,15 +187,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=19
-CaretPos.Y=66
+CaretPos.X=12
+CaretPos.Y=18
 CharSet=def
 FileName=cap3.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=159
+ScrollPos.Y=11
 SearchListCount=5
 
 [Files\14\SearchList\0]
@@ -215,15 +252,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=236
-CaretPos.Y=36
+CaretPos.X=336
+CaretPos.Y=69
 CharSet=def
 FileName=cap7.tex
 FoldedLines=
 IsMainFile=no
-Opened=no
-ScrollPos.X=20
-ScrollPos.Y=46
+Opened=yes
+ScrollPos.X=0
+ScrollPos.Y=104
 SearchListCount=1
 
 [Files\15\SearchList\0]
@@ -236,7 +273,7 @@ Text=\cite
 [Files\15]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=-1
+TabOrder=2
 UseThesaurus=yes
 WrapLine=yes
 
@@ -253,14 +290,14 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=0
+CaretPos.Y=82
 CharSet=def
 FileName=cap8.tex
 FoldedLines=
 IsMainFile=no
 Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=68
 SearchListCount=1
 
 [Files\16\SearchList\0]
@@ -273,7 +310,7 @@ Text=encontra um novo
 [Files\16]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=1
+TabOrder=0
 UseThesaurus=yes
 WrapLine=yes
 
@@ -387,7 +424,7 @@ ScrollPos.Y=1
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=0
+TabOrder=4
 UseThesaurus=yes
 WrapLine=yes
 
@@ -459,15 +496,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=298
+CaretPos.Y=16
 CharSet=def
 FileName=abstract.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=8
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
@@ -571,15 +608,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=12
-CaretPos.Y=154
+CaretPos.X=0
+CaretPos.Y=143
 CharSet=def
 FileName=Projeto_Final.tex
 FoldedLines=
 IsMainFile=yes
-Opened=no
+Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=141
+ScrollPos.Y=135
 SearchListCount=6
 
 [Files\7\SearchList\0]
@@ -627,7 +664,7 @@ Text=bibliografia
 [Files\7]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=-1
+TabOrder=3
 UseThesaurus=yes
 WrapLine=yes
 
@@ -672,18 +709,18 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=0
+CaretPos.Y=13
 CharSet=def
 FileName=conclusao.tex
 FoldedLines=
 IsMainFile=no
-Opened=no
+Opened=yes
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=11
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=-1
+TabOrder=5
 UseThesaurus=yes
 WrapLine=yes
 
@@ -745,7 +782,7 @@ Zoom=9
 FileName=1
 FirstPage=0
 Magnifier=1
-Page=49
+Page=51
 PaperHeight=297
 PaperWidth=210
 Zoom=9

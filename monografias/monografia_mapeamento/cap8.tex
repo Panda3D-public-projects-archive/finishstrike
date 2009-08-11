@@ -24,9 +24,28 @@ Python é um linguagem orientada objetos de tipagem dinâmica, onde os tipos dos d
 \subsection{Blender}
 O Blender é um produto da Blender Fundation, que é open source e desenvolvido em Python para modelagem de objetos 3D que está disponível para vários sistemas operacionais sobre a licença GNU (\textit{General Public License}).
 
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.2,bb=0 0 1280 750]{imagens/fotos/blender.png}
+\end{center}
+\caption{Tela inicial do Blender.}
+\label{fig:blender}
+\end{figure}
+
+
 \subsection{Panda3D}
 
 O \textit{Panda3D} é um produto da equipe de desenvolvimento da Walt Disney para renderização de jogos e ambientes virtuais em terceira dimensão. Estão sobre licença da \textit{BSD License} (com algumas modificações para adequação a realidade do projeto).
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4,bb=0 0 808 628]{imagens/fotos/battle_robots.png}
+\end{center}
+\caption{Um exemplo de aplicação utilizando Panda3D.}
+\label{fig:panda3d_simple}
+\end{figure}
 
 \section{Ambiente}
 
@@ -61,43 +80,4 @@ A figura \ref{fig:ambiente_blender}, que demonstra o ambiente que foi utilizado,
 
 O Panda3d foi utilizado para fazer todos os tratamentos de colisão e virtualização de camêras e renderização do agente no ambiente. Os lasers, áreas de colisão são tratados conforme a imagem \ref{fig:ambiente_panda} Como o Blender3D agilizou o processo o fato do \textit{Panda3D} ser em \textit{Python}.
 
-\section{O mapeamento}
 
-No que diz respeito ao mapeamento foram utilizadas algumas técnicas a fim de testar o desempenho do agente no ambiente proposto. 
-\subsection{\textit{Mark Points}}
-
-\textit{Mark Points} (pontos de marcos, ou simplesmente marcos) são circunferências criadas durante a navegação do agente. O algoritmo que gera os mark points é uma nova proposta apresentada pelo corrente trabalho para resolver o problema de mapeamento.
-
-Em contrapartida ao \textit{SPIKE} e ao \textit{RANSAC} que buscam extrair landmarks utilizando-se das colisões dos lasers e esperando que essas colisões atendam a um requisito, no caso do \textit{RANSAC} espera-se a formação de uma linha, no caso do \textit{SPIKE} espera-se uma diferença muito grande entre um marco e outro, o processo de criação de mark points leva em consideração que todas as colisões dos lasers são landmarks, mas nem todos são armazenados.
-
-O \textit{landmark} escolhido é denominado \textit{mark point}  e é aquele que não esteja em um ponto por onde o agente já passou.
-Essa identificação é feita a partir do método de criação de mark points que nesse trabalho é chamado \textit{tryAMarkPoint} [colocar referencia para o apêndice].
-
-O algoritmo do tryAMarkPoint é o seguinte:
-
-\begin{table}[htb]
-\centering         
-	\begin{algorithmic}                
-		\STATE $tryAMarkPoint(tuple posicao\textunderscore robo, float rotacao\textunderscore  robo$)
-		\FORALL{$cada$ $mark\textunderscore point$ $em$ $lista\textunderscore mark\textunderscore poin$} 
-			\STATE $RESULTADO$ $\leftarrow$ $isPointInCircle( mark\textunderscore point, posicao\textunderscore robo, raio\textunderscore circunferencia$)
-			\IF{RESULTADO é \textit{FALSO}} 
-				\STATE ADIOCIONAR $\leftarrow$ \textit{VERDADEIRO}
-			\ELSE
-				\STATE TENTATIVAS $\leftarrow$ TENTATIVAS - 1
-			\ENDIF
-		\ENDFOR
-		\IF{ADICIONAR é \textit{VERDADEIRO}}
-			\STATE  TENTATIVAS $\leftarrow$ TENTATIVAS + 2
-			\STATE  Adiciona a posição do robô à lista de Mark Points  
-		\ENDIF
-		\RETURN $TENTATIVAS$
-	\end{algorithmic}
-\caption{Algoritmo tryAMarkPoint}
-\end{table}
- 
-NOTA: \textit{isPointInCircle} é um método criado no módulo matemático responsável por identificar se um determinado ponto está ou não presente em um círculo de raio N. Os \textit{mark points} nada mais são do que círculos criados com raio N e centro na posição do agente no momento da descoberta do \textit{mark point}.
- 
-O método retorna o número de tentativas para se criar mark points. A aplicação que usa o método deve verificar a condição de parada do agente utilizando esse número de tentativas.
-
-Este é um conceito de punição e recompensa, ou seja, se o agente encontra um novo \textit{mark point}, que significa um ponto ainda não explorado, então ele é recompensando com créditos, caso ele passe por um ponto já explorado ele é punido com a perda de créditos. No nosso trabalho, o agente mapeia o ambiente enquanto busca sempre encontrar novos \textit{mark points}, ou seja, busca sempre aumentar os seus créditos e pára de mapear quando esses créditos assumem um valor negativo ou zero, o que significa que não há mais pontos a serem descobertos (mapeamento completo).

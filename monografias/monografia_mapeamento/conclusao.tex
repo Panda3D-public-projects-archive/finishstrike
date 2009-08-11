@@ -7,9 +7,10 @@
 \label{cap:conclusao}
 
 Há muito que melhorar para garantir que o processo de mapeamento seja mais produtivo.
+
 Como trabalhos futuros iremos em primeiro momento concluir o ransac, método responsável por encontrar landmarks a partir de pontos extraídos com leitura de lasers. Com isso, o agente será capaz de identificar paredes e poderá usá-las para a sua navegação e mapeamento.
 
-Apesar de o método ransac estar pronto e fazer parte do nosso módulo SLAM, ele ainda não está em uso, pois não foi necessário no ambiente-tarefa das aplicações. Contudo, testes individuais executados no método indicam um bom funcionamento com taxas de erros muito baixa. Entretanto na aplicação o numero de landmarks encontrados esta abaixo do esperado. Os ajustes no ransac serão o de desconsiderar as leituras dos lasers das pontas, por possuírem uma discrepância em relação a outras leitoras e gerarem erro no ransac, excluir os pontos com o valor considerado infinito na aplicação e fazer o calculo do intervalo de confiança da linha encontrada.
+Apesar de o método ransac estar pronto e fazer parte do nosso módulo SLAM, ele ainda não está em uso, pois não foi necessário no ambiente-tarefa das aplicações. Contudo, testes individuais executados no método indicam um bom funcionamento com taxas de erros muito baixa. Entretanto na aplicação o numero de \textit{landmarks} encontrados esta abaixo do esperado. Os ajustes no ransac serão o de desconsiderar as leituras dos lasers das pontas, por possuírem uma discrepância em relação a outras leitoras e gerarem erro no RANSAC, excluir os pontos com o valor considerado infinito na aplicação e fazer o calculo do intervalo de confiança da linha encontrada.
 
-Com o ransac pronto iniciaremos o modulo que criara um grafo completo a partir dos marcos encontrados e com os landmarks é possível fazer a poda do grafo. Com esse grafo ajustado construído, buscaremos o melhor caminho com algoritmo genético.
-No atual ambiente tarefa não foi considerada os erros dos sensores. Com a adição desses erros, módulos de tratamento de incerteza utilizando Lógica Fuzzy e Filtro de Kalman passaram entrega o Horus.
+Com o RANSAC pronto iniciaremos o módulo que criará um grafo completo a partir dos marcos encontrados. Com os landmarks é possível fazer a poda do grafo e usar esse grafo para buscar o melhor caminho com algoritmo genético.
+No atual ambiente tarefa não foi considerado os erros dos sensores. No entanto, com a adição desses erros, módulos de tratamento de incerteza utilizando Lógica \textit{Fuzzy} e Filtro de \textit{Kalman} passarão a entregar o Horus.

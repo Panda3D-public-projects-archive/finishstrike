@@ -59,10 +59,95 @@ O módulo responsável pela inteligência do agente, no que diz respeito à localiza
 \begin{itemize}
 \item Localização: Entende-se por localização a capacidade do agente localizar-se em um ambiente. 
 \item Movimentação: É a capacidade de locomoção em um ambiente.
-\item Mapeamento: É o modo como o agente localiza marcos para identificar a forma do ambiente.
 \item Navegação: O agente se move pelo ambiente mapeado visando um objetivo, com tarefas como otimização de rotas.
+\item Mapeamento: É o modo como o agente localiza marcos para identificar a forma do ambiente.
 
 \end{itemize}
+
+\subsection{Localização}
+
+A localização do agente é dada em coordenadas X, Y e Z. Inicialmente o agente conhece apenas a sua posição, que é dada pelas coordenadas (0, 0, 0). Independentemente da posição do agente, no que diz respeito ao ambiente, a inicial será sempre (0, 0, 0). 
+
+Conforme o agente mapea o ambiente ele seguirá alterando sua posição a partir daque que foi sua posição anterior com base em seu odômetro (dadas as métricas proporcionais).
+
+No \textit{Toolkit} isso funciona da seguinte forma:
+
+\begin{itemize}
+\item Obtem-se uma leitura da posição atual.
+\item Calcula-se o ângulo de rotação do agente para onde ele navegará.
+\item Armazena-se a distância percorrida baseando-se no odômetro.
+\item Calcula-se a nova posição com a distância percorrida e o ângulo de rotação.
+\end{itemize}
+
+\subsection{Movimentação}
+
+A capacidade que o agente tem de ir de um ponto a outro usando recursos voluntários é o que chamamos do processo de movimentação. A movimentação não é orientada, não possui um objetivo, tratando-se apenas do processo físico de deslocamento, diferentemente da navegação que é planejada e executada obedecendo regras pré-determinadas ou geradas durante a execução do processo.
+
+A movimentação é de total responsabilidade da aplicação.
+
+\subsection{Navegação}
+O proceso de navegação é um conjunto de processos de movimentação que seguem uma ou mais regras, por exemplo, ir sempre para o ponto mais distante possível.
+É fato que a navegacão tem influência direta no mapeamento, logo um método de navegação eficiente deve ser implementado na aplicação a fim de que o mapeamento seja também eficiente. Em nossa aplicação testamos duas variações de meios de navegação.
+Antes de tudo é interessante informar que apesar da navegação ser implementada na aplicação, a escolha do caminho a ser tomado pertence ao Horus e é feita através do método "seeNewWay" cujos passos serão mostrados abaixo.
+O primeiro método de navegação desenvolvido baseava-se em fazer com que o agente identificasse o ponto mais distante dentre todas as leituras do laser e então navegasse para aquela direção. Caso houvesse mais do que uma leitura a ser escolhida (por exemplo dois ou mais pontos infinitos identificados) o agente escolheria a primeira leitura entre elas. Essa forma de navegação era muito simples e o agente com frequência retornava para lugares já mapeados.
+
+O segundo método de navegação desenvolvido usa o mesmo pricípio do primeiro, ou seja, a escolha do maior caminho, mas há algumas restrições para essa escolha. Essas restrições compõe uma série de passos (um algoritmo) que foi desenvolvida justamente para melhorar a navegação.
+
+Os passoas abaixo fazem parte do método seeNewWay presente no módulo SLAM desenvolvido:
+
+\begin{itemize}
+\item Cada conjunto de leituras dos lasers deve ser armazenado temporariamente em uma estrutura de dados do tipo lista.
+\item A lista deve ser dividida em três partes: pontos que estão à esquerda do agente, pontos que estão à direita do agente e o ponto central, ou seja, o laser do meio.
+\item Dentre todos os pontos desta leitura, deve-se precisar a quantidade de pontos já mapeados encontrados em cada lado \textendash direito e esquerdo.
+\item Escolher o lado que tenha menos pontos já mapeados, caso dê empate então o ponto central é escolhido.
+\item Tendo sido escolhido o lado, verificar qual a maior leitura deste lado e navegar para aquela direção.
+
+\end{itemize}
+
+
+
+Com este novo método, é possível garantir que o agente sempre preferirá ir para lugares onde hajam menos pontos mapeados.
+
+\subsection{Mapeamento}
+O mapeamento do agente baseia-se em um processo chamado tentativas de criação de mark points. O Horus disponibiliza esse processo através de um método criado em nosso trabalho chamado tryAMarkPoint.
+
+Mark Points (pontos de marcos, ou simplesmente marcos) são circunferências criadas durante a navegação do agente. O algoritmo que gera os mark points é uma nova proposta apresentada pelo corrente trabalho para resolver o problema de mapeamento.
+
+Em contrapartida ao SPIKE e ao RANSAC que buscam extrair landmarks utilizando-se das colisões dos lasers e esperando que essas colisões atendam a um requisito, no caso do RANSAC espera-se a formação de uma linha, no caso do SPIKE espera-se uma diferença muito grande entre um marco e outro, o processo de criação de mark points leva em consideração que todas as colisões dos lasers são landmarks, mas nem todos são armazenados.
+
+O landmark escolhido é denominado mark point  e é aquele que não esteja em um ponto por onde o agente já passou.
+
+Essa identificação é feita a partir do método de criação de mark points que nesse trabalho é chamado tryAMarkPoint [colocar referencia para o apêndice].
+
+O algoritmo do tryAMarkPoint é o seguinte:
+\begin{table}[htb]
+\centering         
+	\begin{algorithmic}                
+		\STATE $tryAMarkPoint(tuple posicao\textunderscore robo, float rotacao\textunderscore  robo$)
+		\FORALL{$cada$ $mark\textunderscore point$ $em$ $lista\textunderscore mark\textunderscore poin$} 
+			\STATE $RESULTADO$ $\leftarrow$ $isPointInCircle( mark\textunderscore point, posicao\textunderscore robo, raio\textunderscore circunferencia$)
+			\IF{RESULTADO é \textit{FALSO}} 
+				\STATE ADIOCIONAR $\leftarrow$ \textit{VERDADEIRO}
+			\ELSE
+				\STATE TENTATIVAS $\leftarrow$ TENTATIVAS - 1
+			\ENDIF
+		\ENDFOR
+		\IF{ADICIONAR é \textit{VERDADEIRO}}
+			\STATE  TENTATIVAS $\leftarrow$ TENTATIVAS + 2
+			\STATE  Adiciona a posição do robô à lista de Mark Points  
+		\ENDIF
+		\RETURN $TENTATIVAS$
+	\end{algorithmic}
+\caption{Algoritmo tryAMarkPoint}
+\end{table}
+
+NOTA: isPointInCircle é um método criado no módulo matemático responsável por identificar se um determinado ponto está ou não presente em um círculo de raio N. Os mark points nada mais são do que círculos criados com raio N e centro na posição do agente no momento da descoberta do mark point.
+ 
+O método retorna o número de tentativas para se criar mark points.  A aplicação que usa o método deve verificar a condição de parada do agente utilizando esse número de tentativas.
+
+Este é um conceito de punição e recompensa, ou seja, se o agente encontra um novo mark point \textendash que significa um ponto ainda não explorado \textendash então ele é recompensando com créditos, caso ele passe por um ponto já explorado ele é punido com a perda de créditos. No nosso trabalho, o agente mapeia o ambiente enquanto busca sempre encontrar novos mark points, ou seja, busca sempre aumentar os seus créditos e pára de mapear quando esses créditos assumem um valor negativo ou zero, o que significa que não há mais pontos a serem descobertos (mapeamento completo)
+
+\subsection{Outros}
 
 Dentro deste módulo também se enquandram o módulo Graph e suas funcionalidades, que são:
 \begin{itemize}

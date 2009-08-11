@@ -44,3 +44,29 @@ O raio ideal, para um abiente ideal, é a média aritmética das coordenadas (x, y,
 
 Matematicamente: sendo \textbf{r} o raio dos \textit{mark points}, 
 $$r = \frac{xa+ya+za}{3}$$
+
+\section{Quanto à aplicação integrada}
+
+Ao termino do SLAM e da aplicação que foi sua prova de conceito, uma outra aplicação foi desenvolvida utilizando a parte de mapeamento em conjunto com a parte de visão do Tool Kit  Horus, comprovando assim a interoperabilidade entre os módulos.
+ 
+A aplicação integrada tem todas as características do módulo de mapeamento desenvolvido e utiliza a parte de reconhecimento de padrões do modulo de visão, com isso o agente pode reconhecer  marcações distribuídas pelo ambiente para ajudar na navegação e atingir o seu objetivo de forma mais rápida.
+
+Para isso, um novo ambiente virtual foi construído. Neste ambiente disponibilizamos placas com setas indicadoras de salas e suas direções (direita ou esquerda). O agente é capaz de não apenas identificar a placa no ambiente, mas também compreender o que está escrito nesta placa e decidir qual direção tomar posteriormente. Isto é feito através de marcos no chão que são disponibilizados imediatamente antes de cada placa.
+
+Nesta aplicação o agente possui duas câmeras, uma com sua visão de primeira pessoa e outra com a visão voltada para o chão. O propósito desta última é identificar aqueles marcos, pois quando o agente encontra um marco é certo que por aquela região existe uma placa, então a câmera de primeira pessoa entra em ação em busca da placa.
+
+É interessante informar que o uso de marcos no chão não é obrigatório, o agente poderia apenas procurar pelas placas e ter só uma câmera - a de primeira pessoa - mas isso tornaria a navegação extremamente lenta, pois o agente iria buscar a placa em vão com muita freqüência.
+
+Uma vez que a placa tenha sido encontrada, o algoritmo de reconhecimento de padrão entra em ação para identificar os caracteres presentes na placa e também as setas e suas direções.
+A imagem abaixo mostra uma das placas que estão no ambiente:
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.3,bb=0 0 722 358]{imagens/fotos/placa.png}
+\end{center}
+\caption{Placa utilizada na aplicação integrada.}
+\label{fig:agente}
+\end{figure}
+
+Portanto, a aplicação integrada comprova o funcionamento em conjunto dos módulos desenvolvidos de mapeamento e de visão, atribuindo ao agente as características essenciais para alcançar o seu objetivo de forma mais eficaz, ainda que em um ambiente virtual.
