@@ -22,9 +22,8 @@
 \contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{47}
 \contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{48}
 \contentsline {chapter}{\numberline {4}Aplicacoes}{50}
-\contentsline {section}{\numberline {4.1}Anpr}{50}
-\contentsline {section}{\numberline {4.2}Teseu}{50}
-\contentsline {section}{\numberline {4.3}Ariadnes}{50}
+\contentsline {section}{\numberline {4.1}Anpr}{51}
+\contentsline {section}{\numberline {4.2}Ariadnes}{51}
 \contentsline {chapter}{\numberline {5}Conclus\~oes e Trabalhos Futuros}{56}
 \contentsline {chapter}{Ap\^endices}{59}
 \contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{59}
