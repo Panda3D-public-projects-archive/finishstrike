@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99cThe top-level auxiliary file: C:\Documents and Settings\Thiago\Meus documentos\monografia_visao\Projeto_Final.aux
+This is BibTeX, Version 0.99cThe top-level auxiliary file: Projeto_Final.aux
 A level-1 auxiliary file: capa.aux
 A level-1 auxiliary file: folhaaprovacao.aux
 A level-1 auxiliary file: dedicatoria.aux
@@ -8,21 +8,11 @@ A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: introducao.aux
 A level-1 auxiliary file: cap1.aux
 A level-1 auxiliary file: cap2.aux
+A level-1 auxiliary file: cap4.aux
 A level-1 auxiliary file: cap3.aux
 A level-1 auxiliary file: conclusao.aux
 A level-1 auxiliary file: bibliografia.aux
 A level-1 auxiliary file: apendice.aux
-The style file: abnt-num.bst
-I found no \citation commands---while reading file C:\Documents and Settings\Thiago\Meus documentos\monografia_visao\Projeto_Final.aux
-Database file #1: biblio.bib
-I was expecting a `,' or a `}'---line 76 of file biblio.bib
- :  
- :  author={João Paulo Rocha Portela de Souza},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-+---------------------------------------------------------+
-| Estilo bibliográfico abnt-num.bst versão 1.42.2.1           |
-| Em caso de dúvidas ou problemas com este estilo procure |
-| http://abntex.codigolivre.org.br                        |
-+---------------------------------------------------------+
+I found no \citation commands---while reading file Projeto_Final.aux
+I found no \bibstyle command---while reading file Projeto_Final.aux
 (There were 2 error messages)
