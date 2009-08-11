@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2226"
+   sodipodi:version="0.32"
+   inkscape:version="0.45pre1"
+   width="561.27979"
+   height="252.03291"
+   version="1.0"
+   sodipodi:docbase="C:\Documents and Settings\Administrador\Meus documentos\Projeto Final\MonografiaNova"
+   sodipodi:docname="ambienteEplaca.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="TRUE">
+  <metadata
+     id="metadata2231">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2229" />
+  <sodipodi:namedview
+     inkscape:window-height="904"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1.1371431"
+     inkscape:cx="463.80393"
+     inkscape:cy="175.46115"
+     inkscape:window-x="0"
+     inkscape:window-y="22"
+     inkscape:current-layer="svg2226"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="horizontal"
+       position="387.81399"
+       id="guide2339" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="156.53263"
+       id="guide2654" />
+  </sodipodi:namedview>
+  <image
+     xlink:href="C:\Documents and Settings\Administrador\Desktop\palca.JPG"
+     sodipodi:absref="C:\Documents and Settings\Administrador\Desktop\palca.JPG"
+     width="266.34177"
+     height="132.59299"
+     id="image2418"
+     x="294.93799"
+     y="92.336662"
+     inkscape:export-filename="C:\Documents and Settings\Administrador\Meus documentos\Projeto Final\MonografiaNova\ambienteEplaca.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300" />
+  <text
+     xml:space="preserve"
+     style="font-size:21.31113434px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="115.79891"
+     y="247.548"
+     id="text2464"
+     inkscape:export-filename="C:\Documents and Settings\Administrador\Meus documentos\Projeto Final\MonografiaNova\ambienteEplaca.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300"><tspan
+       sodipodi:role="line"
+       id="tspan2466"
+       x="115.79891"
+       y="247.548">(a)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:21.31113434px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="419.09409"
+     y="246.79645"
+     id="text2468"
+     inkscape:export-filename="C:\Documents and Settings\Administrador\Meus documentos\Projeto Final\MonografiaNova\ambienteEplaca.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300"><tspan
+       sodipodi:role="line"
+       id="tspan2470"
+       x="419.09409"
+       y="246.79645">(b)</tspan></text>
+  <image
+     y="-288.99698"
+     x="0.93511534"
+     id="image2368"
+     height="289"
+     width="225.00008"
+     sodipodi:absref="C:\Documents and Settings\Administrador\Desktop\cima.bmp"
+     xlink:href="C:\Documents and Settings\Administrador\Desktop\cima.bmp"
+     transform="matrix(3.23571e-3,0.9999948,-0.9999948,3.23571e-3,0,0)"
+     inkscape:transform-center-y="19.34673"
+     inkscape:transform-center-x="-14.070349"
+     inkscape:export-filename="C:\Documents and Settings\Administrador\Meus documentos\Projeto Final\MonografiaNova\ambienteEplaca.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300" />
+</svg>
