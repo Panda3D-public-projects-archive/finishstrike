@@ -8,13 +8,13 @@
 \label{cap:ia}
 
 \section{Agentes Inteligentes}
-A Inteligência Computacional (IA) é uma área de estudo da ciência da computação que procura desenvolver sistemas computacionais capazes de ter ações e reações similares as capacidades humanas, tais como: pensar, criar, solucionar problemas entre outros. Um Agente, por definição, é todo elemento ou entidade autônoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores \cite{Russel2003}. Pode-se citar como exemplos de agentes inteligentes, além de um robô autônomo ou semi-autônomo, personagens de um jogo, agentes de busca e recuperação de informação e agentes de chats.
+A Inteligência Computacional (IC) é uma área de estudo da ciência da computação que procura desenvolver sistemas computacionais capazes de ter ações e reações similares as capacidades humanas, tais como: pensar, criar, solucionar problemas entre outros. Um Agente, por definição, é todo elemento ou entidade autônoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores \cite{Russel2003}. Pode-se citar como exemplos de agentes inteligentes, além de um robô autônomo ou semi-autônomo, personagens de um jogo, agentes de busca e recuperação de informação e agentes de chats.
 
 Existem diferentes definições para a arquitetura de um robô presentes na literatura. Este trabalho considera a definição abordada por Arkin cite(Ark98) a qual considera que uma arquitetura de um robô está mais relacionada com os aspectos de software que os de hardware. Apesar de algumas diferenças, os modelos de arquitetura para robôs móveis descrevem um mecanismo para construção de um sistema de desenvolvimento e controle de agentes inteligentes, apresentando, principalmente, quais os módulos presentes e como estes interagem. 
 
 De uma forma geral, os módulos de uma arquitetura de um agente inteligente se preocupam com aspectos como percepção, planejamento e atuação$/$execução. A percepção refere-se à compreensão do ambiente e dos elementos nele contido. Denomina-se \textit{sequência de percepções}, a história completa de tudo que o agente já percebeu, ou seja, o conjunto de todas as percepções do agente até um dado momento; o planejamento à inteligência do robô; e a atuação, ou execução, é o modo como o robô procede no ambiente, ou seja, movimentos, captura de informações, etc.
 
-Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos os modelos de três camadas como: SSS cite(CON92), Atlantis cite(Gat91), 3T cite{Bon91}. Todas as arquiteturas se dividem semelhantemente da seguinte forma:
+Existem diversos modelos de arquitetura para robótica entre os quais ressalta-se os modelos de três camadas como: SSS cite(CON92), Atlantis cite(Gat91), 3T cite{Bon91}. Todas as arquiteturas se dividem semelhantemente da seguinte forma:
 
     
 \begin{itemize}
@@ -23,15 +23,15 @@ Existem diversos modelos de arquitetura para robótica entre os quais ressaltamos
 	\item camada de execução: intermedia essas duas outras camadas.
 \end{itemize}
  
-As camadas reativa e deliberativa provêem processos denominados de comportamentos. Em termos matemáticos, o comportamento do agente á a função que mapeia qualquer percecpção ou sequência de percepções para uma ação específica \cite{Russel2003} essa função é conhecida como \textit{função de agente}. 
+As camadas reativa e deliberativa provêem processos denominados de comportamentos. Em termos matemáticos, o comportamento do agente á a função que mapeia qualquer percepção ou sequência de percepções para uma ação específica \cite{Russel2003}, essa função é conhecida como \textit{função de agente}. 
 
 Com base nesses conceitos, definiu-se neste trabalho um agente como uma entidade composta de comportamentos, dispositivos e um programa de agente. Os dispositivos do agente, utilizados no sistema em questão, são de sensoriamento (lasers e câmeras) e de movimentação (rodas). Os comportamentos do agente são: mapeamento, navegação e reconhecimento de objetos. O programa de agente é responsável pelo controle da execução de todos os comportamentos supracitados.
 
  Os comportamentos são procedimentos implementados para representar ações e reações dos agentes. As ações são comportamentos ativos, ou seja, procedimentos que visam realizar um objetivo previamente definido. Por outro lado, reações são procedimentos realizados mediante a estímulos externos. Exemplos de ação e reação ocorrem no deslocamento de um agente de uma posição a outra. Para realizar o deslocamento é necessário traçar uma rota. Tal comportamento é definido como uma ação. Ao se deparar com algum obstáculo durante o percurso, esse agente deve gerar um comportamento de replanejamento da rota para alcançar o objetivo inical sem colidir com o obstáculo. A esse replanejamento, denomina-se reação.
 
-	Comportamentos podem ser divididos em duas categorias. Os Comportamentos Primários: parar, reduzir velocidade, acelerar, desviar de obstáculos, virar, inverter direção, dirigir-se a meta, fotografar, disparar lasers e etc; e Comportamentos Inteligentes: mapear, reconhecer objeto, navegar e executar uma tarefa específica. Um Comportamento Inteligente executa um conjunto de comportamentos primários para atingir seu objetivo. Os comportamentos primários ocorrem na camada reativa, enquanto que, os inteligentes ocorrem na camada deliberativa.
+	Comportamentos podem ser divididos em duas categorias. Os Comportamentos Primários: parar, reduzir velocidade, acelerar, desviar de obstáculos, virar, inverter direção, dirigir-se a meta, fotografar, disparar lasers e etc; e Comportamentos Inteligentes: mapear, reconhecer objetos, navegar e executar uma tarefa específica. Um Comportamento Inteligente executa um conjunto de comportamentos Primários para atingir seu objetivo. Os comportamentos primários ocorrem na camada reativa, enquanto que, os inteligentes ocorrem na camada deliberativa.
 
-Entende-se por \textit{Programa de Agente} o programa que recebe as percepções do ambiente como entrada e as mapeia para uma determinada ação através da função de agente. Além da estrutura citada acima, o programa de agente pode ser estruturado de outras maneiras. Um exemplo de estrutura é construir o programa de agente como um conjunto de sub-rotinas que serão executadas de forma assíncrona em relação ao ambiente. O programa permanece em \textit{loop}, recebendo todas as percepções geradas pelo ambiente, e repassa cada percepção para uma sub-rotina que irá tratá-la.
+Entende-se por \textit{Programa de Agente} o programa que recebe as percepções do ambiente como entrada e as mapeia para uma determinada ação através da função de agente. Além da estrutura citada, o programa de agente pode ser estruturado de outras maneiras. Um exemplo de estrutura é construir o programa de agente como um conjunto de sub-rotinas que serão executadas de forma assíncrona em relação ao ambiente. O programa permanece em \textit{loop}, recebendo todas as percepções geradas pelo ambiente, e repassa cada percepção para uma sub-rotina que irá tratá-la.
 
 Os programas de agente podem ser classificados em quatro categorias principais:
 \begin{itemize}
@@ -47,9 +47,10 @@ Os programas de agente podem ser classificados em quatro categorias principais:
 Em duas das aplicações desenvolvidas neste trabalho, os programas de agente utilizados se enquadram na categoria de agentes baseados na utilidade.
 
 \section{Reconhecimento de Padrões}
+\label{sec:recObj}
 Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
 	A área de Reconhecimento de Padrões é responsável por projetar algoritmos e abordagens  que procuram aproximar as tarefas realizadas computacionalmente das habilidades humanas. Esse processo consiste em classificar e descrever objetos através de um conjunto de características ou propriedades. Um dos principais conceitos dentro de reconhecimento de padrões é o discriminante.  Tal conceito consiste em medir uma distância de um determinado padrão para cada outro previamente conhecido. Logo, a classe de um determinado padrão será a mesma do seu vizinho mais próximo [Simp 92], [Simp 93], de menor distância ou o protótipo mais parecido [Torb 98].
-    	Espera-se de um  sistema de reconhecimento de padrões que este seja capaz de aprender de uma forma adaptativa e dinâmica. Em sistemas de reconhecimento de padrões automáticos, as etapas de aprendizagem e reconhecimento são combinados a fim de atingir um objetivo desejado [Cagn 93] [Valli 98]. Portanto, redes neurais artificiais é uma das principais técnicas utilizadas nesse sentido [Nigr 93] e será apresentada na seção seguinte.
+    	Espera-se de um  sistema de reconhecimento de padrões que este seja capaz de aprender de uma forma adaptativa e dinâmica. Em sistemas de reconhecimento de padrões automáticos, as etapas de aprendizagem e reconhecimento são combinados a fim de atingir um objetivo desejado [Cagn 93] [Valli 98]. Portanto, redes neurais artificiais é uma das principais técnicas utilizadas nesse sentido [Nigr 93] e será apresentada na seção \ref{sec:rna}.
  	Um típico sistema de reconhecimento de padrão consiste em três partes: aquisição de dados, seleção$/$extração de características e classificação$/$clustering [Pattern recognition book].
 
 \begin{itemize}
@@ -57,7 +58,7 @@ Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, no
 
 \item Seleção$/$Extração de características: o objetivo principal desta etapa consiste em gerar o melhor conjunto de características necessárias para o processo de reconhecimento, de modo a maximizar a eficácia do sistema.  A grande dificuldade dessa etapa está na determinação de um critério adequado para a escolha de um bom conjunto de características. Um bom critério é aquele que é imutável para qualquer variação possível dentro de uma classe, todavia, deve ser capaz de destacar as diferenças importantes a fim de discriminar entre diferentes tipos de padrões.
 
-\item Classificação$/$clustering: classificação é o processo de definição de qual classe um determinado padrão de entrada pertence. Essa classificação pode ser feita utilizando técnicas determinísticas e probabilísticas. As classes são definidas a partir de um conjunto de amostas apresentadas na etapa de aprendizagem.
+\item Classificação$/$clustering: classificação é o processo de definição de qual classe um determinado padrão de entrada pertence. Essa classificação pode ser feita utilizando técnicas determinísticas e probabilísticas. As classes são definidas a partir de um conjunto de amostras apresentadas na etapa de aprendizagem.
 
 \end{itemize}
 
@@ -65,6 +66,7 @@ A técnica de reconhecimento de padrões possui uma grande variedade de aplicações
 
 
 \section{Redes Neurais Artificiais}
+\lab{sec:rna}
 Redes Neurais Artificiais (RNAs) são estruturas computacionais que visam imitar a forma com que o cérebro humano processa as informações. O cérebro possui a capacidade de organizar e encadear seus elementos estruturais, conhecidos como neurônios, para realizar o processamento das informações de forma não linear e paralela. Dessa forma, as principais características das redes neurais são a habilidade de aprender relações complexas e não lineares entre os padrões de entrada e as saídas, utilizarem procedimentos de treinamento seqüencial e se auto-adaptar aos dados \cite{Jain2000}.
 
 	Na sua forma geral, uma rede neural é uma máquina projetada para imitar a forma com que o cérebro realiza uma tarefa particular ou uma função de interesse, podendo ser implementada em hardware ou simulada através de software. Para atingir uma performance razoável, as redes neurais empregam uma massiva interconexão de unidades de processamento simples, denominadas neurônios \cite{Haykin1994}. 
@@ -102,7 +104,7 @@ O neurônio biológico é constituído de um corpo celular denominado soma. Nesse Lo
 	O mecanismo como é criado o potencial de ação ou impulso nervoso é o seguinte: quando o potencial da membrana está menos eletronegativo do que o potencial de repouso, diz-se que a membrana está despolarizada e quando está mais negativo, diz-se que ela está hiperpolarizada. O impulso nervoso ou potencial de ação é uma onda de despolarização de certa duração de tempo, que se propaga ao longo da membrana. A formação de um potencial de ação na membrana axonal ocorre quando essa membrana sofre despolarização suficientemente acentuada para cruzar um determinado valor conhecido como limiar de disparo. Quando esse limiar é superado, os estímulos são passados para outras células através das ligações sinápticas.
 
 \subsection{O Neurônio Artificial MCP}
-McCulloch e Pits \cite{Mendel1970} propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada $x_1, x_2, ..., x_n$ (representando os dendritos) e apenas um terminal de saída $y$ (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados $w_1,w_2, ..., w_n$ cujos valores podendo ser positivos ou negativos dependendo de as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular $i$ no neurônio pós-sináptico é dado por $x_i w_i$. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura \ref{fig:mcculloch}.
+McCulloch e Pits \cite{Mendel1970} propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada $x_1, x_2, ..., x_n$ (representando os dendritos) e apenas um terminal de saída $y$ (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados $w_1,w_2, ..., w_n$ cujos valores podem ser positivos ou negativos caso as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular $i$ no neurônio pós-sináptico é dado por $x_i w_i$. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura \ref{fig:mcculloch}.
 
 \begin{figure}[!htb]
 \centering
@@ -212,7 +214,7 @@ A definição da arquitetura de uma RNA define a maneira com que os neurônios são 
 Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, quanto ao tipo de conexão e quanto à conectividade entre os neurônios. Quanto ao número de camadas têm-se:
 
 \begin{itemize}
-\item Redes de uma única camada: existe apenas um nó entre uma entrada e uma saída da rede. A Figura \ref{fig:unicacamada} apresenta dois exemplos de redes de única camada.
+\item Redes de uma única camada: existe apenas um nó entre uma entrada e uma saída da rede. A Figura \ref{fig:unicacamada} apresenta um exemplo de redes de única camada.
 
 \begin{figure}[htb]
 \centering
@@ -265,10 +267,10 @@ Quanto à conectividade têm-se:
 	Foram desenvolvidos diversos métodos de treinamento de redes, podendo ser agrupados em dois paradigmas principais: aprendizado supervisionado e aprendizado não-supervisionado. No entanto, outros dois paradigmas bastante conhecidos são os de aprendizado por reforço (que é um caso particular de aprendizado supervisionado) e aprendizado por competição (que é um caso particular de aprendizado não supervisionado). 
 
 \begin{itemize}
-\item Arendizado Supervisionado:
+\item Aprendizado Supervisionado:
 
 
-Esse tipo de aprendizado é o mais utilizado em RNAs. Esse aprendizado é dito supervisionado porque as entrada e as respectivas saídas desejadas são fornecidas por um supervisor externo, normalmente chamado de "professor. Seu objetivo é ajustar os pesos da rede, de forma a encontrar uma ligação entre os pares de entrada e saída fornecidos pelo professor.
+Esse tipo de aprendizado é o mais utilizado em RNAs. Esse aprendizado é dito supervisionado porque as entradas e as respectivas saídas desejadas são fornecidas por um supervisor externo, normalmente chamado de "professor". Seu objetivo é ajustar os pesos da rede, de forma a encontrar uma ligação entre os pares de entrada e saída fornecidos pelo professor.
 	O professor é responsável por direcionar o processo de aprendizado fornecendo os padrões de entrada, as saídas desejadas e a taxa de erro desejada.  A cada padrão de entrada submetido à rede pelo professor, compara-se a resposta desejada (que representa uma solução ótima para aquele padrão de entrada) com a resposta calculada, ajustando-se os pesos das conexões para minimizar o erro. A minimização da diferença é incremental, já que pequenos ajustes são feitos nos pesos a cada iteração do aprendizado. A soma dos erros quadráticos de todas as saídas é normalmente utilizada como medida de desempenho da rede e também como função de custo a ser minimizada pelo algoritmo de treinamento. A Figura \ref{fig:aprendSuper} apresenta um esquema básico de aprendizado supervisionado.
 
 \begin{figure}[!htb]
@@ -280,7 +282,7 @@ Esse tipo de aprendizado é o mais utilizado em RNAs. Esse aprendizado é dito sup
 \label{fig:aprendSuper}
 \end{figure}
 
-Nesse trabalho, o algoritmo de aprendizado utilizado nesse trabalho foi o backpropagation.
+Nesse trabalho, o algoritmo de aprendizado utilizado foi o \textit{backpropagation}.
 
 
 \item Aprendizado Não Supervisionado:
@@ -301,14 +303,13 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 \end{itemize}
 
 \section{Visão Computacional}
-
-Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisição de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc) assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de camera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensões é necessário ter noções sobre profundidade (e profundidade é estimada através da especificação da posição da câmera e de objetos na cena).
+Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc) assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de camera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensções é necessário ter noções sobre profundidade (e profundidade é estimada através da especificação da posição da câmera e de objetos na cena).
 
 De um modo mais geral visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Existem diversas aplicações de visão computacional em diversas áreas como detecção automática de tumores imagens médicas; definição de posição de jogadores de futebol no campo, em um determinado instante; determinação de volume de um fluido em mares ou rios, etc.
 
-Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessario extrair características da imagem. Esse tema será melhor abordado na seção seguinte.
+Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões, seção \ref{sec:recObj}. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessário extrair características da imagem.
 
-Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seçao 2.4.2.
+Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seção \ref{sec:ocr}.
 
 \subsection{Extração de características}
 
@@ -322,6 +323,7 @@ No campo de reconhecimento de padrões, extrair caracerísticas significa extrair 
 No capítulo que trata do \textit{toolkit} Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
 
 \subsection{Reconhecimento Óptico de Caracteres}
+\label{sec:ocr}
 
 Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
 	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações, como a busca de determinado conteúdo de interesse.
