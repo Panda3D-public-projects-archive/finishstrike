@@ -14,31 +14,31 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Esquema de aprendizado supervisionado.}}{29}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Esquema de aprendizado n\~ao supervisionado.}}{30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitetura do m\'odulo core}}{35}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces extens\~ao da classe \textit {Brain} do horus por uma aplica\c c\~ao.}}{36}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Comportamento \textit {MyBehavior} que estende tanto de \textit {NeuralNetworkBehavior} quanto de \textit {MappingBehavior}.}}{37}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca, (b) d-vizinhan\c ca e (c) 8-vizinhan\c ca. }}{39}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Imagem de um "T" e seu respectivo esqueleto}}{40}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Imagem de um "B" (preto) e seu respectivo esqueleto (branco).}}{40}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces 8-vizinhan\c ca do pixel $p_1$}}{41}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Exemplos das fun\c c\~oes: (a)$B(p_1)=2$, $A(p_1)=1$ b) $B(p_1)=2$, $A(p_1)=2$}}{42}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces a) $B(p_1)=7$ b) $B(p_1) = 0$ c) $B(p_1) = 1$}}{42}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Exemplos onde $A(p_1)$ \'e maior que $1$.}}{43}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Exemplo de situa\c c\~ao em que linhas verticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{43}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Exemplo de situa\c c\~ao em que linhas herticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{43}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces a) padr\~ao de entrada do algoritmo b) dele\c c\~ao iterativa dos pixels das bordas c) resultado ap\'os a execu\c c\~ao do algoritmo}}{44}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Padr\~oes completamente erodidos pelo algoritmo de Hilditch.}}{44}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Matriz de pixel de um bitmap.}}{45}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Layout com seis regi\~oes em tr\^es linhas e duas colunas.}}{46}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Quatorze diferentes tipos de arestas}}{46}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Matrizes referentes aos tipos de arestas}}{47}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Vetor de Caracter\IeC {\'\i }sticas}}{47}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitetura do m\'odulo core}}{36}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces extens\~ao da classe \textit {Brain} do horus por uma aplica\c c\~ao.}}{37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comportamento \textit {MyBehavior} que estende tanto de \textit {NeuralNetworkBehavior} quanto de \textit {MappingBehavior}.}}{38}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca, (b) d-vizinhan\c ca e (c) 8-vizinhan\c ca. }}{40}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Imagem de um "T" e seu respectivo esqueleto}}{41}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Imagem de um "B" (preto) e seu respectivo esqueleto (branco).}}{41}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 8-vizinhan\c ca do pixel $p_1$}}{42}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Exemplos das fun\c c\~oes: (a)$B(p_1)=2$, $A(p_1)=1$ b) $B(p_1)=2$, $A(p_1)=2$}}{43}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces a) $B(p_1)=7$ b) $B(p_1) = 0$ c) $B(p_1) = 1$}}{43}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Exemplos onde $A(p_1)$ \'e maior que $1$.}}{44}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Exemplo de situa\c c\~ao em que linhas verticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{44}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Exemplo de situa\c c\~ao em que linhas herticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{44}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces a) padr\~ao de entrada do algoritmo b) dele\c c\~ao iterativa dos pixels das bordas c) resultado ap\'os a execu\c c\~ao do algoritmo}}{45}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Padr\~oes completamente erodidos pelo algoritmo de Hilditch.}}{45}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Matriz de pixel de um bitmap.}}{46}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Layout com seis regi\~oes em tr\^es linhas e duas colunas.}}{47}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Quatorze diferentes tipos de arestas}}{47}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Matrizes referentes aos tipos de arestas}}{48}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Vetor de Caracter\IeC {\'\i }sticas}}{48}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes. }}{60}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Agente configurado com dispositivos de lasers.}}{61}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ambiente utilizado no Ariadnes}}{62}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Placa informativa.}}{64}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes. }}{61}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Agente configurado com dispositivos de lasers.}}{62}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ambiente utilizado no Ariadnes}}{63}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Placa informativa.}}{65}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
