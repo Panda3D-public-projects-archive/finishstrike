@@ -31,6 +31,6 @@
 \contentsline {section}{\numberline {5.1}Teseu}{60}
 \contentsline {section}{\numberline {5.2}Ariadnes}{60}
 \contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{65}
-\contentsline {chapter}{Ap\^endices}{67}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{67}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{68}
+\contentsline {chapter}{Ap\^endices}{68}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{68}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{69}

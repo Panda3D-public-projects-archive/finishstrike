@@ -1,0 +1,53 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.42.2.1 }
+
+\bibitem{Russel2003}
+\abntrefinfo{Russel e Norvig}{RUSSEL; NORVIG}{2003}
+{RUSSEL, S.; NORVIG, P. \emph{Inteligência Artificial}. [S.l.]: Editora Campus,
+  2003.}
+
+\bibitem{Jain2000}
+\abntrefinfo{Jain, Duin e Mao}{JAIN; DUIN; MAO}{2000}
+{JAIN, A.~K.; DUIN, R.~P.; MAO, J. Statistical pattern recognition: A review.
+\emph{IEEE Trans}, v.~22, p. 4 -- 47, 2000.}
+
+\bibitem{Haykin1994}
+\abntrefinfo{Haykin}{HAYKIN}{1994}
+{HAYKIN, S. \emph{Neural Networks: A comprehensive foundation}. [S.l.]:
+  Macmillan College Publishing., 1994.}
+
+\bibitem{Braga2000}
+\abntrefinfo{Braga, Ludermir e Carvalho}{BRAGA; LUDERMIR; CARVALHO}{2000}
+{BRAGA, A.; LUDERMIR, T.; CARVALHO, A. \emph{Redes Neurais Artificiais, Teoria
+  e Aplicações}. [S.l.]: Livros Técnicos e Científicos, 2000.}
+
+\bibitem{Mendel1970}
+\abntrefinfo{Mendel e McLaren}{MENDEL; MCLAREN}{1970}
+{MENDEL, J.~M.; MCLAREN, R.~W. Adaptive learning and pattern recognition
+  systems: theory and applications.
+\emph{Academic Press.}, 1970.}
+
+\bibitem{Santos2007}
+\abntrefinfo{Santos}{SANTOS}{2007}
+{SANTOS, J.~C.
+\emph{Extração de atributos de forma e seleção de atributos usando algoritmos
+  genéticos para classificação de regîões.}
+Dissertação (Mestrado) --- Instituto Nacional de Pesquisas Espaciais (INPE).,
+  2007.}
+
+\bibitem{Rice1999}
+\abntrefinfo{Rice, Nagy e Nartker}{RICE; NAGY; NARTKER}{1999}
+{RICE, S.~V.; NAGY, G.; NARTKER, T.~A. Optical character recognition: An
+  illustrated guide to the frontier.
+\emph{Kluwer Academic Publishers, Norwell, Massachusetts}, 1999.}
+
+\bibitem{Fowler2003}
+\abntrefinfo{Fowler}{FOWLER}{2003}
+{FOWLER, M. \emph{Patterns for Enterprise Application Architeture}. [S.l.]:
+  Bostom, 2003.}
+
+\end{thebibliography}
