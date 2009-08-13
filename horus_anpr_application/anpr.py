@@ -2,18 +2,19 @@
 
 import os
 import copy
+import ImageFilter
 import math
-
 import horus.core.processingimage.imagefilter as filter
 import horus.core.processingimage.processingimage as processingimage
 import horus.utils.graphics as graphics
 
 from horus.core.processingimage.image import Image
+from horus.vision.ocr import apply_ocr
 
 SAVE = os.path.join(os.path.abspath(os.path.dirname(__file__)),"placa")
-SAVE = os.path.join(os.path.abspath('.'),"placa")
 
-class ImpossiblePlateExtraction(Exception): pass
+class ImpossiblePlateExtraction(Exception): 
+  pass
 
 class PlateDetection(object):
     """
@@ -142,15 +143,10 @@ class Band(object):
         threshold_list = copy.copy(blur_list).applyThreshold(threshold*0.7)
         candidate_list = threshold_list.locateNonZeroIntervals()
         candidate_list =  self.sortPlate(candidate_list)
-        print candidate_list
         if ((candidate_list[0][1] - candidate_list[0][0])>len(projection_list)/3):
-            print "opa1"
             threshold_list = copy.copy(blur_list).applyThreshold(threshold)
             candidate_list = threshold_list.locateNonZeroIntervals()
             candidate_list =  self.sortPlate(candidate_list)
-            print candidate_list
-         
-        print
 #        graphics.generateGraph( SAVE, self.band_image.content.file_name[-14:-4]+"_plate_thresh.png", threshold_list )               
         return candidate_list
 
@@ -212,8 +208,85 @@ class Plate(object):
         """
             It returns the plate as string
         """
-        # Colocar o OCR nesse metodo
-        pass
+        image = self.plate_image.convert('L')
+        bin_image = processingimage.localThreshold(image, 5, 7)
+        X = []
+        for x in range(bin_image.size[0]):
+          for y in range(bin_image.size[1]):
+            if bin_image.getPixel((x,y)) == 0:
+              X.append((x,y))
+        X.sort()
+      
+        group_list = []
+        for i in X:
+          group_index_list = []
+          for group in group_list:
+            neighbour_list = bin_image.getEightNeighbourhoodCoordinate(i)
+            if neighbour_list[0] in group or\
+               neighbour_list[1] in group or\
+               neighbour_list[2] in group or\
+               neighbour_list[3] in group or\
+               neighbour_list[4] in group or\
+               neighbour_list[5] in group or\
+               neighbour_list[6] in group or\
+               neighbour_list[7] in group :
+              group_index_list.append(group_list.index(group))
+      
+          group_index_list.sort()
+          if group_index_list:
+            if len(group_index_list) > 1:
+              new_list = []
+              for index in group_index_list:
+                new_list.extend(group_list[index])
+      
+              for index in reversed(group_index_list):
+                group_list.remove(group_list[index])
+      
+              group_list.append(new_list)
+            else:
+              group_list[group_index_list[0]].append(i)
+          else:
+            group_list.append([i])
+      
+        # caculate the bbox average
+        # generate all image objects from group_list, drawning all the black pixels
+        width_sum = 0
+        height_sum = 0
+        image_candidate_list = []
+        image_size = bin_image.size
+        media = 0
+        for group in group_list:
+          if len(group) >= 43 and len(group) < 140:
+            new_image = Image(mode='L', size=image_size, color=255)
+            for black_pixel in group:
+              new_image.putPixel(black_pixel, 0)
+            image_bbox = new_image.negative().content.getbbox()
+            if (image_bbox[2] - image_bbox[0]) < 43 or \
+               (image_bbox[3] - image_bbox[1]) > 4:
+              width_sum = width_sum + (image_bbox[2] - image_bbox[0])
+              height_sum = height_sum + (image_bbox[3] - image_bbox[1])
+              media += 1
+              image_candidate_list.append((new_image, image_bbox))
+        avg_width = width_sum/media
+        avg_heigth = height_sum/media
+        
+        character_list = []
+        for img, bbox in image_candidate_list:
+          if (bbox[2] - bbox[0]) <= avg_width+int(avg_width*0.4) and\
+            (bbox[2] - bbox[0]) >= avg_width-int(avg_width*0.4) and\
+            (bbox[3] - bbox[1]) <= avg_heigth+int(avg_heigth*0.2) and\
+            (bbox[3] - bbox[1]) >= avg_heigth-int(avg_heigth*0.2):      
+            character_list.append(img)
+        
+        plate_text_list = []
+        for char_image in character_list:
+          median_image = char_image.content.filter(ImageFilter.MedianFilter)
+          character_text = apply_ocr(median_image)
+          if character_text in ['\n', None]:
+            character_text = apply_ocr(char_image)
+          plate_text_list.append(character_text.replace('\n', '').replace(' ', ''))
+
+        return ''.join(plate_text_list)
  
 if __name__ == "__main__":
     abspath = os.path.abspath('.')
@@ -223,14 +296,13 @@ if __name__ == "__main__":
     file_list.sort()
     
     for file_name in file_list:
-        try:
+        if file_name.endswith('jpg'):
             print file_name
             path_image = os.path.join(path_load, file_name)
             car_image = Image(path=path_image)
             platedetection = PlateDetection()        
             plate = platedetection.getPlate(car_image)
-            #car_image.save((os.path.join(SAVE, car_image.content.filename[-12:-4]+".png")))
+            #plate_text = plate.getPlateAsText()
             plate.plate_image.content.save((os.path.join(SAVE, car_image.content.filename[-12:-4]+"_plate.png")))
-        except:
-            pass
+            #plate.plate_image.content.save((os.path.join(SAVE, plate_text.lower()+".png")))
         
