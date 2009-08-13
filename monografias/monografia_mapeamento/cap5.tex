@@ -6,21 +6,16 @@
 \chapter{O Toolkit Horus}
 \label{cap:o_toolkit_horus}
 
-O Horus é um \textit{toolkit}, ou seja, uma coleção de ferramentas (nesse caso módulos) que servem para gerenciar agentes inteligentes, escrito em \textit{Python}. Duas partes estão sendo desenvovdidas a princípio: Módulo de Visão e Módulo de Mapeamento.
+O Horus é um \textit{Toolkit}, ou seja, uma coleção de ferramentas (nesse caso módulos) que servem para gerenciar agentes inteligentes, escrito em \textit{Python}. Duas partes estão sendo desenvovdidas a princípio: Módulo de Visão e Módulo de Mapeamento.
 
 No módulo de visão estão os mais variados algoritmos de visão computacional e no módulo de mapeamento trata-se do problema de mapear ambientes a partir de dispositivos de leitura do ambiente e de efetuadores.
 \section{Objetivo}
 
-O objetivo do \textit{toolkit} é prover ferramentas necessárias para produção de agentes inteligentes. 
-
-\section{Arquitetura}
-
-Demonstrar a arquitetura utilizada.
+O objetivo do Toollkit é prover ferramentas necessárias para produção de agentes inteligentes, focando nos processos de navegação e mapeamento no que diz respeito à movimentação dos agentes em um ambiente e também na identificação de placas e reconhecimento dos caracteres no que diz respeito à parte de visão computacional disponibilizada neste toolkit denominado Horus
 
 \section{Módulos do Horus}
 
-Principais funcionalidades de cada um dos módulos, de forma mais explicada. .
-\
+As principais funcionalidades de cada um dos módulos são:
 \begin{itemize}
 \item Core do Horus: Contêm módulos que serão utilizados como suporte para os módulos principais. Sendo assim não necessitam ser utilizados diretamente pelo usuário.
 \item Modulo de Visão: Tem por objetivo tratar as principais técnicas de visão computacional de um agente inteligente.
@@ -41,16 +36,41 @@ O Core do Horus é onde se encontram as partes relativas ao agente e seus comport
 \label{fig:diagrama_core}
 \end{figure}
 
-O ambiente 
-Agente e dispositivo.
-Comportamento: Explicar cada um.
-Event: Eventos gerados pelo ambiente que influenciam no comportamento.
-Brain
+A  arquitetura representada acima demonstra de forma geral os integrantes do Toolkit Horus que são o agente inteligente (\textit{Agent}), os dispositivos usados por esse agente (\textit{Device}), o programa de agente (\textit{Brain}), os eventos (\textit{Event}) e a hierarquia de comportamentos (\textit{Behavior}).
 
+Uma vez criado o agente ele precisa de dispositivos (classe \textit{Device}), como lasers ou câmeras, que sejam necessários para cumprir uma determinada tarefa, ou seja, para atingir o seu objetivo. Além disto, é necessário atribuir a este agente a inteligência (classe \textit{Brain}), isto é, os algoritmos que poderá usar para processar as informações obtidas com seus dispositivos e transformá-las em dados para a fase de pos-processamento.
+
+Para que a aplicação possa usar um programa de agente ela precisa estender a classe \textit{Brain} e implementar o método \textit{run()} dessa classe.
+
+Os comportamentos (classe \textit{Behavior}) são os resposáveis por indicar ao agente o que é necessário ser feito durante o pos-processamento das informações capturadas, isto é, dos eventos que ocorrem e que são compreendidos pelo agente através de seus dispositivos e de seu cérebro.
+
+Entende-se por eventos todos os dados compreendidos pelo agente e que influenciam nas suas decisões, como a detecção de colisões ou a captura e tratamento de imagens no ambiente.
+
+O \textit{Toolkit} Horus oferece algumas classes de comportamentos já definididas que podem ser usadas por qualquer aplicação. São elas:   
+\begin{itemize}
+\item \textit{NeuralNetworkBehavior}: Disponibiliza métodos para a construção e treinamento de redes neurais na implementação de um comportamento;
+\item \textit{TesseractBehavior}: Disponibiliza a funcionalidade de \textit{OCR} da \textit{engine tesseract}, presente no Horus;
+\item \textit{MappingBehavior}: Disponibiliza métodos responsáveis pelo processo de navegação, localização e mapeamento de ambientes desconhecidos com base na técnica SLAM.
+\end{itemize}
+
+A classe \textit{Environment} representa o ambiente sobre o qual os eventos ocorrem e o agente trabalha. Para que o agente possa obter informações sobre o ambiente é preciso que o \textit{Brain} seja configurado tanto com uma instância da classe \textit{Agent} quanto uma instância da classe \textit{Environment}.
+
+É necessário definir a ordem de execucão quando o cérebro do agente  é configurado com diversos comportamentos. Os comportamentos podem mudar de acordo com as condições identificadas, logo, o cérebro identifica as condições que cada commportamento necessita para ser executado e o ativa quando a sua condição de execução for satisfeita. Porém, há casos em que dois ou mais comportamentos podem ter a sua condição de execução satisfeita. Nesses casos, é necessário definir prioridades de execução sobre os comportamentos lembrando sempre que a maior prioridade deve ser a integridade do agente. A ordem de execução dos comportamentos define a máquina de estados de execução do agente inteligente, que se encaixa com a proposta e a utilização do cérebro no \textit{Toolkit}. 
 
 \subsection{Módulo de Visão}
 
-Módulo onde ficam as funções relativas a visão computacional para agentes inteligenes, ele leva em consideração o uso de redes neurais para fazer a extração de característicase também vários algoritmos de segmentação.
+Módulo onde ficam as funções relativas a visão computacional para agentes inteligenes, ele leva em consideração o uso de redes neurais para fazer a extração de característicase também vários algoritmos de segmentação. Esse módulo tem como principal objetivo o reconhecimento de padrões. Para
+reconhecimento de uma placa é necessário identificar algumas características de uma imagem que servirão de padrões de entrada para uma rede neural.
+
+Isso ocorre através de dois processos: Extração de características e reconhecimento de objetos.
+
+\begin{itemize}
+
+\item Extração de características - O objetivo deste processo é abstrair as características de um objeto para, a partir delas, reconhecê-lo usando padrões e usá-los posteriormente pelo método de reconhecimento de objetos.
+
+\item Reconhecimento de objetos - Esse processo utiliza as características que foram obtidas no processo anterior para a partir delas utilizar um classificador e com isso reconhecer o objeto em questão. No caso do Horus foi utilizada como classificador uma rede neural.
+
+\end{itemize}
 
 
 \subsection{Módulo de Mapeamento}

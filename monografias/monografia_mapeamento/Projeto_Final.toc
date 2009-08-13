@@ -1,68 +1,67 @@
 \select@language {english}
 \select@language {brazil}
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{14}
-\contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{15}
-\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{15}
-\contentsline {section}{\numberline {2.2}Estruturas de agentes}{16}
-\contentsline {subsection}{\numberline {2.2.1}Agentes reativos simples}{17}
-\contentsline {subsection}{\numberline {2.2.2}Agentes reativos baseados em modelos}{17}
-\contentsline {subsection}{\numberline {2.2.3}Agentes reativos em objetivos}{18}
-\contentsline {subsection}{\numberline {2.2.4}Agentes baseados em utilidade}{18}
-\contentsline {section}{\numberline {2.3}Teste de \textit {Turing}}{18}
-\contentsline {section}{\numberline {2.4}Cogni\c c\~ao}{19}
-\contentsline {chapter}{\numberline {3}Ambiente}{20}
-\contentsline {section}{\numberline {3.1}Especifica\c c\~ao de um ambiente}{20}
-\contentsline {section}{\numberline {3.2}Propriedades de ambientes de tarefas}{21}
-\contentsline {subsection}{\numberline {3.2.1}Completamente observ\'avel e parcialmente observ\'avel}{21}
-\contentsline {subsection}{\numberline {3.2.2}Determin\IeC {\'\i }stico e Estoc\'astico}{21}
-\contentsline {subsection}{\numberline {3.2.3}Espis\'odico e Sequencial}{22}
-\contentsline {subsection}{\numberline {3.2.4}Est\'atico e Din\^amico}{22}
-\contentsline {subsection}{\numberline {3.2.5}Discreto e Cont\IeC {\'\i }nuo}{22}
-\contentsline {subsection}{\numberline {3.2.6}Agente \'unico e Multiagente}{22}
-\contentsline {section}{\numberline {3.3}Ambiente tarefa para agente virtual}{23}
-\contentsline {chapter}{\numberline {4}Rob\'otica}{24}
-\contentsline {section}{\numberline {4.1}Sensores}{25}
-\contentsline {section}{\numberline {4.2}Efetuadores}{26}
-\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{27}
-\contentsline {section}{\numberline {4.4}Arquiteturas em Rob\'otica}{27}
-\contentsline {subsection}{\numberline {4.4.1}Arquitetura de subsun\c c\~ao}{28}
-\contentsline {subsection}{\numberline {4.4.2}Arquitetura de tr\^es camadas}{28}
-\contentsline {chapter}{\numberline {5}SLAM}{30}
-\contentsline {paragraph}{O}{30}
-\contentsline {section}{\numberline {5.1}SLAM}{31}
-\contentsline {subsection}{\numberline {5.1.1}Landmark Straction}{31}
-\contentsline {subsubsection}{\numberline {5.1.1.1}RANSAC}{32}
-\contentsline {subsubsection}{\numberline {5.1.1.2}SPIKE}{32}
-\contentsline {subsection}{\numberline {5.1.2}Data Association}{33}
-\contentsline {subsection}{\numberline {5.1.3}State Estimation}{34}
-\contentsline {subsection}{\numberline {5.1.4}State Update}{34}
-\contentsline {subsection}{\numberline {5.1.5}Landmark Update}{34}
-\contentsline {chapter}{\numberline {6}O Toolkit Horus}{36}
-\contentsline {section}{\numberline {6.1}Objetivo}{36}
-\contentsline {section}{\numberline {6.2}Arquitetura}{36}
-\contentsline {section}{\numberline {6.3}M\'odulos do Horus}{36}
-\contentsline {subsection}{\numberline {6.3.1}\textit {Core} do Horus}{37}
-\contentsline {subsection}{\numberline {6.3.2}M\'odulo de Vis\~ao}{38}
-\contentsline {subsection}{\numberline {6.3.3}M\'odulo de Mapeamento}{38}
-\contentsline {subsection}{\numberline {6.3.4}Localiza\c c\~ao}{38}
-\contentsline {subsection}{\numberline {6.3.5}Movimenta\c c\~ao}{39}
-\contentsline {subsection}{\numberline {6.3.6}Navega\c c\~ao}{39}
-\contentsline {subsection}{\numberline {6.3.7}Mapeamento}{40}
-\contentsline {subsection}{\numberline {6.3.8}Outros}{42}
-\contentsline {subsection}{\numberline {6.3.9}Utils}{42}
-\contentsline {subsubsection}{\numberline {6.3.9.1}O m\'odulo \textit {"math\textunderscore module"}}{43}
-\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{44}
-\contentsline {section}{\numberline {7.1}Simulador}{44}
-\contentsline {subsection}{\numberline {7.1.1}Python}{45}
-\contentsline {subsection}{\numberline {7.1.2}Blender}{45}
-\contentsline {subsection}{\numberline {7.1.3}Panda3D}{45}
-\contentsline {section}{\numberline {7.2}Ambiente}{46}
-\contentsline {chapter}{\numberline {8}Resultados obtidos}{50}
-\contentsline {section}{\numberline {8.1}Quanto ao tamanho do ambiente}{50}
-\contentsline {section}{\numberline {8.2}Quanto \`a distribuic\~ao dos lasers e sua quantidade}{51}
-\contentsline {section}{\numberline {8.3}Quanto ao raio dos mark points}{52}
-\contentsline {section}{\numberline {8.4}Quanto \`a aplica\c c\~ao integrada}{52}
-\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{54}
-\contentsline {chapter}{Ap\^endices}{57}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{57}
-\contentsline {chapter}{\numberline {B}Siglas}{58}
+\contentsline {chapter}{\numberline {2}Intelig\^encia Artificial}{16}
+\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{16}
+\contentsline {section}{\numberline {2.2}Estruturas de agentes}{17}
+\contentsline {subsection}{\numberline {2.2.1}Agentes reativos simples}{18}
+\contentsline {subsection}{\numberline {2.2.2}Agentes reativos baseados em modelos}{18}
+\contentsline {subsection}{\numberline {2.2.3}Agentes reativos em objetivos}{19}
+\contentsline {subsection}{\numberline {2.2.4}Agentes baseados em utilidade}{19}
+\contentsline {section}{\numberline {2.3}Teste de \textit {Turing}}{19}
+\contentsline {section}{\numberline {2.4}Cogni\c c\~ao}{20}
+\contentsline {chapter}{\numberline {3}Ambiente}{21}
+\contentsline {section}{\numberline {3.1}Especifica\c c\~ao de um ambiente}{21}
+\contentsline {section}{\numberline {3.2}Propriedades de ambientes de tarefas}{22}
+\contentsline {subsection}{\numberline {3.2.1}Completamente observ\'avel e parcialmente observ\'avel}{22}
+\contentsline {subsection}{\numberline {3.2.2}Determin\IeC {\'\i }stico e Estoc\'astico}{22}
+\contentsline {subsection}{\numberline {3.2.3}Epis\'odico e Sequencial}{23}
+\contentsline {subsection}{\numberline {3.2.4}Est\'atico e Din\^amico}{23}
+\contentsline {subsection}{\numberline {3.2.5}Discreto e Cont\IeC {\'\i }nuo}{23}
+\contentsline {subsection}{\numberline {3.2.6}Agente \'unico e Multiagente}{23}
+\contentsline {section}{\numberline {3.3}Ambiente tarefa para agente virtual}{24}
+\contentsline {chapter}{\numberline {4}Rob\'otica}{25}
+\contentsline {section}{\numberline {4.1}Sensores}{26}
+\contentsline {section}{\numberline {4.2}Efetuadores}{27}
+\contentsline {section}{\numberline {4.3}Categorias da rob\'otica}{28}
+\contentsline {section}{\numberline {4.4}Arquiteturas em Rob\'otica}{28}
+\contentsline {subsection}{\numberline {4.4.1}Arquitetura de subsun\c c\~ao}{29}
+\contentsline {subsection}{\numberline {4.4.2}Arquitetura de tr\^es camadas}{29}
+\contentsline {chapter}{\numberline {5}SLAM}{31}
+\contentsline {paragraph}{O}{31}
+\contentsline {section}{\numberline {5.1}SLAM}{32}
+\contentsline {subsection}{\numberline {5.1.1}Landmark Straction}{32}
+\contentsline {subsubsection}{\numberline {5.1.1.1}RANSAC}{33}
+\contentsline {subsubsection}{\numberline {5.1.1.2}SPIKE}{33}
+\contentsline {subsection}{\numberline {5.1.2}Data Association}{34}
+\contentsline {subsection}{\numberline {5.1.3}State Estimation}{35}
+\contentsline {subsection}{\numberline {5.1.4}State Update}{35}
+\contentsline {subsection}{\numberline {5.1.5}Landmark Update}{35}
+\contentsline {chapter}{\numberline {6}O Toolkit Horus}{37}
+\contentsline {section}{\numberline {6.1}Objetivo}{37}
+\contentsline {section}{\numberline {6.2}M\'odulos do Horus}{37}
+\contentsline {subsection}{\numberline {6.2.1}\textit {Core} do Horus}{38}
+\contentsline {subsection}{\numberline {6.2.2}M\'odulo de Vis\~ao}{40}
+\contentsline {subsection}{\numberline {6.2.3}M\'odulo de Mapeamento}{41}
+\contentsline {subsection}{\numberline {6.2.4}Localiza\c c\~ao}{41}
+\contentsline {subsection}{\numberline {6.2.5}Movimenta\c c\~ao}{42}
+\contentsline {subsection}{\numberline {6.2.6}Navega\c c\~ao}{42}
+\contentsline {subsection}{\numberline {6.2.7}Mapeamento}{43}
+\contentsline {subsection}{\numberline {6.2.8}Outros}{45}
+\contentsline {subsection}{\numberline {6.2.9}Utils}{45}
+\contentsline {subsubsection}{\numberline {6.2.9.1}O m\'odulo \textit {"math\textunderscore module"}}{45}
+\contentsline {chapter}{\numberline {7}Aplica\c c\~ao com ambiente virtual e agente aut\^onomo}{47}
+\contentsline {section}{\numberline {7.1}Simulador}{47}
+\contentsline {subsection}{\numberline {7.1.1}Python}{48}
+\contentsline {subsection}{\numberline {7.1.2}Blender}{48}
+\contentsline {subsection}{\numberline {7.1.3}Panda3D}{48}
+\contentsline {section}{\numberline {7.2}Ambiente}{50}
+\contentsline {chapter}{\numberline {8}Resultados obtidos}{52}
+\contentsline {section}{\numberline {8.1}Quanto ao tamanho do ambiente}{52}
+\contentsline {section}{\numberline {8.2}Quanto \`a distribuic\~ao dos lasers e sua quantidade}{53}
+\contentsline {section}{\numberline {8.3}Quanto ao raio dos mark points}{54}
+\contentsline {section}{\numberline {8.4}Quanto \`a aplica\c c\~ao integrada}{54}
+\contentsline {chapter}{\numberline {9}Conclus\~oes e Trabalhos Futuros}{56}
+\contentsline {chapter}{Ap\^endices}{59}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{59}
+\contentsline {chapter}{\numberline {B}Siglas}{60}

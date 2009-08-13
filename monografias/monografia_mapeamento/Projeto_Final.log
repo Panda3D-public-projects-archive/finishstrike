@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  10 AUG 2009 21:52
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  13 AUG 2009 20:37
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -489,7 +489,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 ] (introducao.tex
 Cap\'{\i }tulo 1.
-)
+
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
@@ -498,13 +498,17 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 
-] (cap1.tex
+])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[15] (cap1.tex
 Cap\'{\i }tulo 2.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[15
+[16
 
 
 
@@ -514,31 +518,31 @@ Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 34.
 
 
-<imagens/digramas/diagrama_agente_ambiente.png, id=57, 504.88625pt x 301.125pt>
+<imagens/digramas/diagrama_agente_ambiente.png, id=60, 504.88625pt x 301.125pt>
 File: imagens/digramas/diagrama_agente_ambiente.png Graphic file (type png)
 <use imagens/digramas/diagrama_agente_ambiente.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[16 <imagens/digramas/diagrama_agente_ambiente.png (PNG copy)>]
+[17 <imagens/digramas/diagrama_agente_ambiente.png (PNG copy)>]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[17]
+[18]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[18])
+[19])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[19] (cap2.tex
+[20] (cap2.tex
 Cap\'{\i }tulo 3.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[20
+[21
 
 
 
@@ -546,21 +550,21 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[21]
+[22]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[22])
+[23])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[23] (cap3.tex
+[24] (cap3.tex
 Cap\'{\i }tulo 4.
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 13.
 
-<imagens/fotos/robo_guarda.png, id=84, 371.3875pt x 451.6875pt>
+<imagens/fotos/robo_guarda.png, id=88, 371.3875pt x 451.6875pt>
 File: imagens/fotos/robo_guarda.png Graphic file (type png)
 
 <use imagens/fotos/robo_guarda.png>
@@ -568,23 +572,19 @@ File: imagens/fotos/robo_guarda.png Graphic file (type png)
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 15.
 
-<imagens/fotos/robo_maestro.png, id=85, 470.75874pt x 702.625pt>
+<imagens/fotos/robo_maestro.png, id=89, 470.75874pt x 702.625pt>
 File: imagens/fotos/robo_maestro.png Graphic file (type png)
 
 <use imagens/fotos/robo_maestro.png>
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[24
+[25
 
 
 
  <imagens/fotos/robo_guarda.png (PNG copy)> <imagens/fotos/robo_maestro.png (PN
 G copy)>]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[25]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -596,17 +596,21 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[28])
+[28]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[29] (cap7.tex
+[29])
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[30] (cap7.tex
 Cap\'{\i }tulo 5.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[30
+[31
 
 
 
@@ -614,7 +618,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[31]
+[32]
 Overfull \hbox (15.3339pt too wide) in paragraph at lines 43--45
 \OT1/cmr/m/n/12 O RANSAC (\OT1/cmr/m/it/12 Ran-dom Sam-pling Con-sen-sus\OT1/cm
 r/m/n/12 ) metodo in-ter-a-tivo para es-ti-ma-tiva dos par^ametros
@@ -624,45 +628,41 @@ r/m/n/12 ) metodo in-ter-a-tivo para es-ti-ma-tiva dos par^ametros
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[32]
+[33]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[33])
+[34])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[34]
+[35]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[35] (cap5.tex
+[36] (cap5.tex
 Cap\'{\i }tulo 6.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[36
+[37
 
 
 
 ]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 38.
+(pdftex.def)                using `viewport' instead on input line 33.
 
-<imagens/digramas/diagrama_core.png, id=129, 905.3825pt x 387.4475pt>
+<imagens/digramas/diagrama_core.png, id=132, 905.3825pt x 387.4475pt>
 File: imagens/digramas/diagrama_core.png Graphic file (type png)
 
 <use imagens/digramas/diagrama_core.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[37 <imagens/digramas/diagrama_core.png>]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[38]
+[38 <imagens/digramas/diagrama_core.png>]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -671,31 +671,6 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [40]
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 126.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 126.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 127.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 127.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 127.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 128.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 128.
-
-
-LaTeX Warning: Command \textunderscore invalid in math mode on input line 128.
-
-
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -704,7 +679,44 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [42]
-Overfull \hbox (3.9125pt too wide) in paragraph at lines 174--175
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[43]
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 146.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 146.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 147.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 147.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 147.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 148.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 148.
+
+
+LaTeX Warning: Command \textunderscore invalid in math mode on input line 148.
+
+
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[44]
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[45]
+Overfull \hbox (3.9125pt too wide) in paragraph at lines 194--195
 []\OT1/cmr/bx/n/12 isPointInCircle(self, cen-ter[]tuple, point[]tuple, ra-dius)
  \OT1/cmr/m/n/12 - re-sponsavel por definir
  []
@@ -713,13 +725,13 @@ Overfull \hbox (3.9125pt too wide) in paragraph at lines 174--175
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[43] (cap8.tex
+[46] (cap8.tex
 Cap\'{\i }tulo 7.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[44
+[47
 
 
 
@@ -728,27 +740,31 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 34.
 
-<imagens/fotos/blender.png, id=158, 1284.8pt x 752.8125pt>
+<imagens/fotos/blender.png, id=167, 1284.8pt x 752.8125pt>
 File: imagens/fotos/blender.png Graphic file (type png)
 
 <use imagens/fotos/blender.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[45]
+[48]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 56.
 
-<imagens/fotos/battle_robots.png, id=162, 811.03pt x 630.355pt>
+<imagens/fotos/battle_robots.png, id=172, 811.03pt x 630.355pt>
 File: imagens/fotos/battle_robots.png Graphic file (type png)
 
 <use imagens/fotos/battle_robots.png>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[49 <imagens/fotos/blender.png> <imagens/fotos/battle_robots.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 69.
 
-<imagens/fotos/robot.png, id=163, 795.97375pt x 614.295pt>
+<imagens/fotos/robot.png, id=178, 795.97375pt x 614.295pt>
 File: imagens/fotos/robot.png Graphic file (type png)
 
 <use imagens/fotos/robot.png>
@@ -756,41 +772,32 @@ File: imagens/fotos/robot.png Graphic file (type png)
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 79.
 
-<imagens/fotos/galpao.png, id=164, 426.09187pt x 545.03625pt>
+<imagens/fotos/galpao.png, id=179, 426.09187pt x 545.03625pt>
 File: imagens/fotos/galpao.png Graphic file (type png)
 
 <use imagens/fotos/galpao.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[46 <imagens/fotos/blender.png>]
+[50 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png (PNG copy)>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 88.
 
-<imagens/fotos/colisions.png, id=169, 895.345pt x 564.1075pt>
+<imagens/fotos/colisions.png, id=183, 895.345pt x 564.1075pt>
 File: imagens/fotos/colisions.png Graphic file (type png)
 
 <use imagens/fotos/colisions.png>)
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[47 <imagens/fotos/battle_robots.png>]
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[48 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png (PNG copy)>]
-
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[49 <imagens/fotos/colisions.png (PNG copy)>] (cap9.tex
+[51 <imagens/fotos/colisions.png (PNG copy)>] (cap9.tex
 Cap\'{\i }tulo 8.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[50
+[52
 
 
 
@@ -798,29 +805,29 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[51]
+[53]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[52]
+[54]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 66.
 
-<imagens/fotos/placa.png, id=190, 724.7075pt x 359.3425pt>
+<imagens/fotos/placa.png, id=197, 724.7075pt x 359.3425pt>
 File: imagens/fotos/placa.png Graphic file (type png)
 
 <use imagens/fotos/placa.png>)
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[53 <imagens/fotos/placa.png>] (conclusao.tex
+[55 <imagens/fotos/placa.png>] (conclusao.tex
 Cap\'{\i }tulo 9.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[54
+[56
 
 
 
@@ -828,11 +835,11 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[55] (bibliografia.tex (Projeto_Final.bbl))
+[57] (bibliografia.tex (Projeto_Final.bbl))
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[56
+[58
 
 
 
@@ -842,7 +849,7 @@ Ap\^endice A.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[57
+[59
 
 
 
@@ -852,7 +859,7 @@ Ap\^endice B.
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
-[58
+[60
 
 ] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
@@ -869,7 +876,7 @@ Here is how much of TeX's memory you used:
  6719 multiletter control sequences out of 110000
  11235 words of font info for 39 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 28i,14n,32p,714b,536s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,14n,32p,823b,538s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/cm-super-ts1.en
 c}<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbx12.pfb><C:/Ar
 quivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/Arquivos
@@ -879,9 +886,9 @@ TeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/MiKTeX 2.7/f
 onts/type1/bluesky/cm/cmsy10.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/typ
 e1/bluesky/cm/cmti12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/publi
 c/cm-super/sfrm1200.pfb>
-Output written on Projeto_Final.pdf (59 pages, 2857667 bytes).
+Output written on Projeto_Final.pdf (61 pages, 2862929 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
+ 247 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

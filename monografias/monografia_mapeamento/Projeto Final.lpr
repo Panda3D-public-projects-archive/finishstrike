@@ -39,14 +39,14 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=0
+CaretPos.Y=36
 CharSet=def
 FileName=apendice.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=20
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
@@ -122,36 +122,36 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=43
-CaretPos.Y=78
+CaretPos.X=0
+CaretPos.Y=70
 CharSet=def
 FileName=cap5.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=24
+ScrollPos.Y=116
 SearchListCount=5
 
 [Files\13\SearchList\0]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=0
+Show=1
 Text=seen
 
 [Files\13\SearchList\1]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=0
+Show=1
 Text=já mape
 
 [Files\13\SearchList\2]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=0
+Show=1
 Text=já
 
 [Files\13\SearchList\3]
@@ -171,7 +171,7 @@ Text=significa
 [Files\13]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=1
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -187,15 +187,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=12
-CaretPos.Y=18
+CaretPos.X=0
+CaretPos.Y=0
 CharSet=def
 FileName=cap3.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=11
+ScrollPos.Y=97
 SearchListCount=5
 
 [Files\14\SearchList\0]
@@ -252,15 +252,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=336
-CaretPos.Y=69
+CaretPos.X=0
+CaretPos.Y=0
 CharSet=def
 FileName=cap7.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=104
+ScrollPos.Y=1
 SearchListCount=1
 
 [Files\15\SearchList\0]
@@ -273,7 +273,7 @@ Text=\cite
 [Files\15]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=2
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -289,15 +289,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=71
-CaretPos.Y=45
+CaretPos.X=0
+CaretPos.Y=0
 CharSet=def
 FileName=cap8.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=46
+ScrollPos.Y=64
 SearchListCount=2
 
 [Files\16\SearchList\0]
@@ -317,7 +317,7 @@ Text=blende
 [Files\16]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=0
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -334,7 +334,7 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=9
+CaretPos.Y=0
 CharSet=def
 FileName=cap1.tex
 FoldedLines=
@@ -361,43 +361,43 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=243
-CaretPos.Y=10
+CaretPos.X=13
+CaretPos.Y=36
 CharSet=def
 FileName=cap2.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=9
+ScrollPos.Y=60
 SearchListCount=4
 
 [Files\18\SearchList\0]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=1
+Show=0
 Text=y
 
 [Files\18\SearchList\1]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=1
+Show=0
 Text=w
 
 [Files\18\SearchList\2]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=1
+Show=0
 Text=k
 
 [Files\18\SearchList\3]
 CaseSensitive=no
 Color=11730904
 RegExp=no
-Show=1
+Show=0
 Text=ing
 
 [Files\18]
@@ -419,19 +419,19 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=30
+CaretPos.Y=47
 CharSet=def
 FileName=cap9.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=112
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=4
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -476,18 +476,18 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=15
+CaretPos.Y=0
 CharSet=def
 FileName=resumo.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=15
+ScrollPos.Y=1
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=6
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -503,19 +503,19 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=269
-CaretPos.Y=16
+CaretPos.X=0
+CaretPos.Y=0
 CharSet=def
 FileName=abstract.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=20
+ScrollPos.Y=1
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=7
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -531,15 +531,15 @@ Bookmark#6=0
 Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
-CaretPos.X=0
-CaretPos.Y=0
+CaretPos.X=34
+CaretPos.Y=13
 CharSet=def
 FileName=introducao.tex
 FoldedLines=
 IsMainFile=no
 Opened=no
 ScrollPos.X=0
-ScrollPos.Y=1
+ScrollPos.Y=19
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
@@ -616,14 +616,14 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=143
+CaretPos.Y=0
 CharSet=def
 FileName=Projeto_Final.tex
 FoldedLines=
 IsMainFile=yes
-Opened=yes
+Opened=no
 ScrollPos.X=0
-ScrollPos.Y=135
+ScrollPos.Y=1
 SearchListCount=6
 
 [Files\7\SearchList\0]
@@ -671,7 +671,7 @@ Text=bibliografia
 [Files\7]
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=3
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -716,18 +716,18 @@ Bookmark#7=0
 Bookmark#8=0
 Bookmark#9=0
 CaretPos.X=0
-CaretPos.Y=13
+CaretPos.Y=0
 CharSet=def
 FileName=conclusao.tex
 FoldedLines=
 IsMainFile=no
-Opened=yes
+Opened=no
 ScrollPos.X=0
 ScrollPos.Y=0
 SearchListCount=0
 ShowSyntax=yes
 SpellChecking=yes
-TabOrder=5
+TabOrder=-1
 UseThesaurus=yes
 WrapLine=yes
 
@@ -789,7 +789,7 @@ Zoom=9
 FileName=1
 FirstPage=0
 Magnifier=1
-Page=43
+Page=38
 PaperHeight=297
 PaperWidth=210
 Zoom=9
