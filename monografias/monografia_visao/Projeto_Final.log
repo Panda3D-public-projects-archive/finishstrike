@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  12 AUG 2009 19:40
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2009.4.27)  13 AUG 2009 18:56
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -76,11 +76,10 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 90.
+Package graphics Info: Driver file: dvips.def on input line 90.
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
-\Gread@gobject=\count89
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -105,13 +104,13 @@ Package: amsbsy 1999/11/29 v1.2d
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count90
+\inf@bad=\count89
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count91
-\leftroot@=\count92
+\uproot@=\count90
+\leftroot@=\count91
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count93
-\DOTSCASE@=\count94
+\classnum@=\count92
+\DOTSCASE@=\count93
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -120,15 +119,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen108
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count95
-\c@MaxMatrixCols=\count96
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
 \dotsspace@=\muskip10
-\c@parentequation=\count97
-\dspbrk@lvl=\count98
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
 \tag@help=\toks16
-\row@=\count99
-\column@=\count100
-\maxfields@=\count101
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
 \andhelp@=\toks17
 \eqnshift@=\dimen109
 \alignsep@=\dimen110
@@ -170,27 +169,30 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTright=\skip47
 \LTpre=\skip48
 \LTpost=\skip49
-\LTchunksize=\count102
+\LTchunksize=\count101
 \LTcapwidth=\dimen123
 \LT@head=\box28
 \LT@firsthead=\box29
 \LT@foot=\box30
 \LT@lastfoot=\box31
-\LT@cols=\count103
-\LT@rows=\count104
-\c@LT@tables=\count105
-\c@LT@chunks=\count106
+\LT@cols=\count102
+\LT@rows=\count103
+\c@LT@tables=\count104
+\c@LT@chunks=\count105
 \LT@p@ftn=\toks22
 )
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\dropping\dropping.sty"
 Package: dropping 1997/06/12 v.0.12
-\bigscale=\count107
-\down=\count108
+\bigscale=\count106
+\down=\count107
 \saveunitlength=\dimen124
 \wantedheight=\dimen125
 
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+\wantedcount=\count108
+\actualcount=\count109
+\actualheight=\dimen126
 ))
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip11
@@ -200,14 +202,14 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip50
 \subfigcapskip=\skip51
-\subfigcaptopadj=\dimen126
+\subfigcaptopadj=\dimen127
 \subfigbottomskip=\skip52
-\subfigcapmargin=\dimen127
+\subfigcapmargin=\dimen128
 \subfiglabelskip=\skip53
-\c@subfigure=\count109
-\c@lofdepth=\count110
-\c@subtable=\count111
-\c@lotdepth=\count112
+\c@subfigure=\count110
+\c@lofdepth=\count111
+\c@subtable=\count112
+\c@lotdepth=\count113
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -225,15 +227,15 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\tools\calc.sty"
 Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count113
-\calc@Bcount=\count114
-\calc@Adimen=\dimen128
-\calc@Bdimen=\dimen129
+\calc@Acount=\count114
+\calc@Bcount=\count115
+\calc@Adimen=\dimen129
+\calc@Bdimen=\dimen130
 \calc@Askip=\skip56
 \calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count115
+\calc@Ccount=\count116
 \calc@Cskip=\skip58
 )
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\abntex\abntex-abrev.sty"
@@ -257,8 +259,8 @@ File: nbr10520-2002.def 2003/10/13 v1.2 Definicoes para abntcite (NBR10520:2002
 )
 \minimumbiblabelwidth=\skip59
 \ABCIauxlen=\skip60
-\c@ABCIaux=\count116
-\c@ABCImax=\count117
+\c@ABCIaux=\count117
+\c@ABCImax=\count118
 
 ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\ltxmisc\relsize.sty"
 Package: relsize 2003/07/04 ver 3.1
@@ -349,13 +351,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 Package: algorithmic 2006/06/02
 
 Document Style `algorithmic' - environment
-\c@ALC@line=\count118
-\c@ALC@rem=\count119
-\c@ALC@depth=\count120
+\c@ALC@line=\count119
+\c@ALC@rem=\count120
+\c@ALC@depth=\count121
 \ALC@tlm=\skip62
 \algorithmicindent=\skip63
 )
-\c@mypage=\count121
+\c@mypage=\count122
  (Projeto_Final.aux (capa.aux) (folhaaprovacao.aux) (dedicatoria.aux)
 (agradecimentos.aux) (resumo.aux) (abstract.aux) (introducao.aux) (cap1.aux)
 (cap2.aux) (cap4.aux) (cap3.aux
@@ -385,26 +387,13 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 66.
-
-("C:\Arquivos de programas\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
-\scratchdimen=\dimen130
-\scratchbox=\box32
-\nofMPsegments=\count123
-\nofMParguments=\count124
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count125
-\MPscratchDim=\dimen131
-\MPnumerator=\count126
-\everyMPtoPDFconversion=\toks25
-) (capa.tex [1
+ (capa.tex
+[1
 
 
-{C:/Documents and Settings/All Users/Dados de aplicativos/MiKTeX/2.7/pdftex/con
-fig/pdftex.map}]) (folhaaprovacao.tex
+]) (folhaaprovacao.tex
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
-[]\OT1/cmr/m/n/12 Monografia ap-re-sen-tada a Uni-ver-si-dade
+[][]\OT1/cmr/m/n/12 Monografia ap-re-sen-tada a Uni-ver-si-dade
  []
 
 
@@ -522,8 +511,8 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 [17]
 Overfull \hbox (13.76505pt too wide) in paragraph at lines 32--33
-[]\OT1/cmr/m/n/12 Comportamentos po-dem ser di-vi-di-dos em duas cat-e-go-rias.
- Os Com-por-ta-men-tos Primarios:
+[][]\OT1/cmr/m/n/12 Comportamentos po-dem ser di-vi-di-dos em duas cat-e-go-ria
+s. Os Com-por-ta-men-tos Primarios:
  []
 
 
@@ -539,14 +528,8 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [20]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 81.
-
-<imagens/neuronioBio.PNG, id=69, 753.81625pt x 470.75874pt>
-File: imagens/neuronioBio.PNG Graphic file (type png)
-
-<use imagens/neuronioBio.PNG>
+File: imagens/neuronioBio.PNG Graphic file (type eps)
+ <imagens/neuronioBio.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -554,130 +537,64 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[22 <imagens/neuronioBio.PNG (PNG copy)>]
+[22]
+File: imagens/mcculloch.PNG Graphic file (type eps)
+ <imagens/mcculloch.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [23]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 110.
-
-<imagens/mcculloch.PNG, id=80, 350.30875pt x 264.99pt>
-File: imagens/mcculloch.PNG Graphic file (type png)
-
-<use imagens/mcculloch.PNG>
+File: imagens/graficoFuncaoLimiar.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoLimiar.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[24 <imagens/mcculloch.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 147.
-
-<imagens/graficoFuncaoLimiar.PNG, id=86, 301.125pt x 222.8325pt>
-File: imagens/graficoFuncaoLimiar.PNG Graphic file (type png)
-
-<use imagens/graficoFuncaoLimiar.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 165.
-
-<imagens/graficoFuncaoSigmoide.PNG, id=87, 291.0875pt x 220.825pt>
-File: imagens/graficoFuncaoSigmoide.PNG Graphic file (type png)
-
-<use imagens/graficoFuncaoSigmoide.PNG>
+[24]
+File: imagens/graficoFuncaoSigmoide.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoSigmoide.PNG>
+File: imagens/graficoFuncaoSignun.PNG Graphic file (type eps)
+ <imagens/graficoFuncaoSignun.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[25 <imagens/graficoFuncaoLimiar.PNG (PNG copy)> <imagens/graficoFuncaoSigmoide
-.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 182.
-
-<imagens/graficoFuncaoSignun.PNG, id=96, 281.05pt x 208.78pt>
-File: imagens/graficoFuncaoSignun.PNG Graphic file (type png)
-
-<use imagens/graficoFuncaoSignun.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 199.
-
-<imagens/graficoHiperbolica.PNG, id=97, 280.04625pt x 207.77625pt>
-File: imagens/graficoHiperbolica.PNG Graphic file (type png)
-
-<use imagens/graficoHiperbolica.PNG>
+[25]
+File: imagens/graficoHiperbolica.PNG Graphic file (type eps)
+ <imagens/graficoHiperbolica.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[26 <imagens/graficoFuncaoSignun.PNG (PNG copy)> <imagens/graficoHiperbolica.PN
-G (PNG copy)>]
+[26]
+File: imagens/redeUmaCamada.PNG Graphic file (type eps)
+ <imagens/redeUmaCamada.PNG>
+File: imagens/redeMultiplaCamada.PNG Graphic file (type eps)
+ <imagens/redeMultiplaCamada.PNG>
+File: imagens/feedBack.PNG Graphic file (type eps)
 
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 220.
-
-<imagens/redeUmaCamada.PNG, id=105, 125.46875pt x 123.46124pt>
-File: imagens/redeUmaCamada.PNG Graphic file (type png)
-
-<use imagens/redeUmaCamada.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 231.
-
-<imagens/redeMultiplaCamada.PNG, id=106, 171.64125pt x 103.38625pt>
-File: imagens/redeMultiplaCamada.PNG Graphic file (type png)
-
-<use imagens/redeMultiplaCamada.PNG>
+<imagens/feedBack.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[27 <imagens/redeUmaCamada.PNG (PNG copy)> <imagens/redeMultiplaCamada.PNG (PNG
- copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 248.
-
-<imagens/feedBack.PNG, id=110, 182.6825pt x 115.43124pt>
-File: imagens/feedBack.PNG Graphic file (type png)
-
-<use imagens/feedBack.PNG>
+[27]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[28 <imagens/feedBack.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 277.
-
-<imagens/aprendizadoSupervRNA.PNG, id=114, 385.44pt x 211.79124pt>
-File: imagens/aprendizadoSupervRNA.PNG Graphic file (type png)
-
-<use imagens/aprendizadoSupervRNA.PNG>
+[28]
+File: imagens/aprendizadoSupervRNA.PNG Graphic file (type eps)
+ <imagens/aprendizadoSupervRNA.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[29 <imagens/aprendizadoSupervRNA.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 294.
-
-<imagens/aprendizadoNSuper.PNG, id=118, 446.66875pt x 93.34875pt>
-File: imagens/aprendizadoNSuper.PNG Graphic file (type png)
-
-<use imagens/aprendizadoNSuper.PNG>
+[29]
+File: imagens/aprendizadoNSuper.PNG Graphic file (type eps)
+ <imagens/aprendizadoNSuper.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[30 <imagens/aprendizadoNSuper.PNG (PNG copy)>]
+[30]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [31]
-
-LaTeX Warning: Citation `Rice1999' on page 32 undefined on input line 328.
-
-
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -700,205 +617,97 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 ]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 19.
-
-<imagens/core.PNG, id=138, 1162.3425pt x 487.8225pt>
-File: imagens/core.PNG Graphic file (type png)
- <use imagens/core.PNG>
+File: imagens/core.PNG Graphic file (type eps)
+ <imagens/core.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[36 <imagens/core.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 32.
-
-<imagens/brainExtension.PNG, id=142, 563.10374pt x 546.04pt>
-File: imagens/brainExtension.PNG Graphic file (type png)
-
-<use imagens/brainExtension.PNG>
+[36]
+File: imagens/brainExtension.PNG Graphic file (type eps)
+ <imagens/brainExtension.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[37 <imagens/brainExtension.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 45.
-
-<imagens/behaviorExtension.PNG, id=146, 673.51625pt x 882.29625pt>
-File: imagens/behaviorExtension.PNG Graphic file (type png)
-
-<use imagens/behaviorExtension.PNG>
+[37]
+File: imagens/behaviorExtension.PNG Graphic file (type eps)
+ <imagens/behaviorExtension.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[38 <imagens/behaviorExtension.PNG (PNG copy)>]
+[38]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [39]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 72.
-
-<imagens/vizinhanca.png, id=154, 783.8886pt x 236.8047pt>
-File: imagens/vizinhanca.png Graphic file (type png)
-
-<use imagens/vizinhanca.png>
+File: imagens/vizinhanca.png Graphic file (type eps)
+ <imagens/vizinhanca.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[40 <imagens/vizinhanca.png>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 92.
-
-<imagens/t_sk.PNG, id=160, 311.1625pt x 150.5625pt>
-File: imagens/t_sk.PNG Graphic file (type png)
- <use imagens/t_sk.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 101.
-
-<imagens/b_sk.PNG, id=161, 180.675pt x 224.84pt>
-File: imagens/b_sk.PNG Graphic file (type png)
- <use imagens/b_sk.PNG>
+[40]
+File: imagens/t_sk.PNG Graphic file (type eps)
+ <imagens/t_sk.PNG>
+File: imagens/b_sk.PNG Graphic file (type eps)
+ <imagens/b_sk.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[41 <imagens/t_sk.PNG (PNG copy)> <imagens/b_sk.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 114.
-
-<imagens/grid.PNG, id=166, 100.375pt x 100.375pt>
-File: imagens/grid.PNG Graphic file (type png)
- <use imagens/grid.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 129.
-
-<imagens/grid2_3.PNG, id=167, 261.97874pt x 102.3825pt>
-File: imagens/grid2_3.PNG Graphic file (type png)
-
-<use imagens/grid2_3.PNG>
+[41]
+File: imagens/grid.PNG Graphic file (type eps)
+ <imagens/grid.PNG>
+File: imagens/grid2_3.PNG Graphic file (type eps)
+ <imagens/grid2_3.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[42 <imagens/grid.PNG (PNG copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 146.
-
-<imagens/condition1.PNG, id=172, 445.665pt x 103.38625pt>
-File: imagens/condition1.PNG Graphic file (type png)
-
-<use imagens/condition1.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 159.
-
-<imagens/condition2.PNG, id=173, 235.88126pt x 104.39pt>
-File: imagens/condition2.PNG Graphic file (type png)
-
-<use imagens/condition2.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 170.
-
-<imagens/grid11.PNG, id=174, 100.375pt x 130.4875pt>
-File: imagens/grid11.PNG Graphic file (type png)
- <use imagens/grid11.PNG>
+[42]
+File: imagens/condition1.PNG Graphic file (type eps)
+ <imagens/condition1.PNG>
+File: imagens/condition2.PNG Graphic file (type eps)
+ <imagens/condition2.PNG>
+File: imagens/grid11.PNG Graphic file (type eps)
+ <imagens/grid11.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[43 <imagens/grid2_3.PNG (PNG copy)> <imagens/condition1.PNG (PNG copy)>]
+[43]
+File: imagens/grid13.PNG Graphic file (type eps)
+ <imagens/grid13.PNG>
+File: imagens/sk_demonstration.PNG Graphic file (type eps)
+ <imagens/sk_demonstration.PNG>
+File: imagens/erodedPatterns.PNG Graphic file (type eps)
 
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 181.
-
-<imagens/grid13.PNG, id=180, 100.375pt x 100.375pt>
-File: imagens/grid13.PNG Graphic file (type png)
- <use imagens/grid13.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 193.
-
-<imagens/sk_demonstration.PNG, id=181, 557.08125pt x 236.885pt>
-File: imagens/sk_demonstration.PNG Graphic file (type png)
-
-<use imagens/sk_demonstration.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 204.
-
-<imagens/erodedPatterns.PNG, id=182, 338.26375pt x 154.5775pt>
-File: imagens/erodedPatterns.PNG Graphic file (type png)
-
-<use imagens/erodedPatterns.PNG>
+<imagens/erodedPatterns.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[44 <imagens/condition2.PNG (PNG copy)> <imagens/grid11.PNG (PNG copy)> <imagen
-s/grid13.PNG (PNG copy)>]
+[44]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[45 <imagens/sk_demonstration.PNG (PNG copy)> <imagens/erodedPatterns.PNG (PNG 
-copy)>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 230.
-
-<imagens/pixelMatrix.PNG, id=194, 134.6631pt x 74.679pt>
-File: imagens/pixelMatrix.PNG Graphic file (type png)
-
-<use imagens/pixelMatrix.PNG>
+[45]
+File: imagens/pixelMatrix.PNG Graphic file (type eps)
+ <imagens/pixelMatrix.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[46 <imagens/pixelMatrix.PNG>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 244.
-
-<imagens/layoutsix.PNG, id=199, 94.9146pt x 133.9404pt>
-File: imagens/layoutsix.PNG Graphic file (type png)
-
-<use imagens/layoutsix.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 255.
-
-<imagens/quatorze.PNG, id=200, 274.626pt x 252.945pt>
-File: imagens/quatorze.PNG Graphic file (type png)
-
-<use imagens/quatorze.PNG>
+[46]
+File: imagens/layoutsix.PNG Graphic file (type eps)
+ <imagens/layoutsix.PNG>
+File: imagens/quatorze.PNG Graphic file (type eps)
+ <imagens/quatorze.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[47 <imagens/layoutsix.PNG> <imagens/quatorze.PNG>]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 269.
-
-<imagens/matriz.PNG, id=206, 722.7pt x 315.579pt>
-File: imagens/matriz.PNG Graphic file (type png)
- <use imagens/matriz.PNG>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 282.
-
-<imagens/vetorCaracteristicas.PNG, id=207, 1235.61626pt x 166.6225pt>
-File: imagens/vetorCaracteristicas.PNG Graphic file (type png)
-
-<use imagens/vetorCaracteristicas.PNG>
+[47]
+File: imagens/matriz.PNG Graphic file (type eps)
+ <imagens/matriz.PNG>
+File: imagens/vetorCaracteristicas.PNG Graphic file (type eps)
+ <imagens/vetorCaracteristicas.PNG>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[48 <imagens/matriz.PNG> <imagens/vetorCaracteristicas.PNG (PNG copy)>]
+[48]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -976,64 +785,53 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
 
 ]
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 16.
-
-<imagens/arquiteturaAmbiente.png, id=251, 249.5724pt x 279.6849pt>
-File: imagens/arquiteturaAmbiente.png Graphic file (type png)
-
-<use imagens/arquiteturaAmbiente.png>
+File: imagens/arquiteturaAmbiente.png Graphic file (type eps)
+ <imagens/arquiteturaAmbiente.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[61 <imagens/arquiteturaAmbiente.png>]
+[61]
 
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 40.
+LaTeX Warning: Reference `fig:robo' on page 62 undefined on input line 35.
 
-<imagens/robo.png, id=256, 377.4903pt x 238.491pt>
-File: imagens/robo.png Graphic file (type png)
- <use imagens/robo.png>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 52.
-
-<imagens/galpao.png, id=257, 426.09187pt x 545.03625pt>
-File: imagens/galpao.png Graphic file (type png)
-
-<use imagens/galpao.png>
+File: imagens/robo.png Graphic file (type eps)
+<imagens/robo.png>
+File: imagens/galpao.png Graphic file (type eps)
+ <imagens/galpao.png>
 Overfull \hbox (1.95322pt too wide) in paragraph at lines 60--62
-[]\OT1/cmr/m/n/12 A maquina de es-ta-dos uti-lizada no Ari-adnes e com-posta 
-por: ma-pea-mento, navegac~ao,
+[][]\OT1/cmr/m/n/12 A maquina de es-ta-dos uti-lizada no Ari-adnes e com-post
+a por: ma-pea-mento, navegac~ao,
  []
 
 
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[62 <imagens/robo.png>]
+[62]
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[63 <imagens/galpao.png (PNG copy)>]
+[63]
+
+LaTeX Warning: Reference `fig:placa' on page 64 undefined on input line 85.
+
+
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[64] <imagens/placa.png, id=269, 183.3249pt x 98.2872pt>
-File: imagens/placa.png Graphic file (type png)
-
-<use imagens/placa.png>
+[64]
+File: imagens/placa.png Graphic file (type eps)
+ <imagens/placa.png>
 Overfull \hbox (2.97256pt too wide) in paragraph at lines 97--98
-[]\OT1/cmr/m/n/12 Para re-alizar o re-con-hec-i-mento dos lo-cais e direc~oes 
-ap-re-sen-ta-dos na placa, e necessario
+[][]\OT1/cmr/m/n/12 Para re-alizar o re-con-hec-i-mento dos lo-cais e direc~oe
+s ap-re-sen-ta-dos na placa, e necessario
  []
 
 )
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[65 <imagens/placa.png>] (conclusao.tex
+[65] (conclusao.tex
 Cap\'{\i }tulo 6.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
@@ -1100,31 +898,12 @@ LaTeX Warning: There were multiply-defined labels.
 ### semi simple group (level 1) entered at line 138 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 4081 strings out of 95304
- 52718 string characters out of 1182724
- 109872 words of memory out of 1500000
- 7053 multiletter control sequences out of 110000
+ 3628 strings out of 95305
+ 45071 string characters out of 1182751
+ 103178 words of memory out of 1500000
+ 6604 multiletter control sequences out of 110000
  11402 words of font info for 42 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  29i,15n,27p,1710b,508s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/c
-m-super-ts1.enc}<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmb
-x12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmex10.pfb>
-<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb><C:/Arqu
-ivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi6.pfb><C:/Arquivos de p
-rogramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi8.pfb><C:/Arquivos de programas/
-MiKTeX 2.7/fonts/type1/bluesky/cm/cmr10.pfb><C:/Arquivos de programas/MiKTeX 2.
-7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/t
-ype1/bluesky/cm/cmr6.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/blues
-ky/cm/cmr8.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy
-10.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy6.pfb><C
-:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy8.pfb><C:/Arquivo
-s de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmti12.pfb><C:/Arquivos de pro
-gramas/MiKTeX 2.7/fonts/type1/bluesky/ams/msbm10.pfb><C:/Arquivos de programas/
-MiKTeX 2.7/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Projeto_Final.pdf (69 pages, 2357897 bytes).
-PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+Output written on Projeto_Final.dvi (69 pages, 167784 bytes).

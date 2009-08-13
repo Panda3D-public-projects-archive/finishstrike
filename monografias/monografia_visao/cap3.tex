@@ -32,7 +32,7 @@ Ariadnes é um sistema que simula a movimentação autônoma de um agente inteligent
 As principais partes do simulador Ariadnes são: ambiente, engine 3D, agentes e dispositivos. O ambiente, nesse simulador, foi construído utilizando o modelador Blender3D. Esse ambiente é composto basicamente de diversos cômodos interligados por corredores, em alguns pontos desse ambiente existem placas informativas cujo objetivo é orientar o agente durante o mapeamento, como mostra a Figura 0000. 
 
 A engine 3D utilizada no controle do ambiente e do agente foi o Panda3D. Por último, agentes e dispositivos são extensões de abstrações fornecidas no módulo Core do Horus para implementação de tais partes. O agente configurado com
-dispositivos emissores de lasers é mostrado na Figura 00001.
+dispositivos emissores de lasers é mostrado na Figura \ref{fig:robo}.
 
 \begin{figure}[!htb]
 \centering
@@ -40,10 +40,10 @@ dispositivos emissores de lasers é mostrado na Figura 00001.
     \includegraphics[scale=0.2, bb=0 0 1567 990]{imagens/robo.png}
 \end{center}
 \caption{Agente configurado com dispositivos de lasers.}
-\label{fig:seg4}
+\label{fig:robo}
 \end{figure}
 
-Inicialmente, o agente é configurado com os comportamentos de Navegação, Mapeamento, Localização e Leitura de placas. Após a configuração, o agente é inserido em um ambiente totalmente desconhecido com a missão de chegar a uma sala específica. Na Figura 000002 é apresentado a vista de cima do ambiente utilizado no Ariadnes.
+Inicialmente, o agente é configurado com os comportamentos de Navegação, Mapeamento, Localização e Leitura de placas. Após a configuração, o agente é inserido em um ambiente totalmente desconhecido com a missão de chegar a uma sala específica. Na Figura \ref{fig:ambienteEplaca} é apresentado a vista de cima do ambiente utilizado no Ariadnes.
 
 
 \begin{figure}[!htb]
@@ -82,15 +82,15 @@ O agente é capaz de estimar sua posição local para se localizar globalmente e re
 %\label{fig:seg4}
 %\end{figure}
 
-A placa é constituída de várias linhas, cada linha contém duas colunas. A primeira coluna de cada linha fornece o nome de um determinado local no ambiente, enquanto que, a segunda coluna fornece a direção desse local em forma de setas. Como apresentado na Figura V.
+A placa é constituída de várias linhas, cada linha contém duas colunas. A primeira coluna de cada linha fornece o nome de um determinado local no ambiente, enquanto que, a segunda coluna fornece a direção desse local em forma de setas. Como apresentado na Figura \ref{fig:placa}.
 
  \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.2]{imagens/placa.png}
+    \includegraphics[scale=0.2, bb = 0 0 761 408]{imagens/placa.png}
 \end{center}
 \caption{Placa informativa.}
-\label{fig:seg4}
+\label{fig:placa}
 \end{figure}
 
 

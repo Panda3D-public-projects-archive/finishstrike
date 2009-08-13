@@ -64,7 +64,7 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 
 \item Adjacência: dois pixels $p$ e $q$ são adjacentes somente se estiverem conectados segundo algum critério. Dados os conjuntos de pixels $C_1$ e $C_2$, esses conjuntos serão adjacentes se algum pixel de $C_1$ é adjacente a algum pixel de $C_2$.
 
-\item Vizinhança: dado um pixel $p$ de coordenadas $(x,y)$, sua 4-vizinhança é definida como $(x+1, y), (x-1, y), (x, y+1), (x, y-1)$, chamada de $N_4(p)$. Os quatro vizinhos diagonais do pixel $p$ são definidos como $(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)$, chamada de $N_d(p)$. Dessa forma, a união dos conjuntos $N_4(p)$ e $N_d(p)$ forma o conjunto da 8-vizinhança do pixel $p$, chamado de $N_8(p)$. A Figura 000000 ilustra as possíveis vizinhanças de um pixel.
+\item Vizinhança: dado um pixel $p$ de coordenadas $(x,y)$, sua 4-vizinhança é definida como $(x+1, y), (x-1, y), (x, y+1), (x, y-1)$, chamada de $N_4(p)$. Os quatro vizinhos diagonais do pixel $p$ são definidos como $(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)$, chamada de $N_d(p)$. Dessa forma, a união dos conjuntos $N_4(p)$ e $N_d(p)$ forma o conjunto da 8-vizinhança do pixel $p$, chamado de $N_8(p)$. A Figura \ref{fig:vizinhanca} ilustra as possíveis vizinhanças de um pixel.
 
 \begin{figure}[!htb]
 \centering
@@ -81,10 +81,50 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 
 Nas próximas subseções serão explicados os principais algoritmos de processamento de imagens implementados no \textit{toolkit} Horus.
 
+\subsection{\textit{Thresholding}}
+	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255(Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, afim de prepará-los para serem analisados pela etapa de extração de características.
+	Para transformar uma imagem monocromática de 256 tons de cinza em binária podem ser utilizadas técnicas de \textit{thresholding} global e adaptativo.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.3, bb=0 0 748 233]{imagens/imagemBinaria.PNG}
+\end{center}
+\caption{Exemplo de imagem binária}
+\label{fig:imgBin}
+\end{figure}
+\subsubsection{\textit{Thresholding} Global}
+\textit{Thresholding} global é um algoritmo simples que depende de um único parâmetro denominado limiar. O limiar é um valor de intensidade de pixel utilizado como base de comparação. Sendo assim, em uma imagem monocromática de 256 tons de cinza, todo valor de pixel da imagem de entrada que se encontra abaixo do limiar é colocado como 0 e todo valor acima do limiar é colocado como 255 na imagem resultante.
+	Tendo $v$ como o valor do pixel na imagem original $t$ como limiar, o novo valor de pixel computado é:
+	 \[ f(v) = \left\{
+                                 \begin{array}{ll}
+                                     255,  $ v $ \geq 0\\
+                                     0,  $ v $ \leq 0
+                                 \end{array}
+                           \right. \]
+	Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
 
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.3, bb=0 0 812 509]{imagens/thGlobalShadowed.PNG}
+\end{center}
+\caption{imagem original (à direita) e imagem binarizada com thresholding global (à esquerda).}
+\label{fig:thGlobalShadowed}
+\end{figure}
+
+	Nesses casos, a melhor opção seria utilizar a técnica de \textit{thresholding} adaptativo.
+\subsubsection{\textit{Thresholding} Adaptativo}
+No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o algoritmo de \textit{thresholding} global devido à utilização de um único limiar para a imagem inteira, que pode causar o efeito apresentado na Figura \ref{fig:thGlobalShadowed}. O algoritmo de \textit{thresholding} adaptativo resolve esse problema calculando o limiar para cada pixel da imagem com base na sua vizinhança. Há duas abordagens principais de \textit{thresholding} adaptativo: Chow e Kaneko [] e \textit{thresholding} local[].
+
+\begin{itemize}
+\item Abordagem Chow e Kaneko
+\item 
+\item 
+
+\end{itemize}}
 \subsection{Skeletonization}
 
-	\textit{Skeletonization} (Esqueletonização) é o processo de remoção dos pixels de uma imagem, o máximo quanto possível, de forma a preservar a estrutura básica ou esqueleto da imagem. O esqueleto extraído deve ser o mais fino quanto possível (largura de um pixel), conectado e centralizado. Quando estas propriedades são satisfeitas, o algoritmo deve parar. As figuras 1 e 2 mostram exemplos de imagens e seus respectivos esqueletos.
+	\textit{Skeletonization} (Esqueletonização) é o processo de remoção dos pixels de uma imagem, o máximo quanto possível, de forma a preservar a estrutura básica ou esqueleto da imagem. O esqueleto extraído deve ser o mais fino quanto possível (largura de um pixel), conectado e centralizado. Quando estas propriedades são satisfeitas, o algoritmo deve parar. As figuras \ref{fig:t_sk} e \ref{fig:b_sk} mostram exemplos de imagens e seus respectivos esqueletos.
 
 \begin{figure}[!htb]
 \centering
@@ -106,7 +146,7 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
 
 	Normalmente, o esqueleto de uma imagem enfatiza as propriedades geométricas e topológicas dos padrões e é extraído quando se desejam preservar as características estruturais da imagem, como por exemplo, junções, \textit{loops} e terminações de linha. Essas características podem ser extraídas do esqueleto para serem utilizadas, posteriormente, em um processo de reconhecimento e classificação de formas através de técnicas de inteligência computacional.
 
-	O algoritmo de \textit{skeletonization} implementado no horus utiliza o conceito de "\textit{fire front}". Esse conceito realiza a remoção iterativa dos pixels da borda dos padrões até que as condições de conectividade, centralização e espessura do esqueleto sejam satisfeitas. Esse algoritmo, denominado algoritmo de Hilditch, é um processo iterativo em que se aplicam sucessivamente dois passos aos pixels pertencentes à borda de um padrão. O primeiro passo concentra-se em selecionar os pixels das bordas que serão removidos e marcá-los para deleção. O segundo passo é remover todos os pixels marcados para deleção no passo anterior. A figura 00000000 ilustra os oito vizinhos do pixel $p_1$.
+	O algoritmo de \textit{skeletonization} implementado no horus utiliza o conceito de "\textit{fire front}". Esse conceito realiza a remoção iterativa dos pixels da borda dos padrões até que as condições de conectividade, centralização e espessura do esqueleto sejam satisfeitas. Esse algoritmo, denominado algoritmo de Hilditch, é um processo iterativo em que se aplicam sucessivamente dois passos aos pixels pertencentes à borda de um padrão. O primeiro passo concentra-se em selecionar os pixels das bordas que serão removidos e marcá-los para deleção. O segundo passo é remover todos os pixels marcados para deleção no passo anterior. A figura \ref{fig:grid} ilustra os oito vizinhos do pixel $p_1$.
 
 \begin{figure}[!htb]
 \centering
@@ -151,7 +191,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 
 	A Figura \ref{fig:condition1} apresenta três condições em que um determinado pixel $p_1$ não deve ser deletado. Quando $B(p_1)$ é igual a $7$, o pixel não é um bom candidato, pois, sua deleção pode quebrar a conectividade do padrão. Quando $B(p_1)$ é igual a $1$, significa que o pixel $p_1$ é uma terminação de linha e já faz parte do esqueleto, portanto, não deve ser removido. Quando $B(p_1)$ é igual a $0$ significa que o pixel $p_1$ é um pixel isolado e também não deve ser removido.
 
-\item $A(p_1) = 1$: essa condição representa efetivamente um teste de conexão. Os casos em que $A(p_1)$ é maior que $1$, a deleção do pixel $p_1$ causa uma quebra na conectividade do padrão, como mostra a Figura 5.
+\item $A(p_1) = 1$: essa condição representa efetivamente um teste de conexão. Os casos em que $A(p_1)$ é maior que $1$, a deleção do pixel $p_1$ causa uma quebra na conectividade do padrão, como mostra a Figura \ref{fig:condition2}.
 
 \begin{figure}[!htb]
 \centering
@@ -247,7 +287,7 @@ Esse método extrai o número de ocorrências de determinados tipos de arestas em u
 \label{fig:seg2}
 \end{figure}
 
-Definindo a aresta de um caractere como uma matriz $2\times2$ de transições de branco para preto nos valores dos pixels, tem-se quatorze diferentes tipos de arestas, como ilustrado na figura 4.
+Definindo a aresta de um caractere como uma matriz $2\times2$ de transições de branco para preto nos valores dos pixels, tem-se quatorze diferentes tipos de arestas, como ilustrado na figura \ref{fig:seg4}.
 
 \begin{figure}[!htb]
 \centering
