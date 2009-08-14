@@ -248,7 +248,7 @@ class Plate(object):
           else:
             group_list.append([i])
       
-        # caculate the bbox average
+        # calculate the bbox average
         # generate all image objects from group_list, drawning all the black pixels
         width_sum = 0
         height_sum = 0
