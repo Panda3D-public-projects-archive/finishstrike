@@ -301,6 +301,29 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 
 
 \end{itemize}
+\section{Computação Gráfica}
+
+	A computação gráfica é a ciência que basicamente estuda um conjunto de técnicas que transforma dados em imagem apresentada através de um dispositivo gráfico. Estes dados podem ser organizados através de um modelo matemático cuja geometria se assemelhe a do objeto do mundo real a qual se deseja modelar. Segundo J. Gomes e L.Velho em \cite{Gomes2003} a computação gráfica pode ser dividida em quatro sub-áreas que relacionam dados e imagens. Essas subáreas são tão próxima que estão muitas vezes interligadas, em determinados momentos são até confundidas. Estas sub-áreas são: Modelagem Geométrica, Síntese de Imagem, Processamento de Imagem e Visão Computacional. A figura \ref{fig:CG} mostra estas quatro sub-áreas da computação gráfica e como se relacionam com os dados e a imagem: 
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb= 0 0 564 398]{imagens/CG.PNG}
+\end{center}
+\caption{Sub-áreas da computação gráfica}
+\label{fig:CG}
+\end{figure}
+
+	A Modelagem Geométrica trata do problema de descrever e estruturar dados geométricos no computador, ou seja, encontrar um modelo matemático capaz de representar o objeto desejado. Um exemplo de Modelagem geométrica é a obtenção de uma função que se aproxime de outra desconhecida através de um método de interpolação de alguns pontos de amostragem já conhecidos.
+	
+	A Síntese de imagens, ou Visualização, processa os dados gerados pelo sistema na modelagem geométrica e produz uma imagem que pode ser vista em um dispositivo de saída gráfica. A partir do mapeamento de alguns pontos, distribuídos em torno de um determinado objeto, obtém-se um modelo matemático, que o representa, através da Modelagem Geométrica. De posse deste modelo é possível apresentar uma imagem que represente a forma do objeto. Este último processo é um exemplo de Síntese de Imagem.
+	
+	O Processamento de Imagens assume como dados de entrada uma imagem, processa-a produzindo uma outra imagem como dado de saída. As técnicas desta área podem ser utilizadas, por exemplo, para melhorar a qualidade de uma imagem antiga ou danificada, produzindo outra, imagem com menos ruídos.
+	
+	Por último, o processo de Visão Computacional, ou simplesmente Visão, tem por finalidade obter, a partir de uma imagem de entrada, informações físicas, geométricas e/ou topológicas sobre os dados do objeto apresentado na imagem. Um bom exemplo desta área aparece nas transmissões de futebol, quando é necessário observar com segurança e certeza se um jogador está em posição de impedimento, ou seja, uma situação onde é necessário determinar a sua posição no campo em relação à posição dos jogadores adversários.
+	
+	Para determinados pesquisadores a Computação Gráfica é apenas a área denominada de síntese de imagem. Porém para \cite{Gomes2003}, além de outros pesquisadores desta área, esta ciência é composta pelas quatro linhas apresentadas acima. Este fato se justifica graças ao fato de cada vez surgir mais métodos e técnicas que solucionem problemas nestas quatro vertentes.
+	
 
 \section{Visão Computacional}
 Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc) assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de camera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensções é necessário ter noções sobre profundidade (e profundidade é estimada através da especificação da posição da câmera e de objetos na cena).

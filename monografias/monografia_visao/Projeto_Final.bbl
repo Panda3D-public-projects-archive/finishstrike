@@ -31,6 +31,11 @@
   systems: theory and applications.
 \emph{Academic Press.}, 1970.}
 
+\bibitem{Gomes2003}
+\abntrefinfo{Gomes e Velho}{GOMES; VELHO}{2003}
+{GOMES, J.; VELHO, L. \emph{Fundamentos da Computação Gráfica}. [S.l.]: IMPA,
+  2003.}
+
 \bibitem{Santos2007}
 \abntrefinfo{Santos}{SANTOS}{2007}
 {SANTOS, J.~C.
@@ -44,6 +49,17 @@ Dissertação (Mestrado) --- Instituto Nacional de Pesquisas Espaciais (INPE).,
 {RICE, S.~V.; NAGY, G.; NARTKER, T.~A. Optical character recognition: An
   illustrated guide to the frontier.
 \emph{Kluwer Academic Publishers, Norwell, Massachusetts}, 1999.}
+
+\bibitem{Chow1972}
+\abntrefinfo{Chow e Kaneko}{CHOW; KANEKO}{1972}
+{CHOW, C.; KANEKO, T. Automatic boundary detection of the left ventricle from
+  cineangiograms.
+\emph{Comp. Biomed. Res.(5),}, p. 388--410, 1972.}
+
+\bibitem{Gonzales1992}
+\abntrefinfo{Gonzales e Woods}{GONZALES; WOODS}{1992}
+{GONZALES, R.; WOODS, R. \emph{Digital Image Processing}. [S.l.]:
+  Addison-Wesley Publishing Company, 1992. 443-452~p.}
 
 \bibitem{Fowler2003}
 \abntrefinfo{Fowler}{FOWLER}{2003}

@@ -82,8 +82,9 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 Nas próximas subseções serão explicados os principais algoritmos de processamento de imagens implementados no \textit{toolkit} Horus.
 
 \subsection{\textit{Thresholding}}
-	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255(Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, afim de prepará-los para serem analisados pela etapa de extração de características.
+	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255 (Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, afim de prepará-los para serem analisados pela etapa de extração de características.
 	Para transformar uma imagem monocromática de 256 tons de cinza em binária podem ser utilizadas técnicas de \textit{thresholding} global e adaptativo.
+	
 \begin{figure}[!htb]
 \centering
 \begin{center}
@@ -92,13 +93,14 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
 \caption{Exemplo de imagem binária}
 \label{fig:imgBin}
 \end{figure}
+
 \subsubsection{\textit{Thresholding} Global}
 \textit{Thresholding} global é um algoritmo simples que depende de um único parâmetro denominado limiar. O limiar é um valor de intensidade de pixel utilizado como base de comparação. Sendo assim, em uma imagem monocromática de 256 tons de cinza, todo valor de pixel da imagem de entrada que se encontra abaixo do limiar é colocado como 0 e todo valor acima do limiar é colocado como 255 na imagem resultante.
-	Tendo $v$ como o valor do pixel na imagem original $t$ como limiar, o novo valor de pixel computado é:
+	Tendo $v$ como o valor do pixel na imagem original e $t$ como limiar, o novo valor de pixel computado é:
 	 \[ f(v) = \left\{
                                  \begin{array}{ll}
-                                     255,  $ v $ \geq 0\\
-                                     0,  $ v $ \leq 0
+                                     255,  $ v $ \geq $t$\\
+                                     0,  $ v $ \leq $t$
                                  \end{array}
                            \right. \]
 	Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
@@ -106,22 +108,56 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3, bb=0 0 812 509]{imagens/thGlobalShadowed.PNG}
+    \includegraphics[scale=0.25, bb=0 0 812 509]{imagens/thGlobalShadowed.PNG}
 \end{center}
 \caption{imagem original (à direita) e imagem binarizada com thresholding global (à esquerda).}
 \label{fig:thGlobalShadowed}
 \end{figure}
 
-	Nesses casos, a melhor opção seria utilizar a técnica de \textit{thresholding} adaptativo.
+	Em casos onde a imagem se encontra parcialmente sombreada, a melhor opção é utilizar a técnica de \textit{thresholding} adaptativo.
 \subsubsection{\textit{Thresholding} Adaptativo}
-No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o algoritmo de \textit{thresholding} global devido à utilização de um único limiar para a imagem inteira, que pode causar o efeito apresentado na Figura \ref{fig:thGlobalShadowed}. O algoritmo de \textit{thresholding} adaptativo resolve esse problema calculando o limiar para cada pixel da imagem com base na sua vizinhança. Há duas abordagens principais de \textit{thresholding} adaptativo: Chow e Kaneko [] e \textit{thresholding} local[].
+No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o algoritmo de \textit{thresholding} global falha devido à utilização de um único limiar para a imagem inteira. Isso pode causar o efeito apresentado na Figura \ref{fig:thGlobalShadowed}. O algoritmo de \textit{thresholding} adaptativo resolve esse problema calculando o limiar para cada pixel da imagem com base na sua vizinhança. Há duas abordagens principais de \textit{thresholding} adaptativo: Chow e Kaneko \cite{Chow1972} e \textit{thresholding} local \cite{Gonzales1992}.
 
 \begin{itemize}
-\item Abordagem Chow e Kaneko
-\item 
-\item 
+\item Abordagem Chow e Kaneko:
+ esse método, assim como o de \textit{thresholding} local, se baseia na teoria de que regiões menores da imagem têm maior probabilidade de possuírem uma iluminação aproximadamente uniforme. Com isso, o método de Chow e Kaneko divide a imagem em um vetor de sub-imagens sobrepostas e então encontra o limiar ótimo para cada sub-imagem através da análise de seus histogramas. O limiar para cada pixel é encontrado interpolando os resultados extraídos das sub-imagens. Apesar de gerar resultados satisfatórios, o método de Chow e Kaneko possui um alto custo computacional. Na Figura \ref{fig:chKnk} é mostrado como o limiar de uma subimagem é localizado e a posterior interpolação dos valores para encontrar o limiar de cada pixel na subimagem.
 
-\end{itemize}}
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb=0 0 707 577]{imagens/chowAndKaneko.PNG}
+\end{center}
+\caption{Localização do limiar por Chow e Kaneko }
+\label{fig:chKnk}
+\end{figure}
+
+\item \textit{Thresholding} Local:
+ a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana e a média dos valores mínimo e máximo da vizinhança. Na figura \ref{fig:thLocal} é apresentado o código do algoritmo de thresholding local, implementado no toolkit horus, utilizando a média entre os valores da vizinhança.
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.5, bb=0 0 654 344]{imagens/thLocal.PNG}
+\end{center}
+\caption{código do método de \textit{thresholding} local implementado em linguagem Python }
+\label{fig:thLocal}
+\end{figure}
+ 
+
+No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (image), o tamanho da vizinhança (size) e uma constante que é subtraída da média (con). Na figura \ref{fig:imgThLocal} é apresentado o resultado da limiarização com o algoritmo de \textit{thresholding} local, utilizando uma vizinhança de tamanho $7\times7$ com um valor de constante igual a $7$ ($size = 7$ e $con = 7$).
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.25, bb=0 0 792 510]{imagens/imageThLocal.PNG}
+\end{center}
+\caption{imagem original (à direita) e imagem limiarizada com \textit{thresholding} local (à esquerda).}
+\label{fig:imgThLocal}
+\end{figure}
+
+
+\end{itemize}
+
 \subsection{Skeletonization}
 
 	\textit{Skeletonization} (Esqueletonização) é o processo de remoção dos pixels de uma imagem, o máximo quanto possível, de forma a preservar a estrutura básica ou esqueleto da imagem. O esqueleto extraído deve ser o mais fino quanto possível (largura de um pixel), conectado e centralizado. Quando estas propriedades são satisfeitas, o algoritmo deve parar. As figuras \ref{fig:t_sk} e \ref{fig:b_sk} mostram exemplos de imagens e seus respectivos esqueletos.
@@ -257,9 +293,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 	Para realizar o reconhecimento de objetos em uma cena, é necessário extrair características das imagens desse objeto, de forma a identificá-lo, independentemente das variações com que ele possa ocorrer na imagem. O 
 \textit{toolkit} Horus apresenta três algoritmos para extração de características. Cada um deles será explicado nos itens abaixo.
 \begin{itemize}
-\item Matriz de Pixel
-
-   A maneira mais simples de extrair características de um bitmap é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
+\item Matriz de Pixel: a maneira mais simples de extrair características de um bitmap é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
 
    Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do bitmap multiplicado pela sua largura, portanto, bitmaps grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do bitmap é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o bitmap do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
             
@@ -274,9 +308,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \end{figure}
             
             
-\item Histograma de Arestas por Regiões
-
-Esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do bitmap. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o bitmap representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do bitmap em seis regiões $(r_0, r_1, ..., r_5)$ organizadas em três linhas e duas colunas. Quatro layouts podem ser utilizados para a divisão do bitmap em regiões.
+\item Histograma de Arestas por Regiões: esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do bitmap. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o bitmap representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do bitmap em seis regiões $(r_0, r_1, ..., r_5)$ organizadas em três linhas e duas colunas. Quatro layouts podem ser utilizados para a divisão do bitmap em regiões.
 
 \begin{figure}[!htb]
 \centering
