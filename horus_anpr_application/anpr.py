@@ -294,15 +294,20 @@ if __name__ == "__main__":
     path_save = os.path.join(abspath,"placa")
     file_list = os.listdir(path_load)
     file_list.sort()
-    
+    index = 0 
     for file_name in file_list:
         if file_name.endswith('jpg'):
+            index += 1
             print file_name
             path_image = os.path.join(path_load, file_name)
             car_image = Image(path=path_image)
             platedetection = PlateDetection()        
             plate = platedetection.getPlate(car_image)
-            #plate_text = plate.getPlateAsText()
-            plate.plate_image.content.save((os.path.join(SAVE, car_image.content.filename[-12:-4]+"_plate.png")))
-            #plate.plate_image.content.save((os.path.join(SAVE, plate_text.lower()+".png")))
+            plate_text = plate.getPlateAsText()
+            if plate_text in ['', None]:
+              plate_text = 'FAILED'+str(index)
+            plate.plate_image.content.save((os.path.join(SAVE,
+              plate_text.lower().replace('/','')+".png")))
+
+            #plate.plate_image.content.save((os.path.join(SAVE, car_image.content.filename[-12:-4]+"_plate.png")))
         
