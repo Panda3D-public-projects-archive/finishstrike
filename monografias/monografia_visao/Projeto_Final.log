@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.8.7)  14 AUG 2009 18:43
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.8.7)  15 AUG 2009 16:51
 entering extended mode
 **C:/Documents*and*Settings/Thiago/Meus*documentos/monografia_visao/Projeto_Final.tex
 ("C:/Documents and Settings/Thiago/Meus documentos/monografia_visao/Projeto_Final.tex"
@@ -1010,19 +1010,22 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 ])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
- [73] (bibliografia.tex (Projeto_Final.bbl))
+ [73] (bibliografia.tex (Projeto_Final.bbl
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
  [74
 
 
 
-] (apendice.tex
+]))
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+ [75] (apendice.tex
 Ap\^endice A.
 
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
- [75
+ [76
 
 
 
@@ -1031,7 +1034,7 @@ Ap\^endice B.
 )
 Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 
- [76
+ [77
 
 ]
 
@@ -1052,19 +1055,16 @@ or  <return>  to continue without it.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 138 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 4147 strings out of 95304
- 54525 string characters out of 1182497
- 111173 words of memory out of 1500000
- 7110 multiletter control sequences out of 110000
+ 4187 strings out of 95304
+ 55201 string characters out of 1182497
+ 111456 words of memory out of 1500000
+ 7150 multiletter control sequences out of 110000
  12120 words of font info for 44 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  29i,15n,27p,1776b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1079,9 +1079,9 @@ ogramas/latex/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr8.pfb><C:/Arquivos de program
 cm/cmsy10.pfb><C:/Arquivos de programas/latex/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy6.pfb><C:/Arquivos de programas/late
 x/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy8.pfb><C:/Arquivos de programas/latex/MiKTeX 2.7/fonts/type1/bluesky/cm/cmti12.p
 fb><C:/Arquivos de programas/latex/MiKTeX 2.7/fonts/type1/bluesky/ams/msbm10.pfb>
-Output written on Projeto_Final.pdf (75 pages, 2600876 bytes).
+Output written on Projeto_Final.pdf (76 pages, 2603382 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
+ 375 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

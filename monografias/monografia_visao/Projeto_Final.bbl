@@ -5,10 +5,52 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.42.2.1 }
 
+\bibitem{FOX1999}
+\abntrefinfo{FOX et al.}{FOX et al.}{1999}
+{FOX, D. et al. Monte carlo localization: Efficient position estimation for
+  mobile robots.
+\emph{The National Conference on Artificial Intelligence (AAAI)}, 1999.}
+
+\bibitem{Davison2004}
+\abntrefinfo{Davison, Cid e Kita}{DAVISON; CID; KITA}{2004}
+{DAVISON, A.; CID, Y.; KITA, N. Real-time 3d slam with wide-angle vision.
+\emph{IFAC/EURON Symposium on Intelligent Autonomous Vehicles}, 2004.}
+
+\bibitem{Dellaert2005}
+\abntrefinfo{Dellaert}{DELLAERT}{2005}
+{DELLAERT, F. Square root slam: Simultaneous location and mapping via square
+  root information smoothing.
+\emph{Robotics: Science and Systems}, 2005.}
+
 \bibitem{Russel2003}
 \abntrefinfo{Russel e Norvig}{RUSSEL; NORVIG}{2003}
 {RUSSEL, S.; NORVIG, P. \emph{Inteligência Artificial}. [S.l.]: Editora Campus,
   2003.}
+
+\bibitem{Arkin1998}
+\abntrefinfo{Arkin}{ARKIN}{1998}
+{ARKIN, R. \emph{Behavior-based robotics.} 1998.
+MIT Press.}
+
+\bibitem{CONNEL1992}
+\abntrefinfo{CONNEL}{CONNEL}{1992}
+{CONNEL, J. A hybrid arquitecture applied to robot navigation.
+\emph{IEEE Int Conf. on Robotics and Automation}, p. 2719--2724, 1992.}
+
+\bibitem{GAT1991}
+\abntrefinfo{GAT}{GAT}{1991}
+{GAT, E.
+\emph{Reliable Goal-Directed Reactive Control for Real-World Autonomus Mobile
+  Robots.}
+Tese (Doutorado) --- Dept. of Computer Science, Virginia potytechnic Institute
+  and State University,, 1991.}
+
+\bibitem{BONASSO1991}
+\abntrefinfo{BONASSO}{BONASSO}{1991}
+{BONASSO, R.~P. Integrating reaction plans and layered competences through
+  synchronous control.
+\emph{Twelfth International Joint Conference on Artificial Intelligence}, p.
+  1225--1231, 1991.}
 
 \bibitem{Jain2000}
 \abntrefinfo{Jain, Duin e Mao}{JAIN; DUIN; MAO}{2000}
@@ -43,6 +85,11 @@
   genéticos para classificação de regîões.}
 Dissertação (Mestrado) --- Instituto Nacional de Pesquisas Espaciais (INPE).,
   2007.}
+
+\bibitem{Guyon2006}
+\abntrefinfo{Guyon et al.}{GUYON et al.}{2006}
+{GUYON, I. et al. \emph{A practical guide to splines.} 2006.
+Springer.}
 
 \bibitem{Rice1999}
 \abntrefinfo{Rice, Nagy e Nartker}{RICE; NAGY; NARTKER}{1999}
