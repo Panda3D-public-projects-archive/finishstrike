@@ -5,37 +5,37 @@
 
 \chapter{Horus}
 \label{cap:horus}
- Horus é um \textit{toolkit} para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional.
+ Horus é um \textit{toolkit}, criado no presente trabalho, para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional.
 
-	O \textit{toolkit} Horus fornece os módulos Core, Mapeamento, Visão e Util. O módulo Core apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias que podem ser usadas tanto no \textit{toolkit} Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
+	O \textit{toolkit} Horus fornece os módulos \textit{Core}, Mapeamento, Visão e Util. O módulo \textit{Core} apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias eque podem ser usadas tanto no \textit{toolkit} Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
 
-\section{Core}
+\section{\textit{Core}}
 
-	O Horus pode ser utilizado tanto como uma biblioteca de algoritmos para processamento de imagens, visão computacional e mapeamento de ambientes, como através de extensões das classes fornecidas pelo módulo core. Essas classes, que podem ser estendidas pelas aplicações, são chamadas de abstrações. A Figura \ref{fig:arquiteturaCore} mostra a arquitetura deste módulo.
+	O Horus pode ser utilizado tanto como uma biblioteca de algoritmos para processamento de imagens, visão computacional e mapeamento de ambientes, como através de extensões das classes fornecidas pelo módulo \textit{core}. Essas classes, podem ser estendidas pelas aplicações, são chamadas de abstrações. A Figura \ref{fig:arquiteturaCore} mostra a arquitetura deste módulo.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.35, bb=0 0 1158 486]{imagens/core.PNG}
 \end{center}
-\caption{Arquitetura do módulo core}
+\caption{Arquitetura do módulo \textit{core}}
 \label{fig:arquiteturaCore}
 \end{figure}
 
-	A arquitetura acima apresenta classes que representam o ambiente (\textit{Environment}), o agente inteligente (\textit{Agent}), os dispositivos (Device), o programa de agente (\textit{Brain}), eventos (\textit{Event}) e a hierarquia de comportamentos (hierarquia \textit{Behavior}). Cada instância da classe Agent representa um agente inteligente na aplicação. Para que um agente inteligente possa ser utilizado por uma aplicação, ela deve configurá-lo com instâncias de Device e uma única instância da classe Brain, responsável pela inteligência do agente.
+	A arquitetura acima apresenta classes que representam o ambiente (\textit{Environment}), o agente inteligente (\textit{Agent}), os dispositivos (\textit{Device}), o programa de agente (\textit{Brain}), eventos (\textit{Event}) e a hierarquia de comportamentos (\textit{Behavior}). Cada instância da classe \textit{Agent} representa um agente inteligente na aplicação. Para que um agente inteligente possa ser utilizado por uma aplicação, ela deve configurá-lo com instâncias de \textit{Device} e uma única instância da classe \textit{Brain}, responsável pela inteligência do agente.
 
-	O programa de agente, responsável pela inteligência do agente, deve ser implementado em extensões da classe \textit{Brain} (cérebro). Uma aplicação que deseja implementar um programa de agente para um agente em particular deve estender a classe \textit{Brain} e implementar o método \textit{run()} dessa classe, como apresentado na figura \ref{fig:arquiteturaBrain}. Esse método é o \textit{loop} principal da execução do agente, sendo executado dez vezes por segundo. No diagrama acima, nota-se que a classe \textit{Brain} pode estar relacionada a nenhum ou a muitos comportamentos. Essa é mais uma facilidade fornecida pelo módulo core do horus que tem o objetivo de organizar a implementação dos comportamentos separadamente da implementação da classe \textit{Brain}. Dessa forma, o programa de agente fica mais claro e simples de ser compreendido e mantido.
+	O programa de agente, responsável pela inteligência do agente, deve ser implementado em extensões da classe \textit{Brain} (cérebro). Uma aplicação que deseja implementar um programa de agente para um agente em particular deve estender a classe \textit{Brain} e implementar o método \textit{run()} dessa classe, como apresentado na Figura \ref{fig:arquiteturaBrain}. Esse método é o \textit{loop} principal da execução do agente. No diagrama acima, nota-se que a classe \textit{Brain} pode estar relacionada a nenhum ou a muitos comportamentos. Essa é mais uma facilidade fornecida pelo módulo \textit{core} do Horus que tem o objetivo de organizar a implementação dos comportamentos separadamente da implementação da classe \textit{Brain}. Dessa forma, o programa de agente fica mais claro e simples de ser compreendido e mantido.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.4, bb=0 0 561 544]{imagens/brainExtension.PNG}
 \end{center}
-\caption{extensão da classe \textit{Brain} do horus por uma aplicação.}
+\caption{Extensão da classe \textit{Brain} do Horus por uma aplicação.}
 \label{fig:arquiteturaBrain}
 \end{figure}
 
-Os comportamentos (\textit{Behavior}) recebem eventos gerados pela aplicação e fazem com que o agente execute uma determinada ação com base no tipo de evento recebido. Como exemplo de eventos, pode-se citar a captura de uma cena, um obstáculo detectado, a leitura de um determinado dispositivo, etc. Um comportamento pode ser implementado diretamente como uma extensão da classe \textit{Behavior} ou como uma extensão de uma ou várias de suas subclasses. As subclasses da classe \textit{Behavior} (\textit{NeuralNetworkBehavior}, \textit{TesseractBehavior} e \textit{MappingBehavior}) fornecem facilidades para a utilização de funcionalidades fornecidas pelo Horus. Logo, \textit{NeuralNetworkBehavior} fornece métodos para a construção e treinamento de redes neurais na implementação de um comportamento. A classe \textit{TesseractBehavior} disponibiliza a funcionalidade de OCR da \textit{engine} tesseract, presente no Horus. A classe \textit{MappingBehavior} disponibiliza métodos para implementação de comportamentos de mapeamento de ambientes através da técnica SLAM. Dessa forma, uma aplicação que necessite de um comportamento que envolva mapeamento de ambientes e redes neurais, por exemplo, deve criar uma classe que estenda tanto da classe \textit{MappingBehavior} como da classe \textit{NeuralNetworkBehavior}. A figura \ref{fig:arquiteturaBehavior} mostra como ficaria o esquema desse comportamento, sendo representado pela classe \textit{MyBehavior}.
+Os comportamentos (\textit{Behavior}) recebem eventos gerados pela aplicação e fazem com que o agente execute uma determinada ação com base no tipo de evento recebido. Como exemplo de eventos, pode-se citar a captura de uma cena, um obstáculo detectado, a leitura de um determinado dispositivo, etc. Um comportamento pode ser implementado diretamente como uma extensão da classe \textit{Behavior} ou como uma extensão de uma ou várias de suas subclasses. As subclasses da classe \textit{Behavior} (\textit{NeuralNetworkBehavior}, \textit{TesseractBehavior} e \textit{MappingBehavior}) fornecem facilidades para a utilização de funcionalidades fornecidas pelo Horus. Logo, \textit{NeuralNetworkBehavior} fornece métodos para a construção e treinamento de redes neurais na implementação de um comportamento. A classe \textit{TesseractBehavior} disponibiliza a funcionalidade de OCR da \textit{engine} Tesseract, presente no Horus. A classe \textit{MappingBehavior} disponibiliza métodos para implementação de comportamentos de mapeamento de ambientes através da técnica SLAM. Dessa forma, uma aplicação que necessite de um comportamento que envolva mapeamento de ambientes e redes neurais, por exemplo, deve criar uma classe que estenda tanto da classe \textit{MappingBehavior} como da classe \textit{NeuralNetworkBehavior}. A Figura \ref{fig:arquiteturaBehavior} mostra como ficaria o esquema desse comportamento, sendo representado pela classe \textit{MyBehavior}.
 
 A classe \textit{Behavior} também possui atributos para armazenar informações sobre estado de execução de um comportamento. Essas informações são os horários de início e término da execução e o status de execução do comportamento. Essas informações são utilizadas para emissão de relatórios de atuação do agente.
 
@@ -48,13 +48,14 @@ A classe \textit{Behavior} também possui atributos para armazenar informações so
 \label{fig:arquiteturaBehavior}
 \end{figure}
 
-Em certas aplicações, um agente inteligente não necessariamente se encontra sozinho no ambiente. Ele pode interagir com outros agentes inteligentes, como no caso de aplicações que envolvam enxames de agentes. Para que um agente possa obter informações sobre outros agentes que se encontrem no ambiente, ou sobre o próprio ambiente, foi criada a classe \textit{Environment}, que representa o ambiente no qual o agente está inserido. Dessa forma, o cérebro do agente deve ser configurado tanto com uma instância da classe \textit{Agent}, como com uma instância da classe \textit{Environment} para operar.
+Em certas aplicações, um agente inteligente não necessariamente se encontra sozinho no ambiente. Ele pode interagir com outros agentes, como no caso de aplicações que envolvam enxames de agentes. Para que um agente possa obter informações sobre outros agentes que se encontrem no ambiente, ou sobre o próprio ambiente, foi criada a classe \textit{Environment}, que representa o ambiente no qual o agente está inserido. Dessa forma, o cérebro do agente deve ser configurado tanto com uma instância da classe \textit{Agent}, como com uma instância da classe \textit{Environment} para operar.
 
 Quando o cérebro do agente é configurado com diversos comportamentos, é necessário definir a ordem de execução desses comportamentos. Em alguns casos, os comportamentos podem possuir condições de execução. Logo, o cérebro é responsável por identificar as condições que cada comportamento necessita para ser executado e colocá-lo como ativo quando a sua condição de execução for satisfeita. Contudo, há casos em que dois ou mais comportamentos podem ter a sua condição de execução satisfeita. Nesses casos, é necessário definir prioridades de execução sobre os comportamentos ou executá-los em paralelo. A ordem de execução dos comportamentos define a máquina de estados de execução do agente inteligente. Sendo assim, a implementação do cérebro como uma máquina de estados se enquadra perfeitamente em aplicações que exijam a interação entre diversos comportamentos.
 
 \section{Processamento de Imagem}
+\label{image:processing}
 
-O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital [LIVRO FUNDAMENTALS OF DIGITAL IMAGE PROCESSING]. Processamento de imagens normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
+O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital [LIVRO FUNDAMENTALS OF DIGITAL IMAGE PROCESSING], normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
 
 Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessário uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
 
@@ -64,12 +65,12 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 
 \item Adjacência: dois pixels $p$ e $q$ são adjacentes somente se estiverem conectados segundo algum critério. Dados os conjuntos de pixels $C_1$ e $C_2$, esses conjuntos serão adjacentes se algum pixel de $C_1$ é adjacente a algum pixel de $C_2$.
 
-\item Vizinhança: dado um pixel $p$ de coordenadas $(x,y)$, sua 4-vizinhança é definida como $(x+1, y), (x-1, y), (x, y+1), (x, y-1)$, chamada de $N_4(p)$. Os quatro vizinhos diagonais do pixel $p$ são definidos como $(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)$, chamada de $N_d(p)$. Dessa forma, a união dos conjuntos $N_4(p)$ e $N_d(p)$ forma o conjunto da 8-vizinhança do pixel $p$, chamado de $N_8(p)$. A Figura \ref{fig:vizinhanca} ilustra as possíveis vizinhanças de um pixel.
+\item Vizinhança: dado um pixel $p$ de coordenadas $(x,y)$, sua 4-vizinhança é definida como $(x+1, y), (x-1, y), (x, y+1), (x, y-1)$, chamada de $N_4(p)$. Os quatro vizinhos diagonais do pixel $p$ são definidos como $(x-1, y-1), (x-1, y+1), (x+1, y-1), (x+1, y+1)$, chamados de $N_d(p)$. Dessa forma, a união dos conjuntos $N_4(p)$ e $N_d(p)$ forma o conjunto da 8-vizinhança do pixel $p$, chamado de $N_8(p)$. A Figura \ref{fig:vizinhanca} ilustra as possíveis vizinhanças de um pixel.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3, bb=0 0 800 200]{imagens/vizinhanca.png}
+    \includegraphics[scale=0.4, bb=0 0 800 200]{imagens/vizinhanca.png}
 \end{center}
 \caption{(a) 4-vizinhança, (b) d-vizinhança e (c) 8-vizinhança. }
 \label{fig:vizinhanca}
@@ -88,7 +89,7 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3, bb=0 0 748 233]{imagens/imagemBinaria.PNG}
+    \includegraphics[scale=0.5, bb=0 0 748 233]{imagens/imagemBinaria.PNG}
 \end{center}
 \caption{Exemplo de imagem binária}
 \label{fig:imgBin}
@@ -103,18 +104,20 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
                                      0,  $ v $ \leq $t$
                                  \end{array}
                            \right. \]
-	Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
+	Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A Figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.25, bb=0 0 812 509]{imagens/thGlobalShadowed.PNG}
 \end{center}
-\caption{imagem original (à direita) e imagem binarizada com thresholding global (à esquerda).}
+\caption{Imagem original (à direita) e imagem binarizada com thresholding global (à esquerda).}
 \label{fig:thGlobalShadowed}
 \end{figure}
 
 	Em casos onde a imagem se encontra parcialmente sombreada, a melhor opção é utilizar a técnica de \textit{thresholding} adaptativo.
+
+
 \subsubsection{\textit{Thresholding} Adaptativo}
 No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o algoritmo de \textit{thresholding} global falha devido à utilização de um único limiar para a imagem inteira. Isso pode causar o efeito apresentado na Figura \ref{fig:thGlobalShadowed}. O algoritmo de \textit{thresholding} adaptativo resolve esse problema calculando o limiar para cada pixel da imagem com base na sua vizinhança. Há duas abordagens principais de \textit{thresholding} adaptativo: Chow e Kaneko \cite{Chow1972} e \textit{thresholding} local \cite{Gonzales1992}.
 
@@ -132,26 +135,26 @@ No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o al
 \end{figure}
 
 \item \textit{Thresholding} Local:
- a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana e a média dos valores mínimo e máximo da vizinhança. Na figura \ref{fig:thLocal} é apresentado o código do algoritmo de thresholding local, implementado no toolkit horus, utilizando a média entre os valores da vizinhança.
+ a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana ou a média dos valores mínimo e máximo da vizinhança. Na Figura \ref{fig:thLocal} é apresentado o código do algoritmo de\textit{thresholding} local, implementado no Horus, utilizando a média entre os valores da vizinhança.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.5, bb=0 0 654 344]{imagens/thLocal.PNG}
 \end{center}
-\caption{código do método de \textit{thresholding} local implementado em linguagem Python }
+\caption{Código do método de \textit{thresholding} local implementado em linguagem Python }
 \label{fig:thLocal}
 \end{figure}
  
 
-No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (image), o tamanho da vizinhança (size) e uma constante que é subtraída da média (con). Na figura \ref{fig:imgThLocal} é apresentado o resultado da limiarização com o algoritmo de \textit{thresholding} local, utilizando uma vizinhança de tamanho $7\times7$ com um valor de constante igual a $7$ ($size = 7$ e $con = 7$).
+No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (image), o tamanho da vizinhança (size) e uma constante que é subtraída da média (con). Na Figura \ref{fig:imgThLocal} é apresentado o resultado da limiarização com o algoritmo de \textit{thresholding} local, utilizando uma vizinhança de tamanho $7\times7$ com um valor de constante igual a $7$ ($size = 7$ e $con = 7$).
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.25, bb=0 0 792 510]{imagens/imageThLocal.PNG}
 \end{center}
-\caption{imagem original (à direita) e imagem limiarizada com \textit{thresholding} local (à esquerda).}
+\caption{Imagem original (à direita) e resultado da limiarização com \textit{thresholding} local (à esquerda).}
 \label{fig:imgThLocal}
 \end{figure}
 
@@ -160,7 +163,7 @@ No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (imag
 
 \subsection{Skeletonization}
 
-	\textit{Skeletonization} (Esqueletonização) é o processo de remoção dos pixels de uma imagem, o máximo quanto possível, de forma a preservar a estrutura básica ou esqueleto da imagem. O esqueleto extraído deve ser o mais fino quanto possível (largura de um pixel), conectado e centralizado. Quando estas propriedades são satisfeitas, o algoritmo deve parar. As figuras \ref{fig:t_sk} e \ref{fig:b_sk} mostram exemplos de imagens e seus respectivos esqueletos.
+	\textit{Skeletonization} (Esqueletonização) é o processo de remoção dos pixels de uma imagem, o máximo quanto possível, de forma a preservar a estrutura básica ou esqueleto da imagem. O esqueleto extraído deve ser o mais fino quanto possível (largura de um pixel), conectado e centralizado. Quando estas propriedades são satisfeitas, o algoritmo deve parar. As Figuras \ref{fig:t_sk} e \ref{fig:b_sk} mostram exemplos de imagens e seus respectivos esqueletos.
 
 \begin{figure}[!htb]
 \centering
@@ -180,9 +183,9 @@ No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (imag
 \label{fig:b_sk}
 \end{figure}
 
-	Normalmente, o esqueleto de uma imagem enfatiza as propriedades geométricas e topológicas dos padrões e é extraído quando se desejam preservar as características estruturais da imagem, como por exemplo, junções, \textit{loops} e terminações de linha. Essas características podem ser extraídas do esqueleto para serem utilizadas, posteriormente, em um processo de reconhecimento e classificação de formas através de técnicas de inteligência computacional.
+	Normalmente, o esqueleto de uma imagem enfatiza as propriedades geométricas e topológicas dos padrões e é extraído quando se deseja preservar as características estruturais da imagem, como por exemplo, junções, \textit{loops} e terminações de linha. Essas características podem ser extraídas do esqueleto para serem utilizadas, posteriormente, em um processo de reconhecimento e classificação de formas através de técnicas de inteligência computacional.
 
-	O algoritmo de \textit{skeletonization} implementado no horus utiliza o conceito de "\textit{fire front}". Esse conceito realiza a remoção iterativa dos pixels da borda dos padrões até que as condições de conectividade, centralização e espessura do esqueleto sejam satisfeitas. Esse algoritmo, denominado algoritmo de Hilditch, é um processo iterativo em que se aplicam sucessivamente dois passos aos pixels pertencentes à borda de um padrão. O primeiro passo concentra-se em selecionar os pixels das bordas que serão removidos e marcá-los para deleção. O segundo passo é remover todos os pixels marcados para deleção no passo anterior. A figura \ref{fig:grid} ilustra os oito vizinhos do pixel $p_1$.
+	O algoritmo de \textit{skeletonization} implementado no Horus utiliza o conceito de "\textit{fire front}". Esse conceito realiza a remoção iterativa dos pixels da borda dos padrões até que as condições de conectividade, centralização e espessura do esqueleto sejam satisfeitas. Esse algoritmo, denominado algoritmo de Hilditch, é um processo iterativo em que se aplicam sucessivamente dois passos aos pixels pertencentes à borda de um padrão. O primeiro passo concentra-se em selecionar os pixels das bordas que serão removidos e marcá-los para deleção. O segundo passo é remover todos os pixels marcados para deleção no passo anterior. A Figura \ref{fig:grid} ilustra os oito vizinhos do pixel $p_1$.
 
 \begin{figure}[!htb]
 \centering
@@ -238,7 +241,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \label{fig:condition2}
 \end{figure}
 
-\item $p_2 + p_3 + p_8 \geq 255 $ ou $ A(p_2) \neq 1$: essa condição assegura que linhas verticais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A figura abaixo apresenta uma situação em que a condição acima é satisfeita.
+\item $p_2 + p_3 + p_8 \geq 255 $ ou $ A(p_2) \neq 1$: essa condição assegura que linhas verticais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A Figura \ref{fig:grid11} apresenta uma situação em que a condição acima é satisfeita.
 
 \begin{figure}[!htb]
 \centering
@@ -249,7 +252,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \label{fig:grid11}
 \end{figure}
 
-\item $p_2$ + $p_4$ + $p_6 \geq 255$ ou $A(p_4) \neq 1$: essa condição assegura que linhas horizontais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A figura abaixo apresenta uma situação em que a condição acima é satisfeita.
+\item $p_2$ + $p_4$ + $p_6 \geq 255$ ou $A(p_4) \neq 1$: essa condição assegura que linhas horizontais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A Figura abaixo apresenta uma situação em que a condição acima é satisfeita.
 
 \begin{figure}[!htb]
 \centering
@@ -261,7 +264,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \end{figure}
 \end{itemize}
 
-	A cada iteração do algoritmo, os pixels das bordas são analisados, alguns deles são marcados para deleção e então deletados. A figura abaixo ilustra o processo iterativo do algoritmo, onde, os pixels deletados em cada iteração são representados pelas diferenças nos tons de cinza da imagem.
+	A cada iteração do algoritmo, os pixels das bordas são analisados, alguns deles são marcados para deleção e então deletados. A Figura \ref{fig:sk_demo} ilustra o processo iterativo do algoritmo, onde, os pixels deletados em cada iteração são representados pelas diferenças nos tons de cinza da imagem.
 
 \begin{figure}[!Htb]
 \centering
@@ -277,7 +280,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3, bb=0 0 337 154]{imagens/erodedPatterns.PNG}
+    \includegraphics[scale=0.4, bb=0 0 337 154]{imagens/erodedPatterns.PNG}
 \end{center}
 \caption{Padrões completamente erodidos pelo algoritmo de Hilditch.}
 \label{fig:erodedPatterns}
@@ -290,12 +293,13 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 	Esse módulo tem como principal objetivo o reconhecimento de padrões.	Na aplicação Ariadnes, desenvolvida neste trabalho, o padrão a ser reconhecido é uma placa com o nome dos locais do ambiente e setas que indicam as direções dos mesmos. Para reconhecimento de uma placa é necessário identificar algumas características de uma imagem, que servirão de padrões de entrada para uma rede neural. 
 
 \subsection{Extração de características}
+\label{section:features}
 	Para realizar o reconhecimento de objetos em uma cena, é necessário extrair características das imagens desse objeto, de forma a identificá-lo, independentemente das variações com que ele possa ocorrer na imagem. O 
-\textit{toolkit} Horus apresenta três algoritmos para extração de características. Cada um deles será explicado nos itens abaixo.
+\textit{toolkit} Horus apresenta alguns algoritmos para extração de características, os principais deles serão explicados nos itens abaixo.
 \begin{itemize}
-\item Matriz de Pixel: a maneira mais simples de extrair características de um bitmap é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
+\item Matriz de Pixel: a maneira mais simples de extrair características de um \textit{bitmap} é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
 
-   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do bitmap multiplicado pela sua largura, portanto, bitmaps grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do bitmap é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o bitmap do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
+   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do \textit{bitmap} multiplicado pela sua largura, portanto, \textit{bitmaps} grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do \textit{bitmap} é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o \textit{bitmap} do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
             
             
  \begin{figure}[!htb]
@@ -303,12 +307,12 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \begin{center}
     \includegraphics[scale=0.3, bb= 0 0 559 310]{imagens/pixelMatrix.PNG}
 \end{center}
-\caption{Matriz de pixel de um bitmap.}
+\caption{Matriz de pixel de um \textit{bitmap}.}
 \label{fig:seg}
 \end{figure}
             
             
-\item Histograma de Arestas por Regiões: esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do bitmap. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o bitmap representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do bitmap em seis regiões $(r_0, r_1, ..., r_5)$ organizadas em três linhas e duas colunas. Quatro layouts podem ser utilizados para a divisão do bitmap em regiões.
+\item Histograma de Arestas por Regiões: esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do \textit{bitmap}. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o \textit{bitmap} representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do \textit{bitmap} em seis regiões $(r_0, r_1, ..., r_5)$ organizadas em três linhas e duas colunas. Outros quatro layouts podem ser utilizados para a divisão do \textit{bitmap} em regiões.
 
 \begin{figure}[!htb]
 \centering
@@ -319,7 +323,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \label{fig:seg2}
 \end{figure}
 
-Definindo a aresta de um caractere como uma matriz $2\times2$ de transições de branco para preto nos valores dos pixels, tem-se quatorze diferentes tipos de arestas, como ilustrado na figura \ref{fig:seg4}.
+Definindo a aresta de um caractere como uma matriz $2\times2$ de transições de branco para preto nos valores dos pixels, têm-se quatorze diferentes tipos de arestas, como ilustrado na Figura \ref{fig:seg4}.
 
 \begin{figure}[!htb]
 \centering
@@ -344,13 +348,13 @@ O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é nor
 \label{fig:matriz}
 \end{figure}
 
-O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ siginifica "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$": 
+O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ siginifica "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$", \ref{fig:vetor} 
 
 
 \begin{figure}[!Htb]
 \centering
 \begin{center}
-\includegraphics[scale=0.5
+\includegraphics[scale=0.6
 , bb= 0 0 500 166]{imagens/vetorCaracteristicas.PNG}
 \end{center}
 \caption{Vetor de Características}
@@ -365,23 +369,24 @@ Uma outra forma de extração de características é a análise estrutural do padrão.
 \begin{itemize}
 \item Terminação de Linha: é representada por um ponto que possui exatamente um vizinho de pixel preto na 8-vizinhança.   
    
-\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-viznhança. No presente trabalho, considerou-se apenas dois tipos de junções: com três e quatro vizinhos. A Figura 000000 mostra um exemplo de cada caso.
+\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-vizinhança. No presente trabalho, considerou-se apenas dois tipos de junções: com três e quatro vizinhos. A Figura 000000 mostra um exemplo de cada caso.
 
-\item \textit{Loops}: este é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura 00000), ou seja, o fundo da imagem é reprensetado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura 00000 pelos números 1, 2, 3, subtraido de um. Essa subtação é feita para não considerar o fundo da imagem como um \textit{loop}.
+\item \textit{Loops}: esta é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura 00000), ou seja, o fundo da imagem é representado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura 00000 pelos números 1, 2, 3, subtraido de um. Essa subrtação é feita para desconsiderar o fundo da imagem como um \textit{loop}.
 \end{itemize} 
 
-O \textit{toolkit} Horus fornece algumas implementações de algoritmos para análise estrututal de caracteres.
+O \textit{toolkit} Horus também fornece algumas implementações de algoritmos para análise estrututal de caracteres.
 
 \subsection{Reconhecimento de Objetos}
-	Reconhecimento de objetos é o processo de identificação de um determinado objeto através de suas características. Normalmente, esse processo se inicia com a captura de informações sobre o objeto através de câmeras ou outros tipos de sensores, como sonares por exemplo. Em seguida, essas informações passam pelo processo de extração de características com a finalidade de se extrair um vetor de informações que identifiquem unicamente o objeto independente das variações com que ele se apresente. Por fim, esse vetor de características é passado para o processo de reconhecimento, o qual identifica o objeto através de suas características.
+	Reconhecimento de objetos é o processo de identificação de um determinado objeto através de suas características. Normalmente, esse processo se inicia com a captura de informações sobre o objeto através de câmeras ou outros tipos de sensores, como sonares por exemplo. Em seguida, essas informações passam pelo processo de extração de características com a finalidade de se extrair um vetor de informações que identifique unicamente o objeto independente das variações  que ele possa apresentar. Por fim, esse vetor de características é passado para o processo de reconhecimento, o qual identifica o objeto através de suas características.
 
 	Para tarefas de reconhecimento, o Horus disponibiliza funções para construção e treinamento de redes neurais através da utilização de uma biblioteca denominada FANN (\textit{Fast Artificial Neural Network}). O FANN é uma biblioteca de código aberto implementada em linguagem C que fornece conectores para diversas linguagems de alto nível, dentre elas pode-se citar: Java, C++, Python e Ruby.
 
-	Outra funcionalidade disponibilizada pelo horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licensa Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações em que haja a necessidade de se reconhecer textos existentes em imagens. 	       
+	Outra funcionalidade disponibilizada pelo Horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licensa Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações em que haja a necessidade de se reconhecer textos existentes em imagens. 	       
 
 	O módulo OCR é utilizado nas aplicações ANPR e Ariadnes. No ANPR, esse módulo  é utilizado para reconhecer o texto que se encontra nas placas dos automóveis. Já na aplicação Ariadnes, o agente inteligente utiliza esse módulo para reconhecer os textos que se encontram nas placas informativas presentes no ambiente.
 	
 \section{Mapeamento e Navegação}
+\label{sec:slam}
  Chamamos de mapeamento o processo de identificar locais no ambiente do simulador e representa-los em um grafo. O mapeamento no Horus utiliza uma técnica genérica denominada SLAM. Nessa técnica, um agente consegue realizar o mapeamento e a localização no ambiente de forma simultânea. Os dispositivos utilizados pela implementação da técnica SLAM são lasers,  para identificar obstáculos, e um odômetro, para medir distâncias percorridas.
  
 	O SLAM é composto por vários procedimentos interligados. Cada um desses procedimentos pode ser implementado de diversas formas. Dentre os procedimentos implementados no Horus, podemos citar:

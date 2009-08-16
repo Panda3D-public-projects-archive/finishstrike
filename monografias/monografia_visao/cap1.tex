@@ -1,11 +1,8 @@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Extração de Características
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\chapter{Inteligência Computacional}
+\chapter{Conceitos em Computação Gráfica e Inteligência Computacional}
 \label{cap:ia}
+
+Neste capítulo serão apresentados os principais conceitos das áreas de computação gráfica e inteligência computacional que foram utilizados na implementação do \textit{toolkit} Horus. Esses conceitos são de fundamental importância para o entendimento dos algoritmos de visão computacional, processamento de imagens e reconhecimento de padrões implementados nos principais módulos do Horus
 
 \section{Agentes Inteligentes}
 A Inteligência Computacional (IC) é uma área de estudo da ciência da computação que procura desenvolver sistemas computacionais capazes de ter ações e reações similares as capacidades humanas, tais como: pensar, criar, solucionar problemas entre outros. Um Agente, por definição, é todo elemento ou entidade autônoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores \cite{Russel2003}. Pode-se citar como exemplos de agentes inteligentes, além de um robô autônomo ou semi-autônomo, personagens de um jogo, agentes de busca e recuperação de informação e agentes de chats.
@@ -23,7 +20,7 @@ Existem diversos modelos de arquitetura para robótica entre os quais ressalta-se
 	\item camada de execução: intermedia essas duas outras camadas.
 \end{itemize}
  
-As camadas reativa e deliberativa provêem processos denominados de comportamentos. Em termos matemáticos, o comportamento do agente á a função que mapeia qualquer percepção ou sequência de percepções para uma ação específica \cite{Russel2003}, essa função é conhecida como \textit{função de agente}. 
+As camadas reativa e deliberativa provêem processos denominados de comportamentos. Em termos matemáticos, o comportamento do agente é a função que mapeia qualquer percepção ou sequência de percepções para uma ação específica \cite{Russel2003}, essa função é conhecida como \textit{função de agente}. 
 
 Com base nesses conceitos, definiu-se neste trabalho um agente como uma entidade composta de comportamentos, dispositivos e um programa de agente. Os dispositivos do agente, utilizados no sistema em questão, são de sensoriamento (lasers e câmeras) e de movimentação (rodas). Os comportamentos do agente são: mapeamento, navegação e reconhecimento de objetos. O programa de agente é responsável pelo controle da execução de todos os comportamentos supracitados.
 
@@ -31,7 +28,7 @@ Com base nesses conceitos, definiu-se neste trabalho um agente como uma entidade
 
 	Comportamentos podem ser divididos em duas categorias. Os Comportamentos Primários: parar, reduzir velocidade, acelerar, desviar de obstáculos, virar, inverter direção, dirigir-se a meta, fotografar, disparar lasers e etc; e Comportamentos Inteligentes: mapear, reconhecer objetos, navegar e executar uma tarefa específica. Um Comportamento Inteligente executa um conjunto de comportamentos Primários para atingir seu objetivo. Os comportamentos primários ocorrem na camada reativa, enquanto que, os inteligentes ocorrem na camada deliberativa.
 
-Entende-se por \textit{Programa de Agente} o programa que recebe as percepções do ambiente como entrada e as mapeia para uma determinada ação através da função de agente. Além da estrutura citada, o programa de agente pode ser estruturado de outras maneiras. Um exemplo de estrutura é construir o programa de agente como um conjunto de sub-rotinas que serão executadas de forma assíncrona em relação ao ambiente. O programa permanece em \textit{loop}, recebendo todas as percepções geradas pelo ambiente, e repassa cada percepção para uma sub-rotina que irá tratá-la.
+Entende-se por \textit{Programa de Agente} o programa que recebe as percepções do ambiente como entrada e as mapeia para uma determinada ação através da função de agente. Além da estrutura citada, o programa de agente pode ser estruturado de outras maneiras. Um exemplo de estrutura é construir o programa de agente como um conjunto de sub-rotinas que serão executadas de forma assíncrona em relação ao ambiente. O programa permanece em \textit{loop}, recebendo todas as percepções geradas pelo ambiente, e repassa cada percepção para uma sub-rotina que irá tratá-las.
 
 Os programas de agente podem ser classificados em quatro categorias principais:
 \begin{itemize}
@@ -48,10 +45,10 @@ Em duas das aplicações desenvolvidas neste trabalho, os programas de agente util
 
 \section{Reconhecimento de Padrões}
 \label{sec:recObj}
-Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
+Reconhecimento de padrões é uma atividade que os seres humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
 	A área de Reconhecimento de Padrões é responsável por projetar algoritmos e abordagens  que procuram aproximar as tarefas realizadas computacionalmente das habilidades humanas. Esse processo consiste em classificar e descrever objetos através de um conjunto de características ou propriedades. Um dos principais conceitos dentro de reconhecimento de padrões é o discriminante.  Tal conceito consiste em medir uma distância de um determinado padrão para cada outro previamente conhecido. Logo, a classe de um determinado padrão será a mesma do seu vizinho mais próximo [Simp 92], [Simp 93], de menor distância ou o protótipo mais parecido [Torb 98].
     	Espera-se de um  sistema de reconhecimento de padrões que este seja capaz de aprender de uma forma adaptativa e dinâmica. Em sistemas de reconhecimento de padrões automáticos, as etapas de aprendizagem e reconhecimento são combinados a fim de atingir um objetivo desejado [Cagn 93] [Valli 98]. Portanto, redes neurais artificiais é uma das principais técnicas utilizadas nesse sentido [Nigr 93] e será apresentada na seção \ref{sec:rna}.
- 	Um típico sistema de reconhecimento de padrão consiste em três partes: aquisição de dados, seleção$/$extração de características e classificação$/$clustering [Pattern recognition book].
+ 	Um típico sistema de reconhecimento de padrões consiste em três partes: aquisição de dados, seleção$/$extração de características e classificação$/$clustering [Pattern recognition book].
 
 \begin{itemize}
 \item Aquisição de dados: é o processo de seleção dos dados que serão usados como entrada no processo de reconhecimento. Tais dados podem ser qualitativos, quantitativos ou ambos. Podendo ser numéricos, linguísticos, entre outros. 
@@ -62,7 +59,8 @@ Reconhecimento de padrões é um atividade que os humanos fazem a todo tempo e, no
 
 \end{itemize}
 
-A técnica de reconhecimento de padrões possui uma grande variedade de aplicações. Dentre elas, pode-se citar: reconhecimento de faces, leitura biométrica, identificação de circuitos impressos defeituosos, reconhecimento óptico de caracteres, reconhecimento de fala e de escrita cursiva, entre outros.
+A área de reconhecimento de padrões possui grande variedade de aplicações, como reconhecimento de faces, leitura biométrica, identificação de circuitos impressos defeituosos, reconhecimento óptico de caracteres, reconhecimento de fala e de escrita cursiva, entre outros.  
+
 
 
 \section{Redes Neurais Artificiais}
@@ -104,12 +102,12 @@ O neurônio biológico é constituído de um corpo celular denominado soma. Nesse Lo
 	O mecanismo como é criado o potencial de ação ou impulso nervoso é o seguinte: quando o potencial da membrana está menos eletronegativo do que o potencial de repouso, diz-se que a membrana está despolarizada e quando está mais negativo, diz-se que ela está hiperpolarizada. O impulso nervoso ou potencial de ação é uma onda de despolarização de certa duração de tempo, que se propaga ao longo da membrana. A formação de um potencial de ação na membrana axonal ocorre quando essa membrana sofre despolarização suficientemente acentuada para cruzar um determinado valor conhecido como limiar de disparo. Quando esse limiar é superado, os estímulos são passados para outras células através das ligações sinápticas.
 
 \subsection{O Neurônio Artificial MCP}
-McCulloch e Pits \cite{Mendel1970} propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta n terminais de entrada $x_1, x_2, ..., x_n$ (representando os dendritos) e apenas um terminal de saída $y$ (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados $w_1,w_2, ..., w_n$ cujos valores podem ser positivos ou negativos caso as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular $i$ no neurônio pós-sináptico é dado por $x_i w_i$. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. Uma descrição do modelo está ilustrada na Figura \ref{fig:mcculloch}.
+McCulloch e Pits \cite{Mendel1970} propuseram um modelo matemático do neurônio artificial MCP. Esse modelo foi proposto com base nos principais conceitos do neurônio biológico. O modelo matemático do neurônio proposto por McCulloch e Pits apresenta $n$ terminais de entrada $x_1, x_2, ..., x_n$ (representando os dendritos) e apenas um terminal de saída $y$ (representando o axônio). Os terminais de entrada do neurônio têm pesos acoplados $w_1,w_2, ..., w_n$ cujos valores podem ser positivos ou negativos caso as sinapses correspondentes serem inibitórias ou excitatórias. O efeito de uma sinapse particular $i$ no neurônio pós-sináptico é dado por $x_i w_i$. Os pesos determinam o nível em que o neurônio deve considerar sinais de disparo que ocorrem naquela conexão. O modelo está ilustrado na Figura \ref{fig:mcculloch}.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.4, bb= 0 0 349 264]{imagens/mcculloch.PNG}
+    \includegraphics[scale=0.55, bb= 0 0 349 264]{imagens/mcculloch.PNG}
 \end{center}
 \caption{Modelo do neurônio de McCulloch e Pits}
 \label{fig:mcculloch}
@@ -146,7 +144,7 @@ Onde $v$ é igual ao valor produzido pelo somatório das entradas do neurônio.
 \begin{figure}[!htb]
 \centering
 \begin{center}
-  \includegraphics[scale=0.35, bb= 0 0 300 222]{imagens/graficoFuncaoLimiar.PNG}
+  \includegraphics[scale=0.5, bb= 0 0 300 222]{imagens/graficoFuncaoLimiar.PNG}
 \end{center}
 \caption{Gráfico da função Limiar}
 \label{fig:fLimiar}
@@ -164,7 +162,7 @@ Onde $a$ é o parâmetro de inclinação da função sigmóide e $v$ é o valor de ativa
 \begin{figure}[!htb]
 \centering
 \begin{center}
- \includegraphics[scale=0.35, bb= 0 0 290 220]{imagens/graficoFuncaoSigmoide.PNG}
+ \includegraphics[scale=0.5, bb= 0 0 290 220]{imagens/graficoFuncaoSigmoide.PNG}
 \end{center}
 \caption{Gráfico da função sigmóide}
 \label{fig:funcSignum}
@@ -181,7 +179,7 @@ Onde $b$ são os limites inferiores e superiores $(b = |1|$ no gráfico$)$ e $v$ é
 \begin{figure}[!htb]
 \centering
 \begin{center}
- \includegraphics[scale=0.35, bb= 0 0 280 208]{imagens/graficoFuncaoSignun.PNG}
+ \includegraphics[scale=0.5, bb= 0 0 280 208]{imagens/graficoFuncaoSignun.PNG}
 \end{center}
 \caption{Gráfico da função Signum}
 \label{fig:graficoSignum}
@@ -219,9 +217,9 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 \begin{figure}[htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.45, bb= 0 0 125 123]{imagens/redeUmaCamada.PNG}
+    \includegraphics[scale=0.6, bb= 0 0 125 123]{imagens/redeUmaCamada.PNG}
 \end{center}
-\caption{Redes de uma única camada}
+\caption{Rede de uma única camada}
 \label{fig:unicacamada}
 \end{figure}
 
@@ -230,7 +228,7 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.45, bb= 0 0 171 103]{imagens/redeMultiplaCamada.PNG}
+    \includegraphics[scale=0.6, bb= 0 0 171 103]{imagens/redeMultiplaCamada.PNG}
 \end{center}
 \caption{Rede de múltiplas camadas}
 \label{fig:multiplaCamada}
@@ -247,7 +245,7 @@ Quanto ao tipo de conexão têm-se:
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.45, bb= 0 0 182 115]{imagens/feedBack.PNG}
+    \includegraphics[scale=0.6, bb= 0 0 182 115]{imagens/feedBack.PNG}
 \end{center}
 \caption{Exemplo de rede feedback.}
 \label{fig:feedback}
@@ -264,7 +262,7 @@ Quanto à conectividade têm-se:
 \subsection{Processo de aprendizado}
 	A principal propriedade de uma rede neural é a sua habilidade de aprender sobre o ambiente no qual está inserida de forma a melhorar a sua performance na resolução de problemas complexos. Essa melhora na performance é adquirida a cada instante do processo de aprendizado de acordo com uma forma de medição pré-estabelecida. Com isso, uma rede neural aprende sobre seu ambiente através de um processo iterativo de ajuste dos pesos sinápticos adquirindo mais conhecimento sobre o problema após cada iteração do processo de aprendizado.
 	Segundo Mendel e McLaren \cite{Mendel1970}, no contexto de redes neurais, aprendizado é o processo pelo qual os parâmetros de uma rede neural são ajustados através de estímulos produzidos pelo ambiente no qual a rede está inserida. O tipo de aprendizado é determinado pela maneira particular com que os parâmetros são modificados.
-	Foram desenvolvidos diversos métodos de treinamento de redes, podendo ser agrupados em dois paradigmas principais: aprendizado supervisionado e aprendizado não-supervisionado. No entanto, outros dois paradigmas bastante conhecidos são os de aprendizado por reforço (que é um caso particular de aprendizado supervisionado) e aprendizado por competição (que é um caso particular de aprendizado não supervisionado). 
+	O Horus disponibiliza diversos métodos de treinamento de redes, podendo ser agrupados em dois paradigmas principais: aprendizado supervisionado e aprendizado não-supervisionado. No entanto, outros dois paradigmas bastante conhecidos são os de aprendizado por reforço (que é um caso particular de aprendizado supervisionado) e aprendizado por competição (que é um caso particular de aprendizado não supervisionado). 
 
 \begin{itemize}
 \item Aprendizado Supervisionado:
@@ -276,7 +274,7 @@ Esse tipo de aprendizado é o mais utilizado em RNAs. Esse aprendizado é dito sup
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.45, bb= 0 0 348 211]{imagens/aprendizadoSupervRNA.PNG}
+    \includegraphics[scale=0.55, bb= 0 0 348 211]{imagens/aprendizadoSupervRNA.PNG}
 \end{center}
 \caption{Esquema de aprendizado supervisionado.}
 \label{fig:aprendSuper}
@@ -293,7 +291,7 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.4, bb= 0 0 445 93]{imagens/aprendizadoNSuper.PNG}
+    \includegraphics[scale=0.55, bb= 0 0 445 93]{imagens/aprendizadoNSuper.PNG}
 \end{center}
 \caption{Esquema de aprendizado não supervisionado.}
 \label{fig:aprendNaoSuper}
@@ -303,14 +301,14 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 \end{itemize}
 \section{Computação Gráfica}
 
-	A computação gráfica é a ciência que basicamente estuda um conjunto de técnicas que transforma dados em imagem apresentada através de um dispositivo gráfico. Estes dados podem ser organizados através de um modelo matemático cuja geometria se assemelhe a do objeto do mundo real a qual se deseja modelar. Segundo J. Gomes e L.Velho em \cite{Gomes2003} a computação gráfica pode ser dividida em quatro sub-áreas que relacionam dados e imagens. Essas subáreas são tão próxima que estão muitas vezes interligadas, em determinados momentos são até confundidas. Estas sub-áreas são: Modelagem Geométrica, Síntese de Imagem, Processamento de Imagem e Visão Computacional. A figura \ref{fig:CG} mostra estas quatro sub-áreas da computação gráfica e como se relacionam com os dados e a imagem: 
+	A computação gráfica é a ciência que basicamente estuda um conjunto de técnicas que transforma dados em imagem apresentada através de um dispositivo gráfico. Estes dados podem ser organizados através de um modelo matemático cuja geometria se assemelhe a do objeto do mundo real a qual se deseja modelar. Segundo J. Gomes e L.Velho em \cite{Gomes2003} a computação gráfica pode ser dividida em quatro subáreas que relacionam dados e imagens. Essas subáreas são tão próxima que estão muitas vezes interligadas, em determinados momentos são até confundidas. Estas subáreas são: Modelagem Geométrica, Síntese de Imagem, Processamento de Imagem e Visão Computacional. A Figura \ref{fig:CG} mostra estas quatro subáreas da computação gráfica e como se relacionam com os dados e a imagem: 
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.4, bb= 0 0 564 398]{imagens/CG.PNG}
 \end{center}
-\caption{Sub-áreas da computação gráfica}
+\caption{Subáreas da computação gráfica}
 \label{fig:CG}
 \end{figure}
 
@@ -325,10 +323,15 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 	Para determinados pesquisadores a Computação Gráfica é apenas a área denominada de síntese de imagem. Porém para \cite{Gomes2003}, além de outros pesquisadores desta área, esta ciência é composta pelas quatro linhas apresentadas acima. Este fato se justifica graças ao fato de cada vez surgir mais métodos e técnicas que solucionem problemas nestas quatro vertentes.
 	
 
-\section{Visão Computacional}
-Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc) assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de camera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensções é necessário ter noções sobre profundidade (e profundidade é estimada através da especificação da posição da câmera e de objetos na cena).
+\subsection{Visão Computacional}
+Visão computacional ainda pode ser considerada como uma área imatura de pesquisa. Embora existam trabalhos reconhecidos, somente após o final da década de 1970 os estudos foram aprofundados com o advento do computador possibilitando processar grandes conjuntos de dados como imagens. Esse ínicio teve grande impulso com David Marr, considerado o "pai" da Visão Computacional, com o lançamento do livro \textit{Vision}, em 1982 \cite{David1982}. Entretanto, esses estudos foram geralmente originados de outros campos de pesquisa, e, consequentemente, não existe uma formulação padrão para o problema de visão computacional, assim como não existe uma formulação padrão de como os problemas de visão computacional devem ser resolvidos. O que existem atualmente, são diversos métodos para resolver várias tarefas bem definidas, no qual os métodos são bastante especializados e raramente podem ser generalizados para várias aplicações. Na maioria das aplicações de visão computacional, os computadores são pré-programados para resolver uma tarefa particular, mas métodos baseados em aprendizagem estão se tornando cada vez mais comuns.
 
-De um modo mais geral visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Existem diversas aplicações de visão computacional em diversas áreas como detecção automática de tumores imagens médicas; definição de posição de jogadores de futebol no campo, em um determinado instante; determinação de volume de um fluido em mares ou rios, etc.
+Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc), assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de câmera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensões é necessário ter noções sobre profundidade, que é estimada através da especificação da posição da câmera e de objetos na cena.
+
+De um modo geral, visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Apesar da definição de visão computacional como uma subárea da computação gráfica, é válido ressaltar que isso não é aplicado em muitos grupos de pesquisa. A área chamada de visão pode ser renomeada para Análise de Imagem, e essa é, inquestionavelmente, uma subárea da Computaçao Gráfica.
+
+
+ Existem diversas aplicações de visão computacional em diversas áreas como detecção automática de tumores em imagens médicas; definição de posição de jogadores de futebol no campo, em um determinado instante; determinação de volume de um fluido em mares ou rios, etc.
 
 Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões, seção \ref{sec:recObj}. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessário extrair características da imagem.
 
@@ -338,7 +341,7 @@ Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, d
 
 	No campo de reconhecimento de padrões, extrair caracerísticas significa extrair medidas associadas ao objeto que se deseja reconhecer, de forma que essas medidas sejam semelhantes para objetos semelhantes e diferentes para objetos distintos \cite{Santos2007}. Definir vetores de características é o método para representação de dados mais comum e conveniente para problemas de classificação e reconhecimento. Cada característica resulta de uma medição qualitativa ou quantitativa, que é uma variável ou um atributo do objeto \cite{Guyon2006}.
 
-	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações dos caracteres causadas, por exemplo, pela inclinação da imagem.
+	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações nos caracteres causadas, por exemplo, pela inclinação da imagem.
         
 	Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
         
@@ -354,7 +357,7 @@ Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginiti
 	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade das imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia \cite{Rice1999}. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
 	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
 	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. 
-	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A figura \ref{fig:etapasOCR} apresenta um esquema básico do processo de OCR.
+	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A Figura \ref{fig:etapasOCR} apresenta um esquema básico do processo de OCR.
 
 \begin{figure}[!htb]
 \centering
@@ -365,7 +368,7 @@ Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginiti
 \label{fig:etapasOCR}
 \end{figure}
 
-	Na figura 1, tem-se as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
+	Na Figura \ref{fig:etapasOCR}, têm-se as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
 	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. No capítulo \ref{cap:horus} serão apresentados alguns algoritmos que podem ser utilizados no processo de OCR.
 
 
