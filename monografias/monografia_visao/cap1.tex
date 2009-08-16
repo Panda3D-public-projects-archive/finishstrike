@@ -1,7 +1,7 @@
 \chapter{Conceitos Básicos}
 \label{cap:conceitos}
 
-Neste capítulo serão apresentados os principais conceitos das áreas de computação gráfica e inteligência computacional que foram utilizados na implementação do \textit{toolkit} Horus. Esses conceitos são de fundamental importância para o entendimento dos algoritmos de visão computacional, processamento de imagens e reconhecimento de padrões implementados nos principais módulos do Horus
+Neste capítulo serão apresentados os principais conceitos das áreas de computação gráfica e inteligência computacional que foram utilizados na implementação do \textit{toolkit} Horus. Esses conceitos são de fundamental importância para o entendimento dos algoritmos de visão computacional, processamento de imagens e reconhecimento de padrões implementados nos principais módulos do Horus.
 
 \section{Agentes Inteligentes}
 A Inteligência Computacional (IC) é uma área de estudo da ciência da computação que procura desenvolver sistemas computacionais capazes de ter ações e reações similares as capacidades humanas, tais como: pensar, criar, solucionar problemas entre outros. Um Agente, por definição, é todo elemento ou entidade autônoma que pode perceber seu ambiente por algum meio cognitivo ou sensorial e de agir sobre esse ambiente por intermédio de atuadores \cite{Russel2003}. Pode-se citar como exemplos de agentes inteligentes, além de um robô autônomo ou semi-autônomo, personagens de um jogo, agentes de busca e recuperação de informação e agentes de chats.
@@ -65,13 +65,47 @@ Em duas das aplicações desenvolvidas neste trabalho, os programas de agente util
 	
 	Para determinados pesquisadores a Computação Gráfica é apenas a área denominada de síntese de imagem. Porém para \cite{Gomes2003}, além de outros pesquisadores desta área, esta ciência é composta pelas quatro linhas apresentadas acima. Este fato se justifica graças ao fato de cada vez surgir mais métodos e técnicas que solucionem problemas nestas quatro vertentes.
 	
+ De um modo geral, visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Apesar da definição de visão computacional como uma subárea da computação gráfica, é válido ressaltar que isso não é aplicado em muitos grupos de pesquisa. A área chamada de visão pode ser renomeada para Análise de Imagem, e essa é, inquestionavelmente, uma subárea da Computaçao Gráfica.
+ 
+ O Problema abordado nesse trabalho é o de Reconhecimento de Padrões. Esse é um problema clássico de Visão Computacional. Mas a maioria das técnicas de visão computacional são combinadas com técnicas de processamento de imagem (normalmente o processamento de imagem entra como um pre-processamento da imagem a ser tratada pelo método de visão). Dessa forma, nesse trabalho serão apresentados esses dois temas da computação gráfica: Processamento de Imagem, na subseção 2 deste capítulo, e Visão Computacional, na subseção 3. 
+ 
+\subsection{Processamento de Imagem}
+   Os estudos referentes ao Processamento de Imagem originaram-se na Teoria dos Sinais (ou Processamento de Sinais). Sinais, assim como uma imagem, é um suporte carregado pontualmente de informações.  Os sinais apresentam-se de diversas formas, entre as quais podemos citar: sinais sonoros, sinais eletromagnéticos, sinais cognitivos e sinais luminosos (que nos torna capaz de enxergar um ambiente, ou distinguir elementos de uma imagem). 
 
+    O estudo dos diversos sinais existentes origina-se na obtenção de uma descrição matemática deste. Após isso é necessário determinar meios efetivos de construir representações discretas e buscar de algoritmos que possam implementar as diversas técnicas de síntese, análise e processamento destes sinais em um computador. 
+
+    Segundo o modelo proposto por \cite{Gomes2002} é possível obter três níveis de abstração no processo de representação dos sinais: sinais contínuos, sinais discretos e sinais codificados. Cada nível corresponde a uma descrição do sinal de modo conveniente a um determinado assunto da Teoria dos Sinais. Relacionando esses três níveis de abstração é possível definir quatro operações de transformações: a discretização (mudança de um sinal contínuo para um sinal discreto), a codificação (mudança de um sinal discreto para um sinal codificado), a decodificação (mudança de um sinal codificado para um sinal discreto) e a reconstrução (mudança de um sinal discreto para um sinal contínuo).
+
+    Basicamente um sinal deve ser representado por um elemento matemático que estabeleça a variação de uma determinada grandeza. Por exemplo, o som é a variação da densidade do ar ao longo do tempo; uma imagem é a variação da cor. Desta forma som e imagem podem ser considerados sinais, como mencionado anteriormente. A variação do sinal modelada matematicamente pode ser determinística, onde se utilizam uma função como modelo do sinal, ou não determinística, onde o sinal é descrito através de um processo estocástico.
+
+No caso que o sinal é modelado por uma função $f: U \subset \mathbb{R}^{m} \longrightarrow \mathbb{R}^{n}$ a grandeza física do sinal é representada por vetor $n$-dimensional variando em um suporte $m$-dimensional. Denomina-se espaço dos sinais a um subespaço de funções de $\left\lbrace f: U \subset \mathbb{R}^{m} \longrightarrow \mathbb{R}^{n}\right\rbrace $, com $U$, $m$ e $n$ fixos. Desta forma um espaço de funções é um espaço vetorial cujas operações de soma de funções e multiplicação por escalar são as usuais.
+
+\begin{center}
+    $\left( f + g\right)(t) = f(t) + g(t)$
+
+    $(\lambda f)(t) =\lambda f(t)$
+\end{center}
+
+
+	De posse desta informação pode-se definir um sinal contínuo, em um espaço de sinais, como a função $f: U \subset \mathbb{R}^{m} \longrightarrow \mathbb{R}^{n}$. Porém vale ressaltar que o termo contínuo não quer dizer que necessariamente a função $f$ é topologicamente contínua. Na verdade significa que domínio e contra-domínio são um "continuum" de números, ou seja, conjuntos vetoriais cujas coordenadas dos elementos são números reais. Essa ressalva deve-se principalmente pelo fato que computacionalmente falando, não se trabalham com o conjunto dos números reais, mas na verdade utiliza-se um conjunto finito de elementos representado através de ponto flutuante. Para simplificar essa discussão vale citar o termo mais popular para este sinal continuo: analógico.
+
+    Dado um sinal contínuo definido pela função $f: U \subset \mathbb{R}^{m} \longrightarrow \mathbb{R}^{n}$, entre as operações definidas entre os níveis de abstração dos sinais, a operação de discretização (ou representação) consiste em discretizar o domínio da citada função (processo conhecido como amostragem), enquanto a codificação é a discretização do contradomínio (processo conhecido como quantização).
+
+    Não é pretensão deste trabalho esgotar este assunto. Uma abordagem um pouco mais elaborada pode ser encontrada em \cite{Gomes2002}.
+
+    O processamento de imagem, como definido anteriormente, consiste em, a partir de uma imagem, obter uma outra imagem com determinados aspectos realçados. Ou seja, processar uma imagem consiste em realizar sucessivas transformações para obter determinadas informações contidas nesta com mais facilidade. 
+
+    Um desejo desta área é o de processar uma imagem analogamente como é realizado pelo sistema visual humano. Porém este sistema é extremamente complexo. Para realizar as mesmas operações utilizando máquinas é necessário fazer com que esta tenha uma real compreensão do ambiente analisado. Desta forma o processamento de imagem está extremamente inter-relacionado com sua área de aplicação, ao invés de um sistema amplo capaz de identificar qualquer objeto, a partir de uma imagem, em boas condições, dada.
+
+    Ao se estudar o processamento de Imagem deve-se anteriormente ter um domínio claro de o que é uma Imagem. Do ponto de vista da ótica, uma imagem é um conjunto de pontos, com uma identidade fotométrica, que convergem formando um todo. Matematicamente falando, uma Imagem Contínua é uma aplicação $f: U \subset \mathbb{R}^{2} \longrightarrow C$, onde $C$ é o espaço das cores, $f$ é chamada de Função Imagem, $U$ é o suporte da Imagem e $f(U)$, um subconjunto de $C$, é o gamute de cores da imagem. Em geral $C = \mathbb{R}^{n}$, porém os casos mais comuns são: para $n = 3$ (como RGB), ou $n = 1$ (como imagens em escala de cinza).
+    
+    Inicialmente o termo imagem estava relacionado à compreensão do domínio da luz visível. Atualmente pode-se pensar em imagens como uma grande quantidade de dados representados bidimensionalmente, entre os quais podem-se citar as imagens acústicas, sísmicas, de satélites, infravermelhas, magnéticas, entre outras.
+
+    A linha de pesquisa denominada Processamento de Imagem consiste em realizar operações sobre uma imagem. Essas operações normalmente sao determinadas por funçoes, cujo dominio é a imagem a ser processada e o contra-domínio é o espaço das funções. Uma operaçao comum a ser aplicada em imagens é a filtragem.
+    
 \subsection{Visão Computacional}
 
-David Marr morreu em 17 de novembro de 1980, porém seu livro [Vision 1982] foi lançado postumamente em 1982 e causou um forte impacto na comunidade de visao computacional.
-
-
-Visão computacional ainda pode ser considerada como uma área imatura de pesquisa. Embora existam trabalhos reconhecidos, somente após o final da década de 1970 os estudos foram aprofundados com o advento do computador possibilitando processar grandes conjuntos de dados como imagens. Esse ínicio teve grande impulso com David Marr, considerado o "pai" da Visão Computacional. David Marr morreu em 17 de novembro de 1980, porém seu livro \cite{David:82} foi lançado postumamente em 1982 e causou um forte impacto na comunidade de visao computacional. Entretanto, esses estudos foram geralmente originados de outros campos de pesquisa, e, consequentemente, não existe uma formulação padrão para o problema de visão computacional, assim como não existe uma formulação padrão de como os problemas de visão computacional devem ser resolvidos. O que existem atualmente, são diversos métodos para resolver várias tarefas bem definidas, no qual os métodos são bastante especializados e raramente podem ser generalizados para várias aplicações. Na maioria das aplicações de visão computacional, os computadores são pré-programados para resolver uma tarefa particular, mas métodos baseados em aprendizagem estão se tornando cada vez mais comuns.
+Outra área da Computaçao Gráfica é a Visão computacional. Visão computacional ainda pode ser considerada como uma área imatura de pesquisa. Embora existam trabalhos reconhecidos, somente após o final da década de 1970 os estudos foram aprofundados com o advento do computador possibilitando processar grandes conjuntos de dados como imagens. Esse ínicio teve grande impulso com David Marr, considerado o "pai" da Visão Computacional. David Marr morreu em 17 de novembro de 1980, porém seu livro \cite{David:82} foi lançado postumamente em 1982 e causou um forte impacto na comunidade de visao computacional. Entretanto, esses estudos foram geralmente originados de outros campos de pesquisa, e, consequentemente, não existe uma formulação padrão para o problema de visão computacional, assim como não existe uma formulação padrão de como os problemas de visão computacional devem ser resolvidos. O que existem atualmente, são diversos métodos para resolver várias tarefas bem definidas, no qual os métodos são bastante especializados e raramente podem ser generalizados para várias aplicações. Na maioria das aplicações de visão computacional, os computadores são pré-programados para resolver uma tarefa particular, mas métodos baseados em aprendizagem estão se tornando cada vez mais comuns.
 
 Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc), assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de câmera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensões é necessário ter noções sobre profundidade, que é estimada através da especificação da posição da câmera e de objetos na cena.
 
@@ -82,23 +116,9 @@ De um modo geral, visão computacional é a área da computação gráfica que extrai 
 
 Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões, seção \ref{sec:recObj}. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessário extrair características da imagem.
 
-Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seção \ref{sec:ocr}.
-
-\subsection{Extração de características}
-
-	No campo de reconhecimento de padrões, extrair caracerísticas significa extrair medidas associadas ao objeto que se deseja reconhecer, de forma que essas medidas sejam semelhantes para objetos semelhantes e diferentes para objetos distintos \cite{Santos2007}. Definir vetores de características é o método para representação de dados mais comum e conveniente para problemas de classificação e reconhecimento. Cada característica resulta de uma medição qualitativa ou quantitativa, que é uma variável ou um atributo do objeto \cite{Guyon2006}.
-
-	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações nos caracteres causadas, por exemplo, pela inclinação da imagem.
-        
-	Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
-        
-	O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "descritores", ou "padrões". Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
-
-No capítulo que trata do \textit{toolkit} Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
 
 
-
-\section{Reconhecimento de Padrões}
+\subsection{Reconhecimento de Padrões}
 \label{sec:recObj}
 Reconhecimento de padrões é uma atividade que os seres humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
 	A área de Reconhecimento de Padrões é responsável por projetar algoritmos e abordagens  que procuram aproximar as tarefas realizadas computacionalmente das habilidades humanas. Esse processo consiste em classificar e descrever objetos através de um conjunto de características ou propriedades. Um dos principais conceitos dentro de reconhecimento de padrões é o discriminante.  Tal conceito consiste em medir uma distância de um determinado padrão para cada outro previamente conhecido. Logo, a classe de um determinado padrão será a mesma do seu vizinho mais próximo [Simp 92], [Simp 93], de menor distância ou o protótipo mais parecido [Torb 98].
@@ -115,6 +135,45 @@ Reconhecimento de padrões é uma atividade que os seres humanos fazem a todo temp
 \end{itemize}
 
 A área de reconhecimento de padrões possui grande variedade de aplicações, como reconhecimento de faces, leitura biométrica, identificação de circuitos impressos defeituosos, reconhecimento óptico de caracteres, reconhecimento de fala e de escrita cursiva, entre outros.  
+
+Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seção \ref{sec:ocr}.
+
+\subsection{Reconhecimento Óptico de Caracteres}
+\label{sec:ocr}
+Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recognition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
+
+	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações, como a busca de determinado conteúdo de interesse.
+	
+	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade das imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia \cite{Rice1999}. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
+	
+	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa. O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A Figura \ref{fig:etapasOCR} apresenta um esquema básico do processo de OCR.
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb= 0 0 372 718]{imagens/etapasOCR.PNG}
+\end{center}
+\caption{Etapas do processo de OCR.}
+\label{fig:etapasOCR}
+\end{figure}
+
+	Na Figura \ref{fig:etapasOCR}, têm-se as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
+	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. No capítulo \ref{cap:horus} serão apresentados alguns algoritmos que podem ser utilizados no processo de OCR.
+	
+\subsection{Extração de características}
+
+	No campo de reconhecimento de padrões, extrair caracerísticas significa extrair medidas associadas ao objeto que se deseja reconhecer, de forma que essas medidas sejam semelhantes para objetos semelhantes e diferentes para objetos distintos \cite{Santos2007}. Definir vetores de características é o método para representação de dados mais comum e conveniente para problemas de classificação e reconhecimento. Cada característica resulta de uma medição qualitativa ou quantitativa, que é uma variável ou um atributo do objeto \cite{Guyon2006}.
+
+	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações nos caracteres causadas, por exemplo, pela inclinação da imagem.
+        
+	Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
+        
+	O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "descritores", ou "padrões". Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
+
+No capítulo que trata do \textit{toolkit} Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
+
+
+
 
 
 
@@ -355,26 +414,6 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 
 \end{itemize}
 
-\subsection{Reconhecimento Óptico de Caracteres}
-\label{sec:ocr}
 
-Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recognition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
-	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações, como a busca de determinado conteúdo de interesse.
-	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade das imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia \cite{Rice1999}. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
-	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
-	Há vários sistemas OCR, livres e proprietários, presentes no mercado hoje. 
-	O processo de OCR é constituído de várias etapas, com responsabilidades bem definidas, que ao final apresentam o texto editável. A Figura \ref{fig:etapasOCR} apresenta um esquema básico do processo de OCR.
-
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.4, bb= 0 0 372 718]{imagens/etapasOCR.PNG}
-\end{center}
-\caption{Etapas do processo de OCR.}
-\label{fig:etapasOCR}
-\end{figure}
-
-	Na Figura \ref{fig:etapasOCR}, têm-se as várias etapas de um processo clássico de OCR. Inicialmente, é necessário tornar a imagem binária, isto é, transformar a imagem, que se encontra em escala de cinza, em uma imagem com apenas duas cores: preto e branco, cores essas representadas respectivamente pelos inteiros 0 e 255. Na etapa de segmentação, cada caractere presente na imagem é recortado da imagem binária para ser tratado individualmente. Após a segmentação, cada caractere é passado individualmente para a etapa de extração de características, onde um vetor numérico é extraído a partir das características desse caractere. Por último, é realizada a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto.
-	Cada etapa desse processo pode ser implementada de diversas maneiras e por vários algoritmos diferentes. No capítulo \ref{cap:horus} serão apresentados alguns algoritmos que podem ser utilizados no processo de OCR.
 
 

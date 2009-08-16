@@ -178,6 +178,14 @@
   timestamp = {2009.08.12}
 }
 
+@BOOK{David:82,
+  title = {Vision: A Computational Investigation into the Human Representation
+	and Processing of Visual Information},
+  publisher = {W.H.Freeman and Co Ltd},
+  year = {1982},
+  author = {David Marr}
+}
+
 @MASTERSTHESIS{Martinsky2007,
   author = {Ondrej Martinsky},
   title = {Algorithmic and mathematical principles of automatic number plate

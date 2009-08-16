@@ -2,50 +2,52 @@
 \select@language {brazil}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Neur\^onio biol\'ogico}}{22}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Modelo do neur\^onio de McCulloch e Pits}}{24}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Gr\'afico da fun\c c\~ao Limiar}}{25}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Gr\'afico da fun\c c\~ao sigm\'oide}}{25}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Gr\'afico da fun\c c\~ao Signum}}{26}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Gr\'afico da Tangente Hiperb\'olica}}{26}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Redes de uma \'unica camada}}{27}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Rede de m\'ultiplas camadas}}{27}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Exemplo de rede feedback.}}{28}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Esquema de aprendizado supervisionado.}}{29}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Esquema de aprendizado n\~ao supervisionado.}}{30}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Sub-\'areas da computa\c c\~ao gr\'afica}}{31}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Etapas do processo de OCR}}{36}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Sub\'areas da computa\c c\~ao gr\'afica.}}{19}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Etapas do processo de OCR.}}{27}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Neur\^onio biol\'ogico.}}{30}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Modelo do neur\^onio de McCulloch e Pits.}}{32}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Gr\'afico da fun\c c\~ao Limiar.}}{33}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Gr\'afico da fun\c c\~ao sigm\'oide.}}{34}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Gr\'afico da fun\c c\~ao Signum.}}{34}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Gr\'afico da Tangente Hiperb\'olica.}}{35}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Rede de uma \'unica camada.}}{36}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Rede de m\'ultiplas camadas.}}{36}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Exemplo de rede feedback.}}{37}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Esquema de aprendizado supervisionado.}}{38}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Esquema de aprendizado n\~ao supervisionado.}}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitetura do m\'odulo core}}{38}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces extens\~ao da classe \textit {Brain} do horus por uma aplica\c c\~ao.}}{39}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Comportamento \textit {MyBehavior} que estende tanto de \textit {NeuralNetworkBehavior} quanto de \textit {MappingBehavior}.}}{40}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca, (b) d-vizinhan\c ca e (c) 8-vizinhan\c ca. }}{42}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Exemplo de imagem bin\'aria}}{43}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces imagem original (\`a direita) e imagem binarizada com thresholding global (\`a esquerda).}}{44}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Localiza\c c\~ao do limiar por Chow e Kaneko }}{45}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces c\'odigo do m\'etodo de \textit {thresholding} local implementado em linguagem Python }}{46}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces imagem original (\`a direita) e imagem limiarizada com \textit {thresholding} local (\`a esquerda).}}{46}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Imagem de um "T" e seu respectivo esqueleto}}{47}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Imagem de um "B" (preto) e seu respectivo esqueleto (branco).}}{47}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces 8-vizinhan\c ca do pixel $p_1$}}{48}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Exemplos das fun\c c\~oes: (a)$B(p_1)=2$, $A(p_1)=1$ b) $B(p_1)=2$, $A(p_1)=2$}}{49}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces a) $B(p_1)=7$ b) $B(p_1) = 0$ c) $B(p_1) = 1$}}{49}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Exemplos onde $A(p_1)$ \'e maior que $1$.}}{50}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Exemplo de situa\c c\~ao em que linhas verticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{50}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Exemplo de situa\c c\~ao em que linhas herticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{50}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces a) padr\~ao de entrada do algoritmo b) dele\c c\~ao iterativa dos pixels das bordas c) resultado ap\'os a execu\c c\~ao do algoritmo}}{51}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Padr\~oes completamente erodidos pelo algoritmo de Hilditch.}}{51}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Matriz de pixel de um bitmap.}}{52}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Layout com seis regi\~oes em tr\^es linhas e duas colunas.}}{53}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Quatorze diferentes tipos de arestas}}{53}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Matrizes referentes aos tipos de arestas}}{54}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Vetor de Caracter\IeC {\'\i }sticas}}{54}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitetura do m\'odulo \textit {core}.}}{41}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Extens\~ao da classe \textit {Brain} do Horus por uma aplica\c c\~ao.}}{42}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Comportamento \textit {MyBehavior} que estende tanto de \textit {NeuralNetworkBehavior} quanto de \textit {MappingBehavior}.}}{43}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca, (b) d-vizinhan\c ca e (c) 8-vizinhan\c ca. }}{45}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Exemplo de imagem bin\'aria.}}{46}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Imagem original (\`a direita) e imagem binarizada com thresholding global (\`a esquerda).}}{47}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Localiza\c c\~ao do limiar por Chow e Kaneko.}}{48}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces C\'odigo do m\'etodo de \textit {thresholding} local implementado em linguagem Python.}}{49}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Imagem original (\`a direita) e resultado da limiariza\c c\~ao com \textit {thresholding} local (\`a esquerda).}}{50}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Imagem de um "T" e seu respectivo esqueleto.}}{50}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Imagem de um "B" (preto) e seu respectivo esqueleto (branco).}}{51}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces 8-vizinhan\c ca do pixel $p_1$.}}{51}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Exemplos das fun\c c\~oes: (a)$B(p_1)=2$, $A(p_1)=1$ b) $B(p_1)=2$, $A(p_1)=2$.}}{52}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces (a) $B(p_1)=7$ (b) $B(p_1) = 0$ (c) $B(p_1) = 1$.}}{52}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Exemplos onde $A(p_1)$ \'e maior que $1$.}}{53}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Exemplo de situa\c c\~ao em que linhas verticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{53}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Exemplo de situa\c c\~ao em que linhas herticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{54}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces (a) padr\~ao de entrada do algoritmo (b) dele\c c\~ao iterativa dos pixels das bordas (c) resultado ap\'os a execu\c c\~ao do algoritmo.}}{54}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Padr\~oes completamente erodidos pelo algoritmo de Hilditch.}}{54}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Matriz de pixel de um \textit {bitmap}.}}{56}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Layout com seis regi\~oes em tr\^es linhas e duas colunas.}}{56}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Quatorze diferentes tipos de arestas.}}{57}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Matrizes referentes aos tipos de arestas.}}{58}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Vetor de Caracter\IeC {\'\i }sticas.}}{58}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes. }}{67}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Agente configurado com dispositivos de lasers.}}{68}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ambiente utilizado no Ariadnes}}{69}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Placa informativa.}}{71}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes.}}{71}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Placa informativa presente no ambiente.}}{72}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Agente configurado com dispositivos de lasers.}}{72}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Ambiente utilizado no Ariadnes.}}{73}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Proje\c c\~ao horizontal de uma placa informativa.}}{75}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Proje\c c\~ao vertical de uma de uma das colunas da placa.}}{75}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
