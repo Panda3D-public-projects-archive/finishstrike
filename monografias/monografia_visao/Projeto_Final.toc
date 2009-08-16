@@ -1,40 +1,39 @@
 \select@language {english}
 \select@language {brazil}
-\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{13}
-\contentsline {chapter}{\numberline {2}Intelig\^encia Computacional}{16}
-\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{16}
-\contentsline {section}{\numberline {2.2}Reconhecimento de Padr\~oes}{19}
-\contentsline {section}{\numberline {2.3}Redes Neurais Artificiais}{20}
-\contentsline {subsection}{\numberline {2.3.1}Neur\^onio Biol\'ogico}{21}
-\contentsline {subsection}{\numberline {2.3.2}O Neur\^onio Artificial MCP}{23}
-\contentsline {subsection}{\numberline {2.3.3}Fun\c c\~oes de Ativa\c c\~ao}{24}
-\contentsline {subsection}{\numberline {2.3.4}Arquiteturas de Redes Neurais}{26}
-\contentsline {subsection}{\numberline {2.3.5}Processo de aprendizado}{28}
-\contentsline {section}{\numberline {2.4}Computa\c c\~ao Gr\'afica}{30}
-\contentsline {section}{\numberline {2.5}Vis\~ao Computacional}{32}
-\contentsline {subsection}{\numberline {2.5.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{33}
-\contentsline {subsection}{\numberline {2.5.2}Reconhecimento \'Optico de Caracteres}{34}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{12}
+\contentsline {chapter}{\numberline {2}Conceitos B\'asicos}{15}
+\contentsline {section}{\numberline {2.1}Agentes Inteligentes}{15}
+\contentsline {section}{\numberline {2.2}Computa\c c\~ao Gr\'afica}{18}
+\contentsline {subsection}{\numberline {2.2.1}Vis\~ao Computacional}{20}
+\contentsline {subsection}{\numberline {2.2.2}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{21}
+\contentsline {section}{\numberline {2.3}Reconhecimento de Padr\~oes}{22}
+\contentsline {section}{\numberline {2.4}Redes Neurais Artificiais}{24}
+\contentsline {subsection}{\numberline {2.4.1}Neur\^onio Biol\'ogico}{25}
+\contentsline {subsection}{\numberline {2.4.2}O Neur\^onio Artificial MCP}{27}
+\contentsline {subsection}{\numberline {2.4.3}Fun\c c\~oes de Ativa\c c\~ao}{28}
+\contentsline {subsection}{\numberline {2.4.4}Arquiteturas de Redes Neurais}{30}
+\contentsline {subsection}{\numberline {2.4.5}Processo de aprendizado}{32}
+\contentsline {subsection}{\numberline {2.4.6}Reconhecimento \'Optico de Caracteres}{34}
 \contentsline {chapter}{\numberline {3}Horus}{37}
-\contentsline {section}{\numberline {3.1}Core}{37}
+\contentsline {section}{\numberline {3.1}\textit {Core}}{37}
 \contentsline {section}{\numberline {3.2}Processamento de Imagem}{41}
 \contentsline {subsection}{\numberline {3.2.1}\textit {Thresholding}}{43}
 \contentsline {subsubsection}{\numberline {3.2.1.1}\textit {Thresholding} Global}{43}
 \contentsline {subsubsection}{\numberline {3.2.1.2}\textit {Thresholding} Adaptativo}{44}
-\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{47}
+\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{46}
 \contentsline {section}{\numberline {3.3}Vis\~ao}{51}
 \contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{52}
-\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{55}
-\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{56}
-\contentsline {chapter}{\numberline {4}ANPR}{58}
-\contentsline {section}{\numberline {4.1}Localiza\c c\~ao da Placa}{59}
-\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{62}
-\contentsline {section}{\numberline {4.3}OCR}{63}
-\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{64}
-\contentsline {section}{\numberline {4.5}Aplica\c c\~oes do Horus}{64}
-\contentsline {chapter}{\numberline {5}Aplicacoes envolvendo agentes inteligentes}{66}
-\contentsline {section}{\numberline {5.1}Teseu}{67}
-\contentsline {section}{\numberline {5.2}Ariadnes}{67}
-\contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{72}
-\contentsline {chapter}{Ap\^endices}{76}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{76}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{77}
+\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{56}
+\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{57}
+\contentsline {chapter}{\numberline {4}ANPR}{59}
+\contentsline {section}{\numberline {4.1}Localiza\c c\~ao da Placa}{60}
+\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{63}
+\contentsline {section}{\numberline {4.3}OCR}{64}
+\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{65}
+\contentsline {section}{\numberline {4.5}Aplica\c c\~oes do Horus}{65}
+\contentsline {chapter}{\numberline {5}Aplicacoes envolvendo agentes inteligentes}{67}
+\contentsline {section}{\numberline {5.1}Teseu e Ariadnes}{68}
+\contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{74}
+\contentsline {chapter}{Ap\^endices}{78}
+\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{78}
+\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{79}

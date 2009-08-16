@@ -1,6 +1,5 @@
-
-\chapter{Conceitos em Computação Gráfica e Inteligência Computacional}
-\label{cap:ia}
+\chapter{Conceitos Básicos}
+\label{cap:conceitos}
 
 Neste capítulo serão apresentados os principais conceitos das áreas de computação gráfica e inteligência computacional que foram utilizados na implementação do \textit{toolkit} Horus. Esses conceitos são de fundamental importância para o entendimento dos algoritmos de visão computacional, processamento de imagens e reconhecimento de padrões implementados nos principais módulos do Horus
 
@@ -43,6 +42,62 @@ Os programas de agente podem ser classificados em quatro categorias principais:
 
 Em duas das aplicações desenvolvidas neste trabalho, os programas de agente utilizados se enquadram na categoria de agentes baseados na utilidade.
 
+\section{Computação Gráfica}
+
+	A computação gráfica é a ciência que basicamente estuda um conjunto de técnicas que transforma dados em imagem apresentada através de um dispositivo gráfico. Estes dados podem ser organizados através de um modelo matemático cuja geometria se assemelhe a do objeto do mundo real a qual se deseja modelar. Segundo J. Gomes e L.Velho em \cite{Gomes2003} a computação gráfica pode ser dividida em quatro subáreas que relacionam dados e imagens. Essas subáreas são tão próxima que estão muitas vezes interligadas, em determinados momentos são até confundidas. Estas subáreas são: Modelagem Geométrica, Síntese de Imagem, Processamento de Imagem e Visão Computacional. A Figura \ref{fig:CG} mostra estas quatro subáreas da computação gráfica e como se relacionam com os dados e a imagem: 
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb= 0 0 564 398]{imagens/CG.PNG}
+\end{center}
+\caption{Subáreas da computação gráfica.}
+\label{fig:CG}
+\end{figure}
+
+	A Modelagem Geométrica trata do problema de descrever e estruturar dados geométricos no computador, ou seja, encontrar um modelo matemático capaz de representar o objeto desejado. Um exemplo de Modelagem geométrica é a obtenção de uma função que se aproxime de outra desconhecida através de um método de interpolação de alguns pontos de amostragem já conhecidos.
+	
+	A Síntese de imagens, ou Visualização, processa os dados gerados pelo sistema na modelagem geométrica e produz uma imagem que pode ser vista em um dispositivo de saída gráfica. A partir do mapeamento de alguns pontos, distribuídos em torno de um determinado objeto, obtém-se um modelo matemático, que o representa, através da Modelagem Geométrica. De posse deste modelo é possível apresentar uma imagem que represente a forma do objeto. Este último processo é um exemplo de Síntese de Imagem.
+	
+	O Processamento de Imagens assume como dados de entrada uma imagem, processa-a produzindo uma outra imagem como dado de saída. As técnicas desta área podem ser utilizadas, por exemplo, para melhorar a qualidade de uma imagem antiga ou danificada, produzindo outra, imagem com menos ruídos.
+	
+	Por último, o processo de Visão Computacional, ou simplesmente Visão, tem por finalidade obter, a partir de uma imagem de entrada, informações físicas, geométricas e/ou topológicas sobre os dados do objeto apresentado na imagem. Um bom exemplo desta área aparece nas transmissões de futebol, quando é necessário observar com segurança e certeza se um jogador está em posição de impedimento, ou seja, uma situação onde é necessário determinar a sua posição no campo em relação à posição dos jogadores adversários.
+	
+	Para determinados pesquisadores a Computação Gráfica é apenas a área denominada de síntese de imagem. Porém para \cite{Gomes2003}, além de outros pesquisadores desta área, esta ciência é composta pelas quatro linhas apresentadas acima. Este fato se justifica graças ao fato de cada vez surgir mais métodos e técnicas que solucionem problemas nestas quatro vertentes.
+	
+
+\subsection{Visão Computacional}
+
+David Marr morreu em 17 de novembro de 1980, porém seu livro [Vision 1982] foi lançado postumamente em 1982 e causou um forte impacto na comunidade de visao computacional.
+
+
+Visão computacional ainda pode ser considerada como uma área imatura de pesquisa. Embora existam trabalhos reconhecidos, somente após o final da década de 1970 os estudos foram aprofundados com o advento do computador possibilitando processar grandes conjuntos de dados como imagens. Esse ínicio teve grande impulso com David Marr, considerado o "pai" da Visão Computacional. David Marr morreu em 17 de novembro de 1980, porém seu livro \cite{David:82} foi lançado postumamente em 1982 e causou um forte impacto na comunidade de visao computacional. Entretanto, esses estudos foram geralmente originados de outros campos de pesquisa, e, consequentemente, não existe uma formulação padrão para o problema de visão computacional, assim como não existe uma formulação padrão de como os problemas de visão computacional devem ser resolvidos. O que existem atualmente, são diversos métodos para resolver várias tarefas bem definidas, no qual os métodos são bastante especializados e raramente podem ser generalizados para várias aplicações. Na maioria das aplicações de visão computacional, os computadores são pré-programados para resolver uma tarefa particular, mas métodos baseados em aprendizagem estão se tornando cada vez mais comuns.
+
+Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc), assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de câmera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensões é necessário ter noções sobre profundidade, que é estimada através da especificação da posição da câmera e de objetos na cena.
+
+De um modo geral, visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Apesar da definição de visão computacional como uma subárea da computação gráfica, é válido ressaltar que isso não é aplicado em muitos grupos de pesquisa. A área chamada de visão pode ser renomeada para Análise de Imagem, e essa é, inquestionavelmente, uma subárea da Computaçao Gráfica.
+
+
+ Existem diversas aplicações de visão computacional em diversas áreas como detecção automática de tumores em imagens médicas; definição de posição de jogadores de futebol no campo, em um determinado instante; determinação de volume de um fluido em mares ou rios, etc.
+
+Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões, seção \ref{sec:recObj}. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessário extrair características da imagem.
+
+Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seção \ref{sec:ocr}.
+
+\subsection{Extração de características}
+
+	No campo de reconhecimento de padrões, extrair caracerísticas significa extrair medidas associadas ao objeto que se deseja reconhecer, de forma que essas medidas sejam semelhantes para objetos semelhantes e diferentes para objetos distintos \cite{Santos2007}. Definir vetores de características é o método para representação de dados mais comum e conveniente para problemas de classificação e reconhecimento. Cada característica resulta de uma medição qualitativa ou quantitativa, que é uma variável ou um atributo do objeto \cite{Guyon2006}.
+
+	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações nos caracteres causadas, por exemplo, pela inclinação da imagem.
+        
+	Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
+        
+	O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "descritores", ou "padrões". Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
+
+No capítulo que trata do \textit{toolkit} Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
+
+
+
 \section{Reconhecimento de Padrões}
 \label{sec:recObj}
 Reconhecimento de padrões é uma atividade que os seres humanos fazem a todo tempo e, normalmente, sem um esforço consciente. Seres humanos recebem informações através de vários sensores orgânicos, as quais são processadas instantaneamente pelo cérebro. Essa habilidade é ainda mais impressionante no que diz respeito a assertividade do processo de reconhecimento mesmo quando as informações não se encontram em condições ideais, como por exemplo, em situações onde as informações são vagas, imprecisas, ou até mesmo, incompletas.
@@ -80,7 +135,7 @@ O sistema nervoso é formado por um conjunto extremamente complexo de neurônios. 
 \begin{center}
     \includegraphics[scale=0.35, bb= 0 0 751 469]{imagens/neuronioBio.PNG}
 \end{center}
-\caption{Neurônio biológico}
+\caption{Neurônio biológico.}
 \label{fig:neuroBiol}
 \end{figure}
 
@@ -109,7 +164,7 @@ McCulloch e Pits \cite{Mendel1970} propuseram um modelo matemático do neurônio a
 \begin{center}
     \includegraphics[scale=0.55, bb= 0 0 349 264]{imagens/mcculloch.PNG}
 \end{center}
-\caption{Modelo do neurônio de McCulloch e Pits}
+\caption{Modelo do neurônio de McCulloch e Pits.}
 \label{fig:mcculloch}
 \end{figure}
 
@@ -146,7 +201,7 @@ Onde $v$ é igual ao valor produzido pelo somatório das entradas do neurônio.
 \begin{center}
   \includegraphics[scale=0.5, bb= 0 0 300 222]{imagens/graficoFuncaoLimiar.PNG}
 \end{center}
-\caption{Gráfico da função Limiar}
+\caption{Gráfico da função Limiar.}
 \label{fig:fLimiar}
 \end{figure}
 
@@ -164,7 +219,7 @@ Onde $a$ é o parâmetro de inclinação da função sigmóide e $v$ é o valor de ativa
 \begin{center}
  \includegraphics[scale=0.5, bb= 0 0 290 220]{imagens/graficoFuncaoSigmoide.PNG}
 \end{center}
-\caption{Gráfico da função sigmóide}
+\caption{Gráfico da função sigmóide.}
 \label{fig:funcSignum}
 \end{figure}
 
@@ -181,7 +236,7 @@ Onde $b$ são os limites inferiores e superiores $(b = |1|$ no gráfico$)$ e $v$ é
 \begin{center}
  \includegraphics[scale=0.5, bb= 0 0 280 208]{imagens/graficoFuncaoSignun.PNG}
 \end{center}
-\caption{Gráfico da função Signum}
+\caption{Gráfico da função Signum.}
 \label{fig:graficoSignum}
 \end{figure}
 
@@ -198,7 +253,7 @@ Onde a é o parâmetro de inclinação da curva, b são os limites inferiores e super
 \begin{center}
 \includegraphics[scale=0.35, bb= 0 0 279 207]{imagens/graficoHiperbolica.PNG}
 \end{center}
-\caption{Gráfico da Tangente Hiperbólica}
+\caption{Gráfico da Tangente Hiperbólica.}
 \label{fig:graficoHiperbolica}
 \end{figure}
 
@@ -219,7 +274,7 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 \begin{center}
     \includegraphics[scale=0.6, bb= 0 0 125 123]{imagens/redeUmaCamada.PNG}
 \end{center}
-\caption{Rede de uma única camada}
+\caption{Rede de uma única camada.}
 \label{fig:unicacamada}
 \end{figure}
 
@@ -230,7 +285,7 @@ Em geral, as redes neurais podem ser classificadas quanto ao número de camadas, 
 \begin{center}
     \includegraphics[scale=0.6, bb= 0 0 171 103]{imagens/redeMultiplaCamada.PNG}
 \end{center}
-\caption{Rede de múltiplas camadas}
+\caption{Rede de múltiplas camadas.}
 \label{fig:multiplaCamada}
 \end{figure}
 \end{itemize}
@@ -299,60 +354,11 @@ No aprendizado não supervisionado não há um professor que oriente o processo de 
 
 
 \end{itemize}
-\section{Computação Gráfica}
-
-	A computação gráfica é a ciência que basicamente estuda um conjunto de técnicas que transforma dados em imagem apresentada através de um dispositivo gráfico. Estes dados podem ser organizados através de um modelo matemático cuja geometria se assemelhe a do objeto do mundo real a qual se deseja modelar. Segundo J. Gomes e L.Velho em \cite{Gomes2003} a computação gráfica pode ser dividida em quatro subáreas que relacionam dados e imagens. Essas subáreas são tão próxima que estão muitas vezes interligadas, em determinados momentos são até confundidas. Estas subáreas são: Modelagem Geométrica, Síntese de Imagem, Processamento de Imagem e Visão Computacional. A Figura \ref{fig:CG} mostra estas quatro subáreas da computação gráfica e como se relacionam com os dados e a imagem: 
-
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.4, bb= 0 0 564 398]{imagens/CG.PNG}
-\end{center}
-\caption{Subáreas da computação gráfica}
-\label{fig:CG}
-\end{figure}
-
-	A Modelagem Geométrica trata do problema de descrever e estruturar dados geométricos no computador, ou seja, encontrar um modelo matemático capaz de representar o objeto desejado. Um exemplo de Modelagem geométrica é a obtenção de uma função que se aproxime de outra desconhecida através de um método de interpolação de alguns pontos de amostragem já conhecidos.
-	
-	A Síntese de imagens, ou Visualização, processa os dados gerados pelo sistema na modelagem geométrica e produz uma imagem que pode ser vista em um dispositivo de saída gráfica. A partir do mapeamento de alguns pontos, distribuídos em torno de um determinado objeto, obtém-se um modelo matemático, que o representa, através da Modelagem Geométrica. De posse deste modelo é possível apresentar uma imagem que represente a forma do objeto. Este último processo é um exemplo de Síntese de Imagem.
-	
-	O Processamento de Imagens assume como dados de entrada uma imagem, processa-a produzindo uma outra imagem como dado de saída. As técnicas desta área podem ser utilizadas, por exemplo, para melhorar a qualidade de uma imagem antiga ou danificada, produzindo outra, imagem com menos ruídos.
-	
-	Por último, o processo de Visão Computacional, ou simplesmente Visão, tem por finalidade obter, a partir de uma imagem de entrada, informações físicas, geométricas e/ou topológicas sobre os dados do objeto apresentado na imagem. Um bom exemplo desta área aparece nas transmissões de futebol, quando é necessário observar com segurança e certeza se um jogador está em posição de impedimento, ou seja, uma situação onde é necessário determinar a sua posição no campo em relação à posição dos jogadores adversários.
-	
-	Para determinados pesquisadores a Computação Gráfica é apenas a área denominada de síntese de imagem. Porém para \cite{Gomes2003}, além de outros pesquisadores desta área, esta ciência é composta pelas quatro linhas apresentadas acima. Este fato se justifica graças ao fato de cada vez surgir mais métodos e técnicas que solucionem problemas nestas quatro vertentes.
-	
-
-\subsection{Visão Computacional}
-Visão computacional ainda pode ser considerada como uma área imatura de pesquisa. Embora existam trabalhos reconhecidos, somente após o final da década de 1970 os estudos foram aprofundados com o advento do computador possibilitando processar grandes conjuntos de dados como imagens. Esse ínicio teve grande impulso com David Marr, considerado o "pai" da Visão Computacional, com o lançamento do livro \textit{Vision}, em 1982 \cite{David1982}. Entretanto, esses estudos foram geralmente originados de outros campos de pesquisa, e, consequentemente, não existe uma formulação padrão para o problema de visão computacional, assim como não existe uma formulação padrão de como os problemas de visão computacional devem ser resolvidos. O que existem atualmente, são diversos métodos para resolver várias tarefas bem definidas, no qual os métodos são bastante especializados e raramente podem ser generalizados para várias aplicações. Na maioria das aplicações de visão computacional, os computadores são pré-programados para resolver uma tarefa particular, mas métodos baseados em aprendizagem estão se tornando cada vez mais comuns.
-
-Visão computacional é uma linha de pesquisa que procura definir procedimentos automatizados que imitem processos da visão humana (ou de outros animais).  Normalmente essa área basea-se em técnicas estatísticas, ou probabilísticas, para estimar informações baseadas em imagens. Para desenvolver técnicas nessa linha de pesquisa é essencial uma boa compreensão sobre o funcionamento das câmeras (com suas falhas na aquisisão de sinais que compõem uma imagem, inserção de ruídos, distorção de cores, etc), assim como seu posicionamento no espaço ambiente. Esse segundo problema é conhecido como calibração de câmera e é um tema largamente estudado, pois normalmente, para estimar informações em uma cena vista em duas dimensões é necessário ter noções sobre profundidade, que é estimada através da especificação da posição da câmera e de objetos na cena.
-
-De um modo geral, visão computacional é a área da computação gráfica que extrai informações de uma imagem ou de um conjunto de imagens. Apesar da definição de visão computacional como uma subárea da computação gráfica, é válido ressaltar que isso não é aplicado em muitos grupos de pesquisa. A área chamada de visão pode ser renomeada para Análise de Imagem, e essa é, inquestionavelmente, uma subárea da Computaçao Gráfica.
-
-
- Existem diversas aplicações de visão computacional em diversas áreas como detecção automática de tumores em imagens médicas; definição de posição de jogadores de futebol no campo, em um determinado instante; determinação de volume de um fluido em mares ou rios, etc.
-
-Nesse trabalho foi estudado um tema particular de visão computacional, que é o de reconhecimento de padrões, seção \ref{sec:recObj}. Para reconhecer padrões, assim como na maioria dos problemas de visão computacional, é necessário extrair características da imagem.
-
-Um padrão em particular que podemos citar são caracteres. O campo de pesquisa, dentro da visão computacional, que se preocupa com o reconhecimento de caracteres é conhecido pelo acrônimo OCR, do inglês, Optical Recognition Caracter. Esse tema será abordado na seção \ref{sec:ocr}.
-
-\subsection{Extração de características}
-
-	No campo de reconhecimento de padrões, extrair caracerísticas significa extrair medidas associadas ao objeto que se deseja reconhecer, de forma que essas medidas sejam semelhantes para objetos semelhantes e diferentes para objetos distintos \cite{Santos2007}. Definir vetores de características é o método para representação de dados mais comum e conveniente para problemas de classificação e reconhecimento. Cada característica resulta de uma medição qualitativa ou quantitativa, que é uma variável ou um atributo do objeto \cite{Guyon2006}.
-
-	Para reconhecer um caractere de uma representação bitmap, há a necessidade de extrair características do mesmo para descrevê-lo de uma forma mais apropriada para o seu processamento computacional e reconhecimento. Como o método de extração de características afeta significantemente a qualidade de todo o processo de reconhecimento de padrões, é muito importante extrair características de modo que elas sejam invariantes no que diz respeito às várias condições de iluminação, tipo de fonte e possíveis deformações nos caracteres causadas, por exemplo, pela inclinação da imagem.
-        
-	Geralmente, a descrição de uma região de uma imagem é baseada em suas representações interna e externa. A representação interna de uma imagem é baseada em suas propriedades regionais, como cor ou textura. A representação externa é selecionada quando se deseja dar ênfase nas características da forma do objeto. Logo, o vetor de características de uma representação externa inclui características como o número de linhas, a quantidade de arestas horizontais, verticais e diagonais, etc.
-        
-	O conjunto de vetores de características forma um espaço vetorial. Cada caractere representa uma determinada classe, e todas as formas de representação desse caractere definem as instâncias dessa classe. Todas as instâncias do mesmo caractere devem ter uma descrição similar através de vetores numéricos chamados de "descritores", ou "padrões". Logo, vetores suficientemente próximos representam o mesmo caractere. Essa é a premissa básica para que o processo de reconhecimento de padrões seja bem sucedido.
-
-No capítulo que trata do \textit{toolkit} Horus, serão explicados alguns métodos de extração de características implementados no módulo de visão computacional.
 
 \subsection{Reconhecimento Óptico de Caracteres}
 \label{sec:ocr}
 
-Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
+Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recognition}) é um campo de pesquisa nas áreas de reconhecimento de padrões, inteligência artificial e visão computacional. Em computação, OCR é o processo de tradução eletrônica de imagens de textos para textos que possam ser editados computacionalmente, permitindo assim, a realização de operações que seriam inviáveis de serem realizadas sobre o texto em formato de imagem. Sistemas OCR, ou de reconhecimento de caracteres, datam do final dos anos 50 e têm sido amplamente utilizados em computadores desktop desde os anos 90.
 	Esses sistemas disponibilizam textos contidos em imagens, capturadas por dispositivos ou geradas computacionalmente, em textos editáveis por computador. Os textos gerados por sistemas OCR são, normalmente, utilizados por outras ferramentas que permitem operações, como a busca de determinado conteúdo de interesse.
 	Apesar de mais de 40 anos de pesquisa, sistemas OCR ainda estão muito longe de alcançar a eficácia de um ser humano. A eficácia desses sistemas está fortemente ligada à qualidade das imagens. Imagens limpas e de alta qualidade levam esses sistemas a atingirem uma taxa de aproximadamente 99\textdiscount de eficácia \cite{Rice1999}. Porém, imagens com baixa resolução, com ruído ou com diferenças de luminosidade, por exemplo, podem levar esses sistemas a cometerem erros grosseiros e confundirem diversos tipos de caracteres. Caracteres como "6" e "9", "B" e "8" e "o" e "0", são facilmente confundidos em imagens imperfeitas.
 	Nesse sentido, atualmente, boa parte das pesquisas em OCR está focada na melhoria da sua eficácia no que diz respeito à extração de textos de imagens que não se encontram em condições ideais. Além disso, o reconhecimento de textos escritos a mão em linguagem cursiva ainda são uma área de pesquisa muito ativa.
@@ -364,7 +370,7 @@ Reconhecimento Óptico de Caracteres ou OCR (\textit{Optical character recoginiti
 \begin{center}
     \includegraphics[scale=0.4, bb= 0 0 372 718]{imagens/etapasOCR.PNG}
 \end{center}
-\caption{Etapas do processo de OCR}
+\caption{Etapas do processo de OCR.}
 \label{fig:etapasOCR}
 \end{figure}
 
