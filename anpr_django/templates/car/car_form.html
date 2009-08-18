@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+{% block content %}
+
+  {% if object %}
+    <h1>Update Car:</h1>
+  {% else %}
+    <h1>Create a Car</h1>
+  {% endif %}
+  
+  {% if form.has_errors %}
+    <h2>Please correct the following error{{ form.errors|pluralize }}:</h2>
+  {% endif %}
+  
+  <form id="person_form" method="post" action=".">
+    <fieldset>
+      <div class="field">
+        <label for="id_name">Company:</label> 
+        <div class="input">
+          {{ form.company }}
+        </div>
+        {% if form.company.errors %}
+          <div class="errors">
+             *** {{ form.company.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_address">Model:</label> 
+        <div class="input">
+          {{ form.model }}
+        </div>
+        {% if form.model.errors %}
+          <div class='errors'>
+            *** {{ form.model.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_city">Date:</label>
+        <div class="input">
+          {{ form.date }}
+        </div>
+        {% if form.date.errors %}
+          <div class="errors">
+            *** {{ form.date.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_country">Chaci:</label>
+         <div class="input">
+          {{ form.chaci }}
+        </div>
+        {% if form.chaci.errors %}
+          <div class="errors">
+            *** {{ form.chaci.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_email">Color:</label> 
+        <div class="input">
+          {{ form.color }}
+        </div>
+        {% if form.color.errors %}
+          <div class="errors">
+            *** {{ form.color.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_identity">Plate:</label> 
+        <div class="input">
+          {{ form.plate }}
+        </div>
+        {% if form.plate.errors %}
+          <div class="errors">
+            *** {{ form.plate.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field">
+        <label for="id_cpf">Owner:</label>
+        <div class="input">
+          {{ form.owner }}
+        </div>
+        {% if form.owner.errors %}
+          <div class="errors">
+            *** {{ form.owner.errors|join:", " }}
+          </div>
+        {% endif %}
+        <p class="clear"/>
+      </div>
+      <div class="field"> 
+        <label> </label>
+        <div class="input">
+          <input type="submit" value="Ok" />
+        </div>  
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% if not car %}
+    <h1>Car</h1>
+      This car does not exist.
+    {% else %}
+    <h1>Car belongs to {{ car.owner }}</h1>
+    Are you sure? <br/>
+    <form name='car_confirm_delete_yeah' method='POST' action='#'>
+      <input type='submit' name='yes' value='Yes'>
+    </form>
+    <form name='car_confirm_delete_not' method='POST' action='/car/list/'>
+      <input type='submit' name='no' value='No'>
+    </form>
+    {% endif %}
+{% endblock %}

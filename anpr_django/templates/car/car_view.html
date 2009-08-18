@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>Person</h1>
+    {% if not person %}
+      This person does not exist.
+    {% else %}
+    <div class='label'>Name: {{ person.name }}<br/>
+      Address: {{ person.address }}<br/>
+      E-mail: {{ person.email }}<br/>
+      City: {{ person.city }}<br/>
+      Country: {{ person.country }} <br/>
+      Identity: {{ person.identity }} <br/>
+      CPF: {{ person.cpf }} <br/>
+      Phone: {{ person.phone }} <br/>
+      <a href="/person/list/"> Back </a>
+    {% endif %}
+{% endblock %}

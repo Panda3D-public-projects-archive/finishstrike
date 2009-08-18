@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>Cars</h1>
+    {% if not car_list %}
+      Cars not found.
+    {% else %}
+      {% for car in car_list %}
+      <div class='label'>Owner: <a href="/car/view/{{ car.id }}/">{{ car.owner }}</a> <br/>
+          Model: {{car.model}}<br/>
+          <a href="/car/view/{{ car.id }}/"> View </a> |
+          <a href="/car/update/{{ car.id }}/"> Update </a> |
+          <a href="/car/delete/{{ car.id }}/"> Delete </a>        
+          <br/>
+          <br/>
+      {% endfor %}
+      {% if has_previous %}
+        <a href="/car/list/?page={{ previous }}"> Previous </a>
+      {% endif %}
+      {% for num in page_range %}
+         <a href="/car/list/?page={{ num }}">
+          {% ifequal num page %}
+            <strong>{{ num }}</strong>
+          {% else %}
+            {{ num }}
+          {% endifequal %}
+        </a>
+      {% endfor %}
+      {% if has_next %}
+        <a href="/car/list/?page={{ next }}"> Next </a>
+      {% endif %}
+      <br/>
+    {% endif %}
+    <br/>
+    <a href="/car/create/"> New Car </a>
+{% endblock %}
