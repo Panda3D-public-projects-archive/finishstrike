@@ -222,7 +222,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.6, bb=0 0 444 103]{imagens/condition1.PNG}
+    \includegraphics[scale=0.2, bb=0 0 1107 420]{imagens/condition1.PNG}
 \end{center}
 \caption{(a) $B(p_1)=7$ (b) $B(p_1) = 0$ (c) $B(p_1) = 1$.}
 \label{fig:condition1}
@@ -299,7 +299,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \begin{itemize}
 \item Matriz de Pixel: a maneira mais simples de extrair características de um \textit{bitmap} é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
 
-   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do \textit{bitmap} multiplicado pela sua largura, portanto, \textit{bitmaps} grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do \textit{bitmap} é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o \textit{bitmap} do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas. 
+   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do \textit{bitmap} multiplicado pela sua largura, portanto, \textit{bitmaps} grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do \textit{bitmap} é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o \textit{bitmap} do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas.
             
             
 \begin{figure}[!htb]
@@ -367,11 +367,29 @@ O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h
 Uma outra forma de extração de características é a análise estrutural do padrão. Através desse tipo de extração é possível diferenciar padrões por suas caracteristias mais substanciais. No caso de reconhecimento de caracteres, a análise estrutural leva em consideração estruturas mais complexas, como junções, terminação de linha e \textit{loops}.
 
 \begin{itemize}
-\item Terminação de Linha: é representada por um ponto que possui exatamente um vizinho de pixel preto na 8-vizinhança.   
+\item Terminação de Linha: é representada por um ponto que possui exatamente um vizinho de pixel preto na 8-vizinhança (Figura \ref{fig:junctions} (c)).   
    
-\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-vizinhança. No presente trabalho, considerou-se apenas dois tipos de junções: com três e quatro vizinhos.
+\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-vizinhança. No presente trabalho, considerou-se apenas dois tipos de junções: com três e quatro vizinhos (Figura \ref{fig:junctions} (a),(b)).
 
-\item \textit{Loops}: esta é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura 00000), ou seja, o fundo da imagem é representado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura 00000 pelos números 1, 2, 3, subtraido de um. Essa subrtação é feita para desconsiderar o fundo da imagem como um \textit{loop}.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+\includegraphics[scale=0.5, bb= 0 0 367 106]{imagens/junctions.PNG}
+\end{center}
+\caption{(a) Exemplo de junção com quatro vizinhos (b) Exemplo de junção com três vizinhos (c) Exemplo de terminação de linha.}
+\label{fig:junctions}
+\end{figure}
+
+\item \textit{Loops}: esta é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura \ref{fig:loops}), ou seja, o fundo da imagem é representado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura \ref{fig:loops} pelos números 1, 2, 3, subtraído de um. Essa subrtação é feita para desconsiderar o fundo da imagem como um \textit{loop}.
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+\includegraphics[scale=0.5, bb= 0 0 245 147]{imagens/loops.PNG}
+\end{center}
+\caption{(a) Imagem original (b) Imagem negativa.}
+\label{fig:loops}
+\end{figure}
 \end{itemize} 
 
 O \textit{toolkit} Horus também fornece algumas implementações de algoritmos para análise estrututal de caracteres.
@@ -402,3 +420,15 @@ O \textit{toolkit} Horus também fornece algumas implementações de algoritmos par
   Neste trabalho, a proposta utilizada é mapear o ambiente através de um grafo conexo, cujos nós referem-se a: entradas/saídas do ambiente, acessos aos cômodos, obstáculos fixos e esquinas. O peso das arestas é calculado de acordo com o custo de processamento no deslocamento entre a posição de um nó ao outro. 
 
   O problema de navegação consiste na localização e definição do caminho que o agente deve seguir. Após a construção de uma representação do ambiente em forma de um grafo, o agente é capaz de se localizar e se movimentar pelo ambiente através dos vértices e arestas, previamente mapeados no grafo. Para a utilização de grafos, o Horus fornece classes para sua construção e algoritmos para cálculo de caminho mínimo.
+
+\section{Aplicações desenvolvidas com o Horus}
+\label{sec:app}
+
+As aplicações desenvolvidas nesse projeto têm o objetivo de validar e demonstrar a utilidade do \textit{toolkit} Horus no desenvolvimento de aplicações envolvendo agentes inteligentes, visão computacional, mapeamento automático de ambientes e matemática. São três as aplicações desenvolvidas no projeto como um todo, porém, neste trabalho serão detalhadas somente as aplicações que possuem aspectos de visão computacional.
+
+As aplicações desenvolvidas foram: um sistema de reconhecimento automático de placas de automóveis denominado \textit{PyANPR}, descrito no Capítulo \ref{cap:anpr}, um simulador para mapeamento automático de ambientes desconhecidos através da técnica SLAM, chamado \textit{Teseu} e um simulador de movimentação autônoma em ambientes desconhecidos, utilizando visão computacional, denominado \textit{Ariadnes}.
+
+	Teseu é um sistema que simula a movimentação autônoma de um agente inteligente em um ambiente desconhecido. Nele é possível simular o comportamento de um robô real no que tange mapeamento e navegação. O agente tem o objetivo de explorar todo o ambiente utilizando técnicas de localização, mapeamento e exploração implementadas no Horus. 
+   A construção do ambiente virtual foi realizada utilizando um software de modelagem 3D \textit{Open Source} chamado Blender 3D. Esse é um produto criado pela \textit{Blender Foundation}, feito na linguagem de programação Python e está sob a licença GNU(\textit{General Public License}). Outra ferramenta utilizada na construção dos simuladores é o Panda3D, criada pela equipe \textit{Walt Disney} para renderização de jogos e ambiente em terceira dimensão. Esse produto também foi criado na linguagem de programação Python e encontra-se sob a licença de uso BSD(\textit{Berkeley Software Distribution }). O uso do Panda3D no Horus restringe-se apenas na manipulação e renderização do ambiente e atores criados previamente no Blender3D. 
+
+O simulador Ariadnes foi contruído utilizando as mesmas ferramentas utilizadas na construção do Teseu, porém, com objetivo e técnicas  diferentes. O Ariadnes será melhor descrito no Capítulo \ref{cap:ariadnes}.
