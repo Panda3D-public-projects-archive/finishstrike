@@ -18,7 +18,7 @@ O objetivo do Toollkit é prover ferramentas necessárias para produção de agentes
 As principais funcionalidades de cada um dos módulos são:
 \begin{itemize}
 \item Core do Horus: Contêm módulos que serão utilizados como suporte para os módulos principais. Sendo assim não necessitam ser utilizados diretamente pelo usuário.
-\item Modulo de Visão: Tem por objetivo tratar as principais técnicas de visão computacional de um agente inteligente.
+\item Módulo de Visão: Tem por objetivo tratar as principais técnicas de visão computacional de um agente inteligente.
 \item Modulo de Mapeamento: O módulo de mapeamento é responsável por gerenciar os tipos de mapeamento bem como os dispositivos utilizados para mapear e navegar no ambiente.
 \item Utils: Módulo que contêm funções de suporte para auxiliar no funcionamento dos demais módulos.
 \end{itemize}
@@ -38,7 +38,7 @@ O Core do Horus é onde se encontram as partes relativas ao agente e seus comport
 
 A  arquitetura representada acima demonstra de forma geral os integrantes do Toolkit Horus que são o agente inteligente (\textit{Agent}), os dispositivos usados por esse agente (\textit{Device}), o programa de agente (\textit{Brain}), os eventos (\textit{Event}) e a hierarquia de comportamentos (\textit{Behavior}).
 
-Uma vez criado o agente ele precisa de dispositivos (classe \textit{Device}), como lasers ou câmeras, que sejam necessários para cumprir uma determinada tarefa, ou seja, para atingir o seu objetivo. Além disto, é necessário atribuir a este agente a inteligência (classe \textit{Brain}), isto é, os algoritmos que poderá usar para processar as informações obtidas com seus dispositivos e transformá-las em dados para a fase de pos-processamento.
+Uma vez criado o agente ele precisa de dispositivos (classe \textit{Device}), como lasers ou câmeras, que são necessários para cumprir uma determinada tarefa, ou seja, para atingir o seu objetivo. Além disto, é necessário atribuir a este agente a inteligência (classe \textit{Brain}), isto é, os algoritmos que poderá usar para processar as informações obtidas com seus dispositivos e transformá-las em dados para a fase de pos-processamento.
 
 Para que a aplicação possa usar um programa de agente ela precisa estender a classe \textit{Brain} e implementar o método \textit{run()} dessa classe.
 
@@ -55,11 +55,11 @@ O \textit{Toolkit} Horus oferece algumas classes de comportamentos já definidida
 
 A classe \textit{Environment} representa o ambiente sobre o qual os eventos ocorrem e o agente trabalha. Para que o agente possa obter informações sobre o ambiente é preciso que o \textit{Brain} seja configurado tanto com uma instância da classe \textit{Agent} quanto uma instância da classe \textit{Environment}.
 
-É necessário definir a ordem de execucão quando o cérebro do agente  é configurado com diversos comportamentos. Os comportamentos podem mudar de acordo com as condições identificadas, logo, o cérebro identifica as condições que cada commportamento necessita para ser executado e o ativa quando a sua condição de execução for satisfeita. Porém, há casos em que dois ou mais comportamentos podem ter a sua condição de execução satisfeita. Nesses casos, é necessário definir prioridades de execução sobre os comportamentos lembrando sempre que a maior prioridade deve ser a integridade do agente. A ordem de execução dos comportamentos define a máquina de estados de execução do agente inteligente, que se encaixa com a proposta e a utilização do cérebro no \textit{Toolkit}. 
+É necessário definir a ordem de execucão quando o cérebro do agente  é configurado com diversos comportamentos. Os comportamentos podem mudar de acordo com as condições identificadas, logo, o cérebro identifica as condições que cada comportamento necessita para ser executado e o ativa quando a sua condição de execução for satisfeita. Porém, há casos em que dois ou mais comportamentos podem ter a sua condição de execução satisfeita. Nesses casos, é necessário definir prioridades de execução sobre os comportamentos lembrando sempre que a maior prioridade deve ser a integridade do agente. A ordem de execução dos comportamentos define a máquina de estados de execução do agente inteligente, que se encaixa com a proposta e a utilização do cérebro no \textit{Toolkit}. 
 
 \subsection{Módulo de Visão}
 
-Módulo onde ficam as funções relativas a visão computacional para agentes inteligenes, ele leva em consideração o uso de redes neurais para fazer a extração de característicase também vários algoritmos de segmentação. Esse módulo tem como principal objetivo o reconhecimento de padrões. Para
+Módulo onde ficam as funções relativas a visão computacional para agentes inteligentes. Ele leva em consideração o uso de redes neurais para fazer a extração de características e também vários algoritmos de segmentação. Esse módulo tem como principal objetivo o reconhecimento de padrões. Para
 reconhecimento de uma placa é necessário identificar algumas características de uma imagem que servirão de padrões de entrada para uma rede neural.
 
 Isso ocorre através de dois processos: Extração de características e reconhecimento de objetos.
@@ -88,12 +88,12 @@ O módulo responsável pela inteligência do agente, no que diz respeito à localiza
 
 A localização do agente é dada em coordenadas X, Y e Z. Inicialmente o agente conhece apenas a sua posição, que é dada pelas coordenadas (0, 0, 0). Independentemente da posição do agente, no que diz respeito ao ambiente, a inicial será sempre (0, 0, 0). 
 
-Conforme o agente mapea o ambiente ele seguirá alterando sua posição a partir daque que foi sua posição anterior com base em seu odômetro (dadas as métricas proporcionais).
+Conforme o agente mapeia o ambiente, ele seguirá alterando sua posição a partir da sua posição anterior com base em seu odômetro (dadas as métricas proporcionais).
 
 No \textit{Toolkit} isso funciona da seguinte forma:
 
 \begin{itemize}
-\item Obtem-se uma leitura da posição atual.
+\item Obtém-se uma leitura da posição atual.
 \item Calcula-se o ângulo de rotação do agente para onde ele navegará.
 \item Armazena-se a distância percorrida baseando-se no odômetro.
 \item Calcula-se a nova posição com a distância percorrida e o ângulo de rotação.
@@ -129,43 +129,43 @@ Os passoas abaixo fazem parte do método seeNewWay presente no módulo SLAM desenv
 Com este novo método, é possível garantir que o agente sempre preferirá ir para lugares onde hajam menos pontos mapeados.
 
 \subsection{Mapeamento}
-O mapeamento do agente baseia-se em um processo chamado tentativas de criação de mark points. O Horus disponibiliza esse processo através de um método criado em nosso trabalho chamado tryAMarkPoint.
+O mapeamento do agente baseia-se em um processo chamado tentativas de criação de \textit{\textit{mark points}}. O Horus disponibiliza esse processo através de um método criado em nosso trabalho chamado \textit{tryAMarkPoint}.
 
-Mark Points (pontos de marcos, ou simplesmente marcos) são circunferências criadas durante a navegação do agente. O algoritmo que gera os mark points é uma nova proposta apresentada pelo corrente trabalho para resolver o problema de mapeamento.
+\textit{Mark points} (pontos de marcos, ou simplesmente marcos) são circunferências criadas durante a navegação do agente. O algoritmo que gera os \textit{mark points} é uma nova proposta apresentada pelo corrente trabalho para resolver o problema de mapeamento.
 
-Em contrapartida ao SPIKE e ao RANSAC que buscam extrair landmarks utilizando-se das colisões dos lasers e esperando que essas colisões atendam a um requisito, no caso do RANSAC espera-se a formação de uma linha, no caso do SPIKE espera-se uma diferença muito grande entre um marco e outro, o processo de criação de mark points leva em consideração que todas as colisões dos lasers são landmarks, mas nem todos são armazenados.
+Em contrapartida ao SPIKE e ao RANSAC que buscam extrair \textit{landmarks} utilizando-se das colisões dos lasers e esperando que essas colisões atendam a um requisito, no caso do RANSAC espera-se a formação de uma linha, no caso do SPIKE espera-se uma diferença muito grande entre um marco e outro, o processo de criação de \textit{mark points} leva em consideração que todas as colisões dos lasers são \textit{landmarks}, mas nem todos são armazenados.
 
 O landmark escolhido é denominado mark point  e é aquele que não esteja em um ponto por onde o agente já passou.
 
-Essa identificação é feita a partir do método de criação de mark points que nesse trabalho é chamado tryAMarkPoint [colocar referencia para o apêndice].
+Essa identificação é feita a partir do método de criação de \textit{mark points} que nesse trabalho é chamado \textit{tryAMarkPoint}.
 
-O algoritmo do tryAMarkPoint é o seguinte:
+O algoritmo do \textit{tryAMarkPoint} é o seguinte:
 \begin{table}[htb]
 \centering         
 	\begin{algorithmic}                
-		\STATE $tryAMarkPoint(tuple posicao\textunderscore robo, float rotacao\textunderscore  robo$)
-		\FORALL{$cada$ $mark\textunderscore point$ $em$ $lista\textunderscore mark\textunderscore poin$} 
+		\STATE $\textit{tryAMarkPoint}(tuple posicao\textunderscore robo, float rotacao\textunderscore  robo$)
+		\FORALL{$mark\textunderscore point$ $in$ $lista\textunderscore mark\textunderscore point$} 
 			\STATE $RESULTADO$ $\leftarrow$ $isPointInCircle( mark\textunderscore point, posicao\textunderscore robo, raio\textunderscore circunferencia$)
-			\IF{RESULTADO é \textit{FALSO}} 
+			\IF{RESULTADO is \textit{FALSE}} 
 				\STATE ADIOCIONAR $\leftarrow$ \textit{VERDADEIRO}
 			\ELSE
 				\STATE TENTATIVAS $\leftarrow$ TENTATIVAS - 1
 			\ENDIF
 		\ENDFOR
-		\IF{ADICIONAR é \textit{VERDADEIRO}}
+		\IF{ADICIONAR is \textit{}}
 			\STATE  TENTATIVAS $\leftarrow$ TENTATIVAS + 2
-			\STATE  Adiciona a posição do robô à lista de Mark Points  
+			\STATE  Adiciona a posição do robô à lista de \textit{mark points}  
 		\ENDIF
 		\RETURN $TENTATIVAS$
 	\end{algorithmic}
-\caption{Algoritmo tryAMarkPoint}
+\caption{Algoritmo \textit{tryAMarkPoint}}
 \end{table}
 
-NOTA: isPointInCircle é um método criado no módulo matemático responsável por identificar se um determinado ponto está ou não presente em um círculo de raio N. Os mark points nada mais são do que círculos criados com raio N e centro na posição do agente no momento da descoberta do mark point.
+NOTA: isPointInCircle é um método criado no módulo matemático responsável por identificar se um determinado ponto está ou não presente em um círculo de raio N. Os \textit{mark points} nada mais são do que círculos criados com raio N e centro na posição do agente no momento da descoberta do mark point.
  
-O método retorna o número de tentativas para se criar mark points.  A aplicação que usa o método deve verificar a condição de parada do agente utilizando esse número de tentativas.
+O método retorna o número de tentativas para se criar \textit{mark points}.  A aplicação que usa o método deve verificar a condição de parada do agente utilizando esse número de tentativas.
 
-Este é um conceito de punição e recompensa, ou seja, se o agente encontra um novo mark point \textendash que significa um ponto ainda não explorado \textendash então ele é recompensando com créditos, caso ele passe por um ponto já explorado ele é punido com a perda de créditos. No nosso trabalho, o agente mapeia o ambiente enquanto busca sempre encontrar novos mark points, ou seja, busca sempre aumentar os seus créditos e pára de mapear quando esses créditos assumem um valor negativo ou zero, o que significa que não há mais pontos a serem descobertos (mapeamento completo)
+Este é um conceito de punição e recompensa, ou seja, se o agente encontra um novo mark point \textendash que significa um ponto ainda não explorado \textendash então ele é recompensando com créditos, caso ele passe por um ponto já explorado ele é punido com a perda de créditos. No nosso trabalho, o agente mapeia o ambiente enquanto busca sempre encontrar novos \textit{mark points}, ou seja, busca sempre aumentar os seus créditos e pára de mapear quando esses créditos assumem um valor negativo ou zero, o que significa que não há mais pontos a serem descobertos (mapeamento completo)
 
 \subsection{Outros}
 
@@ -179,7 +179,7 @@ Dentro deste módulo também se enquandram o módulo Graph e suas funcionalidades, 
 
 \subsection{Utils}
 
-Conforme o nome do módulo sugere, ele torna os códigos dos demais módulos livres reimplementações de coisas comuns a todos os módulos. Tal módulo pode ser usado tanto em conjunto com o toolkit quanto a parte, devido sua usabilidade alta e seu nível de acoplamento baixo.
+Conforme o nome do módulo sugere, ele torna os códigos dos demais módulos livres de reimplementações de coisas comuns a todos os módulos. Tal módulo pode ser usado tanto em conjunto com o toolkit quanto a parte, devido sua usabilidade alta e seu nível de acoplamento baixo.
 
 Algumas funções e métodos presentes no \textit{Utils} do Horus estão dispostas como segue:
 \subsubsection{O módulo \textit{"math\textunderscore module"}}
@@ -194,4 +194,4 @@ As funções trigonométricas são:
 \item \textbf{isPointInCircle(self,  center\textunderscore tuple,  point\textunderscore tuple,  radius)} - responsável por definir se um ponto (X, Y) qualquer está ou não contido em um círculo, dado o centro deste e o raio.
 \end{itemize}
 
-Além das funções trigonométricas existem também as funções relativas a  Regressão linear que é responsável por fazer uma identificação de uma condicional de uma variável y, tendo dados de vários x.
+Além das funções trigonométricas existem também as funções relativas a  regressão linear que é responsável por fazer uma identificação de uma condicional de uma variável y, tendo dados de vários x.

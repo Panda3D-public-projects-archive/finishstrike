@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  13 AUG 2009 20:37
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.4.27)  17 AUG 2009 21:37
 entering extended mode
 **Projeto_Final.tex
 (Projeto_Final.tex
@@ -349,11 +349,7 @@ Document Style `algorithmic' - environment
  (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
 (introducao.aux) (cap1.aux) (cap2.aux) (cap3.aux) (cap7.aux) (cap5.aux)
-(cap8.aux) (cap9.aux
-
-LaTeX Warning: Label `fig:agente' multiply defined.
-
-) (conclusao.aux) (bibliografia.aux) (apendice.aux))
+(cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux) (apendice.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
@@ -619,7 +615,7 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
 [32]
-Overfull \hbox (15.3339pt too wide) in paragraph at lines 43--45
+Overfull \hbox (15.3339pt too wide) in paragraph at lines 43--44
 \OT1/cmr/m/n/12 O RANSAC (\OT1/cmr/m/it/12 Ran-dom Sam-pling Con-sen-sus\OT1/cm
 r/m/n/12 ) metodo in-ter-a-tivo para es-ti-ma-tiva dos par^ametros
  []
@@ -738,7 +734,7 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 ]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 34.
+(pdftex.def)                using `viewport' instead on input line 29.
 
 <imagens/fotos/blender.png, id=167, 1284.8pt x 752.8125pt>
 File: imagens/fotos/blender.png Graphic file (type png)
@@ -747,47 +743,47 @@ File: imagens/fotos/blender.png Graphic file (type png)
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[48]
+[48 <imagens/fotos/blender.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 56.
+(pdftex.def)                using `viewport' instead on input line 54.
 
-<imagens/fotos/battle_robots.png, id=172, 811.03pt x 630.355pt>
+<imagens/fotos/battle_robots.png, id=173, 811.03pt x 630.355pt>
 File: imagens/fotos/battle_robots.png Graphic file (type png)
 
 <use imagens/fotos/battle_robots.png>
-Overfull \vbox (2.7221pt too high) has occurred while \output is active []
-
-
-[49 <imagens/fotos/blender.png> <imagens/fotos/battle_robots.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 69.
 
-<imagens/fotos/robot.png, id=178, 795.97375pt x 614.295pt>
+<imagens/fotos/robot.png, id=174, 795.97375pt x 614.295pt>
 File: imagens/fotos/robot.png Graphic file (type png)
 
 <use imagens/fotos/robot.png>
-
-Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 79.
-
-<imagens/fotos/galpao.png, id=179, 426.09187pt x 545.03625pt>
-File: imagens/fotos/galpao.png Graphic file (type png)
-
-<use imagens/fotos/galpao.png>
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
-[50 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png (PNG copy)>]
+[49 <imagens/fotos/battle_robots.png>]
 
 Package pdftex.def Warning: Option `bb' does not make sense,
-(pdftex.def)                using `viewport' instead on input line 88.
+(pdftex.def)                using `viewport' instead on input line 81.
 
-<imagens/fotos/colisions.png, id=183, 895.345pt x 564.1075pt>
+<imagens/fotos/galpao.png, id=179, 545.03625pt x 426.09187pt>
+File: imagens/fotos/galpao.png Graphic file (type png)
+
+<use imagens/fotos/galpao.png>
+
+Package pdftex.def Warning: Option `bb' does not make sense,
+(pdftex.def)                using `viewport' instead on input line 91.
+
+<imagens/fotos/colisions.png, id=180, 895.345pt x 564.1075pt>
 File: imagens/fotos/colisions.png Graphic file (type png)
 
-<use imagens/fotos/colisions.png>)
+<use imagens/fotos/colisions.png>
+Overfull \vbox (2.7221pt too high) has occurred while \output is active []
+
+
+[50 <imagens/fotos/robot.png (PNG copy)> <imagens/fotos/galpao.png>])
 Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 
 
@@ -814,7 +810,7 @@ Overfull \vbox (2.7221pt too high) has occurred while \output is active []
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 66.
 
-<imagens/fotos/placa.png, id=197, 724.7075pt x 359.3425pt>
+<imagens/fotos/placa.png, id=198, 724.7075pt x 359.3425pt>
 File: imagens/fotos/placa.png Graphic file (type png)
 
 <use imagens/fotos/placa.png>)
@@ -864,31 +860,28 @@ Overfull \vbox (2.49998pt too high) has occurred while \output is active []
 ] (Projeto_Final.aux (capa.aux) (folharosto.aux) (folhaaprovacao.aux)
 (dedicatoria.aux) (agradecimentos.aux) (resumo.aux) (abstract.aux)
 (introducao.aux) (cap1.aux) (cap2.aux) (cap3.aux) (cap7.aux) (cap5.aux)
-(cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux) (apendice.aux))
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(cap8.aux) (cap9.aux) (conclusao.aux) (bibliografia.aux) (apendice.aux)) ) 
 Here is how much of TeX's memory you used:
- 3734 strings out of 95304
- 47679 string characters out of 1182724
- 110180 words of memory out of 1500000
- 6719 multiletter control sequences out of 110000
- 11235 words of font info for 39 fonts, out of 3000000 for 5000
+ 3739 strings out of 95304
+ 47730 string characters out of 1182724
+ 109152 words of memory out of 1500000
+ 6722 multiletter control sequences out of 110000
+ 11936 words of font info for 41 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 28i,14n,32p,823b,538s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/cm-super-ts1.en
-c}<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbx12.pfb><C:/Ar
-quivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/Arquivos
- de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb><C:/Arquivos de prog
-ramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr10.pfb><C:/Arquivos de programas/MiK
-TeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/MiKTeX 2.7/f
-onts/type1/bluesky/cm/cmsy10.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/typ
-e1/bluesky/cm/cmti12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/publi
-c/cm-super/sfrm1200.pfb>
-Output written on Projeto_Final.pdf (61 pages, 2862929 bytes).
+ 28i,14n,32p,822b,536s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/A
+rquivos de programas/MiKTeX 2.7/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<C:/A
+rquivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbx12.pfb><C:/Arquivos 
+de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/Arquivos de pro
+gramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb><C:/Arquivos de programas/M
+iKTeX 2.7/fonts/type1/bluesky/cm/cmr10.pfb><C:/Arquivos de programas/MiKTeX 2.7
+/fonts/type1/bluesky/cm/cmr12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/ty
+pe1/bluesky/cm/cmsy10.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/blue
+sky/cm/cmti12.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/public/cm-su
+per/sfrm1200.pfb>
+Output written on Projeto_Final.pdf (61 pages, 2922167 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
+ 248 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

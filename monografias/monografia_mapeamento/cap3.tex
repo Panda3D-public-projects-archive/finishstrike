@@ -31,9 +31,9 @@ Os robôs são agentes que executam tarefas no mundo físico. Para isso utilizam di
 
 A robótica se utiliza de vários dispositivos para emular os sentidos e as reações humanas em determinadas situações. Esses dispositivos tratam diferentemente cada um dos sentidos humanos. Os sensores passivos são aqueles que fazem a observação, propriamente dita, do ambiente, como por exemplo câmeras, que observam os sinais gerados por outras fontes no ambiente. Em contra partida, os sensores ativos são aqueles que a partir dele emite-se uma energia para obter medições do ambiente, assim como um sonar, que é um transdutor ultra-sônico.
 
-Muitos agentes utilizam telêmetro, sensores capazes de medir distâncias, para definir o quão próximo ele está do objeto. Um desses sensores é o telêmetro a laser que através de uma varredura obtem-se a distância dos pontos onde a emissão do laser colidiu com um objeto. Alguns sensores medem distâncias mais curtas tais sensores já chamados de táteis. Estes são sensores de pequenas distâncias, painéis de choque e pele sensível. Eles são usados para tarefas de maior precisão como segurar um vidro, por exemplo.
+Muitos agentes utilizam telêmetro, sensores capazes de medir distâncias, para definir o quão próximo ele está do objeto. Um desses sensores é o telêmetro a laser que através de uma varredura obtem-se a distância dos pontos onde a emissão do laser colidiu com um objeto. Alguns sensores medem distâncias mais curtas e são chamados de táteis. Estes são sensores de pequenas distâncias, painéis de choque e pele sensível. Eles são usados para tarefas de maior precisão como segurar um vidro, por exemplo.
 
-Outro tipo de sensores são sos de tratamentos de imagem, tais como câmeras que analisam o ambiente e podem extrair características dos ambiente. Entre vários tipos de visão computacional, uma deve ser levada em consideração quando falamos em robótica, é a estereoscópica que analisa a imagem quanto a sua profundidade. Os odômetros também são importantes e se alocam na categoria sensores propeiceptivos que são aqueles que fornecem informações ao agente sobre ele próprio. 
+Outro tipo de sensores são os de tratamentos de imagem, tais como câmeras que analisam o ambiente para extrair suas característicase. Entre vários tipos de visão computacional, uma deve ser levada em consideração quando falamos em robótica, é a estereoscópica que analisa a imagem quanto a sua profundidade. Os odômetros também são importantes e se alocam na categoria sensores proprioceptivos que são aqueles que fornecem informações ao agente sobre ele próprio. 
 
 \section{Efetuadores}
 
@@ -41,7 +41,7 @@ Os sensores são os dispositivos para obter informações do ambiente, já os efetua
 
 Enquanto agentes não-rígidos podem ter por exemplo um grau de liberdade adicional, como um cotovelo que garante mais um grau de liberdade e é inerente ao agente, os agentes rígidos tem um grau de liberdade a menos com a falta de articulações como a anterior. 
 
-Para os agentes móveis a capacidade de locmoção pode ser através de vários tipos de tração. Tração diferencial possuem duas rodas (ou esteiras) acionadas de forma independente uma de cada lado. Quando ambas as rodas se movem na mesma velocidade e sentido movem o agente para frente ou para trás. Caso girem em sentidos opostos ele gira no mesmo ponto. Já na tração sincronizada cada roda é independente e pode mover-se e girar em seu próprio eixo. Tal movimentação é pouquíssimo usada pois se não for gerenciada corretamente pode causar problemas na movimentação incorreta.
+Para os agentes móveis a capacidade de locomoção pode ser através de vários tipos de tração. Tração diferencial possuem duas rodas (ou esteiras) acionadas de forma independente uma de cada lado. Quando ambas as rodas se movem na mesma velocidade e sentido movem o agente para frente ou para trás. Caso girem em sentidos opostos ele gira no mesmo ponto. Já na tração sincronizada cada roda é independente e pode mover-se e girar em seu próprio eixo. Tal movimentação é pouquíssimo usada pois se não for gerenciada corretamente pode causar problemas na movimentação incorreta.
 
 Outro tipo movimentação é a utilização de pernas na movimentação do agente. Elas tem a capacidade de percorrer terrenos acidentados mais facilmente porém são extremamente lentas e sua contrução é difícil. Existem duas categorias de movimentação através dos pés: 
 
@@ -54,11 +54,11 @@ Dentre os mecanismos de movimentação são observadas várias formas de energia que
 
 \section{Categorias da robótica}
 
-Os robôs manipuladores são aqueles que tem sua base fixa de forma a não se movimentar além do alcance de suas partes móveis, assim como um braço. Esse tipo de robô é muito utilizado nas linhas de produção em indústrias automotivas, sideúrgicas, metalúrgicas etc. Esses robôs tem normalmente tem, normalmente, efetuadores que alteram a forma do objeto afetado, como soldas, cortadores, efetuadores de pressão, entre outros. Também existem manipuladores em tarefas mais precisas como em hospitais no auxílio em cirurgias delicadas.
+Os robôs manipuladores são aqueles que tem sua base fixa de forma a não se movimentar além do alcance de suas partes móveis, assim como um braço. Esse tipo de robô é muito utilizado nas linhas de produção em indústrias automotivas, sideúrgicas, metalúrgicas etc. Esses robôs normalmente possuem efetuadores que alteram a forma do objeto afetado, como soldas, cortadores, efetuadores de pressão, entre outros. Também existem manipuladores em tarefas mais precisas como em hospitais no auxílio em cirurgias delicadas.
 
 Se os robôs manipuladores tem a característica de ficarem estáticos, os móveis são o oposto, eles podem se movimentar através de efetuadores de movimento. Robôs móveis são muito utilizados para alcançar locais que são insalubres aos seres humanos, tais como fundo do mar, superfície de vulcões, dutos de ar condicionado e inclusive superfícies de outros planetas, assim como foi feito em Marte com o Sojourner, nome do robô dado pela NASA, que peregrinou pelo solo do planeta vermelho.
 
-Os robôs híbridos são equipados como os manipuladores e também são móveis, normalmente são vistos na sua forma humanoíde, ou seja, com forma humana. Muitos cientistas tentam ensinar esses robôs a efetuar tarefas domésticas, em alguns casos até mesmo interagir com humanos.
+Os robôs híbridos são equipados como os manipuladores e também são móveis, normalmente são vistos na sua forma humanóide. Muitos cientistas tentam ensinar esses robôs a efetuar tarefas domésticas, em alguns casos até mesmo interagir com humanos.
 
 \section{Arquiteturas em Robótica}
 
@@ -69,7 +69,7 @@ Existem várias arquiteturas, dentro da literatura as mais citadas são a arquitet
 \subsection{Arquitetura de subsunção}
 Essa arquitetura é uma estrutura formada por controladores a partir de máquinas de estados finitos. Cada nó é representado por uma dessas máquinas que contém testes de variáveis ou para rastreio da execução da máquina de estados relativo a um teste. Já os arcos são usados para envio de mensagens para outras máquinas ou para dispositivos do robô. As máquinas resultantes contém um relógio interno que controla a duração do percurso da mensagem no arco, por esse motivo, elas são chamadas de MEFAs (máquinas de estados finitos ampliadas).
 
-O principal problema da utilização de MEFAs é que normalmente elas são implementadas com os valores brutos dos sensores ou seja sem tratamento, quando se tem um mecanismo de inferência que analisará de forma precisa as informações para tomar uma decisão não se pode ter entradas imprecisas. Isso causa problemas no momento de um MEFA aferir uma entrada. Por esse motivo a arquitetura de subsunção é raramente usada em larga escala, apenas para fins didáticos
+O principal problema da utilização de MEFAs é que normalmente elas são implementadas com os valores brutos dos sensores, ou seja, sem tratamento quando se tem um mecanismo de inferência que analisará de forma precisa as informações para tomar uma decisão não se pode ter entradas imprecisas. Isso causa problemas no momento de um MEFA aferir uma entrada. Por esse motivo a arquitetura de subsunção é raramente usada em larga escala, apenas para fins didáticos
 
 \subsection{Arquitetura de três camadas}
 
@@ -79,6 +79,6 @@ A camada reativa é aquele que se encontra no mais baixo nível, que controla o ro
 
 A camada executiva serve como união entre a camada reativa e a deliberativa. Recebe as reações obtidas da camada reativa e as propaga para a deliberativa assim como recebe um conjunto de pontos gerados pela camada deliberativa e passa para a camada reativa atuar.
 
-A camada deliberativa gera as soluções de planejamento baseadas em modelos previamente inseridos ou em modelos desenvolvidos através de aprendizado. Em geral todas as informações usadas por esta camada são retidas da camada executiva. 
+A camada deliberativa gera as soluções de planejamento baseadas em modelos previamente inseridos ou em modelos desenvolvidos através de aprendizado. Em geral todas as informações usadas por esta camada são retiradas da camada executiva. 
 
 Existem algumas variações da arquitetura de três camadas em vários softwares de robôs, porém devido sua rigidez, são adicionadas outras camadas para torná-la mais adaptável aos outros tipos de problemas.

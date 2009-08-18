@@ -5,7 +5,7 @@
 
 \chapter{SLAM}
 \label{cap:SLAM}
-\paragraph O mapeamento é uma funcionalidade que é tratada de muitas formas dentro da literatura. O uso de algoritmos de mapeamento permite que um agente móvel possa identificar sua posição em um ambiente desconhecido e identificar o local em que está inserido. Com o ambiente devidamente mapeado é possível otimizar a rota uma vez que o agente já o conhece.\cite{Christiam_2005}
+O mapeamento é uma funcionalidade que é tratada de muitas formas dentro da literatura. O uso de algoritmos de mapeamento permite que um agente móvel possa identificar sua posição em um ambiente desconhecido e identificar o local em que está inserido. Com o ambiente devidamente mapeado é possível otimizar a rota uma vez que o agente já o conhece.\cite{Christiam_2005}
 
 Algumas técnicas de mapeamento que foram estudadas:
 \begin{itemize}
@@ -15,12 +15,11 @@ Algumas técnicas de mapeamento que foram estudadas:
 \item SLAM (Simultaneous Localization and Mapping).
 \end{itemize}
 
-
 O método de mapeamento que será incluído no Toolkit Hórus será o SLAM (Simultaneous Localization and Mapping), tendo em vista que ele soluciona dois problemas clássicos da teoria das posições, que define a dificuldade de se localizar em um ambiente desconhecido e a dificuldade de mapear um ambiente onde não se sabe onde está.\cite{Aho_1974}
 
 \section{SLAM}
 
-O \textit{Simultaneous Localization and Mapping} é uma técnica utilizada em agentes autônomos para o mapeamento de ambientes desconhecidos levando em consideração a sua posição atual como a posição inicial para início do mapeamento. Os sensores que podem ser utilizados para a implementação do são diversos. Para a prova de conceito foi utilizado o odômetro, dispositivo que mensura distâncias percorridas, e o laser, dispositivo para detectar a presença de objetos na cena.\cite{Rosenschein_1985}
+O \textit{Simultaneous Localization and Mapping} é uma técnica utilizada em agentes autônomos para o mapeamento de ambientes desconhecidos levando em consideração a sua posição atual como a posição inicial para início do mapeamento. Os sensores que podem ser utilizados para a implementação do mapeamento são diversos. Para a prova de conceito foi utilizado o odômetro, dispositivo que mensura distâncias percorridas, e o laser, dispositivo para detectar a presença de objetos na cena.\cite{Rosenschein_1985}
 
 O SLAM é composto por vários segmentos que são independentes e tem suas comunicações muito bem estabelecidas o que os torna mais flexíveis quanto aos algoritmos utilizados em cada um dos segmentos. Cada um dos segmentos tem uma enorme gama de algoritmos que o compõe. Foram incorporadas ao \textit{Toolkit} apenas as mais otimizadas e relevantes para melhor utilização no processo.\cite{Montermelo_2002}
 
@@ -33,22 +32,22 @@ Esses segmentos são:
 	\item \textit{Landmark Update}: Segmento que atualiza as posições dos marcos no ambiente em relação ao agente.
 \end{enumerate} 
 
-\subsection{Landmark Straction}
+\subsection{Landmark Extraction}
+
 A forma de gestão dos marcos (objetos) e dos pontos de movimentação (áreas de movimentação do agente) foi feita através de um grafo. A escolha dessa estrutura foi baseada na sua credibilidade e largo uso na literatura.\cite{Wesley_1979}
 
 Existem dois algoritmos que foram analisados para ser incorporados nesse segmento: o \textit{RANSAC} e o \textit{SPIKE}.
 
 \subsubsection{RANSAC}
 
-O RANSAC (\textit{Random Sampling Consensus}) método interativo para estimativa dos parâmetros de um modelo matemático a partir de um conjunto de dados observados, que contém linhas. E um algoritmo não-determinístico, sentido em que produz um resultado razoável apenas com uma certa amostra dos dados de entrada e testa as outras partes dos dados, não escolhida inicialmente, para verificar se o modelo obtido e satisfatório. Em conjunto com o SLAM o RANSAC identifica uma linha de acordo com os pontos passados pelo laser, pode-se concluir que ali existe uma parede que impossibilita a transposição do agente.
-Podemos ver o algoritmo logo a baixo:
+O RANSAC (\textit{Random Sampling Consensus}) método interativo para estimativa dos parâmetros de um modelo matemático a partir de um conjunto de dados observados, que contém linhas. É um algoritmo não-determinístico, sentido em que produz um resultado razoável apenas com uma certa amostra dos dados de entrada e testa as outras partes dos dados, não escolhida inicialmente, para verificar se o modelo obtido e satisfatório. Em conjunto com o SLAM o RANSAC identifica uma linha de acordo com os pontos passados pelo laser, pode-se concluir que ali existe uma parede que impossibilita a transposição do agente.
 
-\begin{table}[htb]
+\begin{table}[!htb]
 \centering         
 	\begin{algorithmic}                
 		\WHILE{
 		\begin{itemize}
-			\item Houverem leituras de laser não associadas.  
+			\item Houverem leituras de laser não associadas;  
 			\item  \textbf{E} o número de leituras for maior que o limiar; 
 			\item  \textbf{E} o número de iterações não for maior que o limite.
 		\end{itemize}}
@@ -72,7 +71,7 @@ Uma vantagem de RANSAC é a sua capacidade para fazer estimativa robusta nos parâ
 
 \subsubsection{SPIKE}
 
-O algoritmo de extração de marcos \textit{SPIKE} faz a extração através da análise de um determinado montante de valores do laser, estimada uma diferença muito grande de um marco para outro, por exemplo, 0.6 metros, defini-se um \textit{SPIKE} no marco que diferiu dos demais, isso serve para identificar grandes mudanças no ambiente, como por exeplo um laser lançado através das pernas de uma mesa que geraria grandes diferenças entre os feixes de laser que tocarem a(s) perna(s) e os laser que passarem por entre ela(s). Nesse momento o marco que foi detectado na perna da cadeira se torna um \textit{SPIKE}.
+O algoritmo de extração de marcos \textit{SPIKE} faz a extração através da análise de um determinado montante de valores do laser, estimada uma diferença muito grande de um marco para outro, por exemplo, 0.6 metros, defini-se um \textit{SPIKE} no marco que diferiu dos demais, isso serve para identificar grandes mudanças no ambiente, como por exemplo um laser lançado através das pernas de uma mesa que geraria grandes diferenças entre os feixes de laser que tocarem a(s) perna(s) e os laser que passarem por entre ela(s). Nesse momento o marco que foi detectado na perna da cadeira se torna um \textit{SPIKE}.
 
 O algoritmo leva em consideração um ambiente onde exitem muitas diferenças entre dois marcos, em ambientes onde não existem tantas diferenças, esse algoritmo não tem eficiência.
 
@@ -87,7 +86,7 @@ Este segmento tem como saída para o State Estimation um lista indexada pela posi
 \subsection{State Estimation}
 O segmento \textit{State Estimation} (tradução livre: Estimação do Estado) tem com objetivo analisar as informações passadas pelo Data Association e estimar as posições dos marcos e do agente, com essas informações ele prepara as posições de cada elemento na cena e analisa o estado anterior já gravado. 
 
-As posições dos marcos devem coicidir com as mesmas posições deles em posições anteriores do agente (caso os marcos sejam reobservados), essa garantia de que a posição irá coincidir é tida pelo cálculo da posição do marco num plano cartesiano. o cálculo é: 
+As posições dos marcos devem coicidir com as mesmas posições deles em posições anteriores do agente (caso os marcos sejam reobservados), essa garantia de que a posição irá coincidir é tida pelo cálculo da posição do marco num plano cartesiano. O cálculo é: 
 $$
 Landmark(x,y) = (AgentActualPositionX + \cos\theta, AgentActualPositionY + \sin\theta)
 $$

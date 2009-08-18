@@ -19,21 +19,21 @@ Matematicamente: sendo \textit{xa, ya e za,} as coordenadas ideais do ambiente, 
 \section{Quanto à distribuicão dos lasers e sua quantidade}
 
 
-Nestes testes levamos sempre em consideracao o custo em processamento de informacao (para o caso de uma quantidade muito grande de lasers) e a exatidão da interpretacao dos dados a fim de proporcionar uma boa navegacão pelo ambiente, pré-requisito para um bom mapeamento.
+Nestes testes levamos sempre em consideracao o custo em processamento de informação (para o caso de uma quantidade muito grande de lasers) e a exatidão da interpretação dos dados a fim de proporcionar uma boa navegação pelo ambiente, pré-requisito para um bom mapeamento.
 
 
-Em outras palavras, o agente deve ter a menor quantidade de lasers possível para não sobrecarregar o processamento das informacoes e garantir agilidade. Contudo, se por um lado muitos lasers causam um desperdício de processamento, poucos lasers resultam em um mapeamento ineficiente, pois o agente volta várias vezes em pontos muito próximos dos que já foram mapeados, ou seja, o número de \textit{mark points} aumenta de forma consideravel e desnecessária. 
+Em outras palavras, o agente deve ter a menor quantidade de lasers possível para não sobrecarregar o processamento das informações e garantir agilidade. Contudo, se por um lado muitos lasers causam um desperdício de processamento, poucos lasers resultam em um mapeamento ineficiente, pois o agente volta várias vezes em pontos muito próximos dos que já foram mapeados, ou seja, o número de \textit{mark points} aumenta de forma considerável e desnecessária. 
 
 O número de lasers do agente deve ser em torno de 22, variando em até 3 unidades.
 
-Um outro problem que causa um mapeamento ineficiente é se os lasers forem muito curtos, pois o agente tenderá a andar pelos cantos das salas e quando estes cantos estiverem mapeados ele irá para longe das paredes e ficará andando em círculos até que seus créditos terminem. O ideal é que o tamanho do laser seja a média aritmética das coordenasdas \textit{(x, y, z)} do agente.
+Um outro problema que causa um mapeamento ineficiente é se os lasers forem muito curtos, pois o agente tenderá a andar pelos cantos das salas e quando estes cantos estiverem mapeados ele irá para longe das paredes e ficará andando em círculos até que seus créditos terminem. O ideal é que o tamanho do laser seja a média aritmética das coordenasdas \textit{(x, y, z)} do agente.
 
 Matematicamente: sendo \textbf{l} o tamanho ideal de cada laser, $$l = \frac{xr+yr+zr}{3}$$
 
-A distribuicão ideal dos lasers é a que proporciona um campo de visão de 120 graus, sendo 60 graus para a esquerda e 60 para direita, apesar de um campo de 180 graus também proporcionar uma navegacao e mapeamento eficientes, contudo, neste ultimo caso o cuidado com o tamanho dos lasers deve ser maior, pois tendo o agente uma visão muito ampla (de 90 graus para cada lado), ele poderá retornar para um comodo já mapeado com mais frequencia. Um campo de visão acima de 180 graus é desencorajado, visto que o agente quase sempre retornará para um comodo já mapeado.
+A distribuição ideal dos lasers é a que proporciona um campo de visão de 120 graus, sendo 60 graus para a esquerda e 60 para direita, apesar de um campo de 180 graus também proporcionar uma navegação e mapeamento eficientes, contudo, neste último caso o cuidado com o tamanho dos lasers deve ser maior, pois tendo o agente uma visão muito ampla (de 90 graus para cada lado), ele poderá retornar para um cômodo já mapeado com mais freqüência. Um campo de visão acima de 180 graus é desencorajado, visto que o agente quase sempre retornará para um cômodo já mapeado.
 
 
-Em contrapartida, um campo de visão extreito (menor do que 120 graus) faz com que o agente ignore portas e passagens frequentemente a menos que estas estejam à sua frente.
+Em contrapartida, um campo de visão estreito (menor do que 120 graus) faz com que o agente ignore portas e passagens freqüentemente a menos que estas estejam à sua frente.
 
 \section{Quanto ao raio dos mark points}
 
@@ -47,7 +47,7 @@ $$r = \frac{xa+ya+za}{3}$$
 
 \section{Quanto à aplicação integrada}
 
-Ao termino do SLAM e da aplicação que foi sua prova de conceito, uma outra aplicação foi desenvolvida utilizando a parte de mapeamento em conjunto com a parte de visão do Tool Kit  Horus, comprovando assim a interoperabilidade entre os módulos.
+Ao termino do SLAM e da aplicação que foi sua prova de conceito, uma outra aplicação que foi desenvolvida utilizando a parte de mapeamento em conjunto com a parte de visão do Tool Kit  Horus, comprovando assim a interoperabilidade entre os módulos.
  
 A aplicação integrada tem todas as características do módulo de mapeamento desenvolvido e utiliza a parte de reconhecimento de padrões do modulo de visão, com isso o agente pode reconhecer  marcações distribuídas pelo ambiente para ajudar na navegação e atingir o seu objetivo de forma mais rápida.
 

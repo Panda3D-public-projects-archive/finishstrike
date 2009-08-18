@@ -6,7 +6,7 @@
 \chapter{Aplicação com ambiente virtual e agente autônomo}
 \label{cap:aplicacao_autonomo}
 
-A fim de produzir uma prova de conceito, foi implementada uma aplicação onde foi possível demonstrar a eficiência do algoritmo de mapeamento. Foi produzido um simulador com gravidade, colisão, rederização de texturas, objetos e atores (o agente nesse caso) e, tendo esse simulador como base, foi criada a aplicação que tem um agente utilizando-se do Toolkit Hórus para mapeamento e navegação dentro do ambiente simulado. Aguns conceitos foram tirados do \cite{Souza_2005}
+A fim de produzir uma prova de conceito, foi implementada uma aplicação onde foi possível demonstrar a eficiência do algoritmo de mapeamento. Foi produzido um simulador com gravidade, colisão, rederização de texturas, objetos e atores (o agente nesse caso) e, tendo esse simulador como base, foi criada a aplicação que tem um agente utilizando-se do Toolkit Horus para mapeamento e navegação dentro do ambiente simulado. Aguns conceitos foram tirados do \cite{Souza_2005}
 
 \section{Simulador}
 
@@ -18,25 +18,23 @@ Alguns requisitos foram necessários para que o simulador fosse projetado. Alguns
 Como uma das linguagens utilizadas foi \textit{Python}, buscou-se ferramentas que fossem compatíveis (na verdade ambas são em \textit{Python}) com as linguagens utilizadas.
 
 \subsection{Python}
-Python é um linguagem orientada objetos de tipagem dinâmica, onde os tipos dos dados são atribuídos durante a interpretação do código dinamicamente e forte. O Python tem foco na produtividade com uma sitaxe legível e simples, bem como módulos auxiliares (grande maioria OpenSource) que garatem um excelente desempenho.
+Python é um linguagem orientada a objetos de tipagem dinâmica, onde os tipos dos dados são atribuídos durante a interpretação do código dinamicamente. O Python tem foco na produtividade com uma sitaxe legível e simples, bem como módulos auxiliares (grande maioria OpenSource) que garatem um excelente desempenho.
 
 
 \subsection{Blender}
-O Blender é um produto da Blender Fundation, que é open source e desenvolvido em Python para modelagem de objetos 3D que está disponível para vários sistemas operacionais sobre a licença GNU (\textit{General Public License}).
-Por ser multiplataforma permite que as modelagens criadas possam ser executadas em outros sistemas operacionais que não o de origem.
-O Blender foi usado para criar os modelos usados nas aplicações desenvolvidas como prova de conceito do \textit{Toolkit} Horus
-
-Abaixo, uma imagem com a interface do Blender:
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.2,bb=0 0 1280 750]{imagens/fotos/blender.png}
+    \includegraphics[scale=0.15,bb=0 0 1280 750]{imagens/fotos/blender.png}
 \end{center}
 \caption{Tela inicial do Blender.}
 \label{fig:blender}
 \end{figure}
 
+O Blender é um produto da Blender Fundation, conforme pode ser visto na imagem \ref{fig:blender}, que é open source e desenvolvido em Python para modelagem de objetos 3D que está disponível para vários sistemas operacionais sobre a licença GNU (\textit{General Public License}).
+Por ser multiplataforma permite que as modelagens criadas possam ser executadas em outros sistemas operacionais que não o de origem.
+O Blender foi usado para criar os modelos usados nas aplicações desenvolvidas como prova de conceito do \textit{Toolkit} Horus
 
 
 
@@ -53,7 +51,7 @@ Abaixo, um exemplo desenvolvido com no Panda3D:
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3,bb=0 0 808 628]{imagens/fotos/battle_robots.png}
+    \includegraphics[scale=0.2,bb=0 0 808 628]{imagens/fotos/battle_robots.png}
 \end{center}
 \caption{Um exemplo de aplicação utilizando Panda3D.}
 \label{fig:panda3d_simple}
@@ -63,33 +61,37 @@ Abaixo, um exemplo desenvolvido com no Panda3D:
 
 O ambiente em que o agente foi testado consiste em uma área que simula um galpão com 5 cômodos onde o agente inicia sua movimentação no cômodo 1 e pode alcançar qualquer ponto do ambiente a partir de sua posição inicial. O ambiente que foi desenvolvido tem como objetivo emular, em menor escala, um ambiente real.
 
+O agente utilizado foi inspirado no personagem de um filme que também é um agente inteligente, é possível notar a semelhança na figura \ref{fig:agente1}.
+
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3,bb=0 0 700 560]{imagens/fotos/robot.png}
+    \includegraphics[scale=0.2,bb=0 0 700 560]{imagens/fotos/robot.png}
 \end{center}
-\caption{O agente utilizado nos testes. Modelado em \textit{Blende3D}.}
-\label{fig:agente}
+\caption{O agente utilizado nos testes. Modelado em \textit{Blender3D}.}
+\label{fig:agente1}
 \end{figure}
 
-O agente utilizado foi inspirado no personagem de um filme que também é um agente inteligente, é possível notar a semelhança na figura \ref{fig:agente}.
+
+A figura \ref{fig:ambiente_blender}, que demonstra o ambiente que foi utilizado, pode-se ter uma visão em perspectiva do ambiente modelado. Ele foi modelado em Blender, tal ferramenta proporcionou os recursos de modelagem UV, texturização, determinação de medidas precisas, entre outros. O Blender foi selecionado, também, por conta da sua legibilidade de fácil assimilação tendo em vista que o \textit{Toolkit} foi desenvolvido em \textit{Python} e a ferramenta utiliza a mesma linguagem para produzir os modelos.
+
 
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.3,bb=0 0 390 550]{imagens/fotos/galpao.png}
-\caption{O ambiente utilizado para a prova de conceito. Modelada em Blende3D.}
+\caption{O ambiente utilizado para a prova de conceito. Modelada em Blender3D.}
 \label{fig:ambiente_blender}
 \end{figure}
 
-A figura \ref{fig:ambiente_blender}, que demonstra o ambiente que foi utilizado, pode-se ter uma visão em perspectiva do ambiente modelado. Ele foi modelado em Blender, tal ferramenta proporcionou os recursos de modelagem UV, texturização, determinação de medidas precisas, entre outros. O Blender foi selecionado, também, por conta da sua legibilidade de fácil assimilação tendo em vista que o \textit{Toolkit} foi desenvolvido em \textit{Python} e a ferramenta utiliza a mesma linguagem para produzir os modelos.
+
+O Panda3d foi utilizado para fazer todos os tratamentos de colisão e virtualização de camêras e renderização do agente no ambiente. Os lasers, áreas de colisão são tratados conforme a imagem \ref{fig:ambiente_panda} Como o Blender3D agilizou o processo o fato do \textit{Panda3D} ser em \textit{Python}.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.3,bb=0 0 830 560]{imagens/fotos/colisions.png}
+\includegraphics[scale=0.2,bb=0 0 830 560]{imagens/fotos/colisions.png}
 \caption{Os lasers projetados a partir do agente. Gerenciados pelo \textit{Panda3D}.}
 \label{fig:ambiente_panda}
 \end{figure}
 
-O Panda3d foi utilizado para fazer todos os tratamentos de colisão e virtualização de camêras e renderização do agente no ambiente. Os lasers, áreas de colisão são tratados conforme a imagem \ref{fig:ambiente_panda} Como o Blender3D agilizou o processo o fato do \textit{Panda3D} ser em \textit{Python}.
 
 

@@ -28,11 +28,10 @@
 \contentsline {subsection}{\numberline {4.4.1}Arquitetura de subsun\c c\~ao}{29}
 \contentsline {subsection}{\numberline {4.4.2}Arquitetura de tr\^es camadas}{29}
 \contentsline {chapter}{\numberline {5}SLAM}{31}
-\contentsline {paragraph}{O}{31}
 \contentsline {section}{\numberline {5.1}SLAM}{32}
-\contentsline {subsection}{\numberline {5.1.1}Landmark Straction}{32}
+\contentsline {subsection}{\numberline {5.1.1}Landmark Extraction}{32}
 \contentsline {subsubsection}{\numberline {5.1.1.1}RANSAC}{33}
-\contentsline {subsubsection}{\numberline {5.1.1.2}SPIKE}{33}
+\contentsline {subsubsection}{\numberline {5.1.1.2}SPIKE}{34}
 \contentsline {subsection}{\numberline {5.1.2}Data Association}{34}
 \contentsline {subsection}{\numberline {5.1.3}State Estimation}{35}
 \contentsline {subsection}{\numberline {5.1.4}State Update}{35}
@@ -54,8 +53,8 @@
 \contentsline {section}{\numberline {7.1}Simulador}{47}
 \contentsline {subsection}{\numberline {7.1.1}Python}{48}
 \contentsline {subsection}{\numberline {7.1.2}Blender}{48}
-\contentsline {subsection}{\numberline {7.1.3}Panda3D}{48}
-\contentsline {section}{\numberline {7.2}Ambiente}{50}
+\contentsline {subsection}{\numberline {7.1.3}Panda3D}{49}
+\contentsline {section}{\numberline {7.2}Ambiente}{49}
 \contentsline {chapter}{\numberline {8}Resultados obtidos}{52}
 \contentsline {section}{\numberline {8.1}Quanto ao tamanho do ambiente}{52}
 \contentsline {section}{\numberline {8.2}Quanto \`a distribuic\~ao dos lasers e sua quantidade}{53}
