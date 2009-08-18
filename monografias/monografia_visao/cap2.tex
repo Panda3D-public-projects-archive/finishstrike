@@ -55,7 +55,7 @@ Quando o cérebro do agente é configurado com diversos comportamentos, é necessár
 \section{Processamento de Imagem}
 \label{image:processing}
 
-O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital [LIVRO FUNDAMENTALS OF DIGITAL IMAGE PROCESSING], normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
+O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital \cite{Oge99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
 
 Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessário uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
 
@@ -81,7 +81,6 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 \end{itemize}
 
 Nas próximas subseções serão explicados os principais algoritmos de processamento de imagens implementados no \textit{toolkit} Horus.
-
 \subsection{\textit{Thresholding}}
 	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255 (Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, afim de prepará-los para serem analisados pela etapa de extração de características.
 	Para transformar uma imagem monocromática de 256 tons de cinza em binária podem ser utilizadas técnicas de \textit{thresholding} global e adaptativo.
@@ -104,7 +103,29 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
                                      0,  $ v $ \leq $t$
                                  \end{array}
                            \right. \]
-	Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A Figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
+	 Na Figura \ref{fig:codigo} é apresentado um exemplo de utilização da função \textit{globalThreshold} que pertecen ao módulo de processamento de imagens do Horus.
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.7, bb=0 0 531 83]{imagens/codigo.PNG}
+\end{center}
+\caption{Utilização do \textit{threshold} global implementado no \textit{toolkit} Horus.}
+\label{fig:codigo}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb=0 0 600 315]{imagens/globalThreshold.PNG}
+\end{center}
+\caption{(a) Imagem original   (b) Resultado do processamento}
+\label{fig:output}
+\end{figure}
+
+A Figura \ref{fig:output} exibe o resultado do processamento do algoritmo \textit{threshold} global apresentado na Figura \ref{fig:codigo}.  
+
+ Uma da formas de se obter o valor do limiar \textit{t} é através de uma inspeção visual do histograma da imagem. Uma vez que o mesmo limiar é utilizado para toda a imagem, o \textit{thresholding} global pode falhar algumas vezes. No caso de imagens com diferenças de iluminação ou parcialmente sombreadas, informações que não pertencem ao plano de fundo podem ser apagadas. A Figura \ref{fig:thGlobalShadowed} mostra um exemplo de aplicação de \textit{thresholding} global com imagens sombreadas.
 
 \begin{figure}[!htb]
 \centering
@@ -135,7 +156,7 @@ No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o al
 \end{figure}
 
 \item \textit{Thresholding} Local:
- a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana ou a média dos valores mínimo e máximo da vizinhança. Na Figura \ref{fig:thLocal} é apresentado o código do algoritmo de\textit{thresholding} local, implementado no Horus, utilizando a média entre os valores da vizinhança.
+ a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana ou a média dos valores mínimo e máximo da vizinhança. Na Figura \ref{fig:thLocal} é apresentado o código do algoritmo de \textit{thresholding} local, implementado no Horus, utilizando a média entre os valores da vizinhança.
 
 \begin{figure}[!htb]
 \centering
@@ -293,7 +314,8 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 	Esse módulo tem como principal objetivo o reconhecimento de padrões.	Na aplicação Ariadnes, desenvolvida neste trabalho, o padrão a ser reconhecido é uma placa com o nome dos locais do ambiente e setas que indicam as direções dos mesmos. Para reconhecimento de uma placa é necessário identificar algumas características de uma imagem, que servirão de padrões de entrada para uma rede neural. 
 
 \subsection{Extração de características}
-\label{section:features}
+\label{sec:features}
+
 	Para realizar o reconhecimento de objetos em uma cena, é necessário extrair características das imagens desse objeto, de forma a identificá-lo, independentemente das variações com que ele possa ocorrer na imagem. O 
 \textit{toolkit} Horus apresenta alguns algoritmos para extração de características, os principais deles serão explicados nos itens abaixo.
 \begin{itemize}

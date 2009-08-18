@@ -21,19 +21,19 @@
 \contentsline {section}{\numberline {3.2}Processamento de Imagem}{45}
 \contentsline {subsection}{\numberline {3.2.1}\textit {Thresholding}}{47}
 \contentsline {subsubsection}{\numberline {3.2.1.1}\textit {Thresholding} Global}{47}
-\contentsline {subsubsection}{\numberline {3.2.1.2}\textit {Thresholding} Adaptativo}{48}
-\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{50}
-\contentsline {section}{\numberline {3.3}Vis\~ao}{55}
-\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{56}
-\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{60}
-\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{61}
-\contentsline {section}{\numberline {3.5}Aplica\c c\~oes desenvolvidas com o Horus}{62}
-\contentsline {chapter}{\numberline {4}ANPR}{64}
-\contentsline {section}{\numberline {4.1}Localiza\c c\~ao da Placa}{65}
-\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{68}
-\contentsline {section}{\numberline {4.3}OCR}{69}
-\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{70}
-\contentsline {chapter}{\numberline {5}Ariadnes}{71}
+\contentsline {subsubsection}{\numberline {3.2.1.2}\textit {Thresholding} Adaptativo}{49}
+\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{52}
+\contentsline {section}{\numberline {3.3}Vis\~ao}{56}
+\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{57}
+\contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{61}
+\contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{62}
+\contentsline {section}{\numberline {3.5}Aplica\c c\~oes desenvolvidas com o Horus}{63}
+\contentsline {chapter}{\numberline {4}PyANPR}{65}
+\contentsline {section}{\numberline {4.1}Localiza\c c\~ao da Placa}{66}
+\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{69}
+\contentsline {section}{\numberline {4.3}OCR}{70}
+\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{71}
+\contentsline {chapter}{\numberline {5}Ariadnes}{72}
 \contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{78}
 \contentsline {chapter}{Ap\^endices}{82}
 \contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{82}
