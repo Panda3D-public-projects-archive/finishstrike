@@ -69,9 +69,9 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.4, bb=0 0 800 200]{imagens/vizinhanca.png}
+    \includegraphics[scale=0.3, bb=0 0 900 300]{imagens/vizinhanca.png}
 \end{center}
-\caption{(a) 4-vizinhança, (b) d-vizinhança e (c) 8-vizinhança. }
+\caption{(a) 4-vizinhança (b) d-vizinhança  (c) 8-vizinhança. }
 \label{fig:vizinhanca}
 \end{figure}
 
@@ -244,7 +244,7 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.5, bb=0 0 235 104]{imagens/condition2.PNG}
+    \includegraphics[scale=0.5, bb=0 0 300 150]{imagens/condition2.PNG}
 \end{center}
 \caption{Exemplos onde $A(p_1)$ é maior que $1$.}
 \label{fig:condition2}
@@ -261,14 +261,14 @@ Há duas versões do algoritmo de Hilditch, uma usando uma janela $4\times 4$ e ou
 \label{fig:grid11}
 \end{figure}
 
-\item $p_2$ + $p_4$ + $p_6 \geq 255$ ou $A(p_4) \neq 1$: essa condição assegura que linhas horizontais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A Figura abaixo apresenta uma situação em que a condição acima é satisfeita.
+\item $p_2$ + $p_4$ + $p_6 \geq 255$ ou $A(p_4) \neq 1$: essa condição assegura que linhas horizontais com largura de dois pixels não serão inteiramente removidas pelo algoritmo. A Figura \ref{fig:grid13} apresenta uma situação em que a condição acima é satisfeita.
 
 \begin{figure}[!htb]
 \centering
 \begin{center}
     \includegraphics[scale=0.5, bb=0 0 100 100]{imagens/grid13.PNG}
 \end{center}
-\caption{Exemplo de situação em que linhas herticais com largura de dois pixels não serão inteiramente removidas.}
+\caption{Exemplo de situação em que linhas horizontais com largura de dois pixels não serão inteiramente removidas.}
 \label{fig:grid13}
 \end{figure}
 \end{itemize}
