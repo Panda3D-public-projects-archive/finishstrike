@@ -1,7 +1,7 @@
 \chapter{Ariadnes}
 \label{cap:ariadnes}
 
-Ariadnes é um sistema que simula a navegação e movimentação autônoma de um agente inteligente em um ambiente completamente desconhecido. Inicialmente, o agente tem o objetivo de chegar a uma determinada sala no ambiente utilizando técnicas de localização e mapeamento de ambientes e de visão computacional. Da mesma forma que o Teseu, \ref{sec:app}, o ambiente e atores do Ariadnes foram modelados utilizando Blender e são manipulados utilizando o Panda3D.
+Ariadnes é um sistema que simula a navegação e movimentação autônoma de um agente inteligente em um ambiente completamente desconhecido. Inicialmente, o agente tem o objetivo de chegar a uma determinada sala no ambiente utilizando técnicas de localização e mapeamento de ambientes e de visão computacional. Da mesma forma que o Teseu (seção \ref{sec:app}), o ambiente e atores do Ariadnes foram modelados utilizando Blender e são manipulados utilizando o Panda3D.
 
 Esse simulador é composto por quatro partes principais baseadas no \textit{toolkit} Horus. A Figura \ref{fig:arquiteturaAriadnes} apresenta a arquitetura conceitual do simulador Ariadnes com seus principais componentes.
 
@@ -29,7 +29,7 @@ As principais partes do simulador Ariadnes são: ambiente, engine 3D, agentes e d
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.3, bb=0 0 1567 990]{imagens/robo.png}
+    \includegraphics[scale=0.2, bb=0 0 1567 990]{imagens/robo.png}
 \end{center}
 \caption{Agente configurado com dispositivos de lasers.}
 \label{fig:lasers}
@@ -66,7 +66,7 @@ O agente é capaz de estimar sua posição local para se localizar globalmente e re
 \end{figure}
 
   Ao encontrar um marco, o agente fotografa a placa. Com essa imagem, inicia-se o processo de reconhecimento da placa. Esse processo consiste nas etapas de: localização e segmentação da placa, distinção de setas e textos, reconhecimento do texto, identificação da direção da seta.
-  O processo de localização da placa pode ser resolvido em duas etapas. A primeira etapa consiste em localizar a região da placa na imagem. Inicialmente, aplica-se o filtro de Sobel, a fim de detectar as arestas horizontais e verticais. Após a detecção das arestas, pretende-se encontrar a região com maior densidade de arestas, pois, geralmente a placa se encontra nessa região. Esse processo é analogo a localização de placas descrito na Seção \ref{cap:anpr}.
+  O processo de localização da placa pode ser resolvido em duas etapas. A primeira etapa consiste em localizar a região da placa na imagem. Inicialmente, aplica-se o filtro de Sobel, a fim de detectar as arestas horizontais e verticais. Após a detecção das arestas, pretende-se encontrar a região com maior densidade de arestas, pois, geralmente a placa se encontra nessa região. Esse processo é analogo a localização de placas descrito na seção \ref{cap:anpr}.
 
 A placa é constituída de várias linhas, cada linha contém duas colunas. A primeira coluna de cada linha fornece o nome de um determinado local no ambiente, enquanto que, a segunda coluna fornece a direção desse local em forma de setas. Como apresentado na Figura \ref{fig:placa}.
 
@@ -75,7 +75,7 @@ Para realizar o reconhecimento dos locais e direções apresentados na placa, é ne
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.2, bb=0 0 4962 2144]{imagens/corte_horizontal.png}
+    \includegraphics[scale=0.1, bb=0 0 2000 1000]{imagens/corte_horizontal.png}
 \end{center}
 \caption{Projeção horizontal de uma placa informativa.}
 \label{fig:corte_horizontal}

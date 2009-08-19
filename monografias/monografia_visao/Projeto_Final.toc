@@ -17,24 +17,23 @@
 \contentsline {subsection}{\numberline {2.4.4}Arquiteturas de Redes Neurais}{36}
 \contentsline {subsection}{\numberline {2.4.5}Processo de aprendizado}{38}
 \contentsline {chapter}{\numberline {3}Horus}{41}
-\contentsline {section}{\numberline {3.1}\textit {Core}}{41}
+\contentsline {section}{\numberline {3.1}\textit {Core}}{42}
 \contentsline {section}{\numberline {3.2}Processamento de Imagem}{45}
 \contentsline {subsection}{\numberline {3.2.1}\textit {Thresholding}}{47}
 \contentsline {subsubsection}{\numberline {3.2.1.1}\textit {Thresholding} Global}{47}
 \contentsline {subsubsection}{\numberline {3.2.1.2}\textit {Thresholding} Adaptativo}{49}
-\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{52}
+\contentsline {subsection}{\numberline {3.2.2}Skeletonization}{51}
 \contentsline {section}{\numberline {3.3}Vis\~ao}{56}
-\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{57}
+\contentsline {subsection}{\numberline {3.3.1}Extra\c c\~ao de caracter\IeC {\'\i }sticas}{56}
 \contentsline {subsection}{\numberline {3.3.2}Reconhecimento de Objetos}{61}
 \contentsline {section}{\numberline {3.4}Mapeamento e Navega\c c\~ao}{62}
 \contentsline {section}{\numberline {3.5}Aplica\c c\~oes desenvolvidas com o Horus}{63}
 \contentsline {chapter}{\numberline {4}PyANPR}{65}
 \contentsline {section}{\numberline {4.1}Localiza\c c\~ao da Placa}{66}
-\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{69}
-\contentsline {section}{\numberline {4.3}OCR}{70}
-\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{71}
-\contentsline {chapter}{\numberline {5}Ariadnes}{72}
-\contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{78}
-\contentsline {chapter}{Ap\^endices}{82}
-\contentsline {chapter}{\numberline {A}Depend\^encias do Tool kit}{82}
-\contentsline {chapter}{\numberline {B}Instala\c c\~oes}{83}
+\contentsline {section}{\numberline {4.2}Pr\'e-processamento da placa}{71}
+\contentsline {section}{\numberline {4.3}OCR}{72}
+\contentsline {section}{\numberline {4.4}Aplica\c c\~ao Web}{73}
+\contentsline {chapter}{\numberline {5}Ariadnes}{74}
+\contentsline {chapter}{\numberline {6}Conclus\~oes e Trabalhos Futuros}{80}
+\contentsline {chapter}{Ap\^endices}{84}
+\contentsline {chapter}{\numberline {A}Instala\c c\~ao}{84}

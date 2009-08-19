@@ -5,12 +5,11 @@
 
 \chapter{Horus}
 \label{cap:horus}
- Horus é um \textit{toolkit}, criado no presente trabalho, para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional.
+ Horus é um \textit{toolkit}, criado no presente trabalho, para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional. O Horus é um projeto \textit{Open Source} que se encontra sob a licença de uso LGPL(\textit{Lesser General Public License}). O projeto está disponível para uso no repositório de projetos \textit{Open Source} da google na url \textit{http://code.google.com/p/finishstrike/}.
 
 	O \textit{toolkit} Horus fornece os módulos \textit{Core}, Mapeamento, Visão e Util. O módulo \textit{Core} apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias eque podem ser usadas tanto no \textit{toolkit} Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
 
 \section{\textit{Core}}
-
 	O Horus pode ser utilizado tanto como uma biblioteca de algoritmos para processamento de imagens, visão computacional e mapeamento de ambientes, como através de extensões das classes fornecidas pelo módulo \textit{core}. Essas classes, podem ser estendidas pelas aplicações, são chamadas de abstrações. A Figura \ref{fig:arquiteturaCore} mostra a arquitetura deste módulo.
 
 \begin{figure}[!htb]
@@ -55,7 +54,7 @@ Quando o cérebro do agente é configurado com diversos comportamentos, é necessár
 \section{Processamento de Imagem}
 \label{image:processing}
 
-O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital \cite{Oge99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
+O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital cite{Oge:99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
 
 Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessário uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
 
@@ -156,19 +155,8 @@ No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o al
 \end{figure}
 
 \item \textit{Thresholding} Local:
- a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana ou a média dos valores mínimo e máximo da vizinhança. Na Figura \ref{fig:thLocal} é apresentado o código do algoritmo de \textit{thresholding} local, implementado no Horus, utilizando a média entre os valores da vizinhança.
+ a segunda forma de encontrar o limiar de cada pixel é uma inspeção estatística da sua vizinhança, levando em consideração que os vizinhos de um pixel tendem a possuir maior chance de ter uma iluminação mais uniforme. No método de \textit{thresholding} local, o limiar de um pixel é definido com base nos valores de um número predeterminado de vizinhos do mesmo. Dessa forma, aplica-se uma operação estatística nos valores da vizinhança de um pixel a fim de obter o seu limiar $t$. Essas operações podem ser a média, a mediana ou a média dos valores mínimo e máximo da vizinhança. Na Figura \ref{fig:imgThLocal} é apresentado o resultado do algoritmo de \textit{threshold} local.
 
-\begin{figure}[!htb]
-\centering
-\begin{center}
-    \includegraphics[scale=0.5, bb=0 0 654 344]{imagens/thLocal.PNG}
-\end{center}
-\caption{Código do método de \textit{thresholding} local implementado em linguagem Python.}
-\label{fig:thLocal}
-\end{figure}
- 
-
-No código da Figura \ref{fig:thLocal} os parâmetros passados são: a imagem (image), o tamanho da vizinhança (size) e uma constante que é subtraída da média (con). Na Figura \ref{fig:imgThLocal} é apresentado o resultado da limiarização com o algoritmo de \textit{thresholding} local, utilizando uma vizinhança de tamanho $7\times7$ com um valor de constante igual a $7$ ($size = 7$ e $con = 7$).
 
 \begin{figure}[!htb]
 \centering
@@ -321,9 +309,6 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \begin{itemize}
 \item Matriz de Pixel: a maneira mais simples de extrair características de um \textit{bitmap} é associar a luminância de cada pixel com um valor numérico correspondente no vetor de características. 
 
-   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do \textit{bitmap} multiplicado pela sua largura, portanto, \textit{bitmaps} grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do \textit{bitmap} é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o \textit{bitmap} do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas.
-            
-            
 \begin{figure}[!htb]
 \centering
 \begin{center}
@@ -332,6 +317,22 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 \caption{Matriz de pixel de um \textit{bitmap}.}
 \label{fig:seg}
 \end{figure}
+
+   Esse método, apesar de simples, possui alguns problemas que podem torná-lo inadequado para o reconhecimento de caracteres. O tamanho do vetor é igual à altura do \textit{bitmap} multiplicado pela sua largura, portanto, \textit{bitmaps} grandes produzem vetores de características muito longos, o que não é muito adequado para o reconhecimento. Logo, o tamanho do \textit{bitmap} é uma restrição para esse método. Além disso, este método não considera a proximidade geométrica dos pixels, bem como suas relações com a sua vizinhança. No entanto, este método pode ser adequado em situações onde o \textit{bitmap} do caractere se encontra muito opaco ou muito pequeno para a detecção de arestas.
+         
+            
+
+
+
+
+
+\item Intensidade de pixel por região: o objetivo deste método de extração de características consiste em extrair a intensidade de pixels pretos em cada região da imagem cite{ratree:05}. Para isso, divide-se a imagem em $5\times 5$ blocos. Para cada bloco, calcula-se a intensidade de pixels pretos. Isso pode ser calculado pela seguinte equação.
+
+\begin{center}
+$\sum_{i=0}^L \sum_{j=0}^M f(x_1, y_1) $
+\end{center}
+
+Onde $L$ $M$ representam a altura e largura de cada bloco, respectivamente. 
             
             
 \item Histograma de Arestas por Regiões: esse método extrai o número de ocorrências de determinados tipos de arestas em uma região específica do \textit{bitmap}. Isso torna o vetor de características desse método invariante com relação à disposição das arestas em uma região e a pequenas deformações do caractere. Sendo o \textit{bitmap} representado pela função discreta $f (x, y)$, largura $w$ e altura $h$, onde $0 \leq x < w$ e $0 \leq y < h$. Primeiramente é realizada a divisão do \textit{bitmap} em seis regiões $(r_0, r_1, ..., r_5)$ organizadas em três linhas e duas colunas. Outros quatro layouts podem ser utilizados para a divisão do \textit{bitmap} em regiões.
@@ -421,7 +422,7 @@ O \textit{toolkit} Horus também fornece algumas implementações de algoritmos par
 
 	Para tarefas de reconhecimento, o Horus disponibiliza funções para construção e treinamento de redes neurais através da utilização de uma biblioteca denominada FANN (\textit{Fast Artificial Neural Network}). O FANN é uma biblioteca de código aberto implementada em linguagem C que fornece conectores para diversas linguagems de alto nível, dentre elas pode-se citar: Java, C++, Python e Ruby.
 
-	Outra funcionalidade disponibilizada pelo Horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licensa Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações em que haja a necessidade de se reconhecer textos existentes em imagens. 	       
+	Outra funcionalidade disponibilizada pelo Horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licensa Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações onde haja a necessidade de se reconhecer textos existentes em imagens. 	       
 
 	O módulo OCR é utilizado nas aplicações ANPR e Ariadnes. No ANPR, esse módulo  é utilizado para reconhecer o texto que se encontra nas placas dos automóveis. Já na aplicação Ariadnes, o agente inteligente utiliza esse módulo para reconhecer os textos que se encontram nas placas informativas presentes no ambiente.
 	
@@ -451,6 +452,6 @@ As aplicações desenvolvidas nesse projeto têm o objetivo de validar e demonstrar
 As aplicações desenvolvidas foram: um sistema de reconhecimento automático de placas de automóveis denominado \textit{PyANPR}, descrito no Capítulo \ref{cap:anpr}, um simulador para mapeamento automático de ambientes desconhecidos através da técnica SLAM, chamado \textit{Teseu} e um simulador de movimentação autônoma em ambientes desconhecidos, utilizando visão computacional, denominado \textit{Ariadnes}.
 
 	Teseu é um sistema que simula a movimentação autônoma de um agente inteligente em um ambiente desconhecido. Nele é possível simular o comportamento de um robô real no que tange mapeamento e navegação. O agente tem o objetivo de explorar todo o ambiente utilizando técnicas de localização, mapeamento e exploração implementadas no Horus. 
-   A construção do ambiente virtual foi realizada utilizando um software de modelagem 3D \textit{Open Source} chamado Blender 3D. Esse é um produto criado pela \textit{Blender Foundation}, feito na linguagem de programação Python e está sob a licença GNU(\textit{General Public License}). Outra ferramenta utilizada na construção dos simuladores é o Panda3D, criada pela equipe \textit{Walt Disney} para renderização de jogos e ambiente em terceira dimensão. Esse produto também foi criado na linguagem de programação Python e encontra-se sob a licença de uso BSD(\textit{Berkeley Software Distribution }). O uso do Panda3D no Horus restringe-se apenas na manipulação e renderização do ambiente e atores criados previamente no Blender3D. 
+   A construção do ambiente virtual foi realizada utilizando um software de modelagem 3D \textit{Open Source} chamado Blender 3D. Esse é um produto criado pela \textit{Blender Foundation}, feito na linguagem de programação Python e está sob a licença GNU(\textit{General Public License}). Outra ferramenta utilizada na construção dos simuladores é o Panda3D, criada pela equipe \textit{Walt Disney} para renderização de jogos e ambientes em terceira dimensão. Esse produto também foi criado na linguagem de programação Python e encontra-se sob a licença de uso BSD(\textit{Berkeley Software Distribution }). O uso do Panda3D no Horus restringe-se apenas na manipulação e renderização do ambiente e atores criados previamente no Blender3D. 
 
 O simulador Ariadnes foi contruído utilizando as mesmas ferramentas utilizadas na construção do Teseu, porém, com objetivo e técnicas  diferentes. O Ariadnes será melhor descrito no Capítulo \ref{cap:ariadnes}.

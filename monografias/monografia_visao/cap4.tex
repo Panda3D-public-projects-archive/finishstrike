@@ -11,33 +11,75 @@
     Sistemas ANPR também são conhecidos como: \textit{Automatic licence plate recognition} (ALPR), \textit{Automatic vehicle identification} (AVI), \textit{Car plate recognition} (CPR), \textit{Licence plate recognition} (LPR) e \textit{Lecture Automatique de Plaques d'Immatriculation} (LAPI). A idéia de um sistema ANPR foi criado em 1976, pelo Departamento de Desenvolvimento Científico da Polícia no Reino Unido, com o objetivo de identificar carros roubados. O primeiro protótipo desenvolvido, ficou pronto em 1979, e foi desenvolvido pela empresa Britânica EMI \textit{Electronics}. Esse sistema começou a ser testado na rodovia A! e no Túnel Dartford, ambos na Inglaterra. Somente em 1981 ocorreu a identificação de um carro roubado, seguido da prisão do delinquente, através da utilização deste sistema.
 
     Há algum tempo atrás, a identificação de veículos era um trabalho completamente manual, porém, com o crescimento do tráfego de veículos nas rodovias, a tarefa de identificação manual de veículos se tornou inviável. Com a evolução dos componentes eletrônicos, foi criado um sistema AVI, onde, o código do veículo era armazenado em um \textit{transponder} que era instalado em cada veículo. Quando o veículo passava por alguns pontos de controle da rodovia, unidades de leitura identificavam a sua presença e realizavam a leitura do seu código, presente no \textit{transponder}. Muitos sistemas AVI eram equipados com um sistema de captura de vídeo, aumentando o seu custo. Com o aumento considerável de veículos, a produção e manutenção em larga escala desses sistemas passou a se tornar extremamente custosa. Com a evolução das técnicas de visão computacional, tornou-se possível a identificação de veículos pela leitura de suas placas através de câmeras de monitoramento, diminuindo o custo para implantação desse tipo de sistema.
-
+     
     Na aplicação PyANPR, desenvolvida nesse trabalho, existem três etapas entre a inclusão da imagem de um carro até a extração do caractere. A primeira consiste na localização da placa. A segunda consiste num pré-processamento da placa, para binarizar a imagem e remover ruídos. E a terceira etapa consiste em aplicar uma função de OCR a fim de identificar os caracteres da placa. Cada uma das etapas serão descritas nas seguintes seções.
 
-%CRIAR IMAGEM: .... Imagem .....> || Localização da Placa || ...... Placa ....> %|| Pre-Processamento||  ... Imagem Binaria e sem Ruido ...> || OCR || ... %caracteres...>
+\section{Localização da Placa}
+  O processo de localização é a etapa mais importante e vulnerável de todo o ANPR. Exitem duas suposições básicas em sistemas ANPR cite{vladimir:06}
+\begin{itemize}
+\item As placas são orientadas horizontalmente; 
+\item A placa é caracterizada por uma frequência de alterações entre o caractere (\textit{Foreground}) e a placa (\textit{Background}).
+\end{itemize}
 
-  \section{Localização da Placa}
-    O processo de localização da placa consiste em definir uma região (normalmente um retângulo com a orientação da imagem, mas também pode ser um retângulo rotacionado de modo a se ajustar otimamente a placa) que contenha a imagem. Quanto melhor for o ajuste entre o retângulo e a placa, melhor será o processo de reconhecimento dessa. O processo de geração desse retângulo, utilizado nesse trabalho, foi dividido em duas etapas. Na primeira aplica-se um corte vertical definindo o intervalo de linhas que inclua a placa. Essa região foi denominada de \textit{Band}. A segunda etapa é semelhante, realiza-se um corte horizontal no \textit{band} definindo a região que contém a placa, denominada de \textit{Plate}. A Figura X mostra essas duas etapas.
+     
+ Essa etapa consiste em definir uma região  (normalmente um retângulo com a orientação da imagem, mas também pode ser um retângulo rotacionado de modo a se ajustar otimamente a placa) que contenha a imagem. Quanto melhor for o ajuste entre o retângulo e a placa, melhor será o processo de reconhecimento dessa. O processo de geração desse retângulo, utilizado nesse trabalho, foi dividido em duas etapas. Na primeira aplica-se um corte vertical definindo o intervalo de linhas que inclua a placa. Essa região foi denominada de \textit{Band}. A segunda etapa é semelhante, realiza-se um corte horizontal no \textit{band} definindo a região que contém a placa, denominada de \textit{Plate}. A Figura \ref{fig:etapas2} mostra essas duas etapas.
 
-    Figura X: (a) Fotografia de um carro; (b) band; (c) plate.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.5, bb=0 0 598 212]{imagens/etapas2.PNG}
+\end{center}
+\caption{(a) Fotografia de um carro (b) \textit{Band} (c) \textit{Plate}.}
+\label{fig:etapas2}
+\end{figure}
 
-    O método de localização do \textit{Band} inicia-se com um pré-processamento na imagem do carro. Esse pré-processamento consiste em aplicar um filtro de detecção de arestas verticais (filtro de sobel - vertical) em uma imagem em escala de cinza. Esse processo é mostrado na Figura X.
+    O método de localização do \textit{Band} inicia-se com um pré-processamento na imagem do carro. Esse pré-processamento consiste em aplicar um filtro de detecção de arestas verticais (filtro de sobel - vertical) em uma imagem em escala de cinza. Esse processo é mostrado na Figura \ref{fig:etapa_3}.
 
-    Figura X: (a) Fotografia de um carro; (b) imagem convertida para escala de cinza; (c) imagem filtrada por Sobel-Vertical.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.2, bb=0 0 1496 950]{imagens/etapa3.PNG}
+\end{center}
+\caption{(a) Fotografia de um carro (b) imagem convertida para escala de cinza (c) imagem filtrada por Sobel-Vertical.}
+\label{fig:etapa_3}
+\end{figure}   
 
-    Após o pré-processamento aplica-se uma projeção vertical. Essa projeção consiste em somar a itensidade de cor dos pixels da imagem filtrada linha a linha. Matematicamente, pode-se definir a projeção vertical como uma função $pv: {0,...,h-1}\longrightarrow \mathbb{N}$ onde $pv(i)=\sum_{j=0}^{w-1} I(i,j)$ sendo $I:[0, w]\times[0, h]\longrightarrow{0,1,...,255}]$ a função de intensidade de luz da imagem pré-processada cuja largura é $w$ e altura é $h$. A Figura X mostra o exemplo de uma projeção vertical de uma imagem de um carro.
+    Após o pré-processamento aplica-se uma projeção vertical. Essa projeção consiste em somar a itensidade de cor dos pixels da imagem filtrada linha a linha. Matematicamente, pode-se definir a projeção vertical como uma função $pv: {0,...,h-1}\longrightarrow \mathbb{N}$ onde $pv(i)=\sum_{j=0}^{w-1} I(i,j)$ sendo $I:[0, w]\times[0, h]\longrightarrow{0,1,...,255}]$ a função de intensidade de luz da imagem pré-processada cuja largura é $w$ e altura é $h$. A Figura\ref{fig:etapa_4} mostra o exemplo de uma projeção vertical de uma imagem de um carro.
 
-    Figura X: (a) Imagem do carro; (b) pré-processamento (c) projeção vertical
 
-    Analogamente, no processo de detecção do \textit{plate} aplica-se um pré-processamento, que difere-se do pré-processamento do \textit{band} somente no fato que o filtro de detecção de arestas usado é o filtro de sobel - horizontal. No resultado do pré-processamento aplica-se uma projeção horizontal. Essa projeção é analoga a projeção vertical. Soma-se, coluna a coluna, as intensidades de cor de cada pixel. Matematicamente a projeção horizontal é dada pela função $ph: {0,...,w-1}\longrightarrow \mathbb{N}$ onde $ph(j)=\sum_{i=0}^{h-1} I(i,j)$. A Figura X mostra o exemplo de uma projeção horizontal de uma imagem de um \textit{band}.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.2, bb=0 0 1496 950]{imagens/etapa4.PNG}
+\end{center}
+\caption{(a) Imagem filtrada por Sobel-Vertical (b) Projeção vertical.}
+\label{fig:etapa_4}
+\end{figure}   
 
-    Figura X: (a) Imagem do band; (b) pré-processamento (c) projeção horizontal
+    Analogamente, no processo de detecção do \textit{plate} aplica-se um pré-processamento, que difere-se do pré-processamento do \textit{band} somente no fato que o filtro de detecção de arestas usado é o filtro de sobel - horizontal. No resultado do pré-processamento aplica-se uma projeção horizontal. Essa projeção é analoga a projeção vertical. Soma-se, coluna a coluna, as intensidades de cor de cada pixel. Matematicamente a projeção horizontal é dada pela função $ph: {0,...,w-1}\longrightarrow \mathbb{N}$ onde $ph(j)=\sum_{i=0}^{h-1} I(i,j)$. A Figura \ref{fig:etapa_5} mostra o exemplo de uma projeção horizontal de uma imagem de um \textit{band}.
+
+
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb=0 0 611 419]{imagens/etapa5.PNG}
+\end{center}
+\caption{(a) Imagem do band pré-processada (b) projeção horizontal}
+\label{fig:etapa_5}
+\end{figure} 
 
     Normalmente o máximo global da projeção vertical está na região que contém a placa. Isso se deve ao fato que em uma imagem de carro filtrada por Sobel-Vertical, normalmente, a região da placa é a região que contém mais arestas, e portanto essa é a região que contém o máximo global da função. Sendo essa uma função discreta, o processo de deteção de máximo global pode ser determinado por inspeção, sem grandes custos computacionais. A esse valor de máximo global, denominaremos de \textit{pico}.
 
-    Para definir o \textit{band} é necessário encontrar a linha inicial e a linha final da imagem do carro que o determinarão. Para tal é necessário definir uma região próximo ao pico. A abordagem utilizada nesse projeto para definir essa região divide-se em duas etapas. Na primeira, aplica-se uma suavização na projeção vertical. Para isso aplica-se um processo de convolução na imagem da função projeção. Essa convolução calcula a média de valores em uma determinada vizinhança. Após isso, na segunda etapa aplica-se uma função \textit{threshold}, que consiste em, dado um valor $x$ que nesse caso é a média dos valores da imagem da projeção, para cada elemento da imagem da projeção verifica se este é menor que $x$: caso seja, seu valor é zerado. Após essa etapa, tem-se uma função cuja imagem está dividida em intervalos não nulos. Normalmente a placa está no intervalo que contém o pico. Logo, basta extrair o índice inicial e o final que definem esse intervalo e considerá-los como as linhas inicial e final, respectivamente, usadas para o corte do \textit{band}. A Figura X mostra o processo de projeção para determinar o \textit{band}.
+    Para definir o \textit{band} é necessário encontrar a linha inicial e a linha final da imagem do carro que o determinarão. Para tal é necessário definir uma região próximo ao pico. A abordagem utilizada nesse projeto para definir essa região divide-se em duas etapas. Na primeira, aplica-se uma suavização na projeção vertical. Para isso aplica-se um processo de convolução na imagem da função projeção. Essa convolução calcula a média de valores em uma determinada vizinhança. Após isso, na segunda etapa aplica-se uma função \textit{threshold}, que consiste em, dado um valor $x$ que nesse caso é a média dos valores da imagem da projeção, para cada elemento da imagem da projeção verifica se este é menor que $x$: caso seja, seu valor é zerado. Após essa etapa, tem-se uma função cuja imagem está dividida em intervalos não nulos. Normalmente a placa está no intervalo que contém o pico. Logo, basta extrair o índice inicial e o final que definem esse intervalo e considerá-los como as linhas inicial e final, respectivamente, usadas para o corte do \textit{band}. A Figura \ref{fig:etapa_6} mostra o processo de projeção para determinar o \textit{band}.
 
-    FiguraX: (a) Imagem do carro; (b) pre-processamento; (c) projeção vertical; (d) projeção suavizada; (e) threshold; (f) band.
+\begin{figure}[!htb]
+\centering
+\begin{center}
+    \includegraphics[scale=0.4, bb=0 0 823 629]{imagens/etapa6.PNG}
+\end{center}
+\caption{(a) Imagem original   (b) Projeção vertical suavizada    (c) Aplicação do \textit{Threshold}.}
+\label{fig:etapa_6}
+\end{figure} 
 
     O processo de detecção do \textit{plate} é semelhante. Aplica-se a projeção horizontal na imagem do \textit{band} pré-processada, como dito anteriormente. Após essa etapa, aplica-se as duas etapas de processamento na projeção, assim como feito na projeção vertical, o que resultará em uma função cuja imagem estará dividida em intervalos não nulos. Normalmente a placa está no intervalo de maior comprimento.
 
@@ -52,16 +94,14 @@
  \section{OCR}
 \label{sec:ocr}
 
-   O \textit{toolkit} Horus disponibiliza diversos algoritmos para implementação de cada uma das etapas que constituem um sistema OCR (seção \ref{sec:ocr}). Os algoritmos necessários para a construção das etapas de pré-processamento e segmentação dos caracretes estão disponíveis no módulo de processamento de imagens do Horus, alguns desses algoritmos são: detecção de arestas, binarização, suavização, remoção de ruídos, projeções, entre diversos outros algoritmos.
+   O \textit{toolkit} Horus disponibiliza diversos algoritmos para implementação de cada uma das etapas que constituem um sistema OCR (seção \ref{sec:conceito_ocr}). Os algoritmos necessários para a construção das etapas de pré-processamento e segmentação dos caracretes estão disponíveis no módulo de processamento de imagens do Horus, alguns desses algoritmos são: detecção de arestas, binarização, suavização, remoção de ruídos, projeções, entre diversos outros algoritmos.
 
 Após a segmentação dos caracteres, extrai-se um vetor númerico (vetor de características) de cada um desses. Tal vetor é utilizado como padrão de entrada para uma rede neural no processo de reconhecimento. 
-O processo de extração de características é uma das etapas mais importantes de um sistema OCR, a qualidade dessa etapa influencia no resultado de todo o sistema. Portanto, a escolha de quais características serão utilizadas como padrão de entrada no processo de reconhecimento é extremamente importante. A construção do vetor de características pode ser feito utilizando os diversos algoritmos implementados no módulo de extração de características do Horus, Seção \ref{sec:features}, podem ser: histograma de arestas por regiões, terminação de linha, \textit{loops}, entre outros. Por último, é realizado a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto. Uma abordagem usual para a contrução da etapa de reconhecimento consiste na utilização de redes neurais artificiais, Seção \ref{sec:rna}. O Horus disponibiliza algoritmos para criação e utilização de redes neurais através de uma API \textit{Open Souce} chamada \textit{Fast Artificial Neural Network}(FANN). 
+O processo de extração de características é uma das etapas mais importantes de um sistema OCR, a qualidade dessa etapa influencia no resultado de todo o sistema. Portanto, a escolha de quais características serão utilizadas como padrão de entrada no processo de reconhecimento é extremamente importante. A construção do vetor de características pode ser feito utilizando os diversos algoritmos implementados no módulo de extração de características do Horus (seção \ref{sec:features}) podem ser: histograma de arestas por regiões, terminação de linha, \textit{loops}, entre outros. Por último, é realizado a etapa de reconhecimento do vetor de características, que finalmente deverá apontar o caractere correto. Uma abordagem usual para a contrução da etapa de reconhecimento consiste na utilização de redes neurais artificiais (seção \ref{sec:rna}). O Horus disponibiliza algoritmos para criação e utilização de redes neurais através de uma API \textit{Open Souce} chamada \textit{Fast Artificial Neural Network}(FANN). 
 
  Atualmente, o \textit{toolkit} Horus não possui um sistema OCR próprio, essa funcionalidade será implementada em um trabalho futuro. Porém, esse \textit{toolkit} disponibiliza funcionalidades de um sistema OCR através da utilização de um OCR \textit{Open Source} chamado Tesseract.  
    
    
 \section{Aplicação Web}
     Durante o desenvolvimento deste trabalho, mais especificamente do sistema PyANPR, foi desenvolvido um sistema web cujo objetivo é: através do \textit{upload} de uma imagem de um carro, o sistema realizará o ANPR nessa imagem e retornará todas as informações da placa contidas em seu banco de dados. 
-    Esse sistema foi construído utilizando um \textit{framework} \textit{web} de altíssimo nível chamado Django. Esse \textit{framework} é escrito na linguagem de programação Python e é baseado no padrão arquitetural \textit{Model View and Controller}(MVC), \cite{Fowler2003}. 
-
-\textbf{Falar mais sobre o sistema}
+    Esse sistema foi construído utilizando um \textit{framework} \textit{web} de altíssimo nível chamado Django. Esse \textit{framework} é escrito na linguagem de programação Python e é baseado no padrão arquitetural \textit{Model View and Controller}(MVC) \cite{Fowler2003}. 
