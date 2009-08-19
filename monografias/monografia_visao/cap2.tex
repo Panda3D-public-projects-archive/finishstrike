@@ -54,7 +54,7 @@ Quando o cérebro do agente é configurado com diversos comportamentos, é necessár
 \section{Processamento de Imagem}
 \label{image:processing}
 
-O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital cite{Oge:99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
+O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital \cite{Oge99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
 
 Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessário uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
 
@@ -326,7 +326,7 @@ O algoritmo de Hilditch é menos custoso do que o algoritmo de transformação de e
 
 
 
-\item Intensidade de pixel por região: o objetivo deste método de extração de características consiste em extrair a intensidade de pixels pretos em cada região da imagem cite{ratree:05}. Para isso, divide-se a imagem em $5\times 5$ blocos. Para cada bloco, calcula-se a intensidade de pixels pretos. Isso pode ser calculado pela seguinte equação.
+\item Intensidade de pixel por região: o objetivo deste método de extração de características consiste em extrair a intensidade de pixels pretos em cada região da imagem \cite{Juntanasub2005}. Para isso, divide-se a imagem em $5\times 5$ blocos. Para cada bloco, calcula-se a intensidade de pixels pretos. Isso pode ser calculado pela seguinte equação.
 
 \begin{center}
 $\sum_{i=0}^L \sum_{j=0}^M f(x_1, y_1) $
@@ -440,7 +440,7 @@ O \textit{toolkit} Horus também fornece algumas implementações de algoritmos par
 	\item \textit{Landmark Update}: procedimento que atualiza as posições dos marcos no ambiente em relação ao agente. 
 \end{enumerate}
 
-  Neste trabalho, a proposta utilizada é mapear o ambiente através de um grafo conexo, cujos nós referem-se a: entradas/saídas do ambiente, acessos aos cômodos, obstáculos fixos e esquinas. O peso das arestas é calculado de acordo com o custo de processamento no deslocamento entre a posição de um nó ao outro. 
+  Neste trabalho, a proposta utilizada é mapear o ambiente através de um grafo conexo, cujos nós referem-se a: entradas/saídas do ambiente, acessos aos cômodos, obstáculos fixos e esquinas. O peso das arestas é calculado de acordo com a distância euclidiana entre os vértices. 
 
   O problema de navegação consiste na localização e definição do caminho que o agente deve seguir. Após a construção de uma representação do ambiente em forma de um grafo, o agente é capaz de se localizar e se movimentar pelo ambiente através dos vértices e arestas, previamente mapeados no grafo. Para a utilização de grafos, o Horus fornece classes para sua construção e algoritmos para cálculo de caminho mínimo.
 

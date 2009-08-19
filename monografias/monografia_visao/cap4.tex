@@ -15,7 +15,7 @@
     Na aplicação PyANPR, desenvolvida nesse trabalho, existem três etapas entre a inclusão da imagem de um carro até a extração do caractere. A primeira consiste na localização da placa. A segunda consiste num pré-processamento da placa, para binarizar a imagem e remover ruídos. E a terceira etapa consiste em aplicar uma função de OCR a fim de identificar os caracteres da placa. Cada uma das etapas serão descritas nas seguintes seções.
 
 \section{Localização da Placa}
-  O processo de localização é a etapa mais importante e vulnerável de todo o ANPR. Exitem duas suposições básicas em sistemas ANPR cite{vladimir:06}
+  O processo de localização é a etapa mais importante e vulnerável de todo o ANPR. Exitem duas suposições básicas em sistemas ANPR \cite{Shapiro2006}
 \begin{itemize}
 \item As placas são orientadas horizontalmente; 
 \item A placa é caracterizada por uma frequência de alterações entre o caractere (\textit{Foreground}) e a placa (\textit{Background}).
@@ -50,7 +50,7 @@
 \begin{figure}[!htb]
 \centering
 \begin{center}
-    \includegraphics[scale=0.2, bb=0 0 1496 950]{imagens/etapa4.PNG}
+    \includegraphics[scale=0.3, bb=0 0 900 326]{imagens/etapa4.PNG}
 \end{center}
 \caption{(a) Imagem filtrada por Sobel-Vertical (b) Projeção vertical.}
 \label{fig:etapa_4}
