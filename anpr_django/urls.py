@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from anpr.views import *
 from django.conf import settings
 from anpr.models import Person, Car
+from anpr.forms import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -14,6 +15,9 @@ extra_context = {
 
 urlpatterns = patterns('',
     (r'^$', index),
+    (r'^search/?$', search),
+    (r'^report/?$', report),
+
     (r'^site_media/(.*)$', 'django.views.static.serve', 
                      {'document_root': settings.MEDIA_ROOT}),
 

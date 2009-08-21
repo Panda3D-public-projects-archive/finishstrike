@@ -1,10 +1,15 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    <h1>Car</h1>
+    <h1>Report</h1>
     {% if not car %}
       This car does not exist.
     {% else %}
+    <div class='label'>
+      Uploaded Car Image: <br>
+      <img src="{{ MEDIA_URL }}/car_images/{{ image }}" class='car_report'>
+    </div>
+    <br> 
     <div class='label'>Company: {{ car.company }}<br/>
       Model: {{ car.model }}<br/>
       Date: {{ car.date }}<br/>
@@ -13,6 +18,6 @@
       Plate: {{ car.plate }} <br/>
       Owner: {{ car.owner }} <br/>
       <a href="/car/list/"> Back </a>
-    </div>
+     </div>
     {% endif %}
 {% endblock %}
