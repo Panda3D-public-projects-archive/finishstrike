@@ -43,11 +43,11 @@ def search(request):
   return render_to_response('search.html', locals(), context_instance)
 
 def report(request):
-  for image_name in os.listdir(SAVE_PATH):
-    if image_name.endswith('.jpg'):
-      file_path = os.path.join(SAVE_PATH, image_name)
-      print 'REMOVING %s' % file_path
-      os.remove(file_path)
+  image_name_list = [ i for i in os.listdir(SAVE_PATH) if i.endswith('.jpg')]
+  for image_name in image_name_list:
+    file_path = os.path.join(SAVE_PATH, image_name)
+    print 'REMOVING %s' % file_path
+    os.remove(file_path)
   car = None
   context_instance = RequestContext(request)
   context_instance['people_length'] =  len(Person.objects.all())
@@ -63,5 +63,17 @@ def report(request):
   car_query_set = Car.objects.all().filter(plate=plate_text)
   if len(car_query_set):
     car = car_query_set[0]
-  return render_to_response('report.html', {'car': car, 'image': file_name}, context_instance)
+
+  image_dict = {'STEP01': [],
+                'STEP02': [],
+                'STEP03': [],
+                'STEP04': [],
+                'STEP05': []}
+
+  for k in image_dict.keys():
+    image_dict[k] = [image_name for image_name in image_name_list if image_name.startswith(k)]
+  print image_dict    
+  return render_to_response('report.html', 
+                            {'car': car, 'image': file_name,
+                             'image_dict' : image_dict}, context_instance)
  

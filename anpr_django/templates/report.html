@@ -5,10 +5,6 @@
     {% if not car %}
       This car does not exist.
     {% else %}
-    <div class='label'>
-      Uploaded Car Image: <br>
-      <img src="{{ MEDIA_URL }}/car_images/{{ image }}" class='car_report'>
-    </div>
     <br> 
     <div class='label'>Company: {{ car.company }}<br/>
       Model: {{ car.model }}<br/>
@@ -17,7 +13,19 @@
       Color: {{ car.color }} <br/>
       Plate: {{ car.plate }} <br/>
       Owner: {{ car.owner }} <br/>
-      <a href="/car/list/"> Back </a>
+     </div>
+     <br/>
+     <div class='label'>
+       {% for k, v in image_dict.iteritems  %}
+         <span> {{ k }} </span>
+         <br/>
+         {% for image_name in v %}
+           <img src="{{ MEDIA_URL }}/car_images/{{ image_name }}" class='car_report'>
+           <br/>
+         {% endfor %}
+
+       {% endfor %}
+       <a href="/car/list/"> Back </a>
      </div>
     {% endif %}
 {% endblock %}

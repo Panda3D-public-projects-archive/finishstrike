@@ -23,7 +23,7 @@ ul { margin: 0; padding : 0; list-style: none; }
 img { float: none !important; position: relative; border: 0;}
 hr { height: 1px; border-style: none; color: #d0d0d0; background-color: #C0C0C0; margin: 10px 0; }
 
-.car_report { max-height: 200px; max-width: 200px;  }
+.car_report { max-height: 250px; max-width: 300px;  }
 .content { margin: 0px auto; width: 800px; }
 /* Forms */
 /* Some css is used  by ERP5 Project */

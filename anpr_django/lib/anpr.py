@@ -50,14 +50,14 @@ class PlateDetection(object):
         self.index += 1
         band_list = []
         content = car_image.convert('L')
-        content.save(SAVE+"/PlateDetection-generateBandList-grayscale%s.jpg" % self.index)
+        content.save(SAVE+"STEP01-01grayscale%s.jpg" % self.index)
 
         content = processingimage.applyFilter(content, 
                                                filter.VERTICAL_EDGE_DETECTED)
-        content.save(SAVE+"/PlateDetection-generateBandList-VERTICAL_EDGE_DETECTED%s.jpg" % self.index)
+        content.save(SAVE+"STEP01-02vertical_edge_detection%s.jpg" % self.index)
 
         median_filtered_image = processingimage.applyFilter(content, filter.MEDIAN)
-        content.save(SAVE+"/PlateDetection-generateBandList-filterMedian%s.jpg" % self.index)
+        content.save(SAVE+"STEP01-03filterMedian%s.jpg" % self.index)
         projection_list = processingimage.verticalProjection(median_filtered_image)
                                                     
         # removing the first and the last peak
@@ -65,15 +65,15 @@ class PlateDetection(object):
         projection_list[1] = 0
         projection_list[-1] = 0
         projection_list[-2] = 0
-        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"proj.jpg", projection_list ) 
+        graphics.generateGraph( SAVE, "STEP02-04GraphProjection.jpg", projection_list ) 
 
         # empirical parameters obtained by calibration
         blur_list = copy.copy(projection_list).applyBlur(0.04)
-        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"blur.jpg", blur_list ) 
+        graphics.generateGraph( SAVE, "STEP02-04GraphBlur.jpg", blur_list ) 
         
         threshold = projection_list.calculateAvarage()
         threshold_list = blur_list.applyThreshold(threshold)
-        graphics.generateGraph( SAVE, car_image.content.filename[-12:-4]+"_band_proj.jpg", threshold_list )        
+        graphics.generateGraph( SAVE, "STEP02-04GraphBandProjection.jpg", threshold_list )        
 
         band_index_list = threshold_list.locateNonZeroIntervals()
 
@@ -86,7 +86,7 @@ class PlateDetection(object):
             range_to_crop = (0, band_index[0], car_image.size[0], 
                                                            band_index[1])
             band_image = car_image.crop(range_to_crop)
-            band_image.content.file_name = "/PlateDetection-generateBandList-%s-%s.jpg" % (self.index, str(i))
+            band_image.content.file_name = "/STEP03-05generateBandList-%s-%s.jpg" % (self.index, str(i))
             band_list.append(Band(band_image, range_to_crop))
             band_image.save(SAVE+band_image.content.file_name)
             
@@ -103,7 +103,7 @@ class PlateDetection(object):
             raise ImpossiblePlateExtraction, message
 
         band = band_object_list[0]
-        band.band_image.save(os.path.join(SAVE, "PlateDetection-getPlate-%s_select_band.jpg" % self.index))
+        band.band_image.save(os.path.join(SAVE, "STEP04-%s_select_band.jpg" % self.index))
         return band.getPlate()
 
 
@@ -140,7 +140,7 @@ class Band(object):
 
 
     def segment(self, projection_list):
-        graphics.generateGraph( SAVE, self.band_image.content.file_name[-14:-4]+"_plate_proj.jpg", projection_list )    
+        graphics.generateGraph( SAVE, "STEP06_plate_proj.jpg", projection_list )    
         threshold = projection_list.calculateAvarage()
         blur_list = projection_list.applyBlur(0.04)#.03
                 
@@ -151,25 +151,25 @@ class Band(object):
             threshold_list = copy.copy(blur_list).applyThreshold(threshold)
             candidate_list = threshold_list.locateNonZeroIntervals()
             candidate_list =  self.sortPlate(candidate_list)
-        graphics.generateGraph( SAVE, self.band_image.content.file_name[-14:-4]+"_plate_thresh.jpg", threshold_list )               
+        graphics.generateGraph( SAVE, "STEP06_plate_thresh.jpg", threshold_list )               
         return candidate_list
 
 
     def generatePlateList(self):
         self.index += 1
         content = self.band_image.convert('L')
-        content.save(SAVE+'/Band-generatePlateList-grayScale%s.jpg' % self.index)
+        content.save(SAVE+'STEP05-01-grayScale%s.jpg' % self.index)
 #        content = processingimage.applyFilter(content, filter.HORIZONTAL_EDGE_DETECTED)
         content = processingimage.fullEdgeDetection(content)
-        content.save(SAVE+'/Band-generatePlateList-fullEdgeDetection%s.jpg' % self.index)
+        content.save(SAVE+'/STEP05-02-fullEdgeDetection%s.jpg' % self.index)
         content = processingimage.applyFilter(content, filter.MEDIAN)
-        content.save(SAVE+'/Band-generatePlateList-medianFilter%s.jpg' % self.index)
+        content.save(SAVE+'/STEP05-03-medianFilter%s.jpg' % self.index)
         #content.save( os.path.join(SAVE, self.band_image.content.file_name[-14:-4]+"_edge.jpg") )
         vertical_filtered_image = Image(content=content)
   
         content = vertical_filtered_image.convert('L')
         grayscale_filtered_image = Image(content=content)
-        grayscale_filtered_image.save(SAVE+'/Band-generatePlateList-grayScale%s.jpg'%self.index)
+        grayscale_filtered_image.save(SAVE+'/STEP05-04-grayScale%s.jpg'%self.index)
         projection_list = processingimage.horizontalProjection(
                                                     grayscale_filtered_image)
 #        graphics.generateGraph( SAVE, self.band_image.content.file_name[-14:-4]+"_plate_proj.jpg", projection_list )    
@@ -195,6 +195,7 @@ class Band(object):
   
         range_to_crop = (inferior_index, 0, superior_index, self.band_image.size[1])
         plate_image = self.band_image.crop(range_to_crop)
+
         return Plate(plate_image)
 
 class Plate(object):
@@ -314,28 +315,3 @@ def main(car_image):
   plate_text = platedetection.getPlate(car_image).getPlateAsText()
   return plate_text
 
-  
-if __name__ == "__main__":
-    abspath = os.path.abspath('.')
-    path_load = os.path.join(abspath,"imagens")
-    path_save = os.path.join(abspath,"placa")
-    file_list = os.listdir(path_load)
-    file_list.sort()
-    index = 0 
-    for file_name in file_list:
-        if file_name=='lol.jpg':#file_name.endswith(.jpg'):
-            index += 1
-            print file_name
-            path_image = os.path.join(path_load, file_name)
-            car_image = Image(path=path_image)
-            platedetection = PlateDetection()        
-            plate = platedetection.getPlate(car_image)
-            plate_text = plate.getPlateAsText()
-            print plate_text
-            if plate_text in ['', None]:
-              plate_text = 'FAILED'+str(index)
-            plate.plate_image.content.save((os.path.join(SAVE,
-              plate_text.lower().replace('/','')+".jpg")))
-
-            plate.plate_image.content.save((os.path.join(SAVE, car_image.content.filename[-12:-4]+"_plate.jpg")))
-        
