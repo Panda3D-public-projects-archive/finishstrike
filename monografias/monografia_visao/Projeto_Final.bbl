@@ -1,43 +1,72 @@
 \providecommand{\abntreprintinfo}[1]{%
  \citeonline{#1}}
-\begin{thebibliography}{}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
-\abntbstabout{1.42.2.1 }
+\abntbstabout{1.45.2.1 }
 
-\bibitem{FOX1999}
-\abntrefinfo{FOX et al.}{FOX et al.}{1999}
-{FOX, D. et al. Monte carlo localization: Efficient position estimation for
-  mobile robots.
-\emph{The National Conference on Artificial Intelligence (AAAI)}, 1999.}
+\bibitem[Arkin 1998]{Arkin1998}
+\abntrefinfo{Arkin}{ARKIN}{1998}
+{ARKIN, R. \emph{Behavior-based robotics.} 1998.
+MIT Press.}
 
-\bibitem{Davison2004}
+\bibitem[BONASSO 1991]{BONASSO1991}
+\abntrefinfo{BONASSO}{BONASSO}{1991}
+{BONASSO, R.~P. Integrating reaction plans and layered competences through
+  synchronous control.
+\emph{Twelfth International Joint Conference on Artificial Intelligence}, p.
+  1225--1231, 1991.}
+
+\bibitem[Braga, Ludermir e Carvalho 2000]{Braga2000}
+\abntrefinfo{Braga, Ludermir e Carvalho}{BRAGA; LUDERMIR; CARVALHO}{2000}
+{BRAGA, A.; LUDERMIR, T.; CARVALHO, A. \emph{Redes Neurais Artificiais, Teoria
+  e Aplicações}. [S.l.]: Livros Técnicos e Científicos, 2000.}
+
+\bibitem[Cagnoni et al. 1993]{Cagnoni1993}
+\abntrefinfo{Cagnoni et al.}{CAGNONI et al.}{1993}
+{CAGNONI et al. Neural network segmentation of magnetic resonance spin echo
+  images of the brain.
+\emph{Jounal of Biomedical Engineering}, v.~15, p. 335--362, 1993.}
+
+\bibitem[Chow e Kaneko 1972]{Chow1972}
+\abntrefinfo{Chow e Kaneko}{CHOW; KANEKO}{1972}
+{CHOW, C.; KANEKO, T. Automatic boundary detection of the left ventricle from
+  cineangiograms.
+\emph{Comp. Biomed. Res.(5),}, p. 388--410, 1972.}
+
+\bibitem[CONNEL 1992]{CONNEL1992}
+\abntrefinfo{CONNEL}{CONNEL}{1992}
+{CONNEL, J. A hybrid arquitecture applied to robot navigation.
+\emph{IEEE Int Conf. on Robotics and Automation}, p. 2719--2724, 1992.}
+
+\bibitem[Davison, Cid e Kita 2004]{Davison2004}
 \abntrefinfo{Davison, Cid e Kita}{DAVISON; CID; KITA}{2004}
 {DAVISON, A.; CID, Y.; KITA, N. Real-time 3d slam with wide-angle vision.
 \emph{IFAC/EURON Symposium on Intelligent Autonomous Vehicles}, 2004.}
 
-\bibitem{Dellaert2005}
+\bibitem[Dellaert 2005]{Dellaert2005}
 \abntrefinfo{Dellaert}{DELLAERT}{2005}
 {DELLAERT, F. Square root slam: Simultaneous location and mapping via square
   root information smoothing.
 \emph{Robotics: Science and Systems}, 2005.}
 
-\bibitem{Russel2003}
-\abntrefinfo{Russel e Norvig}{RUSSEL; NORVIG}{2003}
-{RUSSEL, S.; NORVIG, P. \emph{Inteligência Artificial}. [S.l.]: Editora Campus,
-  2003.}
+\bibitem[Eltoft 1998]{Eltoft1998}
+\abntrefinfo{Eltoft}{ELTOFT}{1998}
+{ELTOFT, T. A new neural network for cluster-detection-and-labeling.
+\emph{IEEE Transactions on Neural Networks}, v.~9, p. 1021--1035, 1998.}
 
-\bibitem{Arkin1998}
-\abntrefinfo{Arkin}{ARKIN}{1998}
-{ARKIN, R. \emph{Behavior-based robotics.} 1998.
-MIT Press.}
+\bibitem[Fowler 2003]{Fowler2003}
+\abntrefinfo{Fowler}{FOWLER}{2003}
+{FOWLER, M. \emph{Patterns for Enterprise Application Architeture}. [S.l.]:
+  Bostom, 2003.}
 
-\bibitem{CONNEL1992}
-\abntrefinfo{CONNEL}{CONNEL}{1992}
-{CONNEL, J. A hybrid arquitecture applied to robot navigation.
-\emph{IEEE Int Conf. on Robotics and Automation}, p. 2719--2724, 1992.}
+\bibitem[FOX et al. 1999]{FOX1999}
+\abntrefinfo{FOX et al.}{FOX et al.}{1999}
+{FOX, D. et al. Monte carlo localization: Efficient position estimation for
+  mobile robots.
+\emph{The National Conference on Artificial Intelligence (AAAI)}, 1999.}
 
-\bibitem{GAT1991}
+\bibitem[GAT 1991]{GAT1991}
 \abntrefinfo{GAT}{GAT}{1991}
 {GAT, E.
 \emph{Reliable Goal-Directed Reactive Control for Real-World Autonomus Mobile
@@ -45,35 +74,80 @@ MIT Press.}
 Tese (Doutorado) --- Dept. of Computer Science, Virginia potytechnic Institute
   and State University,, 1991.}
 
-\bibitem{BONASSO1991}
-\abntrefinfo{BONASSO}{BONASSO}{1991}
-{BONASSO, R.~P. Integrating reaction plans and layered competences through
-  synchronous control.
-\emph{Twelfth International Joint Conference on Artificial Intelligence}, p.
-  1225--1231, 1991.}
+\bibitem[Gomes e Velho 2002]{Gomes2002}
+\abntrefinfo{Gomes e Velho}{GOMES; VELHO}{2002}
+{GOMES, J.; VELHO, L. \emph{Computação Gráfica: Imagem}. [S.l.]: IMPA, 2002.}
 
-\bibitem{Gomes2003}
+\bibitem[Gomes e Velho 2003]{Gomes2003}
 \abntrefinfo{Gomes e Velho}{GOMES; VELHO}{2003}
 {GOMES, J.; VELHO, L. \emph{Fundamentos da Computação Gráfica}. [S.l.]: IMPA,
   2003.}
 
-\bibitem{Gomes2002}
-\abntrefinfo{Gomes e Velho}{GOMES; VELHO}{2002}
-{GOMES, J.; VELHO, L. \emph{Computação Gráfica: Imagem}. [S.l.]: IMPA, 2002.}
+\bibitem[Gonzales e Woods 1992]{Gonzales1992}
+\abntrefinfo{Gonzales e Woods}{GONZALES; WOODS}{1992}
+{GONZALES, R.; WOODS, R. \emph{Digital Image Processing}. [S.l.]:
+  Addison-Wesley Publishing Company, 1992. 443-452~p.}
 
-\bibitem{David:82}
+\bibitem[Guyon et al. 2006]{Guyon2006}
+\abntrefinfo{Guyon et al.}{GUYON et al.}{2006}
+{GUYON, I. et al. \emph{A practical guide to splines.} 2006.
+Springer.}
+
+\bibitem[Haykin 1994]{Haykin1994}
+\abntrefinfo{Haykin}{HAYKIN}{1994}
+{HAYKIN, S. \emph{Neural Networks: A comprehensive foundation}. [S.l.]:
+  Macmillan College Publishing., 1994.}
+
+\bibitem[Jain, Duin e Mao 2000]{Jain2000}
+\abntrefinfo{Jain, Duin e Mao}{JAIN; DUIN; MAO}{2000}
+{JAIN, A.~K.; DUIN, R.~P.; MAO, J. Statistical pattern recognition: A review.
+\emph{IEEE Trans}, v.~22, p. 4 -- 47, 2000.}
+
+\bibitem[Juntanasub e Sureerattanan 2005]{Juntanasub2005}
+\abntrefinfo{Juntanasub e Sureerattanan}{JUNTANASUB; SUREERATTANAN}{2005}
+{JUNTANASUB, R.; SUREERATTANAN, N. Car license plate recognition through
+  haudorff distance technique.
+\emph{Conference on Tools with Artificial Intelligence}, v.~5, 2005.}
+
+\bibitem[Marr 1982]{David:82}
 \abntrefinfo{Marr}{MARR}{1982}
 {MARR, D. \emph{Vision: A Computational Investigation into the Human
   Representation and Processing of Visual Information}. [S.l.]: W.H.Freeman \&
   Co Ltd, 1982.}
 
-\bibitem{Rice1999}
+\bibitem[Mendel e McLaren 1970]{Mendel1970}
+\abntrefinfo{Mendel e McLaren}{MENDEL; MCLAREN}{1970}
+{MENDEL, J.~M.; MCLAREN, R.~W. Adaptive learning and pattern recognition
+  systems: theory and applications.
+\emph{Academic Press.}, 1970.}
+
+\bibitem[Neto 1999]{Oge99}
+\abntrefinfo{Neto}{NETO}{1999}
+{NETO, O. M.~F. e H.~V. \emph{Processamento digital de imagens}. [S.l.]:
+  Brasport, 1999.}
+
+\bibitem[Nigrin 1993]{Nigr:93}
+\abntrefinfo{Nigrin}{NIGRIN}{1993}
+{NIGRIN, A. Neural networks for pattern recognition.
+\emph{MIT Press}, 1993.}
+
+\bibitem[Pal e Mitra 2004]{Sankar:04}
+\abntrefinfo{Pal e Mitra}{PAL; MITRA}{2004}
+{PAL, S.~K.; MITRA, P. \emph{Pattern Recognition Algorithms for Data Mining}.
+  [S.l.]: Chapman \& Hall/CRC, 2004.}
+
+\bibitem[Rice, Nagy e Nartker 1999]{Rice1999}
 \abntrefinfo{Rice, Nagy e Nartker}{RICE; NAGY; NARTKER}{1999}
 {RICE, S.~V.; NAGY, G.; NARTKER, T.~A. Optical character recognition: An
   illustrated guide to the frontier.
 \emph{Kluwer Academic Publishers, Norwell, Massachusetts}, 1999.}
 
-\bibitem{Santos2007}
+\bibitem[Russel e Norvig 2003]{Russel2003}
+\abntrefinfo{Russel e Norvig}{RUSSEL; NORVIG}{2003}
+{RUSSEL, S.; NORVIG, P. \emph{Inteligência Artificial}. [S.l.]: Editora Campus,
+  2003.}
+
+\bibitem[Santos 2007]{Santos2007}
 \abntrefinfo{Santos}{SANTOS}{2007}
 {SANTOS, J.~C.
 \emph{Extração de atributos de forma e seleção de atributos usando algoritmos
@@ -81,46 +155,20 @@ Tese (Doutorado) --- Dept. of Computer Science, Virginia potytechnic Institute
 Dissertação (Mestrado) --- Instituto Nacional de Pesquisas Espaciais (INPE).,
   2007.}
 
-\bibitem{Guyon2006}
-\abntrefinfo{Guyon et al.}{GUYON et al.}{2006}
-{GUYON, I. et al. \emph{A practical guide to splines.} 2006.
-Springer.}
+\bibitem[SHAPIRO, GLUHDEV e DIMOV 2006]{Shapiro2006}
+\abntrefinfo{SHAPIRO, GLUHDEV e DIMOV}{SHAPIRO; GLUHDEV; DIMOV}{2006}
+{SHAPIRO, V.; GLUHDEV, G.; DIMOV, D. Towards a multinational car license plate
+  recognition system.
+\emph{Machine Vision and Applications}, v.~17, p. 173--183, 2006.}
 
-\bibitem{Jain2000}
-\abntrefinfo{Jain, Duin e Mao}{JAIN; DUIN; MAO}{2000}
-{JAIN, A.~K.; DUIN, R.~P.; MAO, J. Statistical pattern recognition: A review.
-\emph{IEEE Trans}, v.~22, p. 4 -- 47, 2000.}
+\bibitem[Simpson 1992]{Simpson1992}
+\abntrefinfo{Simpson}{SIMPSON}{1992}
+{SIMPSON, P. Fuzzy min-max neural networks - part1 : Classification.
+\emph{IEEE Transactions on Neural Networks}, v.~3, p. 776--786, 1992.}
 
-\bibitem{Haykin1994}
-\abntrefinfo{Haykin}{HAYKIN}{1994}
-{HAYKIN, S. \emph{Neural Networks: A comprehensive foundation}. [S.l.]:
-  Macmillan College Publishing., 1994.}
-
-\bibitem{Braga2000}
-\abntrefinfo{Braga, Ludermir e Carvalho}{BRAGA; LUDERMIR; CARVALHO}{2000}
-{BRAGA, A.; LUDERMIR, T.; CARVALHO, A. \emph{Redes Neurais Artificiais, Teoria
-  e Aplicações}. [S.l.]: Livros Técnicos e Científicos, 2000.}
-
-\bibitem{Mendel1970}
-\abntrefinfo{Mendel e McLaren}{MENDEL; MCLAREN}{1970}
-{MENDEL, J.~M.; MCLAREN, R.~W. Adaptive learning and pattern recognition
-  systems: theory and applications.
-\emph{Academic Press.}, 1970.}
-
-\bibitem{Chow1972}
-\abntrefinfo{Chow e Kaneko}{CHOW; KANEKO}{1972}
-{CHOW, C.; KANEKO, T. Automatic boundary detection of the left ventricle from
-  cineangiograms.
-\emph{Comp. Biomed. Res.(5),}, p. 388--410, 1972.}
-
-\bibitem{Gonzales1992}
-\abntrefinfo{Gonzales e Woods}{GONZALES; WOODS}{1992}
-{GONZALES, R.; WOODS, R. \emph{Digital Image Processing}. [S.l.]:
-  Addison-Wesley Publishing Company, 1992. 443-452~p.}
-
-\bibitem{Fowler2003}
-\abntrefinfo{Fowler}{FOWLER}{2003}
-{FOWLER, M. \emph{Patterns for Enterprise Application Architeture}. [S.l.]:
-  Bostom, 2003.}
+\bibitem[Simpson 1993]{Simpson1993}
+\abntrefinfo{Simpson}{SIMPSON}{1993}
+{SIMPSON, P. Fuzzy min-max neural networks - part2 : Classification.
+\emph{IEEE Transactions on Neural Networks}, v.~1, p. 32--45, 1993.}
 
 \end{thebibliography}

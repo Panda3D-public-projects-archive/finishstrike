@@ -13,13 +13,13 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Rede de uma \'unica camada.}}{37}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Rede de m\'ultiplas camadas.}}{37}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Exemplo de rede feedback.}}{38}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Esquema de aprendizado supervisionado.}}{39}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Esquema de aprendizado supervisionado.}}{40}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Esquema de aprendizado n\~ao supervisionado.}}{40}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitetura do m\'odulo \textit {core}.}}{42}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Extens\~ao da classe \textit {Brain} do Horus por uma aplica\c c\~ao.}}{43}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Comportamento \textit {MyBehavior} que estende tanto de \textit {NeuralNetworkBehavior} quanto de \textit {MappingBehavior}.}}{45}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca, (b) d-vizinhan\c ca e (c) 8-vizinhan\c ca. }}{46}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces (a) 4-vizinhan\c ca (b) d-vizinhan\c ca (c) 8-vizinhan\c ca. }}{46}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Exemplo de imagem bin\'aria.}}{47}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Utiliza\c c\~ao do \textit {threshold} global implementado no \textit {toolkit} Horus.}}{48}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces (a) Imagem original (b) Resultado do processamento}}{48}
@@ -33,7 +33,7 @@
 \contentsline {figure}{\numberline {3.15}{\ignorespaces (a) $B(p_1)=7$ (b) $B(p_1) = 0$ (c) $B(p_1) = 1$.}}{53}
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Exemplos onde $A(p_1)$ \'e maior que $1$.}}{54}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Exemplo de situa\c c\~ao em que linhas verticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{54}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Exemplo de situa\c c\~ao em que linhas herticais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{55}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Exemplo de situa\c c\~ao em que linhas horizontais com largura de dois pixels n\~ao ser\~ao inteiramente removidas.}}{55}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces (a) padr\~ao de entrada do algoritmo (b) dele\c c\~ao iterativa dos pixels das bordas (c) resultado ap\'os a execu\c c\~ao do algoritmo.}}{55}
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Padr\~oes completamente erodidos pelo algoritmo de Hilditch.}}{55}
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Matriz de pixel de um \textit {bitmap}.}}{57}
@@ -46,11 +46,11 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces (a) Fotografia de um carro (b) \textit {Band} (c) \textit {Plate}.}}{67}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces (a) Fotografia de um carro (b) imagem convertida para escala de cinza (c) imagem filtrada por Sobel-Vertical.}}{68}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces (a) Imagem filtrada por Sobel-Vertical (b) Proje\c c\~ao vertical.}}{69}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces (a) Imagem do band pr\'e-processada (b) proje\c c\~ao horizontal}}{70}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces (a) Imagem original (b) Proje\c c\~ao vertical suavizada (c) Aplica\c c\~ao do \textit {Threshold}.}}{71}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces (a) Imagem filtrada por Sobel-Vertical (b) Proje\c c\~ao vertical.}}{68}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces (a) Imagem do band pr\'e-processada (b) proje\c c\~ao horizontal}}{69}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces (a) Imagem original (b) Proje\c c\~ao vertical suavizada (c) Aplica\c c\~ao do \textit {Threshold}.}}{70}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes.}}{75}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitetura conceitual do simulador Ariadnes.}}{74}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Placa informativa presente no ambiente.}}{75}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Agente configurado com dispositivos de lasers.}}{76}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Ambiente utilizado no Ariadnes.}}{77}

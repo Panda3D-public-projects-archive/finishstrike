@@ -5,12 +5,12 @@
 
 \chapter{Horus}
 \label{cap:horus}
- Horus é um \textit{toolkit}, criado no presente trabalho, para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional. O Horus é um projeto \textit{Open Source} que se encontra sob a licença de uso LGPL(\textit{Lesser General Public License}). O projeto está disponível para uso no repositório de projetos \textit{Open Source} da google na url \textit{http://code.google.com/p/finishstrike/}.
+ Horus é um \textit{toolkit}, criado no presente trabalho, para desenvolvimento e controle de agentes inteligentes desenvolvido na linguagem de programação Python. Esse \textit{toolkit} foi construído com o objetivo de fornecer classes e algoritmos voltados a resolução de problemas de mapeamento automático de ambientes e visão computacional. O Horus é um projeto \textit{Open Source} que se encontra sob a licença de uso LGPL(\textit{Lesser General Public License}). O projeto está disponível para uso no repositório de projetos \textit{Open Source} da Google na url \textit{http://code.google.com/p/finishstrike/}.
 
-	O \textit{toolkit} Horus fornece os módulos \textit{Core}, Mapeamento, Visão e Util. O módulo \textit{Core} apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias eque podem ser usadas tanto no \textit{toolkit} Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
+	O \textit{toolkit} Horus fornece os módulos \textit{Core}, Mapeamento, Visão e Util. O módulo \textit{Core} apresenta as abstrações que devem ser implementadas pelas aplicações para construir um agente inteligente. O módulo Mapeamento fornece algoritmos de localização, mapeamento e navegação para um agente. O módulo Visão fornece os algoritmos de visão computacional necessários na etapa de reconhecimento de padrões. Por último, o módulo Util fornece um conjunto de funções utilitárias que podem ser usadas tanto no \textit{toolkit} Horus quanto em qualquer outra aplicação. Cada um desses módulos será explicado nas subseções seguintes.
 
 \section{\textit{Core}}
-	O Horus pode ser utilizado tanto como uma biblioteca de algoritmos para processamento de imagens, visão computacional e mapeamento de ambientes, como através de extensões das classes fornecidas pelo módulo \textit{core}. Essas classes, podem ser estendidas pelas aplicações, são chamadas de abstrações. A Figura \ref{fig:arquiteturaCore} mostra a arquitetura deste módulo.
+	O Horus pode ser utilizado tanto como uma biblioteca de algoritmos para processamento de imagens, visão computacional e mapeamento de ambientes, como através de extensões das classes fornecidas pelo módulo \textit{core}. Essas classes podem ser estendidas pelas aplicações, são chamadas de abstrações. A Figura \ref{fig:arquiteturaCore} mostra a arquitetura deste módulo.
 
 \begin{figure}[!htb]
 \centering
@@ -56,7 +56,7 @@ Quando o cérebro do agente é configurado com diversos comportamentos, é necessár
 
 O termo processamento de imagens refere-se ao processamento de imagens de duas dimensões por um computador digital \cite{Oge99}, normalmente é utilizado como um estágio para novos processamentos de dados, tais como reconhecimento de padrões e aprendizagem de máquina. Esse tipo de processamento é utilizado em diversos tipos de aplicações, entre elas, processamento de imagens médicas e de satélite, robótica, sensoriamento remoto, entre outras.
 
-Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessário uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
+Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse trabalho, é necessária uma breve introdução sobre algumas propriedades de uma imagem digital. Essas propriedades são:
 
 \begin{itemize}
 
@@ -81,7 +81,7 @@ Para uma melhor compreensão dos conceitos e algoritmos utilizados durante esse t
 
 Nas próximas subseções serão explicados os principais algoritmos de processamento de imagens implementados no \textit{toolkit} Horus.
 \subsection{\textit{Thresholding}}
-	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255 (Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, afim de prepará-los para serem analisados pela etapa de extração de características.
+	O processo de limiarização da imagem, também chamado de \textit{thresholding}, consiste em transformar a imagem que inicialmente se encontra em escala de cinza, com 256 tons diferentes, para uma imagem com apenas dois tons: preto e branco, representados por 0 ou 255 (Figura \ref{fig:imgBin}). No processo de OCR, Essa etapa é utilizada para definir claramente as fronteiras dos caracteres na imagem, a fim de prepará-los para serem analisados pela etapa de extração de características.
 	Para transformar uma imagem monocromática de 256 tons de cinza em binária podem ser utilizadas técnicas de \textit{thresholding} global e adaptativo.
 	
 \begin{figure}[!htb]
@@ -102,7 +102,7 @@ Nas próximas subseções serão explicados os principais algoritmos de processament
                                      0,  $ v $ \leq $t$
                                  \end{array}
                            \right. \]
-	 Na Figura \ref{fig:codigo} é apresentado um exemplo de utilização da função \textit{globalThreshold} que pertecen ao módulo de processamento de imagens do Horus.
+	 Na Figura \ref{fig:codigo} é apresentado um exemplo de utilização da função \textit{globalThreshold} que pertecem ao módulo de processamento de imagens do Horus.
 
 \begin{figure}[!htb]
 \centering
@@ -143,7 +143,7 @@ No caso de imagens parcialmente sombreadas ou não uniformemente iluminadas, o al
 
 \begin{itemize}
 \item Abordagem Chow e Kaneko:
- esse método, assim como o de \textit{thresholding} local, se baseia na teoria de que regiões menores da imagem têm maior probabilidade de possuírem uma iluminação aproximadamente uniforme. Com isso, o método de Chow e Kaneko divide a imagem em um vetor de sub-imagens sobrepostas e então encontra o limiar ótimo para cada sub-imagem através da análise de seus histogramas. O limiar para cada pixel é encontrado interpolando os resultados extraídos das sub-imagens. Apesar de gerar resultados satisfatórios, o método de Chow e Kaneko possui um alto custo computacional. Na Figura \ref{fig:chKnk} é mostrado como o limiar de uma subimagem é localizado e a posterior interpolação dos valores para encontrar o limiar de cada pixel na subimagem.
+ esse método, assim como o de \textit{thresholding} local, se baseia na teoria de que regiões menores da imagem têm maior probabilidade de possuírem uma iluminação aproximadamente uniforme. Com isso, o método de Chow e Kaneko divide a imagem em um vetor de sub-imagens sobrepostas e então encontra o limiar ótimo para cada sub-imagem através da análise de seus histogramas. O limiar para cada pixel é encontrado interpolando os resultados extraídos das sub-imagens. Apesar de gerar resultados satisfatórios, o método de Chow e Kaneko possui um alto custo computacional. Na Figura \ref{fig:chKnk} é mostrado como o limiar de uma sub-imagem é localizado e a posterior interpolação dos valores para encontrar o limiar de cada pixel na sub-imagem.
 
 \begin{figure}[!htb]
 \centering
@@ -359,7 +359,7 @@ Definindo a aresta de um caractere como uma matriz $2\times2$ de transições de b
 
 
 
-O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é normalmente muito longo o que não é uma boa prática em reconhecimento de padrões, onde o vetor de características deve ser tão menor quanto possível. Com isso, pode-se agrupar tipos de arestas semelhantes para reduzir o tamanho do vetor de características. Por questões de simplicidade, o agrupamento dos tipos de aresta será desconsiderado no algoritmo de extração de características. Sendo $n$ igual ao número de tipos de arestas diferentes, onde $h_{i}$ é uma matriz $2\times2$  que corresponde ao tipo específico de aresta, e $p$ igual ao número de regiôes retangulares em um caractere têm-se:
+O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é normalmente muito longo o que não é uma boa prática em reconhecimento de padrões, onde o vetor de características deve ser tão menor quanto possível. Com isso, pode-se agrupar tipos de arestas semelhantes para reduzir o tamanho do vetor de características. Por questões de simplicidade, o agrupamento dos tipos de aresta será desconsiderado no algoritmo de extração de características. Sendo $n$ igual ao número de tipos de arestas diferentes, onde $h_{i}$ é uma matriz $2\times2$  que corresponde ao tipo específico de aresta, e $p$ igual ao número de regiões retangulares em um caractere têm-se:
 
 
  \begin{figure}[!htb]
@@ -371,7 +371,7 @@ O vetor de ocorrências de cada tipo de aresta em cada sub-região da imagem é nor
 \label{fig:matriz}
 \end{figure}
 
-O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ siginifica "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$", \ref{fig:vetor} 
+O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h_j@r_i$ significa "número de ocorrências de um tipo de aresta representado pela matriz $h_j$ na região $r_i$", \ref{fig:vetor} 
 
 
 \begin{figure}[!Htb]
@@ -387,12 +387,12 @@ O vetor de características de saída é ilustrado pelo padrão abaixo. A notação $h
 \end{itemize}
 
 
-Uma outra forma de extração de características é a análise estrutural do padrão. Através desse tipo de extração é possível diferenciar padrões por suas caracteristias mais substanciais. No caso de reconhecimento de caracteres, a análise estrutural leva em consideração estruturas mais complexas, como junções, terminação de linha e \textit{loops}.
+Outra forma de extração de características é a análise estrutural do padrão. Através desse tipo de extração é possível diferenciar padrões por suas características mais substanciais. No caso de reconhecimento de caracteres, a análise estrutural leva em consideração estruturas mais complexas, como junções, terminação de linha e \textit{loops}.
 
 \begin{itemize}
 \item Terminação de Linha: é representada por um ponto que possui exatamente um vizinho de pixel preto na 8-vizinhança (Figura \ref{fig:junctions} (c)).   
    
-\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-vizinhança. No presente trabalho, considerou-se apenas dois tipos de junções: com três e quatro vizinhos (Figura \ref{fig:junctions} (a),(b)).
+\item Junções: consiste em um ponto que possui pelo menos três pixels pretos na 8-vizinhança. No presente trabalho, consideraram-se apenas dois tipos de junções: com três e quatro vizinhos (Figura \ref{fig:junctions} (a),(b)).
 
 \begin{figure}[!htb]
 \centering
@@ -403,7 +403,7 @@ Uma outra forma de extração de características é a análise estrutural do padrão.
 \label{fig:junctions}
 \end{figure}
 
-\item \textit{Loops}: esta é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura \ref{fig:loops}), ou seja, o fundo da imagem é representado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura \ref{fig:loops} pelos números 1, 2, 3, subtraído de um. Essa subrtação é feita para desconsiderar o fundo da imagem como um \textit{loop}.
+\item \textit{Loops}: esta é a característica estrutural mais complexa de ser extraída em um caractere. Neste trabalho, o processo de contagem de \textit{loops} trabalha com a imagem negativa do caractere (Figura \ref{fig:loops}), ou seja, o fundo da imagem é representado pela cor preta, enquanto que o caractere é representado pela cor branca. O número de loops pode ser calculado como o número de grupos de pixels pretos na imagem negativa, representado na Figura \ref{fig:loops} pelos números 1, 2, 3, subtraído de um. Essa subtração é feita para desconsiderar o fundo da imagem como um \textit{loop}.
 
 \begin{figure}[!htb]
 \centering
@@ -415,20 +415,20 @@ Uma outra forma de extração de características é a análise estrutural do padrão.
 \end{figure}
 \end{itemize} 
 
-O \textit{toolkit} Horus também fornece algumas implementações de algoritmos para análise estrututal de caracteres.
+O \textit{toolkit} Horus também fornece algumas implementações de algoritmos para análise estrutural de caracteres.
 
 \subsection{Reconhecimento de Objetos}
-	Reconhecimento de objetos é o processo de identificação de um determinado objeto através de suas características. Normalmente, esse processo se inicia com a captura de informações sobre o objeto através de câmeras ou outros tipos de sensores, como sonares por exemplo. Em seguida, essas informações passam pelo processo de extração de características com a finalidade de se extrair um vetor de informações que identifique unicamente o objeto independente das variações  que ele possa apresentar. Por fim, esse vetor de características é passado para o processo de reconhecimento, o qual identifica o objeto através de suas características.
+	Reconhecimento de objetos é o processo de identificação de um determinado objeto através de suas características. Normalmente, esse processo se inicia com a captura de informações sobre o objeto através de câmeras ou outros tipos de sensores, como sonares por exemplo. Em seguida, essas informações passam pelo processo de extração de características com a finalidade de se extrair um vetor de informações que identifique unicamente o objeto independente das variações que ele possa apresentar. Por fim, esse vetor de características é passado para o processo de reconhecimento, o qual identifica o objeto através de suas características.
 
-	Para tarefas de reconhecimento, o Horus disponibiliza funções para construção e treinamento de redes neurais através da utilização de uma biblioteca denominada FANN (\textit{Fast Artificial Neural Network}). O FANN é uma biblioteca de código aberto implementada em linguagem C que fornece conectores para diversas linguagems de alto nível, dentre elas pode-se citar: Java, C++, Python e Ruby.
+	Para tarefas de reconhecimento, o Horus disponibiliza funções para construção e treinamento de redes neurais através da utilização de uma biblioteca denominada FANN (\textit{Fast Artificial Neural Network}). O FANN é uma biblioteca de código aberto implementada em linguagem C que fornece conectores para diversas linguagens de alto nível, dentre elas pode-se citar: Java, C++, Python e Ruby.
 
-	Outra funcionalidade disponibilizada pelo Horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licensa Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações onde haja a necessidade de se reconhecer textos existentes em imagens. 	       
+	Outra funcionalidade disponibilizada pelo Horus para reconhecimento de objetos é o módulo de OCR. Esse módulo utiliza uma engine OCR \textit{Open Source} chamada de Tesseract. Essa engine está sob a licença Apache e é escrita nas linguagens de programação C e C++. O módulo OCR do Horus pode ser utilizado em aplicações onde haja a necessidade de se reconhecer textos existentes em imagens. 	       
 
 	O módulo OCR é utilizado nas aplicações ANPR e Ariadnes. No ANPR, esse módulo  é utilizado para reconhecer o texto que se encontra nas placas dos automóveis. Já na aplicação Ariadnes, o agente inteligente utiliza esse módulo para reconhecer os textos que se encontram nas placas informativas presentes no ambiente.
 	
 \section{Mapeamento e Navegação}
 \label{sec:slam}
- Chamamos de mapeamento o processo de identificar locais no ambiente do simulador e representa-los em um grafo. O mapeamento no Horus utiliza uma técnica genérica denominada SLAM. Nessa técnica, um agente consegue realizar o mapeamento e a localização no ambiente de forma simultânea. Os dispositivos utilizados pela implementação da técnica SLAM são lasers,  para identificar obstáculos, e um odômetro, para medir distâncias percorridas.
+ Chamamos de mapeamento o processo de identificar locais no ambiente do simulador e representá-los em um grafo. O mapeamento no Horus utiliza uma técnica genérica denominada SLAM. Nessa técnica, um agente consegue realizar o mapeamento e a localização no ambiente de forma simultânea. Os dispositivos utilizados pela implementação da técnica SLAM são lasers, para identificar obstáculos, e um odômetro, para medir distâncias percorridas.
  
 	O SLAM é composto por vários procedimentos interligados. Cada um desses procedimentos pode ser implementado de diversas formas. Dentre os procedimentos implementados no Horus, podemos citar:
 
@@ -454,4 +454,4 @@ As aplicações desenvolvidas foram: um sistema de reconhecimento automático de pl
 	Teseu é um sistema que simula a movimentação autônoma de um agente inteligente em um ambiente desconhecido. Nele é possível simular o comportamento de um robô real no que tange mapeamento e navegação. O agente tem o objetivo de explorar todo o ambiente utilizando técnicas de localização, mapeamento e exploração implementadas no Horus. 
    A construção do ambiente virtual foi realizada utilizando um software de modelagem 3D \textit{Open Source} chamado Blender 3D. Esse é um produto criado pela \textit{Blender Foundation}, feito na linguagem de programação Python e está sob a licença GNU(\textit{General Public License}). Outra ferramenta utilizada na construção dos simuladores é o Panda3D, criada pela equipe \textit{Walt Disney} para renderização de jogos e ambientes em terceira dimensão. Esse produto também foi criado na linguagem de programação Python e encontra-se sob a licença de uso BSD(\textit{Berkeley Software Distribution }). O uso do Panda3D no Horus restringe-se apenas na manipulação e renderização do ambiente e atores criados previamente no Blender3D. 
 
-O simulador Ariadnes foi contruído utilizando as mesmas ferramentas utilizadas na construção do Teseu, porém, com objetivo e técnicas  diferentes. O Ariadnes será melhor descrito no Capítulo \ref{cap:ariadnes}.
+O simulador Ariadnes foi construído utilizando as mesmas ferramentas utilizadas na construção do Teseu, porém, com objetivo e técnicas  diferentes. O Ariadnes será mais bem descrito no Capítulo \ref{cap:ariadnes}.
